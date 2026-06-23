@@ -71,6 +71,12 @@ def test_review_audit_local_only_passes_when_artifacts_are_under_local_roots(tmp
     allowed = tmp_path / "outputs" / "review" / "local_review.html"
     allowed.parent.mkdir(parents=True)
     allowed.write_text("<html></html>", encoding="utf-8")
+    pointer = tmp_path / ".codex-autoresearch" / "pointer.json"
+    pointer.parent.mkdir(parents=True)
+    pointer.write_text("{}", encoding="utf-8")
+    runtime_state = tmp_path / "autoresearch-results" / "state.json"
+    runtime_state.parent.mkdir(parents=True)
+    runtime_state.write_text("{}", encoding="utf-8")
     report = tmp_path / "local_only_report.json"
 
     result = runner.invoke(

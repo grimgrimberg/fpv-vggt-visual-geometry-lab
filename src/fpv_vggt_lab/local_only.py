@@ -40,10 +40,12 @@ LOCAL_ONLY_ARTIFACT_EXTENSIONS = {
 
 SKIP_DIRS = {
     ".git",
+    ".codex-autoresearch",
     ".mypy_cache",
     ".pytest_cache",
     ".ruff_cache",
     "__pycache__",
+    "autoresearch-results",
     "venv",
 }
 

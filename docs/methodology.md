@@ -17,6 +17,29 @@ The project is an offline review pipeline for relative visual geometry:
 11. Extract scale-free path descriptors.
 12. Render local review artifacts and optional side-by-side MP4 exports.
 
+## Safe Feature Coverage Registry
+
+The review workflow tracks these safe feature surfaces as non-operational
+diagnostics:
+
+- `review focus queue`: prioritize clips for human inspection using readiness,
+  bundle-validity, heatmap, and reliability status, not targets or locations.
+- `pose-jump diagnostics`: flag discontinuities in VGGT-relative camera centers
+  so descriptors and smoothing can be gated before they imply stable geometry.
+- `heatmap qa`: report whether image-space overlay layers were generated,
+  degraded, or skipped, with failures recorded as review diagnostics.
+- `bundle provenance`: keep source tool, source URL or repository, version,
+  frame alignment, and cloud-return audit status adjacent to review evidence.
+- `run landing page`: use the run folder's `summary.json`, `NEXT_STEPS.md`,
+  review report, and comparison HTML as the local entry point for a completed or
+  blocked review run.
+- `synthetic geo`: reserve any calibrated ground-plane or map-style demo for
+  synthetic or explicitly permission-cleared calibrated inputs, never for real
+  historical strike media.
+
+All six surfaces inherit the same warning block: no geolocation, no meters,
+relative VGGT frame, and local-only media.
+
 ## Local Media Audit
 
 `fpv media audit` is a workflow-readiness check for already fetched local media.
