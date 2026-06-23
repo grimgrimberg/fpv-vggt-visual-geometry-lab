@@ -1,0 +1,35 @@
+[project]
+name = "fpv-vggt-visual-geometry-lab"
+version = "0.1.0"
+description = "Offline FPV visual-geometry review with imported VGGT bundles."
+readme = "README.md"
+requires-python = ">=3.11"
+keywords = ["computer-vision", "visual-geometry", "vggt", "offline-analysis"]
+dependencies = [
+    "numpy",
+    "opencv-python",
+    "pandas",
+    "pyarrow",
+    "pydantic",
+    "typer",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "ruff",
+]
+
+[project.scripts]
+fpv = "fpv_vggt_lab.cli:main"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]
