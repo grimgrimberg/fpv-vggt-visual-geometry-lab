@@ -364,16 +364,13 @@ def render_comparison_html(
     output.parent.mkdir(parents=True, exist_ok=True)
     output_parent = output.resolve().parent
     review_paths = review_paths or []
-    rows = []
     comparison_payload = []
     for index, summary in enumerate(summaries):
         descriptors = summary.get("descriptors", {})
         reliability = summary.get("reliability", {})
-        review_cell = ""
         review_href = None
         if index < len(review_paths):
             review_href = _relative_or_uri(review_paths[index], output_parent)
-            review_cell = f'<a href="{html.escape(review_href, quote=True)}">Open review</a>'
         comparison_payload.append(
             {
                 "video_id": summary.get("video_id", ""),
@@ -391,18 +388,8 @@ def render_comparison_html(
                 },
             }
         )
-        rows.append(
-            "<tr>"
-            f"<td>{_html_value(summary.get('video_id', ''))}</td>"
-            f"<td>{_html_value(summary.get('segment_id', ''))}</td>"
-            f"<td>{_html_value(reliability.get('label', ''))}</td>"
-            f"<td>{_html_value(reliability.get('score', ''))}</td>"
-            f"<td>{_html_value(descriptors.get('normalized_path_length', ''))}</td>"
-            f"<td>{_html_value(descriptors.get('displacement_ratio', ''))}</td>"
-            f"<td>{_html_value(descriptors.get('pose_jump_count', ''))}</td>"
-            f"<td>{review_cell}</td>"
-            "</tr>"
-        )
+    focus_items = _focus_queue_items(comparison_payload)
+    rows = [_comparison_row(row) for row in comparison_payload]
     output.write_text(
         "\n".join(
             [
@@ -424,19 +411,28 @@ def render_comparison_html(
                 ".metric-track{display:flex;gap:7px;align-items:end;min-height:40px;border-left:1px solid var(--line);padding-left:10px}"
                 ".metric-bar{min-width:48px;border:0;border-radius:4px 4px 0 0;background:var(--ok);color:#10201a;font-size:11px;font-weight:760;padding:2px;cursor:pointer}"
                 ".metric-bar.secondary{background:#7a8fbd}.metric-bar.warn{background:var(--accent-2)}.metric-bar.bad{background:var(--danger);color:white}"
+                ".focus-queue{margin:0 0 18px 0;padding:16px;background:rgba(255,253,247,.96);border:1px solid var(--line);border-radius:8px;box-shadow:var(--shadow)}"
+                ".focus-queue h2{margin:0 0 4px 0;font-size:18px}.focus-queue p{margin:0 0 12px 0;color:var(--muted);font-size:13px;line-height:1.45}"
+                ".focus-list{display:grid;gap:8px;margin:0;padding:0;list-style:none}"
+                ".focus-item{display:grid;grid-template-columns:48px minmax(0,1fr) max-content;gap:12px;align-items:center;padding:10px 12px;border:1px solid var(--line);border-radius:6px;background:#f9f5ec}"
+                ".focus-rank{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:#1f2a25;color:#f9f6ee;font-weight:800}"
+                ".focus-title{font-weight:800}.focus-reasons{display:block;margin-top:3px;color:var(--muted);font-size:12px;line-height:1.35}"
+                ".focus-score{font-size:12px;font-weight:760;color:#38413d;text-align:right}"
                 ".comparison-table{overflow:auto;border:1px solid var(--line);border-radius:8px;background:var(--panel);box-shadow:var(--shadow)}"
                 "table{border-collapse:collapse;width:100%;min-width:900px;background:var(--panel)}"
                 "td,th{border-bottom:1px solid var(--line);padding:10px 12px;text-align:left;font-size:13px}"
                 "th{background:#ede7da;color:#303833;font-size:11px;text-transform:uppercase;letter-spacing:.04em}"
                 "tr:last-child td{border-bottom:0}"
                 "a{color:var(--accent);font-weight:700}"
-                "@media(max-width:760px){main{padding:14px}.metric-row{grid-template-columns:1fr}.metric-track{border-left:0;padding-left:0}}</style>",
+                "@media(max-width:760px){main{padding:14px}.metric-row{grid-template-columns:1fr}.metric-track{border-left:0;padding-left:0}.focus-item{grid-template-columns:36px minmax(0,1fr)}}"
+                "</style>",
                 "</head><body>",
                 "<header><h1>Three-Clip Reconstruction Comparison</h1>"
                 "<p>Local-only comparison. No geolocation, no meters, relative VGGT frame, local-only media.</p>"
                 "</header>",
                 "<main>",
                 "<p class='warning'>Diagnostics are relative VGGT-frame review signals, not physical truth claims.</p>",
+                _focus_queue_html(focus_items),
                 "<section id='comparison-bars' class='comparison-bars' aria-label='Cross-clip diagnostic bars'></section>",
                 "<div class='comparison-table'>",
                 "<table><thead><tr><th>video_id</th><th>segment_id</th>"
@@ -447,6 +443,7 @@ def render_comparison_html(
                 "</div>",
                 "</main>",
                 f"<script>const comparisonPayload = {_json_for_script(comparison_payload)};",
+                f"const focusQueuePayload = {_json_for_script(focus_items)};",
                 "const comparisonMetrics=[['Reliability score','reliability.score','score'],['Normalized path length','descriptors.normalized_path_length','secondary'],['Displacement ratio','descriptors.displacement_ratio','secondary'],['Pose jump count','descriptors.pose_jump_count','warn']];",
                 "function metricValue(row,path){return path.split('.').reduce((acc,key)=>acc&&acc[key],row);}",
                 "function barClass(row,kind){if(kind==='score'&&Number(metricValue(row,'reliability.score'))<0.5)return 'metric-bar bad'; if(kind==='warn'&&Number(metricValue(row,'descriptors.pose_jump_count'))>0)return 'metric-bar warn'; return `metric-bar ${kind==='secondary'?'secondary':''}`;}",
@@ -461,6 +458,337 @@ def render_comparison_html(
         encoding="utf-8",
     )
     return output
+
+
+def render_run_landing_html(report: dict, output: Path) -> Path:
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output_parent = output.resolve().parent
+    clips = list(report.get("clips", []))
+    payload = []
+    summary_rows = []
+    for clip in clips:
+        summary = _read_optional_summary(clip.get("summary"))
+        review_href = (
+            _relative_or_uri(Path(str(clip["review_html"])), output_parent)
+            if clip.get("review_html")
+            else None
+        )
+        artifact_status = _clip_artifact_status(clip)
+        if summary:
+            descriptors = summary.get("descriptors", {})
+            reliability = summary.get("reliability", {})
+            item = {
+                "video_id": summary.get("video_id", clip.get("video_id", "")),
+                "segment_id": summary.get("segment_id", clip.get("segment_id", "")),
+                "review_href": review_href,
+                "reliability": {
+                    "label": reliability.get("label", ""),
+                    "score": reliability.get("score"),
+                    "failure_flags": reliability.get("failure_flags", []),
+                },
+                "descriptors": {
+                    "normalized_path_length": descriptors.get("normalized_path_length"),
+                    "displacement_ratio": descriptors.get("displacement_ratio"),
+                    "pose_jump_count": descriptors.get("pose_jump_count"),
+                },
+                "artifact_status": artifact_status,
+            }
+        else:
+            item = {
+                "video_id": clip.get("video_id", ""),
+                "segment_id": clip.get("segment_id", ""),
+                "review_href": review_href,
+                "reliability": {"label": "missing", "score": None, "failure_flags": []},
+                "descriptors": {"pose_jump_count": None},
+                "artifact_status": artifact_status,
+            }
+        payload.append(item)
+        summary_rows.append(_landing_clip_row(item, clip, output_parent))
+
+    focus_items = _focus_queue_items(payload)
+    comparison_href = (
+        _relative_or_uri(Path(str(report["comparison_html"])), output_parent)
+        if report.get("comparison_html")
+        else None
+    )
+    run_report_href = _relative_or_uri(output.parent / "run_report.json", output_parent)
+    warnings = report.get("warnings", SAFETY_WARNINGS)
+    output.write_text(
+        "\n".join(
+            [
+                "<!doctype html>",
+                "<html lang='en'><head><meta charset='utf-8'>",
+                "<meta name='viewport' content='width=device-width, initial-scale=1'>",
+                "<title>FPV Review Run</title>",
+                "<style>:root{--paper:#f4f1e8;--ink:#1e2421;--muted:#626b66;--line:#d8d2c4;--panel:#fffdf7;--accent:#287f7a;--accent-2:#c59b35;--danger:#b55e55;--ok:#4f8d65;--shadow:0 18px 44px rgba(31,35,31,.12)}"
+                "*{box-sizing:border-box}"
+                "body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;margin:0;background:linear-gradient(180deg,#ebe6d8 0,#f7f4ec 220px,#f4f1e8 100%);color:var(--ink);letter-spacing:0}"
+                "header{padding:24px 28px;background:#1f2a25;color:#f9f6ee;border-bottom:1px solid rgba(255,255,255,.12)}"
+                "header h1{margin:0 0 8px 0;font-size:28px;line-height:1.1}"
+                "header p{margin:0;color:#d9d1c0;font-size:13px;line-height:1.5}"
+                "main{padding:20px 24px;max-width:1400px;margin:0 auto;display:grid;gap:18px}"
+                ".warning{padding:12px 14px;border:1px solid #d7c36a;background:#fff7c7;border-radius:8px;color:#4d4120}"
+                ".toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center}"
+                ".button{display:inline-flex;align-items:center;gap:8px;padding:9px 12px;border-radius:6px;border:1px solid #bfb6a4;background:#fffdf7;color:var(--accent);font-weight:800;text-decoration:none}"
+                ".cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}"
+                ".card{background:rgba(255,253,247,.96);border:1px solid var(--line);border-radius:8px;padding:14px;box-shadow:var(--shadow)}"
+                ".card span{display:block;color:var(--muted);font-size:11px;font-weight:800;text-transform:uppercase}"
+                ".card strong{display:block;margin-top:4px;font-size:22px}"
+                ".focus-queue,.clip-table{background:rgba(255,253,247,.96);border:1px solid var(--line);border-radius:8px;padding:16px;box-shadow:var(--shadow)}"
+                ".focus-queue h2,.clip-table h2{margin:0 0 4px 0;font-size:18px}"
+                ".focus-queue p,.clip-table p{margin:0 0 12px 0;color:var(--muted);font-size:13px;line-height:1.45}"
+                ".focus-list{display:grid;gap:8px;margin:0;padding:0;list-style:none}"
+                ".focus-item{display:grid;grid-template-columns:48px minmax(0,1fr) max-content;gap:12px;align-items:center;padding:10px 12px;border:1px solid var(--line);border-radius:6px;background:#f9f5ec}"
+                ".focus-rank{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:#1f2a25;color:#f9f6ee;font-weight:800}"
+                ".focus-title{font-weight:800}.focus-reasons{display:block;margin-top:3px;color:var(--muted);font-size:12px;line-height:1.35}"
+                ".focus-score{font-size:12px;font-weight:760;color:#38413d;text-align:right}"
+                ".table-wrap{overflow:auto}"
+                "table{border-collapse:collapse;width:100%;min-width:900px;background:var(--panel)}"
+                "td,th{border-bottom:1px solid var(--line);padding:10px 12px;text-align:left;font-size:13px}"
+                "th{background:#ede7da;color:#303833;font-size:11px;text-transform:uppercase;letter-spacing:.04em}"
+                "tr:last-child td{border-bottom:0}a{color:var(--accent);font-weight:800}"
+                "@media(max-width:760px){main{padding:14px}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.focus-item{grid-template-columns:36px minmax(0,1fr)}}"
+                "</style></head><body>",
+                "<header><h1>FPV Review Run</h1>"
+                "<p>Local landing page for review artifacts, focus queue, provenance, and conservative diagnostics.</p></header>",
+                "<main>",
+                "<div class='warning'><strong>Safety boundary:</strong> "
+                + html.escape(", ".join(_display_safety_warning(warning) for warning in warnings))
+                + ". Diagnostics are relative review signals, not physical truth claims.</div>",
+                "<div class='toolbar'>",
+                _link_button("Open comparison", comparison_href),
+                _link_button("Run report JSON", run_report_href),
+                "</div>",
+                "<section class='cards' aria-label='Run status cards'>",
+                _landing_metric_card("Status", report.get("status", "unknown")),
+                _landing_metric_card("Clips", len(clips)),
+                _landing_metric_card("Review pages", sum(1 for clip in clips if clip.get("review_html"))),
+                _landing_metric_card("Side-by-side MP4s", sum(1 for clip in clips if clip.get("side_by_side_video"))),
+                "</section>",
+                _focus_queue_html(focus_items),
+                "<section class='clip-table'><h2>Artifacts</h2><p>Per-clip local outputs and diagnostic statuses.</p><div class='table-wrap'>",
+                "<table><thead><tr><th>clip</th><th>reliability</th><th>score</th><th>pose jumps</th><th>heatmaps</th><th>smoothing</th><th>mp4</th><th>review</th></tr></thead><tbody>",
+                *summary_rows,
+                "</tbody></table></div></section>",
+                "</main>",
+                f"<script>const runLandingPayload = {_json_for_script(payload)};",
+                f"const focusQueuePayload = {_json_for_script(focus_items)};</script>",
+                "</body></html>",
+            ]
+        ),
+        encoding="utf-8",
+    )
+    return output
+
+
+def _comparison_row(row: dict) -> str:
+    descriptors = row.get("descriptors", {})
+    reliability = row.get("reliability", {})
+    review_href = row.get("review_href")
+    review_cell = (
+        f'<a href="{html.escape(str(review_href), quote=True)}">Open review</a>'
+        if review_href
+        else ""
+    )
+    return (
+        "<tr>"
+        f"<td>{_html_value(row.get('video_id', ''))}</td>"
+        f"<td>{_html_value(row.get('segment_id', ''))}</td>"
+        f"<td>{_html_value(reliability.get('label', ''))}</td>"
+        f"<td>{_html_value(reliability.get('score', ''))}</td>"
+        f"<td>{_html_value(descriptors.get('normalized_path_length', ''))}</td>"
+        f"<td>{_html_value(descriptors.get('displacement_ratio', ''))}</td>"
+        f"<td>{_html_value(descriptors.get('pose_jump_count', ''))}</td>"
+        f"<td>{review_cell}</td>"
+        "</tr>"
+    )
+
+
+def _focus_queue_items(rows: list[dict]) -> list[dict]:
+    items = []
+    for row in rows:
+        reliability = row.get("reliability", {})
+        descriptors = row.get("descriptors", {})
+        artifact_status = row.get("artifact_status", {})
+        priority = 0
+        reasons: list[str] = []
+        score = _float_or_none(reliability.get("score"))
+        label = str(reliability.get("label") or "unknown")
+        if score is None:
+            priority += 3
+            reasons.append("missing reliability score")
+        elif score < 0.5:
+            priority += 4
+            reasons.append("low reliability score")
+        elif score < 0.75:
+            priority += 2
+            reasons.append("medium reliability score")
+        else:
+            reasons.append("high reliability; lower review priority")
+        failure_flags = reliability.get("failure_flags") or []
+        if failure_flags:
+            priority += min(3, len(failure_flags))
+            reasons.append("reliability flags: " + ", ".join(map(str, failure_flags[:3])))
+        pose_jumps = _int_or_none(descriptors.get("pose_jump_count"))
+        if pose_jumps and pose_jumps > 0:
+            priority += 2
+            reasons.append(f"pose-jump diagnostics: {pose_jumps}")
+        heatmap_status = artifact_status.get("heatmaps")
+        if heatmap_status == "failed_soft":
+            priority += 1
+            reasons.append("heatmap QA failed softly")
+        smoothing_status = artifact_status.get("smoothing")
+        if smoothing_status in {"skipped", "failed_soft"}:
+            reasons.append("smoothing unavailable or gated")
+        if not reasons:
+            reasons.append("ready for standard review")
+        items.append(
+            {
+                "video_id": row.get("video_id", ""),
+                "segment_id": row.get("segment_id", ""),
+                "review_href": row.get("review_href"),
+                "priority": priority,
+                "reliability_label": label,
+                "reliability_score": score,
+                "pose_jump_count": pose_jumps,
+                "reasons": reasons,
+            }
+        )
+    return sorted(
+        items,
+        key=lambda item: (
+            -int(item["priority"]),
+            float(item["reliability_score"]) if item["reliability_score"] is not None else -1.0,
+            str(item["video_id"]),
+        ),
+    )
+
+
+def _focus_queue_html(items: list[dict]) -> str:
+    if not items:
+        return (
+            "<section id='review-focus-queue' class='focus-queue'><h2>Review Focus Queue</h2>"
+            "<p>No clips were available for queueing.</p></section>"
+        )
+    rows = []
+    for index, item in enumerate(items, start=1):
+        title = f"{item.get('video_id', '')} / {item.get('segment_id', '')}"
+        href = item.get("review_href")
+        title_html = (
+            f"<a href='{html.escape(str(href), quote=True)}'>{html.escape(title)}</a>"
+            if href
+            else html.escape(title)
+        )
+        reasons = "; ".join(str(reason) for reason in item.get("reasons", []))
+        score = _format_metric_value(item.get("reliability_score"))
+        rows.append(
+            "<li class='focus-item'>"
+            f"<span class='focus-rank'>{index}</span>"
+            f"<span><span class='focus-title'>{title_html}</span>"
+            f"<span class='focus-reasons'>{html.escape(reasons)}</span></span>"
+            f"<span class='focus-score'>priority {item.get('priority', 0)}<br>score {html.escape(score)}</span>"
+            "</li>"
+        )
+    return (
+        "<section id='review-focus-queue' class='focus-queue'>"
+        "<h2>Review Focus Queue</h2>"
+        "<p>Non-operational triage using reliability, pose-jump diagnostics, and artifact readiness only.</p>"
+        "<ol class='focus-list'>"
+        + "".join(rows)
+        + "</ol></section>"
+    )
+
+
+def _read_optional_summary(path_value: object) -> dict | None:
+    if not path_value:
+        return None
+    try:
+        return json.loads(Path(str(path_value)).read_text(encoding="utf-8"))
+    except Exception:
+        return None
+
+
+def _clip_artifact_status(clip: dict) -> dict:
+    return {
+        "heatmaps": clip.get("heatmap_status") or "not_requested",
+        "smoothing": clip.get("smoothing_status") or "not_requested",
+        "side_by_side_video": clip.get("side_by_side_video_status") or "not_requested",
+    }
+
+
+def _landing_clip_row(item: dict, clip: dict, output_parent: Path) -> str:
+    reliability = item.get("reliability", {})
+    descriptors = item.get("descriptors", {})
+    artifact_status = item.get("artifact_status", {})
+    review_href = item.get("review_href")
+    review_cell = (
+        f'<a href="{html.escape(str(review_href), quote=True)}">Open review</a>'
+        if review_href
+        else ""
+    )
+    mp4_href = (
+        _relative_or_uri(Path(str(clip["side_by_side_video"])), output_parent)
+        if clip.get("side_by_side_video")
+        else None
+    )
+    mp4_cell = (
+        f'<a href="{html.escape(str(mp4_href), quote=True)}">Open MP4</a>'
+        if mp4_href
+        else _html_value(artifact_status.get("side_by_side_video", ""))
+    )
+    title = f"{item.get('video_id', '')} / {item.get('segment_id', '')}"
+    return (
+        "<tr>"
+        f"<td>{html.escape(title)}</td>"
+        f"<td>{_html_value(reliability.get('label', ''))}</td>"
+        f"<td>{_html_value(reliability.get('score', ''))}</td>"
+        f"<td>{_html_value(descriptors.get('pose_jump_count', ''))}</td>"
+        f"<td>{_html_value(artifact_status.get('heatmaps', ''))}</td>"
+        f"<td>{_html_value(artifact_status.get('smoothing', ''))}</td>"
+        f"<td>{mp4_cell}</td>"
+        f"<td>{review_cell}</td>"
+        "</tr>"
+    )
+
+
+def _landing_metric_card(label: str, value: object) -> str:
+    return (
+        "<div class='card'>"
+        f"<span>{html.escape(label)}</span>"
+        f"<strong>{_html_value(value)}</strong>"
+        "</div>"
+    )
+
+
+def _link_button(label: str, href: str | None) -> str:
+    if not href:
+        return ""
+    return f'<a class="button" href="{html.escape(href, quote=True)}">{html.escape(label)}</a>'
+
+
+def _display_safety_warning(value: object) -> str:
+    labels = {
+        "no geolocation": "No geolocation",
+        "no meters": "No meters",
+        "relative vggt frame": "Relative VGGT frame",
+        "local-only media": "Local-only media",
+    }
+    text = str(value)
+    return labels.get(text.lower(), text)
+
+
+def _float_or_none(value: object) -> float | None:
+    try:
+        return float(value)  # type: ignore[arg-type]
+    except (TypeError, ValueError):
+        return None
+
+
+def _int_or_none(value: object) -> int | None:
+    try:
+        return int(value)  # type: ignore[arg-type]
+    except (TypeError, ValueError):
+        return None
 
 
 def _relative_or_uri(path: Path, output_parent: Path) -> str:

@@ -10,7 +10,7 @@ from .heatmaps import generate_heatmaps_from_manifest
 from .pipeline import SAFETY_WARNINGS
 from .smoothing import smooth_relative_poses
 from .vggt import load_bundle, validate_bundle
-from .viz import render_comparison_html, render_review_html
+from .viz import render_comparison_html, render_review_html, render_run_landing_html
 
 
 def run_three_clip_review(
@@ -139,12 +139,15 @@ def run_three_clip_review(
 
     comparison_path = output_dir / "comparison.html"
     render_comparison_html(summaries, comparison_path, review_paths=review_paths)
+    landing_path = output_dir / "index.html"
     report = {
         "status": "done",
         "warnings": SAFETY_WARNINGS,
         "comparison_html": str(comparison_path),
+        "run_landing_html": str(landing_path),
         "clips": clips,
     }
+    render_run_landing_html(report, landing_path)
     report_path = output_dir / "run_report.json"
     report_path.write_text(
         json.dumps(report, indent=2, sort_keys=True),

@@ -431,6 +431,10 @@ def test_comparison_page_and_reliability_gated_smoothing(tmp_path: Path):
     assert "comparison-table" in html
     assert "renderComparisonBars" in html
     assert "data-comparison-metric" in html
+    assert "review-focus-queue" in html
+    assert "Review Focus Queue" in html
+    assert "focusQueuePayload" in html
+    assert "Non-operational triage" in html
 
     smooth_npz = tmp_path / "smoothed.npz"
     smooth_meta = tmp_path / "smoothed.json"
@@ -475,6 +479,44 @@ def test_comparison_page_and_reliability_gated_smoothing(tmp_path: Path):
     )
     assert blocked.exit_code != 0
     assert "not safe" in blocked.output.lower()
+
+
+def test_three_clip_review_writes_visible_run_landing_page(tmp_path: Path):
+    manifests: list[Path] = []
+    bundles: list[Path] = []
+    for index in range(3):
+        frames, bundle, _summary, _video = create_mocked_summary(
+            tmp_path, f"landing-video-{index}"
+        )
+        manifests.append(frames)
+        bundles.append(bundle)
+
+    report_path = run_three_clip_review(
+        manifests,
+        bundles,
+        tmp_path / "review-run",
+        smooth=False,
+        export_video=False,
+        generate_heatmaps=False,
+    )
+
+    report = json.loads(report_path.read_text(encoding="utf-8"))
+    landing_path = Path(report["run_landing_html"])
+    assert landing_path.exists()
+    assert landing_path.name == "index.html"
+    assert report["run_landing_html"].endswith("index.html")
+    html = landing_path.read_text(encoding="utf-8")
+    assert "FPV Review Run" in html
+    assert "review-focus-queue" in html
+    assert "Review Focus Queue" in html
+    assert "runLandingPayload" in html
+    assert "focusQueuePayload" in html
+    assert "Open comparison" in html
+    assert "comparison.html" in html
+    assert "Run report JSON" in html
+    assert "Open review" in html
+    assert "No geolocation" in html
+    assert "not physical truth claims" in html
 
 
 def test_review_and_comparison_pages_escape_external_payload_strings(tmp_path: Path):

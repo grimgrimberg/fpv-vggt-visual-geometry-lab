@@ -11,6 +11,8 @@ from .export_video import export_side_by_side_mp4
 from .frames import sample_accepted_segment_frames, sample_video_frames
 from .geometry import summarize_bundle
 from .heatmaps import generate_heatmaps_from_manifest
+from .h100_package import prepare_h100_run
+from .h100_return import import_h100_return, inspect_h100_return
 from .local_only import audit_local_only_artifacts
 from .media import audit_media_inventory, fetch_media, write_media_audit_report
 from .pipeline import run_review_pipeline, run_synthetic_pipeline, run_video_id_pipeline
@@ -55,6 +57,7 @@ viz_app = typer.Typer(no_args_is_help=True, help="Local HTML review artifacts.")
 compare_app = typer.Typer(no_args_is_help=True, help="Comparison artifacts.")
 smooth_app = typer.Typer(no_args_is_help=True, help="Relative pose smoothing diagnostics.")
 review_app = typer.Typer(no_args_is_help=True, help="End-to-end local review runners.")
+h100_app = typer.Typer(no_args_is_help=True, help="RunPod H100 full-dataset workflow helpers.")
 
 app.add_typer(catalog_app, name="catalog")
 app.add_typer(media_app, name="media")
@@ -68,6 +71,7 @@ app.add_typer(viz_app, name="viz")
 app.add_typer(compare_app, name="compare")
 app.add_typer(smooth_app, name="smooth")
 app.add_typer(review_app, name="review")
+app.add_typer(h100_app, name="h100")
 
 
 @catalog_app.command("sync")
@@ -890,5 +894,123 @@ def run(
         raise typer.Exit(1)
 
 
+
+@h100_app.command("prepare")
+def h100_prepare(
+    dataset: str = typer.Option("latest", "--dataset", help="Dataset mode: latest or none."),
+    workdir: Path = typer.Option(..., "--workdir", help="H100 run folder."),
+    media_dir: Path = typer.Option(Path("data/media"), "--media-dir", help="Local media directory."),
+    media_inventory: Path = typer.Option(
+        Path("data/media/media_inventory.parquet"),
+        "--media-inventory",
+        help="Local media inventory parquet.",
+    ),
+    annotations: Path = typer.Option(
+        Path("data/annotations/segments.jsonl"),
+        "--annotations",
+        help="Segment annotations JSONL.",
+    ),
+    frames_root: Path = typer.Option(Path("data/frames"), "--frames-root", help="Frame root."),
+    frame_manifest: list[Path] = typer.Option(
+        [], "--frame-manifest", help="Existing frame manifest to package. Repeat for multiple clips."
+    ),
+    frame_scout: int = typer.Option(32, "--frame-scout", min=1, help="Scout tier frame count."),
+    frame_main: int = typer.Option(96, "--frame-main", min=1, help="Main tier frame count."),
+    frame_high_detail: int = typer.Option(
+        128, "--frame-high-detail", min=1, help="High-detail tier frame count."
+    ),
+    resize_scout: int = typer.Option(768, "--resize-scout", min=1, help="Scout tier long edge."),
+    resize_main: int = typer.Option(1024, "--resize-main", min=1, help="Main tier long edge."),
+    resize_high_detail: int = typer.Option(
+        1024, "--resize-high-detail", min=1, help="High-detail tier long edge."
+    ),
+    auto_segment: str = typer.Option("strict", "--auto-segment", help="Segmentation mode; v1 supports strict."),
+    metadata_policy: str = typer.Option(
+        "provenance-only", "--metadata-policy", help="Source metadata policy."
+    ),
+) -> None:
+    try:
+        summary = prepare_h100_run(
+            dataset=dataset,
+            workdir=workdir,
+            media_dir=media_dir,
+            media_inventory=media_inventory,
+            annotations=annotations,
+            frames_root=frames_root,
+            frame_manifests=frame_manifest,
+            frame_scout=frame_scout,
+            frame_main=frame_main,
+            frame_high_detail=frame_high_detail,
+            resize_scout=resize_scout,
+            resize_main=resize_main,
+            resize_high_detail=resize_high_detail,
+            auto_segment=auto_segment,
+            metadata_policy=metadata_policy,
+        )
+    except Exception as exc:
+        typer.echo(str(exc))
+        raise typer.Exit(1) from exc
+    typer.echo(f"H100 prepare {summary['status']}: {workdir}")
+    typer.echo(f"summary: {workdir / 'summary.json'}")
+    typer.echo(f"next steps: {workdir / 'NEXT_STEPS.md'}")
+    runpod_zip = summary.get("artifacts", {}).get("runpod_job_zip")
+    if runpod_zip:
+        typer.echo(f"upload ZIP: {runpod_zip}")
+    if summary["status"] != "done":
+        raise typer.Exit(1)
+
+
+@h100_app.command("inspect-return")
+def h100_inspect_return(
+    source: Path = typer.Option(..., "--source", help="h100_return.zip or extracted return directory."),
+) -> None:
+    try:
+        text = inspect_h100_return(source)
+    except Exception as exc:
+        typer.echo(str(exc))
+        raise typer.Exit(1) from exc
+    typer.echo(text)
+    if "issues:" in text:
+        raise typer.Exit(1)
+
+
+@h100_app.command("import-return")
+def h100_import_return(
+    source: Path = typer.Option(..., "--source", help="h100_return.zip or extracted return directory."),
+    workdir: Path = typer.Option(..., "--workdir", help="Original H100 local run folder."),
+    vggt_root: Path = typer.Option(Path("data/vggt"), "--vggt-root", help="Local VGGT bundle root."),
+    review_output: Path = typer.Option(
+        ..., "--review-output", help="Output directory for import report and review landing page."
+    ),
+    overwrite: bool = typer.Option(False, "--overwrite", help="Replace existing imported bundles."),
+    dry_run: bool = typer.Option(False, "--dry-run", help="Validate without copying bundles."),
+) -> None:
+    try:
+        report = import_h100_return(
+            source=source,
+            workdir=workdir,
+            vggt_root=vggt_root,
+            review_output=review_output,
+            overwrite=overwrite,
+            dry_run=dry_run,
+        )
+    except Exception as exc:
+        typer.echo(str(exc))
+        raise typer.Exit(1) from exc
+    if dry_run:
+        typer.echo(
+            f"H100 return dry-run {report['status']}: "
+            f"{report['would_import_count']}/{report['selected_bundle_count']} bundles would import"
+        )
+    else:
+        typer.echo(
+            f"H100 return import {report['status']}: "
+            f"{report['imported_count']}/{report['selected_bundle_count']} bundles imported"
+        )
+    typer.echo(f"report: {review_output / 'import_report.json'}")
+    if report["status"] != "done":
+        raise typer.Exit(1)
 def main() -> None:
     app()
+
+

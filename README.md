@@ -17,7 +17,7 @@ distance estimation, next-maneuver prediction, or attack simulation.
 The source dataset is a catalog repository:
 
 - GitHub: https://github.com/itamarwe/fpv-drone-strikes-lebanon-dataset
-- Observed on 2026-06-22 as a README catalog with 157 MP4 rows.
+- Observed on 2026-06-24 as a README catalog with 161 MP4 rows.
 - Metadata, manifests, and documentation are CC0.
 - Referenced videos and thumbnails are third-party media and are not licensed by
   that repository.
@@ -143,6 +143,52 @@ and conservative visual-quality warnings such as very dark, low-contrast, or
 color-dominant edit-artifact frames. A `needs_review` result means tighten the
 segment or resample before spending cloud GPU time.
 
+## H100 RunPod workflow
+
+The H100 workflow is for frozen VGGT/VGGT-compatible full-dataset processing,
+tiered bundle validation, safe diagnostic features, and small downstream
+diagnostic models. It is not VGGT fine-tuning, geolocation, route analysis,
+maneuver prediction, target analysis, speed/standoff estimation, or guidance.
+
+Prepare a full local package from accepted local segments:
+
+```powershell
+fpv h100 prepare --dataset latest --workdir outputs/h100/latest_full_run --media-dir data/media --media-inventory data/media/media_inventory.parquet --annotations data/annotations/segments.jsonl --frames-root data/frames --frame-scout 32 --frame-main 96 --frame-high-detail 128 --resize-scout 768 --resize-main 1024 --resize-high-detail 1024 --auto-segment strict --metadata-policy provenance-only
+```
+
+Or prepare a smoke package from existing frame manifests:
+
+```powershell
+fpv h100 prepare --dataset latest --workdir outputs/h100/smoke_local_package --frame-manifest data/frames/<video-a>/segment-001/frames.json --frame-manifest data/frames/<video-b>/segment-001/frames.json --frame-manifest data/frames/<video-c>/segment-001/frames.json --metadata-policy provenance-only
+```
+
+The verified local smoke package is currently:
+
+```text
+outputs/h100/smoke_local_package/runpod_job.zip
+```
+
+Upload that ZIP to RunPod, then run:
+
+```bash
+mkdir -p /workspace/fpv-h100
+cd /workspace/fpv-h100
+unzip /workspace/runpod_job.zip
+bash run_all.sh
+```
+
+Bring back `h100_return.zip`, then validate and import locally:
+
+```powershell
+fpv h100 inspect-return --source outputs/h100_returns/h100_return.zip
+fpv h100 import-return --source outputs/h100_returns/h100_return.zip --workdir outputs/h100/latest_full_run --vggt-root data/vggt --review-output outputs/reviews/h100_latest_full_run --dry-run
+fpv h100 import-return --source outputs/h100_returns/h100_return.zip --workdir outputs/h100/latest_full_run --vggt-root data/vggt --review-output outputs/reviews/h100_latest_full_run
+```
+
+Every H100 run folder writes `run.log`, `summary.json`, `NEXT_STEPS.md`, a
+RunPod job ZIP, dataset snapshot metadata when `--dataset latest` succeeds, and
+a warning block: no geolocation, no meters, relative VGGT frame, local-only
+media. Return import rejects forbidden feature columns before copying bundles.
 ## Safety defaults
 
 - Treat dataset descriptions as source metadata only.
@@ -181,3 +227,4 @@ segment or resample before spending cloud GPU time.
 See `docs/safety_scope.md` and `docs/methodology.md` for details.
 For a RunPod-style GPU handoff and workstation migration checklist, see
 `docs/runpod_vggt.md`.
+

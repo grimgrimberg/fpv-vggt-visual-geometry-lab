@@ -161,6 +161,7 @@ def run_review_pipeline(
         report = json.loads(report_path.read_text(encoding="utf-8"))
         artifacts["review_report"] = str(report_path)
         artifacts["comparison_html"] = report["comparison_html"]
+        artifacts["run_landing_html"] = report.get("run_landing_html")
         artifacts["side_by_side_videos"] = [
             clip["side_by_side_video"]
             for clip in report.get("clips", [])
@@ -481,6 +482,7 @@ def run_video_id_pipeline(
     report = json.loads(report_path.read_text(encoding="utf-8"))
     artifacts["review_report"] = str(report_path)
     artifacts["comparison_html"] = report["comparison_html"]
+    artifacts["run_landing_html"] = report.get("run_landing_html")
     artifacts["side_by_side_videos"] = [
         clip["side_by_side_video"]
         for clip in report.get("clips", [])
@@ -706,7 +708,7 @@ def _review_next_steps_text(summary: dict[str, Any]) -> str:
     ]
     artifacts = summary.get("artifacts", {})
     if artifacts:
-        lines.extend([f"- {name}: {path}" for name, path in artifacts.items()])
+        lines.extend([f"- {name}: {path}" for name, path in artifacts.items() if path])
     else:
         lines.append("- none yet")
 
@@ -751,8 +753,11 @@ def _review_next_steps_text(summary: dict[str, Any]) -> str:
             ]
         )
     elif summary["status"] == "done":
+        landing = artifacts.get("run_landing_html")
         lines.extend(
             [
+                "",
+                f"Open first: {landing}" if landing else "Open the comparison HTML first.",
                 "",
                 "Review the local HTML artifacts listed above. Treat diagnostics as",
                 "relative VGGT-frame review signals, not physical truth claims.",
