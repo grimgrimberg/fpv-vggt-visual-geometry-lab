@@ -414,23 +414,34 @@ def _collect_frame_sources(
                 / annotation.video_id
                 / annotation.segment_id
             )
-            logger.log("sampling " + tier.name + " frame pack for " + annotation.video_id + "/" + annotation.segment_id)
-            try:
-                manifest = sample_accepted_segment_frames(
-                    media_inventory=media_inventory,
-                    annotations=annotations,
-                    video_id=annotation.video_id,
-                    segment_id=annotation.segment_id,
-                    output=output,
-                    count=tier.frame_count,
-                    resized_long_edge=tier.resized_long_edge,
-                )
-            except Exception as exc:
+            manifest_path = output / "frames.json"
+            manifest = _read_ready_existing_frame_manifest(manifest_path)
+            if manifest is not None:
                 logger.log(
-                    f"failed to sample {tier.name} for "
-                    f"{annotation.video_id}/{annotation.segment_id}: {exc}"
+                    f"reuse {tier.name} frame pack for "
+                    f"{annotation.video_id}/{annotation.segment_id}"
                 )
-                continue
+            else:
+                logger.log(
+                    f"sampling {tier.name} frame pack for "
+                    f"{annotation.video_id}/{annotation.segment_id}"
+                )
+                try:
+                    manifest = sample_accepted_segment_frames(
+                        media_inventory=media_inventory,
+                        annotations=annotations,
+                        video_id=annotation.video_id,
+                        segment_id=annotation.segment_id,
+                        output=output,
+                        count=tier.frame_count,
+                        resized_long_edge=tier.resized_long_edge,
+                    )
+                except Exception as exc:
+                    logger.log(
+                        f"failed to sample {tier.name} for "
+                        f"{annotation.video_id}/{annotation.segment_id}: {exc}"
+                    )
+                    continue
             sources.append(
                 {
                     "tier": tier.name,
@@ -443,6 +454,18 @@ def _collect_frame_sources(
     return sources, segment_rows
 
 
+
+def _read_ready_existing_frame_manifest(path: Path) -> FrameManifest | None:
+    if not path.exists():
+        return None
+    try:
+        manifest = read_frame_manifest(path)
+    except Exception:
+        return None
+    for frame in manifest.frames:
+        if not Path(frame.path).exists():
+            return None
+    return manifest
 def _write_runpod_job(
     *,
     runpod_job: Path,
@@ -882,6 +905,7 @@ gpu: NVIDIA H100
 requires_pinned_image: true
 live_dependency_installs: false
 """
+
 
 
 
