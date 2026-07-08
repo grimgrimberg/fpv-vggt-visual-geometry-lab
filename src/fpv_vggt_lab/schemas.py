@@ -118,15 +118,39 @@ class CatalogRecord(BaseModel):
     target_stem: str | None = None
     manifest_confidence: str | None = None
     manifest_notes: str | None = None
+    source_banner_date: str | None = None
+    source_banner_hijri_date: str | None = None
+    source_banner_arabic_title: str | None = None
+    source_banner_old_description: str | None = None
+    source_banner_new_description: str | None = None
+    source_banner_date_match: str | None = None
+    source_banner_notes: str | None = None
+    source_geo_description: str | None = None
+    source_geo_town: str | None = None
+    source_geo_lat_text: str | None = None
+    source_geo_lon_text: str | None = None
+    source_geo_status: str | None = None
+    source_metadata_warning: str | None = None
 
 
 class CatalogSnapshot(BaseModel):
     readme_source: str
     manifest_source: str | None = None
+    banner_audit_source: str | None = None
+    geo_records_source: str | None = None
+    website_source: str | None = None
     fetched_at: str
     row_count: int = Field(ge=0)
+    readme_table_row_count: int | None = Field(default=None, ge=0)
+    readme_video_url_count: int | None = Field(default=None, ge=0)
+    upstream_declared_video_count: int | None = Field(default=None, ge=0)
     readme_sha256: str
     manifest_sha256: str | None = None
+    banner_audit_sha256: str | None = None
+    geo_records_sha256: str | None = None
+    website_sha256: str | None = None
+    source_table_paths: dict[str, str] = Field(default_factory=dict)
+    source_metadata_warnings: list[str] = Field(default_factory=list)
 
 
 class MediaInventoryRecord(BaseModel):

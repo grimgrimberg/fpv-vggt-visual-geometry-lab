@@ -112,7 +112,7 @@ outputs/h100/latest_full_run/
 ```bash
 mkdir -p /workspace/fpv-h100
 cd /workspace/fpv-h100
-unzip /workspace/runpod_job.zip
+python -m zipfile -e /workspace/runpod_job.zip .
 bash run_all.sh
 ```
 

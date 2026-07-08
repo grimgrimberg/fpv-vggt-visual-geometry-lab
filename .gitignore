@@ -27,3 +27,6 @@ data/geometry/
 data/models/
 data/annotations/
 outputs/
+
+# Local browser screenshots / media-derived review captures.
+*_browser_view.png

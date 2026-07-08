@@ -73,7 +73,7 @@ RunPod:
 ```bash
 mkdir -p /workspace/fpv-h100
 cd /workspace/fpv-h100
-unzip /workspace/runpod_job.zip
+python -m zipfile -e /workspace/runpod_job.zip .
 bash run_all.sh
 ```
 
@@ -364,6 +364,7 @@ python scripts/30_validate_tiers.py --tier high_detail
 python scripts/40_select_best_tier.py
 python scripts/50_extract_features.py
 python scripts/60_train_diagnostics.py
+python scripts/80_run_expanded_methods.py
 python scripts/70_package_return.py
 ```
 
@@ -461,6 +462,19 @@ Forbidden feature families:
 - maneuver labels,
 - true physical kinematics.
 
+## Expanded Method Stage
+
+`scripts/80_run_expanded_methods.py` is the bridge from compact VGGT bundles to the expanded visual-geometry stack. It must be safe to run after VGGT feed-forward and before packaging.
+
+Implemented behavior:
+
+- VGGT + official COLMAP BA: prepares `scene_dir/images` and calls VGGT `demo_colmap.py --scene_dir <scene_dir> --use_ba` when a VGGT repo checkout is available through `VGGT_REPO_DIR`, `/workspace/vggt`, or `/workspace/VGGT`.
+- Classical COLMAP baseline: runs `feature_extractor`, `sequential_matcher`, and `mapper` when `colmap` is on PATH.
+- Trajectory preprocessing / EVO: exports relative TUM-style trajectories from repo compact bundles and writes EVO guidance as method-consistency diagnostics only.
+- ODM, Nerfstudio/gsplat, relative-depth overlays, MASt3R/DUSt3R, and VGGeTR run as post-QC single-run stages when the image includes those runtimes; otherwise they produce method-level skipped reports.
+
+Missing dependencies must be reported as `skipped_missing_dependency`, not crash-only failures. The stage writes `method_stage_report.json` and `quality_report.json`; `70_package_return.py` includes them in `h100_return.zip` when present.
+
 ## Return Package
 
 The cloud job must create `h100_return.zip` even for partial completion whenever
@@ -476,6 +490,9 @@ dataset_snapshot.json
 clip_status.parquet
 tier_report.parquet
 selected_bundle_report.parquet
+method_stage_plan.json
+method_stage_report.json
+quality_report.json
 failures.json
 ```
 

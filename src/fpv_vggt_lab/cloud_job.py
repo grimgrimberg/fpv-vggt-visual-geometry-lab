@@ -104,14 +104,18 @@ def _runner_script() -> str:
 
 import json
 import hashlib
+import os
 import subprocess
 import sys
 import traceback
 import zipfile
 from datetime import datetime, timezone
 from pathlib import Path
+from time import perf_counter
 
 import numpy as np
+
+os.environ.setdefault("PYTORCH_CUDA_ALLOC_CONF", "expandable_segments:True")
 
 ROOT = Path(__file__).resolve().parent
 RUN_LOG = ROOT / "cloud_run.log"
@@ -202,21 +206,33 @@ def to_numpy_array(value):
     return value
 
 
-def run_vggt(frame_manifest_path: Path, predictions_output: Path) -> None:
+def load_vggt_runtime():
     import torch
     from vggt.models.vggt import VGGT
+
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    if device != "cuda":
+        raise RuntimeError("CUDA is required for this packaged VGGT job.")
+    dtype = torch.bfloat16 if torch.cuda.get_device_capability()[0] >= 8 else torch.float16
+    started = perf_counter()
+    log("load VGGT model")
+    model = VGGT.from_pretrained("facebook/VGGT-1B").to(device)
+    model.eval()
+    log(f"loaded VGGT model in {perf_counter() - started:.1f}s")
+    return model, device, dtype
+
+
+def run_vggt(frame_manifest_path: Path, predictions_output: Path, model, device: str, dtype) -> None:
+    import torch
     from vggt.utils.geometry import unproject_depth_map_to_point_map
     from vggt.utils.load_fn import load_and_preprocess_images
     from vggt.utils.pose_enc import pose_encoding_to_extri_intri
 
     manifest = load_manifest(frame_manifest_path)
-    device = "cuda" if torch.cuda.is_available() else "cpu"
-    if device != "cuda":
-        raise RuntimeError("CUDA is required for this packaged VGGT job.")
-    dtype = torch.bfloat16 if torch.cuda.get_device_capability()[0] >= 8 else torch.float16
+    started = perf_counter()
     images = load_and_preprocess_images(frame_paths(manifest, frame_manifest_path)).to(device)
-    model = VGGT.from_pretrained("facebook/VGGT-1B").to(device)
-    model.eval()
+    log(f"preprocessed {len(manifest['frames'])} frames in {perf_counter() - started:.1f}s")
+    started = perf_counter()
     with torch.no_grad():
         with torch.amp.autocast("cuda", dtype=dtype):
             predictions = model(images)
@@ -229,6 +245,8 @@ def run_vggt(frame_manifest_path: Path, predictions_output: Path) -> None:
                     to_numpy_array(extrinsic.squeeze(0)),
                     to_numpy_array(intrinsic.squeeze(0)),
                 )
+    log(f"ran VGGT inference in {perf_counter() - started:.1f}s")
+    started = perf_counter()
     arrays = {}
     for key, value in predictions.items():
         try:
@@ -244,7 +262,7 @@ def run_vggt(frame_manifest_path: Path, predictions_output: Path) -> None:
         arrays[key] = value
     predictions_output.parent.mkdir(parents=True, exist_ok=True)
     np.savez_compressed(predictions_output, **arrays)
-
+    log(f"wrote predictions in {perf_counter() - started:.1f}s")
 
 def camera_centers_and_quaternions(extrinsic: np.ndarray, frame_count: int) -> tuple[np.ndarray, np.ndarray]:
     matrices = extrinsic[:, :3, :] if extrinsic.shape == (frame_count, 4, 4) else extrinsic
@@ -280,7 +298,11 @@ def mean_conf(pred: np.lib.npyio.NpzFile, frame_count: int) -> np.ndarray:
     return np.ones(frame_count, dtype=np.float32)
 
 
-def point_bundle(pred: np.lib.npyio.NpzFile, max_points: int = 50000) -> dict | None:
+def point_bundle(
+    pred: np.lib.npyio.NpzFile,
+    frame_manifest_path: Path | None = None,
+    max_points: int = 50000,
+) -> dict | None:
     for key in ["world_points_from_depth", "point_map", "points", "world_points"]:
         if key not in pred:
             continue
@@ -290,6 +312,8 @@ def point_bundle(pred: np.lib.npyio.NpzFile, max_points: int = 50000) -> dict | 
             continue
         finite = np.isfinite(points).all(axis=1)
         colors = point_colors(pred, len(points))
+        if colors is None:
+            colors = colors_from_frame_manifest(frame_manifest_path, source.shape, len(points))
         confidence = point_vector(pred, ["point_confidence", "point_conf", "depth_conf", "confidence"], len(points))
         depth = point_vector(pred, ["point_depth", "depth", "depth_map"], len(points))
         points = points[finite]
@@ -337,6 +361,62 @@ def point_colors(pred: np.lib.npyio.NpzFile, point_count: int) -> np.ndarray | N
     return None
 
 
+def colors_from_frame_manifest(
+    frame_manifest_path: Path | None,
+    point_source_shape: tuple,
+    point_count: int,
+) -> np.ndarray | None:
+    if frame_manifest_path is None or len(point_source_shape) < 4:
+        return None
+    frame_count, height, width = [int(value) for value in point_source_shape[:3]]
+    if frame_count <= 0 or height <= 0 or width <= 0:
+        return None
+    try:
+        manifest = load_manifest(frame_manifest_path)
+        rows = manifest.get("frames", [])[:frame_count]
+    except Exception:
+        return None
+    if len(rows) != frame_count:
+        return None
+    colors = []
+    for row in rows:
+        path = Path(row["path"])
+        if not path.is_absolute():
+            path = frame_manifest_path.parent / path
+        image = read_rgb_image(path, width=width, height=height)
+        if image is None:
+            return None
+        colors.append(image.reshape(-1, 3))
+    values = np.concatenate(colors, axis=0)
+    if values.shape != (point_count, 3):
+        return None
+    return values.astype(np.uint8)
+
+
+def read_rgb_image(path: Path, width: int, height: int) -> np.ndarray | None:
+    try:
+        import cv2
+
+        image = cv2.imread(str(path), cv2.IMREAD_COLOR)
+        if image is None:
+            return None
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+        if image.shape[0] != height or image.shape[1] != width:
+            image = cv2.resize(image, (width, height), interpolation=cv2.INTER_AREA)
+        return image.astype(np.uint8)
+    except Exception:
+        try:
+            from PIL import Image
+
+            with Image.open(path) as image_handle:
+                image = image_handle.convert("RGB")
+                if image.size != (width, height):
+                    image = image.resize((width, height))
+                return np.asarray(image, dtype=np.uint8)
+        except Exception:
+            return None
+
+
 def point_vector(pred: np.lib.npyio.NpzFile, names: list[str], point_count: int) -> np.ndarray | None:
     for key in names:
         if key not in pred:
@@ -363,7 +443,7 @@ def normalize_bundle(frame_manifest_path: Path, predictions_path: Path, bundle_o
         valid_pose_mask=np.isfinite(centers).all(axis=1),
         pose_confidence=mean_conf(pred, frame_count),
     )
-    points = point_bundle(pred)
+    points = point_bundle(pred, frame_manifest_path)
     if points is not None:
         np.savez_compressed(bundle_output / "points.npz", **points)
     metadata = {
@@ -470,6 +550,19 @@ def existing_valid_bundle(bundle_output: Path, frame_count: int) -> tuple[bool, 
     return not validation_errors, validation_errors
 
 
+
+def cleanup_gpu() -> None:
+    try:
+        import gc
+        import torch
+
+        gc.collect()
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+            torch.cuda.ipc_collect()
+    except Exception as exc:
+        log(f"gpu cleanup warning: {exc}")
+
 def main() -> None:
     if RUN_LOG.exists():
         RUN_LOG.unlink()
@@ -500,6 +593,7 @@ def main() -> None:
         write_summary(summary)
         raise
 
+    model_runtime = None
     for clip in manifest["clips"]:
         frame_manifest = ROOT / clip["frame_manifest"]
         predictions_output = ROOT / clip["predictions_output"]
@@ -541,7 +635,9 @@ def main() -> None:
                     f"existing bundle invalid for clip {clip['clip_id']}; rerunning VGGT: "
                     + "; ".join(existing_errors)
                 )
-            run_vggt(frame_manifest, predictions_output)
+            if model_runtime is None:
+                model_runtime = load_vggt_runtime()
+            run_vggt(frame_manifest, predictions_output, *model_runtime)
             normalize_bundle(frame_manifest, predictions_output, bundle_output)
             validation_errors = validate_normalized_bundle(bundle_output, frame_count)
             clip_summary["validation_errors"] = validation_errors
@@ -554,19 +650,21 @@ def main() -> None:
             clip_summary["error"] = str(exc)
             clip_summary["traceback"] = traceback.format_exc()
             log(f"failed clip {clip['clip_id']}: {exc}")
+        finally:
+            cleanup_gpu()
         summary["clips"].append(clip_summary)
 
     summary["artifacts"]["bundles_zip"] = zip_bundles()
     if summary["clips"] and all(clip["status"] == "done" for clip in summary["clips"]):
         summary["status"] = "done"
     elif any(clip["status"] == "done" for clip in summary["clips"]):
-        summary["status"] = "failed_soft"
+        summary["status"] = "done_partial"
     else:
         summary["status"] = "failed"
     summary["finished_at"] = datetime.now(timezone.utc).isoformat()
     write_summary(summary)
     log("Done. Return bundles.zip, cloud_summary.json, and cloud_run.log to the main workstation.")
-    if summary["status"] != "done":
+    if summary["status"] == "failed":
         sys.exit(1)
 
 

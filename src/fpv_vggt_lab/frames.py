@@ -6,6 +6,7 @@ from pathlib import Path
 import cv2
 import numpy as np
 
+from .image_ops import apply_overlay_masks
 from .schemas import FrameManifest, FrameQuality, FrameRecord, model_to_dict
 
 
@@ -18,6 +19,7 @@ def sample_video_frames(
     resized_long_edge: int | None = None,
     start_sec: float | None = None,
     end_sec: float | None = None,
+    mask_regions: list[list[float]] | None = None,
 ) -> FrameManifest:
     if count <= 0:
         raise ValueError("count must be positive")
@@ -56,6 +58,7 @@ def sample_video_frames(
             if not ok:
                 raise RuntimeError(f"could not read frame {frame_index} from {video}")
 
+            frame = apply_overlay_masks(frame, mask_regions)
             frame = _resize_if_needed(frame, resized_long_edge)
             height, width = frame.shape[:2]
             frame_path = output / f"frame_{ordinal:04d}_{frame_index:06d}.jpg"
@@ -132,6 +135,7 @@ def sample_accepted_segment_frames(
     output: Path,
     count: int,
     resized_long_edge: int | None = None,
+    mask_regions: list[list[float]] | None = None,
 ) -> FrameManifest:
     from .media import find_media_record
     from .segments import get_accepted_segment
@@ -147,6 +151,7 @@ def sample_accepted_segment_frames(
         resized_long_edge=resized_long_edge,
         start_sec=segment.start_sec,
         end_sec=segment.end_sec,
+        mask_regions=mask_regions,
     )
 
 

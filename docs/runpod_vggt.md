@@ -80,7 +80,7 @@ Inside the pod:
 ```bash
 mkdir -p /workspace/fpv-vggt-job
 cd /workspace/fpv-vggt-job
-unzip /workspace/cloud_vggt_job.zip
+python -m zipfile -e /workspace/cloud_vggt_job.zip .
 python run_vggt_job.py
 ```
 

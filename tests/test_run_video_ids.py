@@ -178,6 +178,7 @@ def test_run_from_video_ids_fetches_samples_and_packages_cloud_job(tmp_path: Pat
     assert "--expected-from-run outputs/reviews/three_clip_run/summary.json" in next_steps
     assert "--dry-run" in next_steps
     assert "Upload or copy the cloud job package" in next_steps
+    assert "python -m zipfile -e /workspace/cloud_vggt_job.zip ." in next_steps
     assert "python run_vggt_job.py" in next_steps
     assert "Reruns skip clips that already have valid normalized bundles" in next_steps
     assert summary["artifacts"]["cloud_job_package_sha256"] in next_steps

@@ -1,6 +1,8 @@
 import json
 import py_compile
 import shutil
+import subprocess
+import sys
 import zipfile
 import importlib.util
 import hashlib
@@ -44,6 +46,7 @@ def test_cloud_job_package_contains_manifests_frames_and_runner(tmp_path: Path):
 
     assert result.exit_code == 0, result.output
     assert "cloud_vggt_job.zip" in result.output
+    assert "python -m zipfile -e cloud_vggt_job.zip ." in result.output
     assert "python run_vggt_job.py" in result.output
     assert "bundles.zip" in result.output
     assert (output_dir / "run_vggt_job.py").exists()
@@ -84,11 +87,69 @@ def test_cloud_job_package_contains_manifests_frames_and_runner(tmp_path: Path):
     assert "bundles.zip" in runner_text
     assert "validate_normalized_bundle" in runner_text
     assert "bundle_valid" in runner_text
+    assert 'summary["status"] = "done_partial"' in runner_text
+    assert 'if summary["status"] == "failed"' in runner_text
     readme = (output_dir / "README.md").read_text(encoding="utf-8")
     assert "cloud_summary.json" in readme
     assert "bundles.zip" in readme
     assert "frame_manifest_sha256" in readme
     py_compile.compile(str(output_dir / "run_vggt_job.py"), doraise=True)
+
+
+def test_cloud_job_runner_marks_mixed_clip_results_done_partial(tmp_path: Path):
+    good_manifest, good_bundle, _summary, _video = create_mocked_summary(
+        tmp_path, "mixed-cloud-good"
+    )
+    bad_manifest, _bad_bundle, _bad_summary, _bad_video = create_mocked_summary(
+        tmp_path, "mixed-cloud-bad"
+    )
+
+    output_dir = tmp_path / "cloud_job_mixed"
+    result = runner.invoke(
+        app,
+        [
+            "vggt",
+            "cloud-job",
+            "--frame-manifest",
+            str(good_manifest),
+            "--frame-manifest",
+            str(bad_manifest),
+            "--output",
+            str(output_dir),
+        ],
+    )
+    assert result.exit_code == 0, result.output
+
+    manifest_path = output_dir / "job_manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    good_clip, bad_clip = manifest["clips"]
+    shutil.copytree(good_bundle, output_dir / good_clip["bundle_output"])
+    bad_clip["frame_manifest_sha256"] = "0" * 64
+    manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True), encoding="utf-8")
+
+    runner_script = output_dir / "run_vggt_job.py"
+    runner_script.write_text(
+        runner_script.read_text(encoding="utf-8").replace(
+            'if __name__ == "__main__":\n    main()',
+            'def ensure_dependencies() -> None:\n    return\n\nif __name__ == "__main__":\n    main()',
+        ),
+        encoding="utf-8",
+    )
+
+    completed = subprocess.run(
+        [sys.executable, str(runner_script)],
+        cwd=output_dir,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    assert completed.returncode == 0, completed.stderr
+    cloud_summary = json.loads((output_dir / "cloud_summary.json").read_text(encoding="utf-8"))
+    assert cloud_summary["status"] == "done_partial"
+    assert [clip["status"] for clip in cloud_summary["clips"]] == ["done", "failed"]
+    assert cloud_summary["clips"][0]["skipped_existing"] is True
+    assert "frame_manifest_sha256 mismatch" in cloud_summary["clips"][1]["error"]
+    assert (output_dir / "bundles.zip").exists()
 
 
 def test_cloud_job_package_excludes_stale_local_artifacts(tmp_path: Path):
@@ -534,6 +595,50 @@ def test_import_cloud_job_accepts_returned_bundles_zip_with_cloud_report(tmp_pat
         for index in range(3)
     )
 
+
+
+
+def test_generated_cloud_runner_derives_point_colors_from_packaged_frames(tmp_path: Path):
+    frame_manifest, _bundle, _summary, _video = create_mocked_summary(
+        tmp_path, "rgb-cloud-video"
+    )
+    output_dir = tmp_path / "cloud_job"
+    result = runner.invoke(
+        app,
+        [
+            "vggt",
+            "cloud-job",
+            "--frame-manifest",
+            str(frame_manifest),
+            "--output",
+            str(output_dir),
+        ],
+    )
+    assert result.exit_code == 0, result.output
+
+    spec = importlib.util.spec_from_file_location(
+        "generated_rgb_runner", output_dir / "run_vggt_job.py"
+    )
+    assert spec is not None
+    assert spec.loader is not None
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+
+    manifest = json.loads((output_dir / "job_manifest.json").read_text(encoding="utf-8"))
+    packaged_manifest = output_dir / manifest["clips"][0]["frame_manifest"]
+    predictions_path = tmp_path / "predictions_rgb.npz"
+    points = np.zeros((2, 3, 4, 3), dtype=np.float32)
+    points[..., 2] = 1.0
+    np.savez_compressed(predictions_path, world_points_from_depth=points)
+
+    with np.load(predictions_path, allow_pickle=False) as pred:
+        bundle = module.point_bundle(pred, packaged_manifest, max_points=24)
+
+    assert bundle is not None
+    assert bundle["points"].shape == (24, 3)
+    assert bundle["point_colors_rgb"].shape == (24, 3)
+    assert bundle["point_colors_rgb"].dtype == np.uint8
+    assert int(bundle["point_colors_rgb"].sum()) > 0
 
 def test_cloud_job_runner_skips_existing_valid_bundles_on_rerun(tmp_path: Path):
     frame_manifest, bundle, _summary, _video = create_mocked_summary(

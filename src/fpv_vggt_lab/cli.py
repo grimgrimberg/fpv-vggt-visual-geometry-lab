@@ -1,24 +1,50 @@
 from __future__ import annotations
 
+from datetime import datetime, timezone
+
 import json
 from pathlib import Path
 
 import typer
 
-from .catalog import DEFAULT_MANIFEST_URL, DEFAULT_README_URL, shortlist_catalog, sync_catalog
+from .catalog import DEFAULT_BANNER_AUDIT_URL, DEFAULT_GEO_RECORDS_URL, DEFAULT_MANIFEST_URL, DEFAULT_README_URL, DEFAULT_WEBSITE_URL, shortlist_catalog, sync_catalog
 from .cloud_job import create_cloud_job_package
+from .colab_t4 import prepare_colab_t4_window_run
 from .export_video import export_side_by_side_mp4
 from .frames import sample_accepted_segment_frames, sample_video_frames
 from .geometry import summarize_bundle
+from .glb_export import export_hf_style_glb
 from .heatmaps import generate_heatmaps_from_manifest
-from .h100_package import prepare_h100_run
-from .h100_return import import_h100_return, inspect_h100_return
+from .h100_insights import build_h100_insights
+from .h100_package import (
+    audit_runpod_4090_hf_launch_kit,
+    runpod_4090_hf_profile,
+    smoke_runpod_job_package,
+    write_runpod_4090_hf_profile,
+    write_runpod_4090_hf_start_here,
+    inspect_runpod_job_package,
+    prepare_h100_run,
+    write_runpod_launch_manifest,
+)
+from .h100_return import (
+    import_h100_return,
+    inspect_h100_return,
+    validate_h100_return,
+    verify_h100_return_against_launch,
+    write_h100_optional_method_report,
+)
 from .local_only import audit_local_only_artifacts
+from .method_contract import (
+    validate_method_matrix,
+    validate_return_layout,
+    write_method_contract_files,
+)
 from .media import audit_media_inventory, fetch_media, write_media_audit_report
 from .pipeline import run_review_pipeline, run_synthetic_pipeline, run_video_id_pipeline
 from .readiness import audit_data_readiness, write_readiness_report
 from .review import audit_three_clip_inputs, run_three_clip_review
 from .schemas import model_to_dict
+from .segment_qa import run_segment_qa
 from .segments import (
     accept_segment,
     edit_segment,
@@ -42,6 +68,11 @@ from .vggt import (
 )
 from .vggt_installed import run_installed_vggt
 from .viz import render_comparison_html, render_review_html
+from .windows import (
+    propose_stable_windows,
+    rank_window_bundles,
+    selected_window_frame_manifests,
+)
 
 
 app = typer.Typer(no_args_is_help=True, help="Offline FPV visual-geometry tools.")
@@ -57,7 +88,12 @@ viz_app = typer.Typer(no_args_is_help=True, help="Local HTML review artifacts.")
 compare_app = typer.Typer(no_args_is_help=True, help="Comparison artifacts.")
 smooth_app = typer.Typer(no_args_is_help=True, help="Relative pose smoothing diagnostics.")
 review_app = typer.Typer(no_args_is_help=True, help="End-to-end local review runners.")
-h100_app = typer.Typer(no_args_is_help=True, help="RunPod H100 full-dataset workflow helpers.")
+h100_app = typer.Typer(no_args_is_help=True, help="RunPod GPU full-dataset workflow helpers (legacy h100 namespace).")
+methods_app = typer.Typer(no_args_is_help=True, help="Expanded reconstruction method contracts.")
+windows_app = typer.Typer(
+    no_args_is_help=True,
+    help="Stable-window proposal, quality-aware sampling, and VGGT window ranking.",
+)
 
 app.add_typer(catalog_app, name="catalog")
 app.add_typer(media_app, name="media")
@@ -71,7 +107,10 @@ app.add_typer(viz_app, name="viz")
 app.add_typer(compare_app, name="compare")
 app.add_typer(smooth_app, name="smooth")
 app.add_typer(review_app, name="review")
+app.add_typer(methods_app, name="methods")
 app.add_typer(h100_app, name="h100")
+app.add_typer(h100_app, name="runpod")
+app.add_typer(windows_app, name="windows")
 
 
 @catalog_app.command("sync")
@@ -80,9 +119,37 @@ def catalog_sync(
     manifest: str | None = typer.Option(
         DEFAULT_MANIFEST_URL, "--manifest", help="Manifest TSV source path or URL."
     ),
+    banner_audit: str | None = typer.Option(
+        None,
+        "--banner-audit",
+        help=f"Optional banner/title audit TSV source. Current upstream default: {DEFAULT_BANNER_AUDIT_URL}",
+    ),
+    geo_records: str | None = typer.Option(
+        None,
+        "--geo-records",
+        help=f"Optional upstream geo CSV source, stored as source metadata only. Current upstream default: {DEFAULT_GEO_RECORDS_URL}",
+    ),
+    website: str | None = typer.Option(
+        None,
+        "--website",
+        help=f"Optional public website snapshot source for provenance. Current upstream default: {DEFAULT_WEBSITE_URL}",
+    ),
+    fallback_catalog: Path | None = typer.Option(
+        None,
+        "--fallback-catalog",
+        help="Optional previous local catalog used only to reconcile missing storage rows when upstream declares more MP4s than its current metadata exposes.",
+    ),
     output: Path = typer.Option(Path("data/catalog"), "--output", "-o", help="Catalog output directory."),
 ) -> None:
-    catalog_path, snapshot_path = sync_catalog(readme_source=readme, manifest_source=manifest, output=output)
+    catalog_path, snapshot_path = sync_catalog(
+        readme_source=readme,
+        manifest_source=manifest,
+        banner_audit_source=banner_audit,
+        geo_records_source=geo_records,
+        website_source=website,
+        fallback_catalog_source=fallback_catalog,
+        output=output,
+    )
     typer.echo(f"wrote catalog: {catalog_path}")
     typer.echo(f"wrote snapshot: {snapshot_path}")
 
@@ -269,6 +336,74 @@ def segment_contact_sheet(
         typer.echo(str(exc))
         raise typer.Exit(1) from exc
     typer.echo(f"wrote local-only segment contact sheet: {path}")
+
+
+@segment_app.command("qa")
+def segment_qa(
+    media_inventory: Path = typer.Option(
+        Path("data/media/media_inventory.parquet"),
+        "--media-inventory",
+        help="Local media inventory parquet.",
+    ),
+    annotations: Path = typer.Option(
+        Path("data/annotations/segments.jsonl"),
+        "--annotations",
+        help="Segment annotations JSONL.",
+    ),
+    output_dir: Path = typer.Option(
+        Path("outputs/segment_qa/latest"),
+        "--output-dir",
+        help="Output QA run folder.",
+    ),
+    frames_root: Path | None = typer.Option(
+        Path("data/frames"),
+        "--frames-root",
+        help="Optional frame root for first/last sampled-frame sheets.",
+    ),
+    video_id: list[str] = typer.Option(
+        [], "--video-id", help="Video id to QA. Omit to process all local inventory rows."
+    ),
+    segment_id: str = typer.Option("segment-001", "--segment-id", help="Segment id to compare/write."),
+    probe_samples: int = typer.Option(64, "--probe-samples", min=6, help="Decoded frames used for edit-boundary detection."),
+    contact_samples: int = typer.Option(16, "--contact-samples", min=4, help="Source-video contact-sheet samples."),
+    boundary_samples: int = typer.Option(12, "--boundary-samples", min=4, help="Start/end boundary contact-sheet samples."),
+    write_proposals: bool = typer.Option(
+        False,
+        "--write-proposals/--no-write-proposals",
+        help="Write proposed annotations only when no accepted segment already exists.",
+    ),
+    resume: bool = typer.Option(
+        True,
+        "--resume/--no-resume",
+        help="Reuse existing per-clip segment_qa.json files in the output directory.",
+    ),
+) -> None:
+    try:
+        summary = run_segment_qa(
+            media_inventory=media_inventory,
+            annotations=annotations,
+            output_dir=output_dir,
+            frames_root=frames_root,
+            video_ids=video_id or None,
+            segment_id=segment_id,
+            probe_samples=probe_samples,
+            contact_samples=contact_samples,
+            boundary_samples=boundary_samples,
+            write_proposals=write_proposals,
+            resume=resume,
+        )
+    except Exception as exc:
+        typer.echo(str(exc))
+        raise typer.Exit(1) from exc
+    typer.echo(
+        f"segment QA {summary['status']}: "
+        f"{summary['ready_count']} ready, {summary['needs_review_count']} need review, "
+        f"{summary['failed_count']} failed"
+    )
+    typer.echo(f"dashboard: {summary['artifacts']['dashboard']}")
+    typer.echo(f"next steps: {summary['artifacts']['next_steps']}")
+    if summary["status"] != "ready_for_vggt":
+        raise typer.Exit(1)
 
 
 @synthetic_app.command("create")
@@ -458,7 +593,7 @@ def vggt_cloud_job(
     zip_path = path / "cloud_vggt_job.zip"
     typer.echo(f"wrote cloud VGGT job package: {path}")
     typer.echo(f"upload ZIP: {zip_path}")
-    typer.echo("on CUDA GPU: unzip, then run `python run_vggt_job.py`")
+    typer.echo("on CUDA GPU: extract with `python -m zipfile -e cloud_vggt_job.zip .`, then run `python run_vggt_job.py`")
     typer.echo("return: bundles.zip, cloud_summary.json, cloud_run.log")
 
 
@@ -580,6 +715,16 @@ def viz_render(
         "--heatmap-manifest",
         help="Optional heatmaps.json manifest for image-space review overlays.",
     ),
+    glb_scene: Path | None = typer.Option(
+        None,
+        "--glb-scene",
+        help="Optional HF-style GLB scene for external Model3D-style review.",
+    ),
+    segment_qa: Path | None = typer.Option(
+        None,
+        "--segment-qa",
+        help="Optional segment_qa.json report for pre-VGGT cut warnings.",
+    ),
 ) -> None:
     path = render_review_html(
         frame_manifest,
@@ -588,8 +733,58 @@ def viz_render(
         output,
         smoothed_poses,
         heatmap_manifest,
+        glb_scene,
+        segment_qa,
     )
     typer.echo(f"wrote local review HTML: {path}")
+
+
+@viz_app.command("export-glb")
+def viz_export_glb(
+    bundle: Path = typer.Option(..., "--bundle", help="VGGT bundle directory."),
+    output: Path = typer.Option(..., "--output", "-o", help="Output HF-style GLB scene path."),
+    metadata_output: Path | None = typer.Option(
+        None,
+        "--metadata-output",
+        help="Optional GLB export metadata JSON path.",
+    ),
+    confidence_percentile: float = typer.Option(
+        20.0,
+        "--confidence-percentile",
+        min=0.0,
+        max=100.0,
+        help="Drop points below this confidence percentile.",
+    ),
+    max_points: int = typer.Option(
+        300_000,
+        "--max-points",
+        min=1,
+        help="Maximum exported point count.",
+    ),
+    show_cameras: bool = typer.Option(
+        True,
+        "--show-cameras/--hide-cameras",
+        help="Include schematic camera cones.",
+    ),
+) -> None:
+    try:
+        result = export_hf_style_glb(
+            bundle_path=bundle,
+            output=output,
+            metadata_output=metadata_output,
+            confidence_percentile=confidence_percentile,
+            max_points=max_points,
+            show_cameras=show_cameras,
+        )
+    except Exception as exc:
+        typer.echo(str(exc))
+        raise typer.Exit(1) from exc
+    typer.echo(f"wrote HF-style local GLB scene: {result.output}")
+    typer.echo(f"metadata: {result.metadata_output}")
+    typer.echo(
+        f"points={result.point_count} cameras={result.camera_count} "
+        f"pose_jumps={result.pose_jump_count}"
+    )
 
 
 @viz_app.command("export-video")
@@ -895,6 +1090,41 @@ def run(
 
 
 
+@methods_app.command("write-contract")
+def methods_write_contract(
+    output: Path = typer.Option(..., "--output", "-o", help="Output directory for method contract files."),
+) -> None:
+    artifacts = write_method_contract_files(output)
+    typer.echo(f"method contract: {artifacts['method_contract']}")
+    typer.echo(f"method matrix: {artifacts['method_matrix']}")
+    typer.echo(f"return contract: {artifacts['return_contract']}")
+
+
+@methods_app.command("validate-matrix")
+def methods_validate_matrix(
+    matrix: Path = typer.Option(..., "--matrix", help="method_matrix.json path."),
+) -> None:
+    report = validate_method_matrix(matrix)
+    typer.echo(json.dumps(report, indent=2, sort_keys=True))
+    if not report["valid"]:
+        raise typer.Exit(1)
+
+
+@methods_app.command("validate-return")
+def methods_validate_return(
+    source: Path = typer.Option(..., "--source", help="Return zip or extracted return directory."),
+    extract_root: Path | None = typer.Option(
+        None,
+        "--extract-root",
+        help="Optional directory used to extract and inspect a return zip.",
+    ),
+) -> None:
+    report = validate_return_layout(source, extract_root)
+    typer.echo(json.dumps(report, indent=2, sort_keys=True))
+    if not report["valid"]:
+        raise typer.Exit(1)
+
+
 @h100_app.command("prepare")
 def h100_prepare(
     dataset: str = typer.Option("latest", "--dataset", help="Dataset mode: latest or none."),
@@ -960,11 +1190,242 @@ def h100_prepare(
         raise typer.Exit(1)
 
 
+def _display_ps_path(path: Path) -> str:
+    resolved = path.resolve()
+    slash = chr(92)
+    try:
+        rel = resolved.relative_to(Path.cwd().resolve())
+        return "." + slash + str(rel).replace("/", slash)
+    except ValueError:
+        return str(resolved)
+
+
+
+
+@h100_app.command("smoke-package")
+def h100_smoke_package(
+    source: Path = typer.Option(
+        Path("outputs/h100/full_161_run/runpod_job_4090_hf_full_stack_clean.zip"),
+        "--source",
+        help="RunPod job package ZIP or extracted package directory.",
+    ),
+    full: bool = typer.Option(
+        False,
+        "--full",
+        help="Run full ZIP integrity/SHA checks before syntax checks.",
+    ),
+) -> None:
+    report = smoke_runpod_job_package(source, fast=not full)
+    typer.echo(json.dumps(report, indent=2, sort_keys=True))
+    if not report["valid"]:
+        raise typer.Exit(1)
+
+@h100_app.command("profile-4090-launch")
+def h100_profile_4090_launch(
+    launch_dir: Path = typer.Option(
+        Path("outputs/h100/full_161_run/launch"),
+        "--launch-dir",
+        help="Directory where RUNPOD_4090_PILOT_PROFILE.json should be written.",
+    ),
+    write: bool = typer.Option(
+        False,
+        "--write",
+        help="Write RUNPOD_4090_PILOT_PROFILE.json into the launch directory.",
+    ),
+) -> None:
+    if write:
+        report = write_runpod_4090_hf_profile(launch_dir)
+    else:
+        report = {
+            "status": "preview",
+            "profile": runpod_4090_hf_profile(),
+            "path": str((launch_dir / "RUNPOD_4090_PILOT_PROFILE.json").resolve()),
+        }
+    typer.echo(json.dumps(report, indent=2, sort_keys=True))
+
+
+@h100_app.command("status-4090-launch")
+def h100_status_4090_launch(
+    package: Path = typer.Option(
+        Path("outputs/h100/full_161_run/runpod_job_4090_hf_full_stack_clean.zip"),
+        "--package",
+        help="4090/HF RunPod package ZIP or extracted package directory.",
+    ),
+    launch_dir: Path = typer.Option(
+        Path("outputs/h100/full_161_run/launch"),
+        "--launch-dir",
+        help="Directory containing runpod_launch_4090_hf_manifest.json and operator helpers.",
+    ),
+    fast: bool = typer.Option(
+        True,
+        "--fast/--full",
+        help="Use --full to include package SHA256 hashing and full ZIP integrity checks.",
+    ),
+) -> None:
+    report = audit_runpod_4090_hf_launch_kit(package=package, launch_dir=launch_dir, fast=fast)
+    status = "ready_to_run_4090_pilot" if report["valid"] else "blocked"
+    package_report = report.get("package_inspection", {})
+    docs = report.get("docs", {})
+    helpers = report.get("helpers", {})
+    start_here = Path(docs.get("start_here_markdown", {}).get("path", launch_dir / "START_HERE_4090_HF.md"))
+    pod_profile = Path(docs.get("pilot_profile", {}).get("path", launch_dir / "RUNPOD_4090_PILOT_PROFILE.json"))
+    prelaunch = Path(helpers.get("prelaunch_audit_powershell", {}).get("path", launch_dir / "PRELAUNCH_AUDIT_4090_HF.ps1"))
+    upload = Path(helpers.get("upload_and_start_powershell", {}).get("path", launch_dir / "UPLOAD_AND_OPTIONALLY_START_4090_HF.ps1"))
+    one_shot = Path(helpers.get("one_shot_full_powershell", {}).get("path", launch_dir / "RUN_FULL_4090_R3_LINGBOT.ps1"))
+    monitor = Path(helpers.get("monitor_powershell", {}).get("path", launch_dir / "MONITOR_RUNPOD_4090_HF.ps1"))
+    download = Path(helpers.get("download_and_validate_powershell", {}).get("path", launch_dir / "DOWNLOAD_AND_VALIDATE_RETURN.ps1"))
+    identity_file = "$env:USERPROFILE" + chr(92) + ".ssh" + chr(92) + "id_ed25519"
+
+    typer.echo("RunPod 4090/HF launch status")
+    typer.echo(f"status: {status}")
+    typer.echo(f"package: {report['package']}")
+    typer.echo(f"clip jobs: {package_report.get('clip_count', 0)}")
+    manifest_path = launch_dir / "runpod_launch_4090_hf_manifest.json"
+    optional_runner = None
+    manifest_method_count = None
+    if manifest_path.exists():
+        try:
+            manifest_data = json.loads(manifest_path.read_text(encoding="utf-8"))
+            optional_runner = manifest_data.get("r3_lingbot_runner")
+            manifest_method_count = len(manifest_data.get("methods") or [])
+        except Exception:
+            optional_runner = None
+    typer.echo(f"base package method count: {len(package_report.get('method_ids', []))}")
+    if manifest_method_count is not None:
+        typer.echo(f"launch manifest method count: {manifest_method_count}")
+    if optional_runner:
+        typer.echo(f"R3/LingBot runner: {optional_runner}")
+    typer.echo(f"start here: {_display_ps_path(start_here)}")
+    typer.echo(f"pod profile: {_display_ps_path(pod_profile)}")
+    typer.echo("")
+    typer.echo("local gates before upload:")
+    typer.echo("  fpv runpod smoke-package --source outputs/h100/full_161_run/runpod_job_4090_hf_full_stack_clean.zip")
+    audit_command = "fpv runpod audit-4090-launch --fast" if fast else "fpv runpod audit-4090-launch"
+    typer.echo(f"  {audit_command}")
+    typer.echo(f"  {_display_ps_path(prelaunch)} -Fast")
+    typer.echo("")
+    typer.echo("one-shot full 4090/R3/LingBot command:")
+    typer.echo(f"  {_display_ps_path(one_shot)} -HostName <runpod_ip> -Port <tcp_port> -IdentityFile {identity_file}")
+    typer.echo("")
+    typer.echo("first pilot command:")
+    typer.echo(f"  {_display_ps_path(upload)} -HostName <runpod_ip> -Port <tcp_port> -IdentityFile {identity_file} -Start -RunMode pilot_hf_scout3")
+    typer.echo("R3/LingBot full wrapper command:")
+    typer.echo(f"  {_display_ps_path(upload)} -HostName <runpod_ip> -Port <tcp_port> -IdentityFile {identity_file} -Start -RunMode full_hf_rebuild -UseR3LingBotRunner -EnableFullOptionalMethods")
+    typer.echo("")
+    typer.echo("monitor:")
+    typer.echo(f"  {_display_ps_path(monitor)} -HostName <runpod_ip> -Port <tcp_port> -IdentityFile {identity_file}")
+    typer.echo("")
+    typer.echo("download and validate:")
+    typer.echo(f"  {_display_ps_path(download)} -HostName <runpod_ip> -Port <tcp_port> -IdentityFile {identity_file}")
+    typer.echo("")
+    typer.echo("final audit after download:")
+    typer.echo("  fpv runpod final-audit-4090-return --source <local_return_zip>")
+    typer.echo("")
+    safety_warnings = ", ".join(runpod_4090_hf_profile()["safety_warnings"])
+    typer.echo(f"safety: {safety_warnings}")
+    typer.echo("remaining proof: run on RunPod, download fresh h100_return.zip, validate locally")
+    if report["issues"]:
+        typer.echo("")
+        typer.echo("issues:")
+        for issue in report["issues"]:
+            typer.echo(f"- {issue}")
+        raise typer.Exit(1)
+
+
+@h100_app.command("write-4090-start-here")
+def h100_write_4090_start_here(
+    package: Path = typer.Option(
+        Path("outputs/h100/full_161_run/runpod_job_4090_hf_full_stack_clean.zip"),
+        "--package",
+        help="4090/HF RunPod package ZIP or extracted package directory.",
+    ),
+    launch_dir: Path = typer.Option(
+        Path("outputs/h100/full_161_run/launch"),
+        "--launch-dir",
+        help="Directory containing runpod_launch_4090_hf_manifest.json and operator helpers.",
+    ),
+    status: str = typer.Option(
+        "ready_to_run_4090_pilot",
+        "--status",
+        help="Human-readable current status to write into START_HERE_4090_HF.md.",
+    ),
+) -> None:
+    try:
+        report = write_runpod_4090_hf_start_here(package=package, launch_dir=launch_dir, status=status)
+    except Exception as exc:
+        typer.echo(str(exc))
+        raise typer.Exit(1) from exc
+    typer.echo(json.dumps(report, indent=2, sort_keys=True))
+    if report["status"] != "done":
+        raise typer.Exit(1)
+
+
+@h100_app.command("audit-4090-launch")
+def h100_audit_4090_launch(
+    package: Path = typer.Option(
+        Path("outputs/h100/full_161_run/runpod_job_4090_hf_full_stack_clean.zip"),
+        "--package",
+        help="4090/HF RunPod package ZIP or extracted package directory.",
+    ),
+    launch_dir: Path = typer.Option(
+        Path("outputs/h100/full_161_run/launch"),
+        "--launch-dir",
+        help="Directory containing runpod_launch_4090_hf_manifest.json and operator helpers.",
+    ),
+    fast: bool = typer.Option(
+        False,
+        "--fast",
+        help="Skip package SHA256 hashing and full ZIP integrity checks for the large package.",
+    ),
+) -> None:
+    report = audit_runpod_4090_hf_launch_kit(package=package, launch_dir=launch_dir, fast=fast)
+    typer.echo(json.dumps(report, indent=2, sort_keys=True))
+    if not report["valid"]:
+        raise typer.Exit(1)
+
+
+@h100_app.command("inspect-package")
+def h100_inspect_package(
+    source: Path = typer.Option(..., "--source", help="runpod_job.zip or extracted runpod_job directory."),
+    fast: bool = typer.Option(False, "--fast", help="Skip full ZIP integrity test and SHA256 hashing for very large packages."),
+) -> None:
+    report = inspect_runpod_job_package(source, fast=fast, compute_sha256=not fast)
+    typer.echo(json.dumps(report, indent=2, sort_keys=True))
+    if not report["valid"]:
+        raise typer.Exit(1)
+
+
+@h100_app.command("launch-manifest")
+def h100_launch_manifest(
+    source: Path = typer.Option(..., "--source", help="runpod_job.zip or extracted runpod_job directory."),
+    output_dir: Path = typer.Option(
+        ..., "--output-dir", help="Output directory for runpod_launch_manifest.json and RUNPOD_LAUNCH.md."
+    ),
+) -> None:
+    try:
+        manifest = write_runpod_launch_manifest(source, output_dir)
+    except Exception as exc:
+        typer.echo(str(exc))
+        raise typer.Exit(1) from exc
+    typer.echo(f"RunPod launch manifest {manifest['status']}: {output_dir}")
+    typer.echo(f"json: {output_dir / 'runpod_launch_manifest.json'}")
+    typer.echo(f"markdown: {output_dir / 'RUNPOD_LAUNCH.md'}")
+    if manifest["status"] not in {"ready_to_upload", "ready_unhashed"}:
+        raise typer.Exit(1)
+
+
 @h100_app.command("inspect-return")
 def h100_inspect_return(
     source: Path = typer.Option(..., "--source", help="h100_return.zip or extracted return directory."),
+    json_output: bool = typer.Option(False, "--json", help="Print machine-readable inspection JSON."),
 ) -> None:
     try:
+        if json_output:
+            report = validate_h100_return(source, extract_root=None)
+            typer.echo(json.dumps(report, indent=2, sort_keys=True))
+            if report["issues"]:
+                raise typer.Exit(1)
+            return
         text = inspect_h100_return(source)
     except Exception as exc:
         typer.echo(str(exc))
@@ -973,6 +1434,164 @@ def h100_inspect_return(
     if "issues:" in text:
         raise typer.Exit(1)
 
+
+@h100_app.command("postflight-return")
+def h100_postflight_return(
+    source: Path = typer.Option(..., "--source", help="h100_return.zip or extracted return directory."),
+    launch_manifest: Path = typer.Option(
+        ..., "--launch-manifest", help="runpod_launch_manifest.json created before cloud execution."
+    ),
+    output_dir: Path = typer.Option(
+        ..., "--output-dir", help="Output directory for return_postflight.json and RETURN_POSTFLIGHT.md."
+    ),
+) -> None:
+    try:
+        report = verify_h100_return_against_launch(
+            source=source,
+            launch_manifest=launch_manifest,
+            output_dir=output_dir,
+        )
+    except Exception as exc:
+        typer.echo(str(exc))
+        raise typer.Exit(1) from exc
+    typer.echo(f"H100 return postflight {report['status']}: {output_dir}")
+    typer.echo(f"json: {output_dir / 'return_postflight.json'}")
+    typer.echo(f"markdown: {output_dir / 'RETURN_POSTFLIGHT.md'}")
+    if report["status"] == "failed_soft":
+        raise typer.Exit(1)
+
+
+
+@h100_app.command("final-audit-4090-return")
+def h100_final_audit_4090_return(
+    source: Path = typer.Option(..., "--source", help="Downloaded h100_return.zip or extracted return directory."),
+    launch_manifest: Path = typer.Option(
+        Path("outputs/h100/full_161_run/launch/runpod_launch_4090_hf_manifest.json"),
+        "--launch-manifest",
+        help="Current 4090/HF launch manifest.",
+    ),
+    output_dir: Path = typer.Option(
+        Path("outputs/reviews/runpod_4090_final_audit"),
+        "--output-dir",
+        help="Output directory for runpod_4090_final_audit.json and RUNPOD_4090_FINAL_AUDIT.md.",
+    ),
+) -> None:
+    try:
+        postflight = verify_h100_return_against_launch(
+            source=source,
+            launch_manifest=launch_manifest,
+            output_dir=output_dir,
+        )
+    except Exception as exc:
+        typer.echo(str(exc))
+        raise typer.Exit(1) from exc
+
+    launch = json.loads(launch_manifest.read_text(encoding="utf-8"))
+    validation = postflight.get("return_validation", {})
+    manifest = validation.get("manifest") or {}
+    method_stage = validation.get("method_stage_report") or {}
+    status = (
+        "failed_soft"
+        if postflight["status"] == "failed_soft"
+        else "validated_with_warnings"
+        if postflight.get("warnings")
+        else "validated"
+    )
+    audit = {
+        "schema_version": "runpod-4090-final-audit-v1",
+        "created_at": datetime.now(timezone.utc).isoformat(),
+        "status": status,
+        "source": str(source.resolve()),
+        "launch_manifest": str(launch_manifest.resolve()),
+        "output_dir": str(output_dir.resolve()),
+        "postflight_json": str((output_dir / "return_postflight.json").resolve()),
+        "postflight_status": postflight["status"],
+        "launch_schema_version": launch.get("schema_version"),
+        "launch_status": launch.get("status"),
+        "launch_package_sha256": (launch.get("package") or {}).get("sha256"),
+        "return_manifest_status": manifest.get("status"),
+        "selected_bundle_count": validation.get("selected_bundle_count", 0),
+        "method_stage_status": method_stage.get("status"),
+        "missing_required_files": postflight.get("missing_required_files", []),
+        "missing_methods": postflight.get("missing_methods", []),
+        "warnings": postflight.get("warnings", []),
+        "issues": postflight.get("issues", []),
+        "next_actions": postflight.get("next_actions", []),
+        "safety_warnings": runpod_4090_hf_profile()["safety_warnings"],
+        "completion_boundary": (
+            "This audit validates the cloud return package against the 4090/HF launch contract. "
+            "It does not add geolocation, meters, route, approach, guidance, or next-maneuver claims."
+        ),
+    }
+    output_dir.mkdir(parents=True, exist_ok=True)
+    (output_dir / "runpod_4090_final_audit.json").write_text(
+        json.dumps(audit, indent=2, sort_keys=True),
+        encoding="utf-8",
+    )
+    warnings = "\n".join(f"- {item}" for item in audit["warnings"]) or "- none"
+    issues = "\n".join(f"- {item}" for item in audit["issues"]) or "- none"
+    actions = "\n".join(f"- {item}" for item in audit["next_actions"]) or "- none"
+    safety = "\n".join(f"- {item}" for item in audit["safety_warnings"])
+    markdown = f"""# RunPod 4090 Final Audit
+
+Status: `{audit['status']}`
+Postflight status: `{audit['postflight_status']}`
+
+## Inputs
+
+- Return source: `{audit['source']}`
+- Launch manifest: `{audit['launch_manifest']}`
+- Postflight JSON: `{audit['postflight_json']}`
+
+## Summary
+
+- Selected bundles: `{audit['selected_bundle_count']}`
+- Method stage status: `{audit['method_stage_status']}`
+- Launch package SHA256: `{audit['launch_package_sha256']}`
+- Missing required files: `{len(audit['missing_required_files'])}`
+- Missing methods: `{len(audit['missing_methods'])}`
+
+## Warnings
+
+{warnings}
+
+## Issues
+
+{issues}
+
+## Next Actions
+
+{actions}
+
+## Safety Boundary
+
+{safety}
+"""
+    (output_dir / "RUNPOD_4090_FINAL_AUDIT.md").write_text(markdown, encoding="utf-8")
+
+    typer.echo(f"RunPod 4090 final audit {audit['status']}: {output_dir}")
+    typer.echo(f"json: {output_dir / 'runpod_4090_final_audit.json'}")
+    typer.echo(f"markdown: {output_dir / 'RUNPOD_4090_FINAL_AUDIT.md'}")
+    if audit["status"] == "failed_soft":
+        raise typer.Exit(1)
+
+@h100_app.command("optional-report")
+def h100_optional_report(
+    source: Path = typer.Option(..., "--source", help="h100_return.zip or extracted return directory."),
+    output_dir: Path = typer.Option(
+        ..., "--output-dir", help="Output directory for optional_method_report.json and OPTIONAL_METHOD_REPORT.md."
+    ),
+) -> None:
+    try:
+        report = write_h100_optional_method_report(source=source, output_dir=output_dir)
+    except Exception as exc:
+        typer.echo(str(exc))
+        raise typer.Exit(1) from exc
+    typer.echo(f"H100 optional report {report['status']}: {output_dir}")
+    typer.echo(f"json: {output_dir / 'optional_method_report.json'}")
+    typer.echo(f"markdown: {output_dir / 'OPTIONAL_METHOD_REPORT.md'}")
+    if report["status"] == "failed_soft":
+        raise typer.Exit(1)
 
 @h100_app.command("import-return")
 def h100_import_return(
@@ -1010,6 +1629,285 @@ def h100_import_return(
     typer.echo(f"report: {review_output / 'import_report.json'}")
     if report["status"] != "done":
         raise typer.Exit(1)
+
+
+@h100_app.command("insights")
+def h100_insights(
+    review_run: Path = typer.Option(
+        ..., "--review-run", help="Review run directory or run_report.json."
+    ),
+    output_dir: Path | None = typer.Option(
+        None, "--output-dir", help="Output directory for H100 insight artifacts."
+    ),
+    import_output: Path | None = typer.Option(
+        None, "--import-output", help="Optional H100 import output directory."
+    ),
+    source_return: Path | None = typer.Option(
+        None, "--source-return", help="Optional h100_return.zip path used for provenance."
+    ),
+) -> None:
+    try:
+        report = build_h100_insights(
+            review_run=review_run,
+            output_dir=output_dir,
+            import_output=import_output,
+            source_return=source_return,
+        )
+    except Exception as exc:
+        typer.echo(str(exc))
+        raise typer.Exit(1) from exc
+    typer.echo(
+        f"H100 insights {report['status']}: "
+        f"{report['clip_count']} clips, "
+        f"{report['descriptor_safe_count']} descriptor-safe"
+    )
+    typer.echo(f"dashboard: {report['artifacts']['dashboard']}")
+    typer.echo(f"metrics: {report['artifacts']['metrics_csv']}")
+
+@windows_app.command("propose")
+def windows_propose(
+    media_inventory: Path = typer.Option(
+        Path("data/media/media_inventory.parquet"),
+        "--media-inventory",
+        help="Local media inventory parquet.",
+    ),
+    annotations: Path = typer.Option(
+        Path("data/annotations/segments.jsonl"),
+        "--annotations",
+        help="Accepted segment annotations JSONL.",
+    ),
+    output_dir: Path = typer.Option(
+        Path("outputs/windows/stable_window_run"),
+        "--output-dir",
+        help="Output run folder for window tables and dashboard.",
+    ),
+    frames_root: Path = typer.Option(
+        Path("data/frames"), "--frames-root", help="Root for sampled window frames."
+    ),
+    video_id: list[str] = typer.Option(
+        [], "--video-id", help="Video id to process. Repeat for a subset."
+    ),
+    segment_id: str | None = typer.Option(
+        "segment-001", "--segment-id", help="Accepted segment id to window."
+    ),
+    window_sec: float = typer.Option(6.0, "--window-sec", min=0.25, help="Candidate window length."),
+    stride_sec: float = typer.Option(3.0, "--stride-sec", min=0.1, help="Sliding-window stride."),
+    candidate_limit: int = typer.Option(3, "--candidate-limit", min=1, help="Windows kept per segment."),
+    frames: int = typer.Option(64, "--frames", min=1, help="Quality-aware sampled frames per window."),
+    resized_long_edge: int | None = typer.Option(
+        1024, "--resized-long-edge", min=1, help="Optional sampled frame long edge."
+    ),
+    eval_samples: int = typer.Option(12, "--eval-samples", min=2, help="Frames used to score each window."),
+    neighbor_radius: int = typer.Option(
+        2, "--neighbor-radius", min=0, help="Local frame search radius around deterministic anchors."
+    ),
+    mask_static_overlays: bool = typer.Option(
+        True,
+        "--mask-static-overlays/--no-mask-static-overlays",
+        help="Neutralize detected static lower-left overlay/censor regions in exported window frames.",
+    ),
+) -> None:
+    try:
+        summary = propose_stable_windows(
+            media_inventory=media_inventory,
+            annotations=annotations,
+            output_dir=output_dir,
+            frames_root=frames_root,
+            video_ids=video_id or None,
+            segment_id=segment_id,
+            window_sec=window_sec,
+            stride_sec=stride_sec,
+            candidate_limit=candidate_limit,
+            frame_count=frames,
+            resized_long_edge=resized_long_edge,
+            eval_samples=eval_samples,
+            neighbor_radius=neighbor_radius,
+            mask_static_overlays=mask_static_overlays,
+        )
+    except Exception as exc:
+        typer.echo(str(exc))
+        raise typer.Exit(1) from exc
+    typer.echo(
+        f"stable-window proposal {summary['status']}: "
+        f"{summary['window_count']} selected windows"
+    )
+    typer.echo(f"dashboard: {summary['artifacts']['dashboard']}")
+    typer.echo(f"frame manifests: {summary['artifacts']['frame_manifest_list']}")
+    typer.echo(f"next steps: {summary['artifacts']['next_steps']}")
+    if summary["status"] != "done":
+        raise typer.Exit(1)
+
+
+
+@windows_app.command("colab-t4")
+def windows_colab_t4(
+    media_inventory: Path = typer.Option(
+        Path("data/media/media_inventory.parquet"),
+        "--media-inventory",
+        help="Local media inventory parquet.",
+    ),
+    annotations: Path = typer.Option(
+        Path("data/annotations/segments.jsonl"),
+        "--annotations",
+        help="Accepted segment annotations JSONL.",
+    ),
+    frames_root: Path = typer.Option(Path("data/frames"), "--frames-root", help="Frame root."),
+    output_dir: Path = typer.Option(
+        Path("outputs/colab/t4_window_run"),
+        "--output-dir",
+        help="Colab T4 package output folder.",
+    ),
+    video_id: list[str] = typer.Option(
+        ..., "--video-id", help="Video id to process. Repeat for a small T4 batch."
+    ),
+    segment_id: str = typer.Option("segment-001", "--segment-id", help="Accepted segment id."),
+    window_sec: float = typer.Option(
+        8.0, "--window-sec", min=0.5, help="Stable window length in seconds."
+    ),
+    stride_sec: float = typer.Option(3.0, "--stride-sec", min=0.1, help="Window stride in seconds."),
+    target_fps: float = typer.Option(
+        2.0, "--target-fps", min=0.1, help="Approximate sampled FPS inside each stable window."
+    ),
+    max_frames: int = typer.Option(
+        20,
+        "--max-frames",
+        min=2,
+        help="T4 memory cap for frames per window after applying target FPS.",
+    ),
+    candidate_limit: int = typer.Option(
+        2, "--candidate-limit", min=1, help="Windows kept per accepted segment."
+    ),
+    resized_long_edge: int | None = typer.Option(
+        1024, "--resized-long-edge", min=1, help="High-quality source frame long edge."
+    ),
+    eval_samples: int = typer.Option(12, "--eval-samples", min=2, help="Frames used to score each window."),
+    neighbor_radius: int = typer.Option(
+        2, "--neighbor-radius", min=0, help="Local frame search radius around deterministic anchors."
+    ),
+) -> None:
+    try:
+        summary = prepare_colab_t4_window_run(
+            media_inventory=media_inventory,
+            annotations=annotations,
+            frames_root=frames_root,
+            output_dir=output_dir,
+            video_ids=video_id,
+            segment_id=segment_id,
+            window_sec=window_sec,
+            stride_sec=stride_sec,
+            target_fps=target_fps,
+            max_frames=max_frames,
+            candidate_limit=candidate_limit,
+            resized_long_edge=resized_long_edge,
+            eval_samples=eval_samples,
+            neighbor_radius=neighbor_radius,
+        )
+    except Exception as exc:
+        typer.echo(str(exc))
+        raise typer.Exit(1) from exc
+    typer.echo(
+        f"Colab T4 package {summary['status']}: "
+        f"{summary.get('window_count', 0)} window frame packs"
+    )
+    typer.echo(f"upload ZIP: {summary.get('artifacts', {}).get('cloud_job_zip')}")
+    typer.echo(f"proposal dashboard: {summary.get('artifacts', {}).get('proposal_dashboard')}")
+    typer.echo(f"next steps: {output_dir / 'NEXT_STEPS.md'}")
+    if summary["status"] != "done":
+        raise typer.Exit(1)
+
+
+@windows_app.command("h100-package")
+def windows_h100_package(
+    proposal_run: Path = typer.Option(
+        ..., "--proposal-run", help="Stable-window run directory or summary.json."
+    ),
+    workdir: Path = typer.Option(..., "--workdir", help="H100 package output folder."),
+    media_dir: Path = typer.Option(Path("data/media"), "--media-dir", help="Local media directory."),
+    media_inventory: Path = typer.Option(
+        Path("data/media/media_inventory.parquet"),
+        "--media-inventory",
+        help="Local media inventory parquet.",
+    ),
+    annotations: Path = typer.Option(
+        Path("data/annotations/segments.jsonl"), "--annotations", help="Segment annotations JSONL."
+    ),
+    frames_root: Path = typer.Option(Path("data/frames"), "--frames-root", help="Frame root."),
+    metadata_policy: str = typer.Option(
+        "provenance-only", "--metadata-policy", help="Source metadata policy."
+    ),
+) -> None:
+    try:
+        frame_manifests = selected_window_frame_manifests(proposal_run)
+        summary = prepare_h100_run(
+            dataset="none",
+            workdir=workdir,
+            media_dir=media_dir,
+            media_inventory=media_inventory,
+            annotations=annotations,
+            frames_root=frames_root,
+            frame_manifests=frame_manifests,
+            frame_scout=32,
+            frame_main=64,
+            frame_high_detail=64,
+            resize_scout=768,
+            resize_main=1024,
+            resize_high_detail=1024,
+            auto_segment="strict",
+            metadata_policy=metadata_policy,
+        )
+    except Exception as exc:
+        typer.echo(str(exc))
+        raise typer.Exit(1) from exc
+    typer.echo(
+        f"window H100 package {summary['status']}: "
+        f"{summary['clip_count']} window frame packs"
+    )
+    typer.echo(f"upload ZIP: {summary.get('artifacts', {}).get('runpod_job_zip')}")
+    typer.echo(f"next steps: {workdir / 'NEXT_STEPS.md'}")
+    if summary["status"] != "done":
+        raise typer.Exit(1)
+
+
+@windows_app.command("rank")
+def windows_rank(
+    proposal_run: Path = typer.Option(
+        ..., "--proposal-run", help="Stable-window run directory or summary.json."
+    ),
+    vggt_root: Path = typer.Option(Path("data/vggt"), "--vggt-root", help="Imported VGGT bundle root."),
+    output_dir: Path = typer.Option(
+        Path("outputs/reviews/window_ranked"), "--output-dir", help="Window ranking/review output folder."
+    ),
+    render_review: bool = typer.Option(
+        True, "--render-review/--no-render-review", help="Render per-window local HTML reviews."
+    ),
+    stitched_review: bool = typer.Option(
+        False,
+        "--stitched-review/--no-stitched-review",
+        help="Write a local best-window review index. This is not coordinate alignment.",
+    ),
+) -> None:
+    try:
+        report = rank_window_bundles(
+            proposal_run=proposal_run,
+            vggt_root=vggt_root,
+            output_dir=output_dir,
+            render_review=render_review,
+            stitched_review=stitched_review,
+        )
+    except Exception as exc:
+        typer.echo(str(exc))
+        raise typer.Exit(1) from exc
+    typer.echo(
+        f"window ranking {report['status']}: "
+        f"{report['best_window_count']}/{report['window_count']} best windows ready"
+    )
+    typer.echo(f"dashboard: {report['artifacts']['dashboard']}")
+    if report["artifacts"].get("stitched_review"):
+        typer.echo(f"best-window review: {report['artifacts']['stitched_review']}")
+    if report["status"] != "done":
+        raise typer.Exit(1)
+
+
 def main() -> None:
     app()
 

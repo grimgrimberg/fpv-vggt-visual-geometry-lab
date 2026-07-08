@@ -24,6 +24,22 @@ The source dataset is a catalog repository:
 
 Real media and media-derived artifacts are local-only by default.
 
+The current Hugging Face control-plane dataset is private:
+
+- Hugging Face: https://huggingface.co/datasets/Grimster/FPV_Hezbo
+- Verified on 2026-07-09 while authenticated as `Grimster`; last modified on
+  2026-07-08.
+- Purpose: RunPod/Hugging Face handoff metadata for the quality-first workflow,
+  including pinned catalog snapshots and package manifests.
+- It is not a public media mirror. It intentionally avoids old low-quality HF
+  media copies and expects GPU jobs to read `data/catalog/latest`, then download
+  referenced MP4s into pod-local ignored caches.
+- A second private namespace, `Grimster420/FPV_Hezbo`, also exists. Treat
+  `Grimster/FPV_Hezbo` as the canonical dataset for this repo unless a migration
+  is made intentionally.
+
+See `docs/hugging_face_fpv_hezbo.md` for the handoff rules.
+
 ## Credit
 
 Dataset catalog credit goes to
@@ -143,7 +159,47 @@ and conservative visual-quality warnings such as very dark, low-contrast, or
 color-dominant edit-artifact frames. A `needs_review` result means tighten the
 segment or resample before spending cloud GPU time.
 
+
+## Stable-window VGGT workflow
+
+Use this when full-segment VGGT quality is disappointing. It keeps the original
+accepted segment as the source of truth, then searches for shorter windows that
+are more likely to reconstruct cleanly: readable frames, useful texture,
+moderate motion, fewer cut-like jumps, and better temporal continuity. The
+scores are input-quality diagnostics only.
+
+Propose stable windows and sample quality-aware frame manifests:
+
+```powershell
+fpv windows propose --media-inventory data/media/media_inventory.parquet --annotations data/annotations/segments.jsonl --frames-root data/frames --output-dir outputs/windows/stable_window_run --window-sec 6 --stride-sec 3 --candidate-limit 3 --frames 64 --resized-long-edge 1024
+```
+
+Package those window frame manifests for a GPU VGGT run:
+
+```powershell
+fpv windows h100-package --proposal-run outputs/windows/stable_window_run --workdir outputs/h100/window_run
+```
+
+Create a free/cheap Colab T4 package before spending on H100:
+
+```powershell
+fpv windows colab-t4 --media-inventory data/media/media_inventory.parquet --annotations data/annotations/segments.jsonl --frames-root data/frames --output-dir outputs/colab/t4_window_run --video-id <video_id> --window-sec 8 --stride-sec 3 --target-fps 2 --max-frames 20 --candidate-limit 2 --resized-long-edge 1024
+```
+
+After the returned window bundles are imported under `data/vggt`, rank and
+render the best window reviews:
+
+```powershell
+fpv windows rank --proposal-run outputs/windows/stable_window_run --vggt-root data/vggt --output-dir outputs/reviews/window_ranked --stitched-review
+```
+
+The stitched review is a local best-window index. It is not a coordinate-aligned
+trajectory stitch, map projection, geolocation, speed estimate, route analysis,
+or guidance feature.
+
 ## H100 RunPod workflow
+
+For a cheaper RTX 4090 first pass, see `docs/runpod_4090_full_stack.md`.
 
 The H100 workflow is for frozen VGGT/VGGT-compatible full-dataset processing,
 tiered bundle validation, safe diagnostic features, and small downstream
@@ -173,7 +229,7 @@ Upload that ZIP to RunPod, then run:
 ```bash
 mkdir -p /workspace/fpv-h100
 cd /workspace/fpv-h100
-unzip /workspace/runpod_job.zip
+python -m zipfile -e /workspace/runpod_job.zip .
 bash run_all.sh
 ```
 

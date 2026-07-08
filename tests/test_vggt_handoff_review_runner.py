@@ -306,6 +306,7 @@ def test_top_level_run_reports_needs_vggt_bundle_with_next_steps(tmp_path: Path)
     assert Path(summary["artifacts"]["next_steps"]).exists()
     next_steps = (workdir / "NEXT_STEPS.md").read_text(encoding="utf-8")
     assert "fpv vggt cloud-job" in next_steps
+    assert "python -m zipfile -e /workspace/cloud_vggt_job.zip ." in next_steps
     assert "cloud_bundle_import_dry_run.json" in next_steps
     assert "--expected-from-run outputs/reviews/three_clip_run/summary.json" in next_steps
     assert "--dry-run" in next_steps

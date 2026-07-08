@@ -11,34 +11,56 @@ Warnings for every run:
 - relative VGGT frame
 - local-only media-derived frames
 
-## 1. Start Small Locally
+## 1. Create A T4 Stable-Window Package Locally
 
-For a first T4 test, sample a small accepted segment. Eight frames is a good
-smoke test; increase only after the full handoff works.
+For the useful T4 test, do not send a full edited segment. First create stable
+windows locally, then sample about 2 FPS inside each selected window. This keeps
+Colab focused on a few cleaner image sets instead of wasting memory on blur,
+cuts, overlays, and terminal chaos.
 
-```bash
-fpv frames sample-accepted \
-  --media-inventory data/media/media_inventory.parquet \
-  --annotations data/annotations/segments.jsonl \
-  --video-id <video_id> \
-  --segment-id segment-001 \
-  --output data/frames/<video_id>/segment-001 \
-  --count 8 \
-  --resized-long-edge 512
-```
+Recommended high-quality T4 preset for one or a few clips:
 
-Create the upload package:
-
-```bash
-fpv vggt cloud-job \
-  --frame-manifest data/frames/<video_id>/segment-001/frames.json \
-  --output outputs/cloud_vggt_job
+```powershell
+fpv windows colab-t4 `
+  --media-inventory data/media/media_inventory.parquet `
+  --annotations data/annotations/segments.jsonl `
+  --frames-root data/frames `
+  --output-dir outputs/colab/t4_window_run `
+  --video-id <video_id> `
+  --window-sec 8 `
+  --stride-sec 3 `
+  --target-fps 2 `
+  --max-frames 20 `
+  --candidate-limit 2 `
+  --resized-long-edge 1024
 ```
 
 Upload this file to Colab:
 
 ```text
-outputs/cloud_vggt_job/cloud_vggt_job.zip
+outputs/colab/t4_window_run/cloud_vggt_job/cloud_vggt_job.zip
+```
+
+This preset usually creates up to two windows per input clip, about 16 frames
+per 8 second window. `--max-frames 20` is the T4 memory cap; raise it only after
+one complete Colab return imports cleanly. If T4 runs out of memory, lower
+`--max-frames` to 12 or 16, or use `--resized-long-edge 768`.
+
+For a tiny smoke test only, the old direct frame-package path still works:
+
+```powershell
+fpv frames sample-accepted `
+  --media-inventory data/media/media_inventory.parquet `
+  --annotations data/annotations/segments.jsonl `
+  --video-id <video_id> `
+  --segment-id segment-001 `
+  --output data/frames/<video_id>/segment-001 `
+  --count 8 `
+  --resized-long-edge 512
+
+fpv vggt cloud-job `
+  --frame-manifest data/frames/<video_id>/segment-001/frames.json `
+  --output outputs/cloud_vggt_job
 ```
 
 ## 2. Run In Colab
@@ -55,7 +77,7 @@ In Colab:
 1. Select `Runtime > Change runtime type`.
 2. Choose `T4 GPU`.
 3. Run the notebook cells in order.
-4. Upload `cloud_vggt_job.zip` when prompted.
+4. Upload `cloud_vggt_job.zip` when prompted, or place it in Google Drive for the Drive notebook.
 5. Wait for VGGT and the model download to finish.
 6. Download:
    - `bundles.zip`
@@ -155,8 +177,9 @@ fpv run \
 If Colab reports CUDA out of memory:
 
 - retry one clip at a time,
-- reduce `--count` to 4 or 6,
-- keep `--resized-long-edge 512`,
+- lower `--max-frames` to 12 or 16 for `fpv windows colab-t4`,
+- lower `--resized-long-edge` from 1024 to 768,
+- reduce `--candidate-limit` to 1,
 - restart the Colab runtime before rerunning,
 - only increase frames after a valid `bundles.zip` imports locally.
 

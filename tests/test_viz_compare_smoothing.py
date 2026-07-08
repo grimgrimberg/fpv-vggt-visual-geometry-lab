@@ -160,6 +160,32 @@ def test_local_review_html_contains_synchronized_review_payload(tmp_path: Path):
     assert "bundle-quality-panel" in html
     assert "Bundle Quality" in html
     assert "relative-depth fallback" in html
+    assert "pov-replay-canvas" in html
+    assert "pov-convention" in html
+    assert "drawPovReplay" in html
+    assert "povProjectionStats" in html
+    assert "Player vs Reconstruction" in html
+    assert "player-diagnosis-panel" in html
+    assert "updatePlayerDiagnosis" in html
+    assert "playerDiagnosis" in html
+    assert "method-status-panel" in html
+    assert "Method Artifacts" in html
+    assert "method-card-grid" in html
+    assert "artifact-report-row" in html
+    assert "vggt_colmap_ba_windowed" in html
+    assert "openmvs_dense_mesh_baseline" in html
+    assert "gsplat_nerfstudio_showcase" in html
+    assert "presentation-smooth-path" in html
+    assert "view-transform" in html
+    assert "VIEW_TRANSFORMS" in html
+    assert "chaikinSmoothPath" in html
+    assert "transformPointForView" in html
+    assert "drawAxisGizmo" in html
+    assert "fit-scene" in html
+    assert "view-chase" in html
+    assert "robustMinMax" in html
+    assert "drawSceneGrid" in html
+    assert "persp" in html
     assert "console.log" not in html
     payload = extract_review_payload(html)
     first_frame_path = payload["frames"][0]["path"]
@@ -185,6 +211,87 @@ def test_local_review_html_contains_synchronized_review_payload(tmp_path: Path):
     assert payload["pointCloudStats"]["count"] == len(payload["pointCloud"])
     assert payload["bundleQuality"]["point_count"] == len(payload["pointCloud"])
     assert payload["bundleQuality"]["uses_relative_depth_fallback"] is True
+    assert payload["playerDiagnosis"]["player_status"] == "ready"
+    assert payload["playerDiagnosis"]["reconstruction_status"] in {
+        "continuous_by_current_gate",
+        "pose_jump_gated",
+    }
+    assert payload["playerDiagnosis"]["checks"]
+    assert payload["methodStatus"]["methods"][0]["method_id"] == "vggt_feedforward_full"
+    assert payload["methodStatus"]["methods"][0]["status"] == "available"
+    assert any(row["method_id"] == "vggt_colmap_ba_windowed" for row in payload["methodStatus"]["methods"])
+    assert any(row["method_id"] == "openmvs_dense_mesh_baseline" for row in payload["methodStatus"]["methods"])
+    assert isinstance(payload["poseJumpIndices"], list)
+
+
+def test_local_review_html_previews_expanded_method_artifacts(tmp_path: Path):
+    frame_manifest, bundle_dir, summary_path, _video = create_mocked_summary(
+        tmp_path, "method-artifact-video"
+    )
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    summary["method_stage_report"] = {
+        "status": "done_partial",
+        "stages": [
+            {
+                "method_id": "vggt_colmap_ba_windowed",
+                "status": "done",
+                "reason": "COLMAP BA smoke artifact present",
+            }
+        ],
+    }
+    summary["method_artifact_audit"] = [
+        {
+            "method_id": "vggt_colmap_ba_windowed",
+            "status": "artifact_partial",
+            "found_count": 2,
+            "expected_count": 4,
+        }
+    ]
+    summary_path.write_text(json.dumps(summary), encoding="utf-8")
+    expanded = tmp_path / "expanded_artifacts"
+    expanded.mkdir()
+    (expanded / "colmap_sparse.zip").write_bytes(b"fake colmap sparse zip")
+    (expanded / "points_ply.zip").write_bytes(b"fake points ply zip")
+    (expanded / "points_ply_report.json").write_text(
+        json.dumps({"artifact": "points_ply.zip", "point_clouds": 1}),
+        encoding="utf-8",
+    )
+    (tmp_path / "method_stage_report.json").write_text(
+        json.dumps(summary["method_stage_report"]),
+        encoding="utf-8",
+    )
+    output = tmp_path / "review.html"
+
+    result = runner.invoke(
+        app,
+        [
+            "viz",
+            "render",
+            "--frame-manifest",
+            str(frame_manifest),
+            "--bundle",
+            str(bundle_dir),
+            "--summary",
+            str(summary_path),
+            "--output",
+            str(output),
+        ],
+    )
+
+    assert result.exit_code == 0, result.output
+    html = output.read_text(encoding="utf-8")
+    assert "colmap_sparse.zip" in html
+    assert "points_ply_report.json" in html
+    assert "artifact_partial" in html
+    assert "Preview points_ply_report.json" in html
+    payload = extract_review_payload(html)
+    colmap = next(
+        row for row in payload["methodStatus"]["methods"] if row["method_id"] == "vggt_colmap_ba_windowed"
+    )
+    assert colmap["found_count"] == 2
+    assert colmap["status"] == "artifact_partial"
+    assert any(artifact["name"] == "colmap_sparse.zip" for artifact in colmap["found_artifacts"])
+    assert payload["methodStatus"]["reports"]
 
 
 def test_local_review_html_embeds_image_space_heatmap_controls(tmp_path: Path):
@@ -671,3 +778,40 @@ def test_three_clip_review_can_generate_heatmap_artifacts(tmp_path: Path):
         html = Path(clip["review_html"]).read_text(encoding="utf-8")
         assert "heatmap-layer-select" in html
         assert "image-space heatmaps only" in html
+
+
+
+def test_local_review_html_surfaces_segment_cut_warnings(tmp_path: Path):
+    frame_manifest, bundle_dir, summary_path, _video = create_mocked_summary(
+        tmp_path, "segment-warning-video"
+    )
+    manifest = json.loads(frame_manifest.read_text(encoding="utf-8"))
+    first_frame = Path(manifest["frames"][0]["path"])
+    dark = np.zeros((120, 160, 3), dtype=np.uint8)
+    cv2.putText(dark, "TITLE", (28, 64), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (220, 220, 220), 2)
+    assert cv2.imwrite(str(first_frame), dark)
+    output = tmp_path / "review.html"
+
+    result = runner.invoke(
+        app,
+        [
+            "viz",
+            "render",
+            "--frame-manifest",
+            str(frame_manifest),
+            "--bundle",
+            str(bundle_dir),
+            "--summary",
+            str(summary_path),
+            "--output",
+            str(output),
+        ],
+    )
+
+    assert result.exit_code == 0, result.output
+    html = output.read_text(encoding="utf-8")
+    assert "Segment QA" in html
+    payload = extract_review_payload(html)
+    assert payload["segmentQuality"]["status"] == "needs_human_review"
+    assert payload["segmentQuality"]["sampledFrameCheck"]["flagged_frame_count"] >= 1
+    assert any("sampled frames include" in warning for warning in payload["segmentQuality"]["warnings"])
