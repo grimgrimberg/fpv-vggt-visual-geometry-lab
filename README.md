@@ -40,6 +40,40 @@ The current Hugging Face control-plane dataset is private:
 
 See `docs/hugging_face_fpv_hezbo.md` for the handoff rules.
 
+## What is not on the Git branch
+
+The GitHub branch is a code, docs, tests, and lightweight metadata handoff. It
+intentionally does not contain local media, local caches, generated GPU outputs,
+or real-media-derived review artifacts from `D:\Drone_Analysis_Dynamics`.
+
+At the time of the handoff, these ignored local paths existed or were reserved
+for local-only data:
+
+| Local path | What it contains | Why it is not pushed |
+| --- | --- | --- |
+| `data/catalog/` | Parsed catalog snapshots, local catalog parquet/json files, and current catalog working copies. | Rebuildable metadata cache; source catalog and HF handoff notes document provenance. |
+| `data/media/` | Downloaded third-party MP4s referenced by the source catalog. | Third-party media; not licensed for redistribution by this repo. |
+| `data/frames/` | Extracted/sampled frames and frame manifests from local videos. | Media-derived artifacts; may expose third-party footage. |
+| `data/annotations/` | Local segment acceptance/rejection files and review notes. | Local working annotations; may refer to media-derived review state. |
+| `data/vggt/` | Imported VGGT prediction bundles, camera arrays, point maps, depth/confidence arrays, and related outputs. | Reconstruction outputs from real media are local-only by default. |
+| `data/features/` | Derived feature tables and diagnostic features. | Generated from local media/reconstruction artifacts. |
+| `data/geometry/` | Geometry exports, point clouds, trajectories, and reconstruction summaries. | Real-media-derived geometry remains local-only unless explicitly release-reviewed. |
+| `data/models/` | Local model checkpoints or trained artifacts. | Models trained on real media are local-only unless explicitly release-reviewed. |
+| `outputs/` | Run logs, RunPod packages/returns, review HTML, package audits, summaries, charts, and generated reports. | Generated run artifacts; many can embed or reference local media-derived data. |
+| `.tmp/` | Scratch files from local smoke tests and packaging. | Ephemeral local cache. |
+| `.venv/` | Local Python virtual environment. | Machine-specific dependency install. |
+| `.pytest_cache/`, `.ruff_cache/`, `__pycache__/`, `src/fpv_vggt_lab/__pycache__/`, `tests/__pycache__/` | Python/test/lint caches. | Machine-generated cache files. |
+| `.agents/`, `.codex/`, `.codex-autoresearch/`, `.playwright-mcp/` | Local agent, Codex, browser, and automation state. | Machine/user-specific tooling state. |
+| `docs/superpowers/` | Local copied skill/reference material. | Local tooling support, not project source. |
+| `autoresearch-results/` | Local automated research outputs. | Generated local outputs, not reviewed project source. |
+| `end_boundary_browser_view.png` | Local browser screenshot from review/debugging. | Screenshot/media-derived capture; ignored to avoid accidental sharing. |
+| `h100 return/` | Only a tiny committed pointer README; actual H100 return files live under ignored `outputs/h100_returns/`. | Actual return bundles may contain media-derived reconstruction artifacts. |
+
+If another agent needs the exact local run state, give it access to the local
+machine or create a separate reviewed artifact handoff. Do not assume GitHub or
+Hugging Face should contain the real videos, extracted frames, returned bundles,
+point clouds, screenshots, checkpoints, or generated HTML reviews.
+
 ## Credit
 
 Dataset catalog credit goes to
@@ -283,4 +317,3 @@ media. Return import rejects forbidden feature columns before copying bundles.
 See `docs/safety_scope.md` and `docs/methodology.md` for details.
 For a RunPod-style GPU handoff and workstation migration checklist, see
 `docs/runpod_vggt.md`.
-
