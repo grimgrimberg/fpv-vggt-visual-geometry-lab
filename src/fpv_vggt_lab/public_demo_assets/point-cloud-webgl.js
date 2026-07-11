@@ -19,12 +19,41 @@
     return new URL(sceneJsonUrl, documentBase);
   }
 
-  function assetUrl(sceneUrl, path, label) {
+  function assetUrl(sceneDirectoryUrl, path, label) {
     requireValue(typeof path === "string" && path.length > 0, `${label}.path is required`);
-    requireValue(!path.startsWith("/") && !path.startsWith("\\"), `${label}.path must be relative`);
-    requireValue(!path.split(/[\\/]+/).includes(".."), `${label}.path must not traverse parents`);
-    const resolved = new URL(path, sceneUrl);
-    requireValue(resolved.origin === sceneUrl.origin, `${label}.path must remain same-origin`);
+    requireValue(!/^[A-Za-z][A-Za-z0-9+.-]*:/.test(path), `${label}.path must not use a scheme`);
+    requireValue(!path.startsWith("/"), `${label}.path must not use an authority or root path`);
+    requireValue(!path.includes("\\"), `${label}.path must use forward slashes`);
+    requireValue(!path.includes("?") && !path.includes("#"), `${label}.path must not alias a URL`);
+    const rawSegments = path.split("/");
+    requireValue(rawSegments.every((segment) => segment.length > 0), `${label}.path must be canonical`);
+    for (const segment of rawSegments) {
+      let decoded;
+      try {
+        decoded = decodeURIComponent(segment);
+      } catch (_error) {
+        requireValue(false, `${label}.path contains malformed percent encoding`);
+      }
+      requireValue(decoded !== "." && decoded !== "..", `${label}.path has a dot segment`);
+      requireValue(
+        !decoded.includes("/") && !decoded.includes("\\"),
+        `${label}.path has an encoded path separator`,
+      );
+      requireValue(
+        !decoded.includes("?") && !decoded.includes("#"),
+        `${label}.path has an encoded URL alias`,
+      );
+    }
+    const resolved = new URL(path, sceneDirectoryUrl);
+    requireValue(
+      resolved.origin === sceneDirectoryUrl.origin,
+      `${label}.path must remain same-origin`,
+    );
+    requireValue(
+      resolved.href.startsWith(sceneDirectoryUrl.href),
+      `${label}.path must remain inside the scene directory`,
+    );
+    requireValue(!resolved.search && !resolved.hash, `${label}.path must not alias a URL`);
     return resolved;
   }
 
@@ -54,7 +83,7 @@
   }
 
   async function fetchBuffer(url, expectedBytes, expectedSha256, label) {
-    const response = await fetch(url, { cache: "force-cache" });
+    const response = await fetch(url, { cache: "no-cache" });
     if (!response.ok) {
       throw new Error(`Point-cloud ${label} request failed (${response.status})`);
     }
@@ -118,8 +147,13 @@
       pointCount,
     );
     const sceneUrl = sceneDocumentUrl(sceneJsonUrl);
-    const positionsUrl = assetUrl(sceneUrl, pointCloud.positions.path, "positions");
-    const colorsUrl = assetUrl(sceneUrl, pointCloud.colors.path, "colors");
+    const sceneDirectoryUrl = new URL("./", sceneUrl);
+    const positionsUrl = assetUrl(
+      sceneDirectoryUrl,
+      pointCloud.positions.path,
+      "positions",
+    );
+    const colorsUrl = assetUrl(sceneDirectoryUrl, pointCloud.colors.path, "colors");
     const [positionBuffer, colorBuffer] = await Promise.all([
       fetchBuffer(positionsUrl, positionBytes, pointCloud.positions.sha256, "positions"),
       fetchBuffer(colorsUrl, colorBytes, pointCloud.colors.sha256, "colors"),
@@ -209,29 +243,42 @@
   }
 
   function linkProgram(gl) {
-    const vertex = compileShader(gl, gl.VERTEX_SHADER, VERTEX_SHADER, "vertex");
-    const fragment = compileShader(gl, gl.FRAGMENT_SHADER, FRAGMENT_SHADER, "fragment");
-    const program = gl.createProgram();
-    if (!program) throw new Error("Point-cloud shader program allocation failed");
-    gl.attachShader(program, vertex);
-    gl.attachShader(program, fragment);
-    gl.linkProgram(program);
-    gl.deleteShader(vertex);
-    gl.deleteShader(fragment);
-    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-      const detail = gl.getProgramInfoLog(program) || "unknown linker error";
-      gl.deleteProgram(program);
-      throw new Error(`Point-cloud shader program link failed: ${detail}`);
+    let vertex = null;
+    let fragment = null;
+    let program = null;
+    try {
+      vertex = compileShader(gl, gl.VERTEX_SHADER, VERTEX_SHADER, "vertex");
+      fragment = compileShader(gl, gl.FRAGMENT_SHADER, FRAGMENT_SHADER, "fragment");
+      program = gl.createProgram();
+      if (!program) throw new Error("Point-cloud shader program allocation failed");
+      gl.attachShader(program, vertex);
+      gl.attachShader(program, fragment);
+      gl.linkProgram(program);
+      if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+        const detail = gl.getProgramInfoLog(program) || "unknown linker error";
+        throw new Error(`Point-cloud shader program link failed: ${detail}`);
+      }
+      return program;
+    } catch (error) {
+      if (program) gl.deleteProgram(program);
+      throw error;
+    } finally {
+      if (vertex) gl.deleteShader(vertex);
+      if (fragment) gl.deleteShader(fragment);
     }
-    return program;
   }
 
   function createBuffer(gl, target, data, label) {
     const buffer = gl.createBuffer();
     if (!buffer) throw new Error(`Point-cloud ${label} buffer allocation failed`);
-    gl.bindBuffer(target, buffer);
-    gl.bufferData(target, data, gl.STATIC_DRAW);
-    return buffer;
+    try {
+      gl.bindBuffer(target, buffer);
+      gl.bufferData(target, data, gl.STATIC_DRAW);
+      return buffer;
+    } catch (error) {
+      gl.deleteBuffer(buffer);
+      throw error;
+    }
   }
 
   function requireLocation(gl, program, name, attribute = false) {
@@ -260,27 +307,38 @@
     });
     if (!gl) throw new Error("WebGL is unavailable for the authorized point sample");
 
-    const program = linkProgram(gl);
-    const positionBuffer = createBuffer(gl, gl.ARRAY_BUFFER, cloud.positions, "position");
-    const colorBuffer = createBuffer(gl, gl.ARRAY_BUFFER, cloud.colors, "color");
-    const locations = {
-      position: requireLocation(gl, program, "aPosition", true),
-      color: requireLocation(gl, program, "aColor", true),
-      center: requireLocation(gl, program, "uCenter"),
-      normalizationScale: requireLocation(gl, program, "uNormalizationScale"),
-      yaw: requireLocation(gl, program, "uYaw"),
-      pitch: requireLocation(gl, program, "uPitch"),
-      anchor: requireLocation(gl, program, "uAnchor"),
-      viewport: requireLocation(gl, program, "uViewport"),
-      base: requireLocation(gl, program, "uBase"),
-      depthFactor: requireLocation(gl, program, "uDepthFactor"),
-      minimumPerspective: requireLocation(gl, program, "uMinimumPerspective"),
-      scaleFactor: requireLocation(gl, program, "uScaleFactor"),
-      zoom: requireLocation(gl, program, "uZoom"),
-      pointSize: requireLocation(gl, program, "uPointSize"),
-      pixelRatio: requireLocation(gl, program, "uPixelRatio"),
-      alpha: requireLocation(gl, program, "uAlpha"),
-    };
+    let program = null;
+    let positionBuffer = null;
+    let colorBuffer = null;
+    let locations;
+    try {
+      program = linkProgram(gl);
+      positionBuffer = createBuffer(gl, gl.ARRAY_BUFFER, cloud.positions, "position");
+      colorBuffer = createBuffer(gl, gl.ARRAY_BUFFER, cloud.colors, "color");
+      locations = {
+        position: requireLocation(gl, program, "aPosition", true),
+        color: requireLocation(gl, program, "aColor", true),
+        center: requireLocation(gl, program, "uCenter"),
+        normalizationScale: requireLocation(gl, program, "uNormalizationScale"),
+        yaw: requireLocation(gl, program, "uYaw"),
+        pitch: requireLocation(gl, program, "uPitch"),
+        anchor: requireLocation(gl, program, "uAnchor"),
+        viewport: requireLocation(gl, program, "uViewport"),
+        base: requireLocation(gl, program, "uBase"),
+        depthFactor: requireLocation(gl, program, "uDepthFactor"),
+        minimumPerspective: requireLocation(gl, program, "uMinimumPerspective"),
+        scaleFactor: requireLocation(gl, program, "uScaleFactor"),
+        zoom: requireLocation(gl, program, "uZoom"),
+        pointSize: requireLocation(gl, program, "uPointSize"),
+        pixelRatio: requireLocation(gl, program, "uPixelRatio"),
+        alpha: requireLocation(gl, program, "uAlpha"),
+      };
+    } catch (error) {
+      if (colorBuffer) gl.deleteBuffer(colorBuffer);
+      if (positionBuffer) gl.deleteBuffer(positionBuffer);
+      if (program) gl.deleteProgram(program);
+      throw error;
+    }
     let disposed = false;
     let contextLost = false;
 

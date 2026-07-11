@@ -278,6 +278,22 @@ button { color: inherit; }
   font-size: 16px;
 }
 
+.point-cloud-credit[hidden] { display: none !important; }
+.gallery-proof .point-cloud-credit {
+  margin: 28px 0 0;
+  border-top: 1px solid var(--line);
+}
+.gallery-proof .point-cloud-credit div {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.7fr) minmax(0, 1.3fr);
+  gap: 18px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+.gallery-proof .point-cloud-credit dt { color: var(--muted); font: 9px var(--mono); }
+.gallery-proof .point-cloud-credit dd { margin: 0; color: #b8c9cc; font-size: 11px; }
+.point-cloud-credit dd { overflow-wrap: anywhere; }
+
 .section-intro.compact { grid-column: 1 / -1; }
 
 .proof-lines { border-top: 1px solid var(--line); }

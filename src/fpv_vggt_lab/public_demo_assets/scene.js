@@ -426,6 +426,24 @@ function renderProvenance() {
   list.replaceChildren(...nodes);
 }
 
+function renderScenePointCloudCredit() {
+  const credit = document.getElementById("scene-point-cloud-credit");
+  const pointCloud = state.data.point_cloud;
+  const authorized = pointCloud
+    && state.data.publication_boundary?.real_point_sample_published === true;
+  if (!authorized) {
+    credit.hidden = true;
+    document.getElementById("scene-point-cloud-attribution").textContent = "";
+    document.getElementById("scene-point-cloud-authorization").textContent = "";
+    return;
+  }
+  document.getElementById("scene-point-cloud-attribution").textContent =
+    pointCloud.attribution;
+  document.getElementById("scene-point-cloud-authorization").textContent =
+    pointCloud.authorization_provenance;
+  credit.hidden = false;
+}
+
 function renderMediaNotice() {
   const declared = state.data.point_cloud
     && state.data.publication_boundary?.real_point_sample_published === true;
@@ -566,6 +584,7 @@ async function initializeScene() {
     `${state.data.match_connectivity.node_count} nodes · ${state.data.match_connectivity.edge_count.toLocaleString()} edges`;
   renderMethodTabs(state.data.methods);
   renderProvenance();
+  renderScenePointCloudCredit();
   renderMediaNotice();
   renderFailureCase();
   wireControls();

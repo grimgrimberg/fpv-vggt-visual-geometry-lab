@@ -75,6 +75,24 @@ function activateGalleryPointCloud(cloud, renderer) {
     + "reprojections, raw NPZ/PLY, full arrays, and machine paths remain withheld.";
 }
 
+function renderGalleryPointCloudCredit() {
+  const credit = document.getElementById("gallery-point-cloud-credit");
+  const pointCloud = galleryState.data.point_cloud;
+  const authorized = pointCloud
+    && galleryState.data.publication_boundary?.real_point_sample_published === true;
+  if (!authorized) {
+    credit.hidden = true;
+    document.getElementById("gallery-point-cloud-attribution").textContent = "";
+    document.getElementById("gallery-point-cloud-authorization").textContent = "";
+    return;
+  }
+  document.getElementById("gallery-point-cloud-attribution").textContent =
+    pointCloud.attribution;
+  document.getElementById("gallery-point-cloud-authorization").textContent =
+    pointCloud.authorization_provenance;
+  credit.hidden = false;
+}
+
 async function initializeGalleryPointCloud() {
   const declared = galleryState.data.point_cloud
     && galleryState.data.publication_boundary?.real_point_sample_published === true;
@@ -199,6 +217,7 @@ async function initializeGallery() {
   document.getElementById("hero-pose-count").textContent = String(galleryState.data.sample_count);
   document.getElementById("hero-connectivity").textContent =
     `${galleryState.data.match_connectivity.connected_component_count} component`;
+  renderGalleryPointCloudCredit();
   renderGalleryMethods(galleryState.data.methods);
   await initializeGalleryPointCloud();
   document.body.classList.add("ready");
