@@ -15,7 +15,7 @@
       <span class="wordmark-signal" aria-hidden="true"></span>
       <strong>FPV GEOMETRY LAB</strong>
     </a>
-    <div class="header-meta"><span>Public research edition</span><span class="status-chip">relative only</span></div>
+    <div class="header-meta"><a class="header-catalog-link" href="#catalog">Browse catalog</a><span>Public research edition</span><span class="status-chip">relative only</span></div>
   </header>
 
   <main>
@@ -35,6 +35,44 @@
         <div><dt>Public geometry</dt><dd id="hero-cell-count">120,000 points · relative_only</dd></div>
       </dl>
       <div class="scroll-cue" aria-hidden="true"><span></span>Read the evidence</div>
+    </section>
+
+    <section id="catalog" class="gallery-catalog" aria-labelledby="catalog-title">
+      <div class="catalog-heading">
+        <div>
+          <p class="eyebrow">Historical collection</p>
+          <h2 id="catalog-title">Browse metadata, edits, and research availability.</h2>
+        </div>
+        <p id="catalog-count" class="catalog-count" aria-live="polite">Catalog loading</p>
+      </div>
+      <div class="catalog-controls" aria-label="Catalog filters">
+        <label class="catalog-search-field">
+          <span>Search</span>
+          <input id="catalog-search" type="search" placeholder="Town, date, or description" autocomplete="off">
+        </label>
+        <label>
+          <span>Order</span>
+          <select id="catalog-sort">
+            <option value="date-desc">Newest first</option>
+            <option value="date-asc">Oldest first</option>
+          </select>
+        </label>
+        <label>
+          <span>Annotation</span>
+          <select id="catalog-annotation">
+            <option value="all">All states</option>
+            <option value="manual_ground_truth">Manual</option>
+            <option value="auto_generated">Automatic</option>
+            <option value="unreviewed">Unreviewed</option>
+          </select>
+        </label>
+        <label class="catalog-check">
+          <input id="catalog-scenes-only" type="checkbox">
+          <span>3D scenes only</span>
+        </label>
+      </div>
+      <div id="catalog-grid" class="catalog-grid" aria-live="polite"></div>
+      <p class="catalog-boundary">No thumbnails or video are embedded. Diagrams encode edit structure and research availability from sanitized metadata only.</p>
     </section>
 
     <section class="gallery-proof section-shell" aria-labelledby="proof-title">
@@ -71,8 +109,9 @@
     </section>
   </main>
 
-  <footer class="site-footer"><span>Built 2026-07-11T19:27:38.046698Z</span><span>Offline academic review · non-metric · no media redistribution</span></footer>
+  <footer class="site-footer"><span>Built 2026-07-11T21:37:25.324530Z</span><span>Offline academic review · non-metric · no media redistribution</span></footer>
   <script src="assets/point-cloud-webgl.js" defer></script>
+  <script src="assets/catalog.js" defer></script>
   <script src="assets/gallery.js" defer></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 {
   "audit": {
-    "checked_file_count": 10,
+    "checked_file_count": 12,
     "finding_count": 0,
     "findings": [],
     "scope": "effective public demo tree",
@@ -13,6 +13,11 @@
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
+      "bytes": 10499,
+      "path": "assets/catalog.js",
+      "sha256": "ffe51a24b2bca42721a317ec9d3fadb8c938359e9815b88de5f661b4cfe1bee5"
+    },
+    {
       "bytes": 9684,
       "path": "assets/gallery.js",
       "sha256": "41ffc0e72676540cd0646f0fe7f7a7c39d0c50737bd3f6788fa2b5b38acceca0"
@@ -23,19 +28,24 @@
       "sha256": "f834172f8eea518dc106a32228a49827c2b9246de120e82c323bd1ccf7f99077"
     },
     {
-      "bytes": 25013,
+      "bytes": 27440,
       "path": "assets/scene.js",
-      "sha256": "3f8d5a2a801d7aab17b375c6e74c7913ff90e2dbd62bd027f9dac06b2bf9f4ed"
+      "sha256": "1b9dc65e55ead043eb40fa422823e9920789b4f2b6f2afacc4b18ba07f2a0a66"
     },
     {
-      "bytes": 18512,
+      "bytes": 23451,
       "path": "assets/site.css",
-      "sha256": "2c806d07e401e3f774bb288eacbc3e0edeb0ca39d229860d7bea94ccd204d9d6"
+      "sha256": "40dcdb3ec03314d9dccd4692fc39eaec7e4fb3d27b3ba76d349b9454deb2658d"
     },
     {
-      "bytes": 4925,
+      "bytes": 334960,
+      "path": "catalog.json",
+      "sha256": "4118e13678e9e53a601d8857f111137d7bdea3d48ea10d82efaea31b51176d63"
+    },
+    {
+      "bytes": 6769,
       "path": "index.html",
-      "sha256": "3bbbb527cff81ce9bc509d7c3285af0208bb8f1a12caa731c040f2e0285f48e0"
+      "sha256": "62d152fc1c2bcecb9a6e6362089724518109438ce5460aff658171eb4099858c"
     },
     {
       "bytes": 360000,
@@ -48,17 +58,17 @@
       "sha256": "5c7426ce852d73aec2fe2503abfb97353dbb1031776112ba1908bafb1246bca1"
     },
     {
-      "bytes": 6380,
+      "bytes": 6807,
       "path": "scenes/engineering-vehicle-relative-geometry/index.html",
-      "sha256": "224c5a676f0465e1c46e2dcd75c8f2e889ba9b0dc5b4687b614bf9ed59fce83e"
+      "sha256": "3d90379e7103aae0c3d8057a76cc8a7fc1dedc8904cd7724b59aaca1585fadef"
     },
     {
-      "bytes": 136678,
+      "bytes": 137516,
       "path": "scenes/engineering-vehicle-relative-geometry/scene.json",
-      "sha256": "c9ef9889a378d8611b4e1b73d4c289873bb37336ab3a95a07119ed137972228c"
+      "sha256": "6496cd830b7eaf574ab5ea9f936715e005be3457fff22bfb69d5b7e280251edf"
     }
   ],
-  "generated_at": "2026-07-11T19:27:38.046698Z",
+  "generated_at": "2026-07-11T21:37:25.324530Z",
   "point_cloud": {
     "attribution": "Itamar Weiss / FPV Drone Strikes Open Dataset",
     "authorization_provenance": "Dataset maintainer Itamar approval reported by the project owner on 2026-07-11",

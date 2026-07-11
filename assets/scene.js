@@ -461,6 +461,61 @@ function renderMediaNotice() {
     );
 }
 
+function renderSceneCatalogMeta() {
+  const catalog = state.data.catalog || {};
+  const annotation = state.data.annotation?.kind || catalog.annotation_state || "unreviewed";
+  document.getElementById("scene-catalog-meta").textContent =
+    `${catalog.date || "date unavailable"} · ${catalog.town || "town unavailable"} · `
+    + annotation.replaceAll("_", " ");
+}
+
+function editTimelineBounds() {
+  const segments = state.data.edit_segments || [];
+  if (!segments.length) return { start: 0, end: 1 };
+  return {
+    start: Math.min(...segments.map((segment) => Number(segment.start_s))),
+    end: Math.max(...segments.map((segment) => Number(segment.end_s))),
+  };
+}
+
+function renderEditTimeline() {
+  const timeline = document.getElementById("edit-timeline");
+  const cursor = document.getElementById("edit-cursor");
+  const segments = state.data.edit_segments || [];
+  const bounds = editTimelineBounds();
+  const duration = Math.max(bounds.end - bounds.start, 1e-9);
+  const nodes = segments.map((segment) => {
+    const item = document.createElement("span");
+    item.className = `edit-segment edit-${segment.type}`;
+    item.style.left = `${100 * (segment.start_s - bounds.start) / duration}%`;
+    item.style.width = `${100 * (segment.end_s - segment.start_s) / duration}%`;
+    item.title = `${segment.label} · ${segment.review_status.replaceAll("_", " ")}`;
+    item.setAttribute("aria-label", item.title);
+    return item;
+  });
+  if (!nodes.length) {
+    const empty = document.createElement("span");
+    empty.className = "edit-timeline-empty";
+    empty.textContent = "edit segmentation unavailable";
+    nodes.push(empty);
+  }
+  timeline.replaceChildren(...nodes, cursor);
+  updateEditCursor();
+}
+
+function updateEditCursor() {
+  const cursor = document.getElementById("edit-cursor");
+  if (!cursor || !state.data) return;
+  const normalized = state.activeSample / Math.max(state.data.sample_count - 1, 1);
+  const bounds = editTimelineBounds();
+  const interval = state.data.annotation?.source_interval;
+  const sourceTime = interval
+    ? interval.start_s + normalized * (interval.end_s - interval.start_s)
+    : bounds.start + normalized * (bounds.end - bounds.start);
+  const position = (sourceTime - bounds.start) / Math.max(bounds.end - bounds.start, 1e-9);
+  cursor.style.left = `${Math.max(0, Math.min(1, position)) * 100}%`;
+}
+
 function renderFailureCase() {
   const failure = state.data.failure_case;
   document.getElementById("failure-status").textContent = failure.status.replaceAll("_", " ");
@@ -491,6 +546,7 @@ function setActiveSample(index) {
   const orientation = state.data.orientations[state.activeSample];
   document.getElementById("trajectory-readout").textContent =
     `t ${orientation.time_normalized.toFixed(3)} · confidence ${orientation.confidence.toFixed(2)}`;
+  updateEditCursor();
   requestAnimationFrame(renderScene);
   requestAnimationFrame(drawTrajectoryProfiles);
 }
@@ -584,6 +640,8 @@ async function initializeScene() {
     `${state.data.match_connectivity.node_count} nodes · ${state.data.match_connectivity.edge_count.toLocaleString()} edges`;
   renderMethodTabs(state.data.methods);
   renderProvenance();
+  renderSceneCatalogMeta();
+  renderEditTimeline();
   renderScenePointCloudCredit();
   renderMediaNotice();
   renderFailureCase();
