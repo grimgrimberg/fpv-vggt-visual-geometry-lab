@@ -23,12 +23,18 @@ AUTHORIZATION = "Dataset maintainer approval reported by the project owner on 20
 ATTRIBUTION = "Itamar Weiss / FPV Drone Strikes Open Dataset"
 
 
-def _authorized_config(scene: Path, archive: Path, output: Path) -> PublicDemoConfig:
+def _authorized_config(
+    scene: Path,
+    archive: Path,
+    output: Path,
+    *,
+    slug: str = "relative-geometry-study",
+) -> PublicDemoConfig:
     return PublicDemoConfig(
         scene_root=scene,
         archive_root=archive,
         output_root=output,
-        slug="relative-geometry-study",
+        slug=slug,
         public_title="Relative Geometry Study",
         path_sample_count=16,
         max_density_cells=80,
@@ -144,6 +150,57 @@ def test_default_rebuild_removes_known_authorized_point_binaries(tmp_path: Path)
     assert "point_cloud" not in manifest
     assert not list(output.rglob("*.bin"))
     assert retained_text.read_text(encoding="utf-8") == "retain non-binary output"
+
+
+def test_build_rejects_preexisting_forbidden_binary_anywhere(tmp_path: Path) -> None:
+    scene, archive = _synthetic_sources(tmp_path)
+    output = tmp_path / "docs"
+    rogue = output / "unrelated" / "nested" / "rogue.bin"
+    rogue.parent.mkdir(parents=True)
+    rogue.write_bytes(b"not an authorized public asset")
+
+    with pytest.raises(PublicDemoError, match="forbidden public file type"):
+        build_public_demo(
+            PublicDemoConfig(
+                scene_root=scene,
+                archive_root=archive,
+                output_root=output,
+                slug="relative-geometry-study",
+                public_title="Relative Geometry Study",
+                generated_at="2026-07-11T12:10:00Z",
+            )
+        )
+
+    assert rogue.read_bytes() == b"not an authorized public asset"
+
+
+def test_cross_slug_default_build_rejects_stale_authorized_binaries(tmp_path: Path) -> None:
+    scene, archive = _synthetic_sources(tmp_path)
+    output = tmp_path / "docs"
+    build_public_demo(
+        _authorized_config(scene, archive, output, slug="authorized-alpha")
+    )
+    stale_position = (
+        output
+        / "scenes"
+        / "authorized-alpha"
+        / "geometry"
+        / "vggt_omega_points.f32.bin"
+    )
+
+    with pytest.raises(PublicDemoError, match="forbidden public file type"):
+        build_public_demo(
+            PublicDemoConfig(
+                scene_root=scene,
+                archive_root=archive,
+                output_root=output,
+                slug="default-beta",
+                public_title="Default Beta",
+                generated_at="2026-07-11T12:15:00Z",
+            )
+        )
+
+    assert stale_position.is_file()
 
 
 @pytest.mark.parametrize(

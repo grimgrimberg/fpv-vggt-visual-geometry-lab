@@ -264,7 +264,7 @@ def build_public_demo(config: PublicDemoConfig) -> PublicDemoBuildResult:
 
     audit = audit_public_demo(
         output_root,
-        generated_files,
+        _build_audit_candidates(output_root, generated_files),
         authorized_binary_paths=authorized_binary_paths,
     )
     if audit["status"] != "passed":
@@ -290,7 +290,7 @@ def build_public_demo(config: PublicDemoConfig) -> PublicDemoBuildResult:
 
     final_audit = audit_public_demo(
         output_root,
-        generated_files,
+        _build_audit_candidates(output_root, generated_files),
         authorized_binary_paths=authorized_binary_paths,
     )
     if final_audit["status"] != "passed":
@@ -349,6 +349,14 @@ def audit_public_demo(
         "findings": findings,
         "scope": "generated public demo files",
     }
+
+
+def _build_audit_candidates(root: Path, generated_files: Iterable[Path]) -> list[Path]:
+    candidates = {path.resolve(): path for path in generated_files}
+    for path in root.rglob("*"):
+        if path.is_file() and path.suffix.lower() in FORBIDDEN_PUBLIC_SUFFIXES:
+            candidates.setdefault(path.resolve(), path)
+    return list(candidates.values())
 
 
 def _read_json(path: Path) -> dict[str, Any]:
