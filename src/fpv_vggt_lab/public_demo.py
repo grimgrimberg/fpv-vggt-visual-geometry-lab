@@ -4,8 +4,10 @@ import hashlib
 import html
 import json
 import math
+import os
 import re
 import shutil
+import tempfile
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -94,9 +96,53 @@ class PublicDemoBuildResult:
 
 def build_public_demo(config: PublicDemoConfig) -> PublicDemoBuildResult:
     """Build an allowlisted public demonstration from private derived artifacts."""
+    final_output_root = config.output_root.resolve()
+    final_output_root.parent.mkdir(parents=True, exist_ok=True)
+    staging_root = Path(
+        tempfile.mkdtemp(
+            prefix=f".{final_output_root.name or 'public-demo'}.stage-",
+            dir=final_output_root.parent,
+        )
+    )
+    try:
+        staged_result, staged_relative_paths, managed_relative_paths = (
+            _build_public_demo_stage(
+                config,
+                staging_root=staging_root,
+                final_output_root=final_output_root,
+            )
+        )
+        scene_relative = staged_result.scene_entry.relative_to(staging_root)
+        manifest_relative = staged_result.manifest.relative_to(staging_root)
+        _publish_staged_public_demo(
+            staging_root=staging_root,
+            output_root=final_output_root,
+            staged_relative_paths=staged_relative_paths,
+            managed_relative_paths=managed_relative_paths,
+            slug=config.slug,
+        )
+        return PublicDemoBuildResult(
+            status=staged_result.status,
+            output_root=final_output_root,
+            scene_entry=final_output_root / scene_relative,
+            manifest=final_output_root / manifest_relative,
+            file_count=staged_result.file_count,
+            total_bytes=staged_result.total_bytes,
+            audit=staged_result.audit,
+        )
+    finally:
+        shutil.rmtree(staging_root, ignore_errors=True)
+
+
+def _build_public_demo_stage(
+    config: PublicDemoConfig,
+    *,
+    staging_root: Path,
+    final_output_root: Path,
+) -> tuple[PublicDemoBuildResult, tuple[str, ...], set[str]]:
     scene_root = config.scene_root.resolve()
     archive_root = config.archive_root.resolve()
-    output_root = config.output_root.resolve()
+    output_root = staging_root.resolve()
     viewer = scene_root / "viewer"
     diagnostics = scene_root / "diagnostics"
     visualization = scene_root / "visualization"
@@ -146,8 +192,6 @@ def build_public_demo(config: PublicDemoConfig) -> PublicDemoBuildResult:
         authorized_binary_paths = tuple(
             path.relative_to(output_root).as_posix() for path in point_files
         )
-    else:
-        _remove_generated_point_cloud_assets(scene_dir)
 
     generated_at = config.generated_at or datetime.now(timezone.utc).isoformat().replace(
         "+00:00", "Z"
@@ -262,9 +306,14 @@ def build_public_demo(config: PublicDemoConfig) -> PublicDemoBuildResult:
     nojekyll.write_text("", encoding="utf-8")
     generated_files.extend((index_path, scene_entry, scene_json, nojekyll))
 
-    audit = audit_public_demo(
-        output_root,
-        _build_audit_candidates(output_root, generated_files),
+    managed_relative_paths = _managed_public_paths(
+        (path.relative_to(output_root).as_posix() for path in generated_files),
+        config.slug,
+    )
+    audit = _audit_effective_public_tree(
+        staging_root=output_root,
+        output_root=final_output_root,
+        managed_relative_paths=managed_relative_paths,
         authorized_binary_paths=authorized_binary_paths,
     )
     if audit["status"] != "passed":
@@ -288,21 +337,29 @@ def build_public_demo(config: PublicDemoConfig) -> PublicDemoBuildResult:
     )
     generated_files.append(manifest_path)
 
-    final_audit = audit_public_demo(
-        output_root,
-        _build_audit_candidates(output_root, generated_files),
+    final_audit = _audit_effective_public_tree(
+        staging_root=output_root,
+        output_root=final_output_root,
+        managed_relative_paths=managed_relative_paths,
         authorized_binary_paths=authorized_binary_paths,
     )
     if final_audit["status"] != "passed":
         raise PublicDemoError("build manifest failed the final public output audit")
-    return PublicDemoBuildResult(
-        status="built",
-        output_root=output_root,
-        scene_entry=scene_entry,
-        manifest=manifest_path,
-        file_count=len(generated_files),
-        total_bytes=sum(path.stat().st_size for path in generated_files),
-        audit=final_audit,
+    staged_relative_paths = tuple(
+        path.relative_to(output_root).as_posix() for path in generated_files
+    )
+    return (
+        PublicDemoBuildResult(
+            status="built",
+            output_root=output_root,
+            scene_entry=scene_entry,
+            manifest=manifest_path,
+            file_count=len(generated_files),
+            total_bytes=sum(path.stat().st_size for path in generated_files),
+            audit=final_audit,
+        ),
+        staged_relative_paths,
+        managed_relative_paths,
     )
 
 
@@ -313,7 +370,7 @@ def audit_public_demo(
 ) -> dict[str, Any]:
     """Fail closed on media, raw arrays, external runtimes, paths, and secrets."""
     root = root.resolve()
-    candidates = list(paths) if paths is not None else [path for path in root.rglob("*") if path.is_file()]
+    candidates = list(paths) if paths is not None else _public_tree_files(root)
     binary_allowlist = set(authorized_binary_paths)
     findings: list[dict[str, str]] = []
     checked = 0
@@ -347,16 +404,171 @@ def audit_public_demo(
         "checked_file_count": checked,
         "finding_count": len(findings),
         "findings": findings,
-        "scope": "generated public demo files",
+        "scope": "public demo files",
     }
 
 
-def _build_audit_candidates(root: Path, generated_files: Iterable[Path]) -> list[Path]:
-    candidates = {path.resolve(): path for path in generated_files}
+def _public_tree_files(root: Path) -> list[Path]:
+    if not root.is_dir():
+        return []
+    files: list[Path] = []
     for path in root.rglob("*"):
-        if path.is_file() and path.suffix.lower() in FORBIDDEN_PUBLIC_SUFFIXES:
-            candidates.setdefault(path.resolve(), path)
-    return list(candidates.values())
+        if not path.is_file():
+            continue
+        relative = path.relative_to(root)
+        if ".git" in relative.parts:
+            continue
+        files.append(path)
+    return files
+
+
+def _managed_public_paths(staged_relative_paths: Iterable[str], slug: str) -> set[str]:
+    paths = set(staged_relative_paths)
+    paths.update(
+        {
+            "build-manifest.json",
+            f"scenes/{slug}/geometry/{POINT_POSITION_ASSET}",
+            f"scenes/{slug}/geometry/{POINT_COLOR_ASSET}",
+        }
+    )
+    return paths
+
+
+def _audit_effective_public_tree(
+    *,
+    staging_root: Path,
+    output_root: Path,
+    managed_relative_paths: set[str],
+    authorized_binary_paths: Iterable[str],
+) -> dict[str, Any]:
+    staged_report = audit_public_demo(
+        staging_root,
+        _public_tree_files(staging_root),
+        authorized_binary_paths=authorized_binary_paths,
+    )
+    existing_unmanaged = [
+        path
+        for path in _public_tree_files(output_root)
+        if path.relative_to(output_root).as_posix() not in managed_relative_paths
+    ]
+    existing_report = audit_public_demo(output_root, existing_unmanaged)
+    findings = [*staged_report["findings"], *existing_report["findings"]]
+    return {
+        "status": "failed" if findings else "passed",
+        "checked_file_count": (
+            staged_report["checked_file_count"] + existing_report["checked_file_count"]
+        ),
+        "finding_count": len(findings),
+        "findings": findings,
+        "scope": "effective public demo tree",
+    }
+
+
+def _publish_staged_public_demo(
+    *,
+    staging_root: Path,
+    output_root: Path,
+    staged_relative_paths: Iterable[str],
+    managed_relative_paths: Iterable[str],
+    slug: str,
+) -> None:
+    backup_root = Path(
+        tempfile.mkdtemp(
+            prefix=f".{output_root.name or 'public-demo'}.backup-",
+            dir=output_root.parent,
+        )
+    )
+    backed_up: list[tuple[str, Path]] = []
+    published: list[str] = []
+    created_directories: set[Path] = set()
+    retain_backup = False
+    try:
+        for relative in sorted(set(managed_relative_paths)):
+            destination = _public_target(output_root, relative)
+            if destination.is_file() or destination.is_symlink():
+                backup = _public_target(backup_root, relative)
+                backup.parent.mkdir(parents=True, exist_ok=True)
+                os.replace(destination, backup)
+                backed_up.append((relative, backup))
+            elif destination.exists():
+                raise PublicDemoError(f"managed public path is not a file: {relative}")
+
+        for relative in sorted(set(staged_relative_paths)):
+            source = _public_target(staging_root, relative)
+            if not source.is_file():
+                raise PublicDemoError(f"staged public file is missing: {relative}")
+            destination = _public_target(output_root, relative)
+            _ensure_public_directory(
+                destination.parent,
+                output_root=output_root,
+                created_directories=created_directories,
+            )
+            os.replace(source, destination)
+            published.append(relative)
+
+        geometry_dir = output_root / "scenes" / slug / "geometry"
+        if geometry_dir.is_dir() and not any(geometry_dir.iterdir()):
+            geometry_dir.rmdir()
+    except Exception as exc:
+        rollback_errors: list[str] = []
+        for relative in reversed(published):
+            destination = _public_target(output_root, relative)
+            try:
+                if destination.is_file() or destination.is_symlink():
+                    destination.unlink()
+            except OSError as rollback_exc:
+                rollback_errors.append(f"remove {relative}: {rollback_exc}")
+        for relative, backup in reversed(backed_up):
+            destination = _public_target(output_root, relative)
+            try:
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                os.replace(backup, destination)
+            except OSError as rollback_exc:
+                rollback_errors.append(f"restore {relative}: {rollback_exc}")
+        for directory in sorted(
+            created_directories,
+            key=lambda path: len(path.parts),
+            reverse=True,
+        ):
+            try:
+                if directory.is_dir() and not any(directory.iterdir()):
+                    directory.rmdir()
+            except OSError as rollback_exc:
+                rollback_errors.append(f"remove directory {directory.name}: {rollback_exc}")
+        if rollback_errors:
+            retain_backup = True
+            detail = "; ".join(rollback_errors)
+            raise PublicDemoError(
+                f"transactional public publish failed and rollback was incomplete: {detail}"
+            ) from exc
+        raise PublicDemoError("transactional public publish failed") from exc
+    finally:
+        if not retain_backup:
+            shutil.rmtree(backup_root, ignore_errors=True)
+
+
+def _public_target(root: Path, relative: str) -> Path:
+    relative_path = Path(relative)
+    if relative_path.is_absolute() or ".." in relative_path.parts:
+        raise PublicDemoError(f"invalid managed public path: {relative}")
+    return root / relative_path
+
+
+def _ensure_public_directory(
+    directory: Path,
+    *,
+    output_root: Path,
+    created_directories: set[Path],
+) -> None:
+    missing: list[Path] = []
+    current = directory
+    while not current.exists():
+        if current == output_root.parent:
+            raise PublicDemoError("managed public path escapes output root")
+        missing.append(current)
+        current = current.parent
+    directory.mkdir(parents=True, exist_ok=True)
+    created_directories.update(missing)
 
 
 def _read_json(path: Path) -> dict[str, Any]:
@@ -533,16 +745,6 @@ def _publish_authorized_point_cloud(
         },
         [position_destination, color_destination],
     )
-
-
-def _remove_generated_point_cloud_assets(scene_dir: Path) -> None:
-    geometry_dir = scene_dir / "geometry"
-    for name in (POINT_POSITION_ASSET, POINT_COLOR_ASSET):
-        path = geometry_dir / name
-        if path.is_file() or path.is_symlink():
-            path.unlink()
-    if geometry_dir.is_dir() and not any(geometry_dir.iterdir()):
-        geometry_dir.rmdir()
 
 
 def _binary_record(path: Path, scene_dir: Path, *, dtype: str) -> dict[str, Any]:
@@ -950,7 +1152,7 @@ def _file_record(path: Path, root: Path) -> dict[str, Any]:
 def main(
     scene_root: Path = typer.Option(..., "--scene-root", exists=True, file_okay=False),
     archive_root: Path = typer.Option(..., "--archive-root", exists=True, file_okay=False),
-    output_root: Path = typer.Option(Path("docs"), "--output-root"),
+    output_root: Path = typer.Option(Path("build/public_demo"), "--output-root"),
     slug: str = typer.Option(..., "--slug"),
     title: str = typer.Option(..., "--title"),
     path_samples: int = typer.Option(96, "--path-samples", min=8, max=160),

@@ -2,12 +2,14 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 from pathlib import Path
 
 import numpy as np
 import pytest
 import typer
 
+import fpv_vggt_lab.public_demo as public_demo
 from fpv_vggt_lab.public_demo import (
     PUBLIC_SCHEMA_VERSION,
     PublicDemoConfig,
@@ -21,6 +23,14 @@ from tests.test_public_demo import _synthetic_sources
 
 AUTHORIZATION = "Dataset maintainer approval reported by the project owner on 2026-07-11"
 ATTRIBUTION = "Itamar Weiss / FPV Drone Strikes Open Dataset"
+
+
+def _tree_bytes(root: Path) -> dict[str, bytes]:
+    return {
+        path.relative_to(root).as_posix(): path.read_bytes()
+        for path in root.rglob("*")
+        if path.is_file()
+    }
 
 
 def _authorized_config(
@@ -203,6 +213,147 @@ def test_cross_slug_default_build_rejects_stale_authorized_binaries(tmp_path: Pa
     assert stale_position.is_file()
 
 
+def test_build_rejects_preexisting_stale_text_leak_without_mutation(tmp_path: Path) -> None:
+    scene, archive = _synthetic_sources(tmp_path)
+    output = tmp_path / "docs"
+    stale = output / "legacy" / "stale.html"
+    stale.parent.mkdir(parents=True)
+    stale.write_text(
+        '<script src="https://cdn.example.invalid/runtime.js"></script>'
+        '<a href="D:\\private\\source.mp4">leak</a>',
+        encoding="utf-8",
+    )
+    before = _tree_bytes(output)
+
+    with pytest.raises(PublicDemoError, match="public output audit failed"):
+        build_public_demo(
+            PublicDemoConfig(
+                scene_root=scene,
+                archive_root=archive,
+                output_root=output,
+                slug="relative-geometry-study",
+                public_title="Relative Geometry Study",
+                generated_at="2026-07-11T12:20:00Z",
+            )
+        )
+
+    assert _tree_bytes(output) == before
+
+
+def test_build_excludes_git_internals_from_effective_public_audit(tmp_path: Path) -> None:
+    scene, archive = _synthetic_sources(tmp_path)
+    output = tmp_path / "docs"
+    git_internal = output / ".git" / "audit-fixture.html"
+    git_internal.parent.mkdir(parents=True)
+    git_internal.write_text('<a href="D:\\private\\ignored">ignored</a>', encoding="utf-8")
+
+    build_public_demo(
+        PublicDemoConfig(
+            scene_root=scene,
+            archive_root=archive,
+            output_root=output,
+            slug="relative-geometry-study",
+            public_title="Relative Geometry Study",
+            generated_at="2026-07-11T12:25:00Z",
+        )
+    )
+
+    assert git_internal.read_text(encoding="utf-8") == (
+        '<a href="D:\\private\\ignored">ignored</a>'
+    )
+
+
+def test_late_template_audit_failure_leaves_prior_output_unchanged(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    scene, archive = _synthetic_sources(tmp_path)
+    output = tmp_path / "docs"
+    build_public_demo(
+        PublicDemoConfig(
+            scene_root=scene,
+            archive_root=archive,
+            output_root=output,
+            slug="relative-geometry-study",
+            public_title="Original Study",
+            generated_at="2026-07-11T12:30:00Z",
+        )
+    )
+    before = _tree_bytes(output)
+    original_render = public_demo._render_template
+
+    def render_with_late_leak(path: Path, replacements: dict[str, str]) -> str:
+        rendered = original_render(path, replacements)
+        if path.name == "gallery.html":
+            return f'{rendered}\n<a href="D:\\private\\late-leak">leak</a>'
+        return rendered
+
+    monkeypatch.setattr(public_demo, "_render_template", render_with_late_leak)
+
+    with pytest.raises(PublicDemoError, match="public output audit failed"):
+        build_public_demo(
+            PublicDemoConfig(
+                scene_root=scene,
+                archive_root=archive,
+                output_root=output,
+                slug="relative-geometry-study",
+                public_title="Changed Study",
+                generated_at="2026-07-11T12:35:00Z",
+            )
+        )
+
+    assert _tree_bytes(output) == before
+
+
+def test_transactional_publish_failure_restores_prior_tree(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    scene, archive = _synthetic_sources(tmp_path)
+    output = tmp_path / "docs"
+    build_public_demo(
+        PublicDemoConfig(
+            scene_root=scene,
+            archive_root=archive,
+            output_root=output,
+            slug="relative-geometry-study",
+            public_title="Original Study",
+            generated_at="2026-07-11T12:40:00Z",
+        )
+    )
+    before = _tree_bytes(output)
+    real_replace = os.replace
+    publish_calls = 0
+    injected = False
+
+    def replace_with_one_publish_failure(source: str | Path, destination: str | Path) -> None:
+        nonlocal publish_calls, injected
+        destination_path = Path(destination).resolve()
+        if not injected and destination_path.is_relative_to(output.resolve()):
+            publish_calls += 1
+            if publish_calls == 3:
+                injected = True
+                raise OSError("injected transactional publish failure")
+        real_replace(source, destination)
+
+    monkeypatch.setattr(os, "replace", replace_with_one_publish_failure)
+
+    with pytest.raises(PublicDemoError, match="transactional public publish failed"):
+        build_public_demo(
+            PublicDemoConfig(
+                scene_root=scene,
+                archive_root=archive,
+                output_root=output,
+                slug="relative-geometry-study",
+                public_title="Changed Study",
+                generated_at="2026-07-11T12:45:00Z",
+            )
+        )
+
+    assert publish_calls == 3
+    assert _tree_bytes(output) == before
+
+
 @pytest.mark.parametrize(
     ("authorization", "attribution", "message"),
     [
@@ -303,3 +454,14 @@ def test_public_demo_cli_exposes_explicit_point_cloud_opt_in() -> None:
     assert "--publish-real-point-cloud" in options
     assert "--point-cloud-authorization" in options
     assert "--point-cloud-attribution" in options
+
+
+def test_public_demo_cli_defaults_to_isolated_build_root() -> None:
+    app = typer.Typer()
+    app.command()(main)
+    command = typer.main.get_command(app)
+    output_parameter = next(
+        parameter for parameter in command.params if "--output-root" in parameter.opts
+    )
+
+    assert output_parameter.default == Path("build/public_demo")
