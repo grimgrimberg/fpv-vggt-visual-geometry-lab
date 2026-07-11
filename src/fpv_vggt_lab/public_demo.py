@@ -481,13 +481,18 @@ def _publish_staged_public_demo(
     backed_up: list[tuple[str, Path]] = []
     published: list[str] = []
     created_directories: set[Path] = set()
+    backup_created_directories: set[Path] = set()
     retain_backup = False
     try:
         for relative in sorted(set(managed_relative_paths)):
             destination = _public_target(output_root, relative)
             if destination.is_file() or destination.is_symlink():
                 backup = _public_target(backup_root, relative)
-                backup.parent.mkdir(parents=True, exist_ok=True)
+                _ensure_public_directory(
+                    backup.parent,
+                    output_root=backup_root,
+                    created_directories=backup_created_directories,
+                )
                 os.replace(destination, backup)
                 backed_up.append((relative, backup))
             elif destination.exists():
@@ -506,24 +511,28 @@ def _publish_staged_public_demo(
             os.replace(source, destination)
             published.append(relative)
 
-        geometry_dir = output_root / "scenes" / slug / "geometry"
+        geometry_dir = _public_target(output_root, f"scenes/{slug}/geometry")
         if geometry_dir.is_dir() and not any(geometry_dir.iterdir()):
             geometry_dir.rmdir()
     except Exception as exc:
         rollback_errors: list[str] = []
         for relative in reversed(published):
-            destination = _public_target(output_root, relative)
             try:
+                destination = _public_target(output_root, relative)
                 if destination.is_file() or destination.is_symlink():
                     destination.unlink()
-            except OSError as rollback_exc:
+            except (OSError, PublicDemoError) as rollback_exc:
                 rollback_errors.append(f"remove {relative}: {rollback_exc}")
         for relative, backup in reversed(backed_up):
-            destination = _public_target(output_root, relative)
             try:
-                destination.parent.mkdir(parents=True, exist_ok=True)
+                destination = _public_target(output_root, relative)
+                _ensure_public_directory(
+                    destination.parent,
+                    output_root=output_root,
+                    created_directories=created_directories,
+                )
                 os.replace(backup, destination)
-            except OSError as rollback_exc:
+            except (OSError, PublicDemoError) as rollback_exc:
                 rollback_errors.append(f"restore {relative}: {rollback_exc}")
         for directory in sorted(
             created_directories,
@@ -531,9 +540,10 @@ def _publish_staged_public_demo(
             reverse=True,
         ):
             try:
+                _assert_safe_public_path(output_root, directory)
                 if directory.is_dir() and not any(directory.iterdir()):
                     directory.rmdir()
-            except OSError as rollback_exc:
+            except (OSError, PublicDemoError) as rollback_exc:
                 rollback_errors.append(f"remove directory {directory.name}: {rollback_exc}")
         if rollback_errors:
             retain_backup = True
@@ -548,10 +558,55 @@ def _publish_staged_public_demo(
 
 
 def _public_target(root: Path, relative: str) -> Path:
+    resolved_root = root.resolve()
     relative_path = Path(relative)
     if relative_path.is_absolute() or ".." in relative_path.parts:
         raise PublicDemoError(f"invalid managed public path: {relative}")
-    return root / relative_path
+    candidate = resolved_root / relative_path
+    _assert_safe_public_path(resolved_root, candidate)
+    return candidate
+
+
+def _assert_safe_public_path(root: Path, candidate: Path) -> None:
+    resolved_root = root.resolve()
+    try:
+        relative = candidate.relative_to(resolved_root)
+    except ValueError as exc:
+        raise PublicDemoError("managed public path escapes output root") from exc
+
+    current = resolved_root
+    for part in relative.parts:
+        current = current / part
+        if _is_unsafe_public_link(current):
+            raise PublicDemoError(f"unsafe public path component: {part}")
+        if current.exists():
+            try:
+                resolved_component = current.resolve(strict=True)
+            except (OSError, RuntimeError) as exc:
+                raise PublicDemoError(
+                    f"unable to resolve managed public path component: {part}"
+                ) from exc
+            if not resolved_component.is_relative_to(resolved_root):
+                raise PublicDemoError(f"managed public path escapes output root: {part}")
+
+    values = (candidate,) if candidate == resolved_root else (candidate.parent, candidate)
+    for value in values:
+        try:
+            resolved_value = value.resolve(strict=False)
+        except (OSError, RuntimeError) as exc:
+            raise PublicDemoError("unable to resolve managed public path") from exc
+        if not resolved_value.is_relative_to(resolved_root):
+            raise PublicDemoError("managed public path escapes output root")
+
+
+def _is_unsafe_public_link(path: Path) -> bool:
+    try:
+        if path.is_symlink():
+            return True
+        is_junction = getattr(path, "is_junction", None)
+        return bool(is_junction()) if callable(is_junction) else False
+    except OSError as exc:
+        raise PublicDemoError(f"unable to inspect public path component: {path.name}") from exc
 
 
 def _ensure_public_directory(
@@ -560,6 +615,7 @@ def _ensure_public_directory(
     output_root: Path,
     created_directories: set[Path],
 ) -> None:
+    _assert_safe_public_path(output_root, directory)
     missing: list[Path] = []
     current = directory
     while not current.exists():
@@ -568,6 +624,7 @@ def _ensure_public_directory(
         missing.append(current)
         current = current.parent
     directory.mkdir(parents=True, exist_ok=True)
+    _assert_safe_public_path(output_root, directory)
     created_directories.update(missing)
 
 

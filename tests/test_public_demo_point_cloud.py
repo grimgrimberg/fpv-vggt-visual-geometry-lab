@@ -354,6 +354,57 @@ def test_transactional_publish_failure_restores_prior_tree(
     assert _tree_bytes(output) == before
 
 
+def test_public_target_rejects_marked_link_component(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    output = tmp_path / "public"
+    assets = output / "assets"
+    assets.mkdir(parents=True)
+    real_is_symlink = Path.is_symlink
+
+    def is_symlink_with_marked_assets(path: Path) -> bool:
+        if path == assets:
+            return True
+        return real_is_symlink(path)
+
+    monkeypatch.setattr(Path, "is_symlink", is_symlink_with_marked_assets)
+
+    with pytest.raises(PublicDemoError, match="unsafe public path component"):
+        public_demo._public_target(output, "assets/site.css")
+
+
+def test_build_rejects_symlinked_managed_parent_without_touching_target(
+    tmp_path: Path,
+) -> None:
+    scene, archive = _synthetic_sources(tmp_path)
+    output = tmp_path / "docs"
+    outside = tmp_path / "outside-assets"
+    output.mkdir()
+    outside.mkdir()
+    (outside / "sentinel.txt").write_text("outside must remain unchanged", encoding="utf-8")
+    assets_link = output / "assets"
+    try:
+        os.symlink(outside, assets_link, target_is_directory=True)
+    except OSError as exc:
+        pytest.skip(f"directory symlink creation unavailable: {exc}")
+    outside_before = _tree_bytes(outside)
+
+    with pytest.raises(PublicDemoError):
+        build_public_demo(
+            PublicDemoConfig(
+                scene_root=scene,
+                archive_root=archive,
+                output_root=output,
+                slug="relative-geometry-study",
+                public_title="Relative Geometry Study",
+                generated_at="2026-07-11T12:50:00Z",
+            )
+        )
+
+    assert _tree_bytes(outside) == outside_before
+
+
 @pytest.mark.parametrize(
     ("authorization", "attribution", "message"),
     [
