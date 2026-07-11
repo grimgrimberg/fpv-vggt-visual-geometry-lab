@@ -236,6 +236,7 @@ def test_build_public_demo_emits_only_sanitized_aggregates(tmp_path: Path) -> No
             encoding="utf-8"
         )
     )
+    manifest = json.loads(result.manifest.read_text(encoding="utf-8"))
     assert payload["scale_status"] == "relative_only"
     assert payload["pose_semantics"] == "camera_pose_proxy"
     assert payload["body_attitude"] == "unavailable"
@@ -246,6 +247,7 @@ def test_build_public_demo_emits_only_sanitized_aggregates(tmp_path: Path) -> No
     assert "point_cloud" not in payload
     assert payload["publication_boundary"]["real_point_sample_published"] is False
     assert payload["publication_boundary"]["full_backend_arrays_published"] is False
+    assert "point_cloud" not in manifest
     assert payload["depth_summaries"]["r3"]["scale_status"] == "relative_only"
     assert payload["depth_summaries"]["lingbot_map"]["scale_status"] == "relative_only"
     assert payload["match_connectivity"]["node_count"] == 24

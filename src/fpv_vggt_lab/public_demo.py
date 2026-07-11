@@ -40,6 +40,8 @@ ABSOLUTE_PATH_PATTERN = re.compile(
 EXTERNAL_RUNTIME_PATTERN = re.compile(r"(?i)(?:https?://|//cdn\.|@import\s+url\s*\()")
 SECRET_PATTERN = re.compile(r"(?i)(?:sk-[A-Za-z0-9]{12,}|bearer\s+[A-Za-z0-9._-]{12,})")
 SLUG_PATTERN = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*")
+POINT_POSITION_ASSET = "vggt_omega_points.f32.bin"
+POINT_COLOR_ASSET = "vggt_omega_colors.rgb8.bin"
 
 
 class PublicDemoError(RuntimeError):
@@ -144,6 +146,8 @@ def build_public_demo(config: PublicDemoConfig) -> PublicDemoBuildResult:
         authorized_binary_paths = tuple(
             path.relative_to(output_root).as_posix() for path in point_files
         )
+    else:
+        _remove_generated_point_cloud_assets(scene_dir)
 
     generated_at = config.generated_at or datetime.now(timezone.utc).isoformat().replace(
         "+00:00", "Z"
@@ -277,6 +281,8 @@ def build_public_demo(config: PublicDemoConfig) -> PublicDemoBuildResult:
         "audit": audit,
         "files": [_file_record(path, output_root) for path in sorted(generated_files)],
     }
+    if point_cloud is not None:
+        manifest_payload["point_cloud"] = point_cloud
     manifest_path.write_text(
         json.dumps(manifest_payload, indent=2, sort_keys=True), encoding="utf-8"
     )
@@ -445,7 +451,16 @@ def _publish_authorized_point_cloud(
     if not color_source.is_file():
         raise PublicDemoError("authorized point colors are missing: points_preview_colors.bin")
 
+    position_byte_count = position_source.stat().st_size
+    if position_byte_count <= 0 or position_byte_count % 12:
+        raise PublicDemoError(
+            "points_preview.bin byte length must be positive and divisible by 12"
+        )
     position_values = np.fromfile(position_source, dtype="<f4")
+    if position_values.nbytes != position_byte_count:
+        raise PublicDemoError(
+            "points_preview.bin decoded byte count must match its source byte length"
+        )
     if not len(position_values) or len(position_values) % 3:
         raise PublicDemoError("points_preview.bin must contain little-endian float32 XYZ rows")
     if not np.isfinite(position_values).all():
@@ -477,8 +492,8 @@ def _publish_authorized_point_cloud(
 
     geometry_dir = scene_dir / "geometry"
     geometry_dir.mkdir(parents=True, exist_ok=True)
-    position_destination = geometry_dir / "vggt_omega_points.f32.bin"
-    color_destination = geometry_dir / "vggt_omega_colors.rgb8.bin"
+    position_destination = geometry_dir / POINT_POSITION_ASSET
+    color_destination = geometry_dir / POINT_COLOR_ASSET
     shutil.copyfile(position_source, position_destination)
     shutil.copyfile(color_source, color_destination)
 
@@ -510,6 +525,16 @@ def _publish_authorized_point_cloud(
         },
         [position_destination, color_destination],
     )
+
+
+def _remove_generated_point_cloud_assets(scene_dir: Path) -> None:
+    geometry_dir = scene_dir / "geometry"
+    for name in (POINT_POSITION_ASSET, POINT_COLOR_ASSET):
+        path = geometry_dir / name
+        if path.is_file() or path.is_symlink():
+            path.unlink()
+    if geometry_dir.is_dir() and not any(geometry_dir.iterdir()):
+        geometry_dir.rmdir()
 
 
 def _binary_record(path: Path, scene_dir: Path, *, dtype: str) -> dict[str, Any]:

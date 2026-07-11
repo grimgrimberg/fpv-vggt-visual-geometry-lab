@@ -90,6 +90,7 @@ def test_authorized_build_copies_exact_colored_point_sample_and_contract(
     assert point_cloud["display_transform"]["scale"] == pytest.approx(expected_scale)
     assert point_cloud["authorization_provenance"] == AUTHORIZATION
     assert point_cloud["attribution"] == ATTRIBUTION
+    assert manifest["point_cloud"] == point_cloud
     assert payload["publication_boundary"]["real_point_sample_published"] is True
     assert payload["publication_boundary"]["full_backend_arrays_published"] is False
     for key in (
@@ -109,6 +110,40 @@ def test_authorized_build_copies_exact_colored_point_sample_and_contract(
         relative = published.relative_to(output).as_posix()
         assert manifest_files[relative]["bytes"] == source.stat().st_size
         assert manifest_files[relative]["sha256"] == hashlib.sha256(source.read_bytes()).hexdigest()
+
+
+def test_default_rebuild_removes_known_authorized_point_binaries(tmp_path: Path) -> None:
+    scene, archive = _synthetic_sources(tmp_path)
+    output = tmp_path / "docs"
+    build_public_demo(_authorized_config(scene, archive, output))
+    geometry_dir = output / "scenes" / "relative-geometry-study" / "geometry"
+    retained_text = geometry_dir / "review-note.txt"
+    retained_text.write_text("retain non-binary output", encoding="utf-8")
+
+    result = build_public_demo(
+        PublicDemoConfig(
+            scene_root=scene,
+            archive_root=archive,
+            output_root=output,
+            slug="relative-geometry-study",
+            public_title="Relative Geometry Study",
+            path_sample_count=16,
+            max_density_cells=80,
+            generated_at="2026-07-11T12:05:00Z",
+        )
+    )
+
+    payload = json.loads(
+        (output / "scenes" / "relative-geometry-study" / "scene.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    manifest = json.loads(result.manifest.read_text(encoding="utf-8"))
+    assert payload["publication_boundary"]["real_point_sample_published"] is False
+    assert "point_cloud" not in payload
+    assert "point_cloud" not in manifest
+    assert not list(output.rglob("*.bin"))
+    assert retained_text.read_text(encoding="utf-8") == "retain non-binary output"
 
 
 @pytest.mark.parametrize(
@@ -164,6 +199,15 @@ def test_real_point_publication_rejects_nonfinite_xyz(tmp_path: Path) -> None:
     values.tofile(positions)
 
     with pytest.raises(PublicDemoError, match="finite"):
+        build_public_demo(_authorized_config(scene, archive, tmp_path / "docs"))
+
+
+def test_real_point_publication_rejects_xyz_trailing_bytes(tmp_path: Path) -> None:
+    scene, archive = _synthetic_sources(tmp_path)
+    positions = scene / "viewer" / "points_preview.bin"
+    positions.write_bytes(positions.read_bytes() + b"\x00")
+
+    with pytest.raises(PublicDemoError, match="byte length.*divisible by 12"):
         build_public_demo(_authorized_config(scene, archive, tmp_path / "docs"))
 
 
