@@ -15,7 +15,7 @@ import numpy as np
 import typer
 
 
-PUBLIC_SCHEMA_VERSION = "1.0.0"
+PUBLIC_SCHEMA_VERSION = "1.1.0"
 FORBIDDEN_PUBLIC_SUFFIXES = {
     ".avi",
     ".bin",
@@ -57,6 +57,9 @@ class PublicDemoConfig:
     max_density_cells: int = 560
     density_grid: tuple[int, int, int] = (16, 16, 10)
     generated_at: str | None = None
+    publish_real_point_cloud: bool = False
+    point_cloud_authorization: str | None = None
+    point_cloud_attribution: str | None = None
 
     def __post_init__(self) -> None:
         if not SLUG_PATTERN.fullmatch(self.slug):
@@ -69,6 +72,11 @@ class PublicDemoConfig:
             raise ValueError("max_density_cells must be between 24 and 900")
         if len(self.density_grid) != 3 or any(value < 4 or value > 32 for value in self.density_grid):
             raise ValueError("density_grid must contain three values between 4 and 32")
+        if self.publish_real_point_cloud:
+            if not (self.point_cloud_authorization or "").strip():
+                raise ValueError("point-cloud publication requires authorization provenance")
+            if not (self.point_cloud_attribution or "").strip():
+                raise ValueError("point-cloud publication requires attribution")
 
 
 @dataclass(frozen=True, slots=True)
@@ -113,6 +121,30 @@ def build_public_demo(config: PublicDemoConfig) -> PublicDemoBuildResult:
     if animation.get("scale_status") != "relative_only":
         raise PublicDemoError("6DoF animation must be relative_only")
 
+    display_transform = _display_transform(_raw_camera_path(camera_path))
+
+    scene_dir = output_root / "scenes" / config.slug
+    assets_dir = output_root / "assets"
+    scene_dir.mkdir(parents=True, exist_ok=True)
+    assets_dir.mkdir(parents=True, exist_ok=True)
+
+    generated_files: list[Path] = []
+    authorized_binary_paths: tuple[str, ...] = ()
+    point_cloud: dict[str, Any] | None = None
+    if config.publish_real_point_cloud:
+        point_cloud, point_files = _publish_authorized_point_cloud(
+            viewer=viewer,
+            scene_dir=scene_dir,
+            scene_meta=scene_meta,
+            display_transform=display_transform,
+            authorization=config.point_cloud_authorization or "",
+            attribution=config.point_cloud_attribution or "",
+        )
+        generated_files.extend(point_files)
+        authorized_binary_paths = tuple(
+            path.relative_to(output_root).as_posix() for path in point_files
+        )
+
     generated_at = config.generated_at or datetime.now(timezone.utc).isoformat().replace(
         "+00:00", "Z"
     )
@@ -134,7 +166,11 @@ def build_public_demo(config: PublicDemoConfig) -> PublicDemoBuildResult:
             grid=config.density_grid,
             max_cells=config.max_density_cells,
         ),
-        "paths": _public_paths(camera_path, config.path_sample_count),
+        "paths": _public_paths(
+            camera_path,
+            config.path_sample_count,
+            display_transform=display_transform,
+        ),
         "orientations": _public_orientations(animation, config.path_sample_count),
         "trajectory_profiles": _public_profiles(profiles, config.path_sample_count),
         "methods": methods,
@@ -151,32 +187,46 @@ def build_public_demo(config: PublicDemoConfig) -> PublicDemoBuildResult:
             "catalog_date": _safe_catalog_field(scene_meta.get("source", {}).get("catalog_date")),
             "catalog_town": _safe_catalog_field(scene_meta.get("source", {}).get("town")),
             "interval_policy": "accepted manual interval",
-            "public_derivation": "coarse density aggregation and normalized resampling",
+            "public_derivation": (
+                "authorized derived VGGT Omega point/color browser sample, coarse density "
+                "aggregation, and normalized path resampling"
+                if config.publish_real_point_cloud
+                else "coarse density aggregation and normalized resampling"
+            ),
             "coordinate_frame": "anonymous relative display frame",
             "original_media": "withheld",
-            "raw_geometry": "withheld",
+            "raw_geometry": (
+                "authorized derived browser sample published; full backend geometry withheld"
+                if config.publish_real_point_cloud
+                else "withheld"
+            ),
             "scale_status": "relative_only",
         },
         "publication_boundary": {
+            "real_point_sample_published": config.publish_real_point_cloud,
             "original_video_published": False,
             "source_frames_published": False,
             "recognizable_reprojection_published": False,
             "raw_npz_or_ply_published": False,
+            "full_backend_arrays_published": False,
             "absolute_source_paths_published": False,
             "notice": (
-                "Original media is not redistributed. This public scene contains only "
-                "coarse normalized aggregates and numeric summaries."
+                "Original media is not redistributed. One authorized derived VGGT Omega "
+                "point/color browser sample is published in relative-only coordinates; "
+                "source frames, reprojections, raw NPZ/PLY, and full backend arrays remain "
+                "withheld."
+                if config.publish_real_point_cloud
+                else (
+                    "Original media is not redistributed. This public scene contains only "
+                    "coarse normalized aggregates and numeric summaries."
+                )
             ),
         },
     }
-
-    scene_dir = output_root / "scenes" / config.slug
-    assets_dir = output_root / "assets"
-    scene_dir.mkdir(parents=True, exist_ok=True)
-    assets_dir.mkdir(parents=True, exist_ok=True)
+    if point_cloud is not None:
+        payload["point_cloud"] = point_cloud
 
     asset_source = Path(__file__).with_name("public_demo_assets")
-    generated_files: list[Path] = []
     for name in ("site.css", "gallery.js", "scene.js"):
         source = asset_source / name
         if not source.is_file():
@@ -208,7 +258,11 @@ def build_public_demo(config: PublicDemoConfig) -> PublicDemoBuildResult:
     nojekyll.write_text("", encoding="utf-8")
     generated_files.extend((index_path, scene_entry, scene_json, nojekyll))
 
-    audit = audit_public_demo(output_root, generated_files)
+    audit = audit_public_demo(
+        output_root,
+        generated_files,
+        authorized_binary_paths=authorized_binary_paths,
+    )
     if audit["status"] != "passed":
         reasons = "; ".join(item["reason"] for item in audit["findings"])
         raise PublicDemoError(f"public output audit failed: {reasons}")
@@ -228,7 +282,11 @@ def build_public_demo(config: PublicDemoConfig) -> PublicDemoBuildResult:
     )
     generated_files.append(manifest_path)
 
-    final_audit = audit_public_demo(output_root, generated_files)
+    final_audit = audit_public_demo(
+        output_root,
+        generated_files,
+        authorized_binary_paths=authorized_binary_paths,
+    )
     if final_audit["status"] != "passed":
         raise PublicDemoError("build manifest failed the final public output audit")
     return PublicDemoBuildResult(
@@ -245,10 +303,12 @@ def build_public_demo(config: PublicDemoConfig) -> PublicDemoBuildResult:
 def audit_public_demo(
     root: Path,
     paths: Iterable[Path] | None = None,
+    authorized_binary_paths: Iterable[str] = (),
 ) -> dict[str, Any]:
     """Fail closed on media, raw arrays, external runtimes, paths, and secrets."""
     root = root.resolve()
     candidates = list(paths) if paths is not None else [path for path in root.rglob("*") if path.is_file()]
+    binary_allowlist = set(authorized_binary_paths)
     findings: list[dict[str, str]] = []
     checked = 0
     for candidate in candidates:
@@ -262,6 +322,8 @@ def audit_public_demo(
             findings.append({"path": path.name, "reason": "file outside public root"})
             continue
         suffix = path.suffix.lower()
+        if suffix == ".bin" and relative in binary_allowlist:
+            continue
         if suffix in FORBIDDEN_PUBLIC_SUFFIXES:
             findings.append({"path": relative, "reason": "forbidden public file type"})
             continue
@@ -324,7 +386,30 @@ def _public_quality(value: Any) -> dict[str, Any]:
     }
 
 
-def _public_paths(camera_path: Mapping[str, Any], sample_count: int) -> dict[str, list[list[float]]]:
+def _raw_camera_path(camera_path: Mapping[str, Any]) -> np.ndarray:
+    layers = camera_path.get("layers", {})
+    if not isinstance(layers, dict) or "raw" not in layers:
+        raise PublicDemoError("camera_path.json must include a raw layer")
+    raw = np.asarray(layers["raw"], dtype=np.float64)
+    if raw.ndim != 2 or raw.shape[1] != 3 or len(raw) < 2 or not np.isfinite(raw).all():
+        raise PublicDemoError("invalid relative camera path layer: raw")
+    return raw
+
+
+def _display_transform(raw_path: np.ndarray) -> tuple[np.ndarray, float]:
+    low = np.quantile(raw_path, 0.01, axis=0)
+    high = np.quantile(raw_path, 0.99, axis=0)
+    center = (low + high) * 0.5
+    scale = max(float(np.max(high - low)) * 0.5, 1e-9)
+    return center, scale
+
+
+def _public_paths(
+    camera_path: Mapping[str, Any],
+    sample_count: int,
+    *,
+    display_transform: tuple[np.ndarray, float],
+) -> dict[str, list[list[float]]]:
     layers = camera_path.get("layers", {})
     if not isinstance(layers, dict) or "raw" not in layers:
         raise PublicDemoError("camera_path.json must include a raw layer")
@@ -336,16 +421,105 @@ def _public_paths(camera_path: Mapping[str, Any], sample_count: int) -> dict[str
         if array.ndim != 2 or array.shape[1] != 3 or len(array) < 2 or not np.isfinite(array).all():
             raise PublicDemoError(f"invalid relative camera path layer: {key}")
         arrays[key] = _resample_matrix(array, sample_count)
-    raw = arrays["raw"]
-    low = np.quantile(raw, 0.01, axis=0)
-    high = np.quantile(raw, 0.99, axis=0)
-    center = (low + high) * 0.5
-    scale = max(float(np.max(high - low)) * 0.5, 1e-9)
+    center, scale = display_transform
     result: dict[str, list[list[float]]] = {}
     for key, array in arrays.items():
         normalized = np.clip((array - center) / scale, -1.35, 1.35)
         result[key] = np.round(normalized, 5).tolist()
     return result
+
+
+def _publish_authorized_point_cloud(
+    *,
+    viewer: Path,
+    scene_dir: Path,
+    scene_meta: Mapping[str, Any],
+    display_transform: tuple[np.ndarray, float],
+    authorization: str,
+    attribution: str,
+) -> tuple[dict[str, Any], list[Path]]:
+    position_source = viewer / "points_preview.bin"
+    color_source = viewer / "points_preview_colors.bin"
+    if not position_source.is_file():
+        raise PublicDemoError("authorized point positions are missing: points_preview.bin")
+    if not color_source.is_file():
+        raise PublicDemoError("authorized point colors are missing: points_preview_colors.bin")
+
+    position_values = np.fromfile(position_source, dtype="<f4")
+    if not len(position_values) or len(position_values) % 3:
+        raise PublicDemoError("points_preview.bin must contain little-endian float32 XYZ rows")
+    if not np.isfinite(position_values).all():
+        raise PublicDemoError("points_preview.bin must contain only finite XYZ values")
+    point_count = len(position_values) // 3
+    expected_color_bytes = point_count * 3
+    if color_source.stat().st_size != expected_color_bytes:
+        raise PublicDemoError(
+            "points_preview_colors.bin must contain one RGB8 triplet per XYZ point"
+        )
+
+    reconstruction = scene_meta.get("reconstruction", {})
+    if not isinstance(reconstruction, dict):
+        raise PublicDemoError("scene metadata must contain reconstruction provenance")
+    source_point_count = reconstruction.get("point_count_source")
+    if (
+        isinstance(source_point_count, bool)
+        or not isinstance(source_point_count, int)
+        or source_point_count < point_count
+    ):
+        raise PublicDemoError(
+            "scene metadata point_count_source must cover the published point sample"
+        )
+    viewer_point_count = reconstruction.get("point_count_viewer")
+    if viewer_point_count is not None and viewer_point_count != point_count:
+        raise PublicDemoError(
+            "scene metadata point_count_viewer must match the published point sample"
+        )
+
+    geometry_dir = scene_dir / "geometry"
+    geometry_dir.mkdir(parents=True, exist_ok=True)
+    position_destination = geometry_dir / "vggt_omega_points.f32.bin"
+    color_destination = geometry_dir / "vggt_omega_colors.rgb8.bin"
+    shutil.copyfile(position_source, position_destination)
+    shutil.copyfile(color_source, color_destination)
+
+    center, scale = display_transform
+    position_record = _binary_record(
+        position_destination,
+        scene_dir,
+        dtype="float32_le",
+    )
+    color_record = _binary_record(
+        color_destination,
+        scene_dir,
+        dtype="uint8",
+    )
+    return (
+        {
+            "backend": "VGGT Omega",
+            "scale_status": "relative_only",
+            "point_count": point_count,
+            "source_point_count": source_point_count,
+            "positions": position_record,
+            "colors": color_record,
+            "display_transform": {
+                "center": center.astype(float).tolist(),
+                "scale": float(scale),
+            },
+            "authorization_provenance": authorization.strip(),
+            "attribution": attribution.strip(),
+        },
+        [position_destination, color_destination],
+    )
+
+
+def _binary_record(path: Path, scene_dir: Path, *, dtype: str) -> dict[str, Any]:
+    return {
+        "path": path.relative_to(scene_dir).as_posix(),
+        "dtype": dtype,
+        "components": 3,
+        "bytes": path.stat().st_size,
+        "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+    }
 
 
 def _public_orientations(animation: Mapping[str, Any], sample_count: int) -> list[dict[str, Any]]:
@@ -748,6 +922,15 @@ def main(
     title: str = typer.Option(..., "--title"),
     path_samples: int = typer.Option(96, "--path-samples", min=8, max=160),
     density_cells: int = typer.Option(560, "--density-cells", min=24, max=900),
+    publish_real_point_cloud: bool = typer.Option(False, "--publish-real-point-cloud"),
+    point_cloud_authorization: str | None = typer.Option(
+        None,
+        "--point-cloud-authorization",
+    ),
+    point_cloud_attribution: str | None = typer.Option(
+        None,
+        "--point-cloud-attribution",
+    ),
 ) -> None:
     """Create a privacy-reduced, dependency-free static research demonstration."""
     result = build_public_demo(
@@ -759,6 +942,9 @@ def main(
             public_title=title,
             path_sample_count=path_samples,
             max_density_cells=density_cells,
+            publish_real_point_cloud=publish_real_point_cloud,
+            point_cloud_authorization=point_cloud_authorization,
+            point_cloud_attribution=point_cloud_attribution,
         )
     )
     typer.echo(

@@ -122,6 +122,8 @@ def _synthetic_sources(tmp_path: Path) -> tuple[Path, Path]:
     ).astype("<f4")
     viewer.mkdir(parents=True, exist_ok=True)
     points.tofile(viewer / "points_preview.bin")
+    colors = rng.integers(0, 256, size=(len(points), 3), dtype=np.uint8)
+    colors.tofile(viewer / "points_preview_colors.bin")
 
     methods = {
         "vggt_omega": {"status": "done", "role": "primary relative reconstruction"},
@@ -241,6 +243,9 @@ def test_build_public_demo_emits_only_sanitized_aggregates(tmp_path: Path) -> No
     assert len(payload["orientations"]) == 16
     assert len(payload["geometry_density"]["cells"]) <= 80
     assert payload["geometry_density"]["kind"] == "coarse_normalized_voxel_density"
+    assert "point_cloud" not in payload
+    assert payload["publication_boundary"]["real_point_sample_published"] is False
+    assert payload["publication_boundary"]["full_backend_arrays_published"] is False
     assert payload["depth_summaries"]["r3"]["scale_status"] == "relative_only"
     assert payload["depth_summaries"]["lingbot_map"]["scale_status"] == "relative_only"
     assert payload["match_connectivity"]["node_count"] == 24
@@ -252,6 +257,7 @@ def test_build_public_demo_emits_only_sanitized_aggregates(tmp_path: Path) -> No
     assert "/workspace/" not in serialized
     assert "/tmp/" not in serialized
     assert '"images":' not in serialized
+    assert not list(output.rglob("*.bin"))
 
 
 def test_public_site_is_offline_accessible_and_presentation_complete(tmp_path: Path) -> None:
