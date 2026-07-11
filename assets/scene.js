@@ -2,7 +2,10 @@
 
 const state = {
   data: null,
-  visibleLayers: new Set(["density", "raw", "rts"]),
+  sceneJsonUrl: null,
+  pointCloud: null,
+  pointCloudRenderer: null,
+  visibleLayers: new Set(["points", "raw", "rts"]),
   activeSample: 0,
   activeMethod: null,
   yaw: -0.72,
@@ -161,16 +164,110 @@ function drawMatchOverlay(context, viewState) {
   context.restore();
 }
 
+function activateDensityFallback(error = null) {
+  if (state.pointCloudRenderer) state.pointCloudRenderer.dispose();
+  state.pointCloud = null;
+  state.pointCloudRenderer = null;
+  state.visibleLayers.delete("points");
+  state.visibleLayers.add("density");
+  document.body.classList.remove("point-cloud-loading", "point-cloud-ready");
+  document.body.classList.add("point-cloud-fallback");
+  const pointsButton = document.querySelector('[data-layer="points"]');
+  const densityButton = document.querySelector('[data-layer="density"]');
+  pointsButton.hidden = true;
+  pointsButton.disabled = true;
+  pointsButton.classList.remove("active");
+  pointsButton.setAttribute("aria-pressed", "false");
+  densityButton.classList.add("active");
+  densityButton.setAttribute("aria-pressed", "true");
+  const densityCount = state.data?.geometry_density?.cells?.length || 0;
+  document.getElementById("point-cloud-readout").textContent =
+    `${densityCount.toLocaleString()} density voxels · relative_only fallback`;
+  document.getElementById("scene-status").textContent = error
+    ? "point sample unavailable · density fallback"
+    : "density fallback";
+  refreshActiveLayerLabel();
+  if (error) console.warn("Point-cloud rendering fell back to density", error);
+  requestAnimationFrame(renderScene);
+}
+
+function activatePointCloud(cloud, renderer) {
+  state.pointCloud = cloud;
+  state.pointCloudRenderer = renderer;
+  state.visibleLayers.add("points");
+  state.visibleLayers.delete("density");
+  document.body.classList.remove("point-cloud-loading", "point-cloud-fallback");
+  document.body.classList.add("point-cloud-ready");
+  const pointsButton = document.querySelector('[data-layer="points"]');
+  const densityButton = document.querySelector('[data-layer="density"]');
+  pointsButton.hidden = false;
+  pointsButton.disabled = false;
+  pointsButton.classList.add("active");
+  pointsButton.setAttribute("aria-pressed", "true");
+  densityButton.classList.remove("active");
+  densityButton.setAttribute("aria-pressed", "false");
+  document.getElementById("point-cloud-readout").textContent =
+    `${cloud.pointCount.toLocaleString()} displayed / `
+    + `${cloud.sourcePointCount.toLocaleString()} source points · relative_only`;
+  document.getElementById("scene-status").textContent = "authorized point sample ready";
+  refreshActiveLayerLabel();
+}
+
+async function initializePointCloud() {
+  const declared = state.data.point_cloud
+    && state.data.publication_boundary?.real_point_sample_published === true;
+  if (!declared) {
+    activateDensityFallback();
+    return;
+  }
+  document.body.classList.add("point-cloud-loading");
+  document.getElementById("scene-status").textContent = "authorized point sample loading";
+  try {
+    const api = window.FpvPointCloudWebGL;
+    if (!api) throw new Error("Point-cloud WebGL runtime is unavailable");
+    const cloud = await api.loadPointCloud(state.sceneJsonUrl, state.data.point_cloud);
+    const renderer = api.createPointCloudRenderer(
+      document.getElementById("point-cloud-canvas"),
+      cloud,
+      { onContextLost: (error) => activateDensityFallback(error) },
+    );
+    activatePointCloud(cloud, renderer);
+  } catch (error) {
+    activateDensityFallback(error);
+  }
+}
+
+function renderPointCloud() {
+  if (!state.pointCloudRenderer) return;
+  try {
+    if (!state.visibleLayers.has("points")) {
+      state.pointCloudRenderer.clear();
+      return;
+    }
+    state.pointCloudRenderer.drawPointCloud({
+      yaw: state.yaw,
+      pitch: state.pitch,
+      anchor: [0.5, 0.51],
+      base: 1.55,
+      depth: 0.18,
+      minimumPerspective: 0.62,
+      scaleFactor: 0.58,
+      zoom: state.zoom,
+      pointSize: 1.45,
+      alpha: 0.54,
+    });
+  } catch (error) {
+    activateDensityFallback(error);
+  }
+}
+
 function renderScene() {
   if (!state.data) return;
+  renderPointCloud();
   const canvas = document.getElementById("scene-canvas");
   const context = canvas.getContext("2d");
   const { width, height } = canvasSize(canvas);
-  const gradient = context.createRadialGradient(width * 0.52, height * 0.46, 0, width * 0.52, height * 0.46, Math.max(width, height) * 0.72);
-  gradient.addColorStop(0, "#0a171c");
-  gradient.addColorStop(1, "#03070a");
-  context.fillStyle = gradient;
-  context.fillRect(0, 0, width, height);
+  context.clearRect(0, 0, width, height);
   drawSceneGrid(context, width, height);
   drawGeometryDensity(context, state.data, state);
   ["raw", "bspline", "kalman", "rts"].forEach((layer) => drawCameraPath(context, layer, state));
@@ -311,6 +408,13 @@ function renderProvenance() {
     ["scale", state.data.scale_status.replaceAll("_", " ")],
     ["body attitude", state.data.body_attitude],
   ];
+  if (state.data.point_cloud) {
+    rows.splice(
+      4,
+      0,
+      ["point sample", `${state.data.point_cloud.point_count.toLocaleString()} colored points`],
+    );
+  }
   const list = document.getElementById("provenance");
   const nodes = [];
   for (const [term, value] of rows) {
@@ -320,6 +424,41 @@ function renderProvenance() {
     row.append(dt, dd); nodes.push(row);
   }
   list.replaceChildren(...nodes);
+}
+
+function renderScenePointCloudCredit() {
+  const credit = document.getElementById("scene-point-cloud-credit");
+  const pointCloud = state.data.point_cloud;
+  const authorized = pointCloud
+    && state.data.publication_boundary?.real_point_sample_published === true;
+  if (!authorized) {
+    credit.hidden = true;
+    document.getElementById("scene-point-cloud-attribution").textContent = "";
+    document.getElementById("scene-point-cloud-authorization").textContent = "";
+    return;
+  }
+  document.getElementById("scene-point-cloud-attribution").textContent =
+    pointCloud.attribution;
+  document.getElementById("scene-point-cloud-authorization").textContent =
+    pointCloud.authorization_provenance;
+  credit.hidden = false;
+}
+
+function renderMediaNotice() {
+  const declared = state.data.point_cloud
+    && state.data.publication_boundary?.real_point_sample_published === true;
+  document.getElementById("media-notice-copy").textContent = declared
+    ? (
+      "original media is not redistributed. An authorized colored VGGT Omega point sample is "
+      + "published because the scene contract records publication approval and attribution. "
+      + "Video, source frames, recognizable reprojections, raw NPZ/PLY, full arrays, and machine "
+      + "paths remain withheld."
+    )
+    : (
+      "original media is not redistributed. No colored point sample is declared by this scene "
+      + "contract, so the viewer uses the coarse density fallback. Video, source frames, "
+      + "recognizable reprojections, raw NPZ/PLY, full arrays, and machine paths remain withheld."
+    );
 }
 
 function renderFailureCase() {
@@ -356,6 +495,20 @@ function setActiveSample(index) {
   requestAnimationFrame(drawTrajectoryProfiles);
 }
 
+function refreshActiveLayerLabel() {
+  const labels = {
+    points: "Points",
+    density: "Density fallback",
+    raw: "Raw",
+    bspline: "B-spline",
+    kalman: "Kalman",
+    rts: "RTS",
+    matches: "Matches",
+  };
+  document.getElementById("active-layer-label").textContent =
+    [...state.visibleLayers].map((value) => labels[value] || value).join(" · ");
+}
+
 function wireControls() {
   document.querySelectorAll("[data-layer]").forEach((button) => {
     button.addEventListener("click", () => {
@@ -365,8 +518,7 @@ function wireControls() {
       const active = state.visibleLayers.has(layer);
       button.classList.toggle("active", active);
       button.setAttribute("aria-pressed", String(active));
-      document.getElementById("active-layer-label").textContent =
-        [...state.visibleLayers].map((value) => value === "rts" ? "RTS" : value[0].toUpperCase() + value.slice(1)).join(" · ");
+      refreshActiveLayerLabel();
       requestAnimationFrame(renderScene);
     });
   });
@@ -418,7 +570,8 @@ function playbackLoop(timestamp) {
 }
 
 async function initializeScene() {
-  const response = await fetch(document.body.dataset.sceneJson, { cache: "no-store" });
+  state.sceneJsonUrl = document.body.dataset.sceneJson;
+  const response = await fetch(state.sceneJsonUrl, { cache: "no-store" });
   if (!response.ok) throw new Error(`Scene contract request failed (${response.status})`);
   state.data = await response.json();
   if (state.data.scale_status !== "relative_only" || state.data.pose_semantics !== "camera_pose_proxy") {
@@ -431,8 +584,11 @@ async function initializeScene() {
     `${state.data.match_connectivity.node_count} nodes · ${state.data.match_connectivity.edge_count.toLocaleString()} edges`;
   renderMethodTabs(state.data.methods);
   renderProvenance();
+  renderScenePointCloudCredit();
+  renderMediaNotice();
   renderFailureCase();
   wireControls();
+  await initializePointCloud();
   setActiveSample(0);
   drawConnectivityMatrix();
   document.body.classList.add("ready");

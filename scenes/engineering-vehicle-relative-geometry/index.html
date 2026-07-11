@@ -16,24 +16,27 @@
       <strong>FPV GEOMETRY LAB</strong>
     </a>
     <div class="scene-identity"><span id="scene-title">Engineering Vehicle · Taybeh — Relative Geometry Study</span><b>Scene 01</b></div>
-    <div class="header-meta"><span id="scene-status">validated public abstraction</span><span class="status-chip">relative only</span></div>
+    <div class="header-meta"><span id="scene-status">authorized point sample loading</span><span class="status-chip">relative only</span></div>
   </header>
 
   <main class="scene-shell">
     <nav class="layer-rail" aria-label="Scene layers">
-      <button type="button" class="layer-button active" data-layer="density" aria-pressed="true"><span>01</span>Density</button>
-      <button type="button" class="layer-button active" data-layer="raw" aria-pressed="true"><span>02</span>Raw path</button>
-      <button type="button" class="layer-button" data-layer="bspline" aria-pressed="false"><span>03</span>B-spline</button>
-      <button type="button" class="layer-button active" data-layer="rts" aria-pressed="true"><span>04</span>RTS</button>
-      <button type="button" class="layer-button" data-layer="matches" aria-pressed="false"><span>05</span>Matches</button>
+      <button type="button" class="layer-button active" data-layer="points" aria-pressed="true"><span>01</span>Points</button>
+      <button type="button" class="layer-button" data-layer="density" aria-pressed="false"><span>02</span>Density fallback</button>
+      <button type="button" class="layer-button active" data-layer="raw" aria-pressed="true"><span>03</span>Raw path</button>
+      <button type="button" class="layer-button" data-layer="bspline" aria-pressed="false"><span>04</span>B-spline</button>
+      <button type="button" class="layer-button active" data-layer="rts" aria-pressed="true"><span>05</span>RTS</button>
+      <button type="button" class="layer-button" data-layer="matches" aria-pressed="false"><span>06</span>Matches</button>
     </nav>
 
     <section class="scene-stage" aria-label="Relative geometry workspace">
-      <canvas id="scene-canvas" aria-label="Interactive coarse geometry density, relative camera paths, and camera pose proxy"></canvas>
+      <canvas id="point-cloud-canvas" aria-label="Authorized colored VGGT Omega relative point sample"></canvas>
+      <canvas id="scene-canvas" aria-label="Transparent relative camera-path, grid, match, and camera-pose overlay"></canvas>
       <div class="stage-topline">
-        <span><b id="active-layer-label">Density · Raw · RTS</b></span>
+        <span><b id="active-layer-label">Points · Raw · RTS</b></span>
         <span id="pose-label">camera pose proxy · body attitude unavailable</span>
       </div>
+      <div id="point-cloud-readout" class="point-cloud-readout" aria-live="polite">120,000 displayed / 1,000,000 source points · relative_only</div>
       <div class="axis-key" aria-hidden="true"><i class="axis-x"></i>X <i class="axis-y"></i>Y <i class="axis-z"></i>Z</div>
       <div class="stage-help">drag to orbit · wheel to scale · double-click to reset</div>
     </section>
@@ -52,6 +55,14 @@
         <dl id="provenance" class="provenance-list"></dl>
       </section>
 
+      <section id="scene-point-cloud-credit" class="inspector-section point-cloud-credit" hidden>
+        <div class="section-label"><span>Published point sample</span><b>authorized contract</b></div>
+        <dl class="provenance-list">
+          <div><dt>Attribution</dt><dd id="scene-point-cloud-attribution"></dd></div>
+          <div><dt>Authorization</dt><dd id="scene-point-cloud-authorization"></dd></div>
+        </dl>
+      </section>
+
       <section id="failure-case" class="failure-study">
         <div class="section-label"><span>Failure study</span><b id="failure-status">—</b></div>
         <p id="failure-copy">Diagnostic evidence loading.</p>
@@ -60,7 +71,7 @@
 
       <section id="media-notice" class="media-notice">
         <strong>Media non-redistribution</strong>
-        <p>original media is not redistributed. Source frames, recognizable reprojections, raw NPZ/PLY geometry, and machine paths are withheld.</p>
+        <p id="media-notice-copy">original media is not redistributed. An authorized colored VGGT Omega point sample is published because the scene contract records publication approval and attribution. Video, source frames, recognizable reprojections, raw NPZ/PLY, full arrays, and machine paths remain withheld.</p>
       </section>
     </aside>
 
@@ -87,6 +98,7 @@
     </section>
   </main>
 
+  <script src="../../assets/point-cloud-webgl.js" defer></script>
   <script src="../../assets/scene.js" defer></script>
 </body>
 </html>

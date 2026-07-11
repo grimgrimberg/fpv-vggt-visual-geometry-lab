@@ -2,6 +2,10 @@
 
 const galleryState = {
   data: null,
+  sceneJsonUrl: null,
+  pointCloud: null,
+  pointCloudRenderer: null,
+  densityFallback: false,
   yaw: -0.72,
   pitch: 0.38,
   reducedMotion: matchMedia("(prefers-reduced-motion: reduce)").matches,
@@ -31,17 +35,96 @@ function galleryProject(point, width, height, yaw, pitch) {
   return [width * 0.67 + rx * scale, height * 0.5 - ry * scale, depth];
 }
 
-function drawGalleryHero(timestamp) {
-  if (!galleryState.data) return;
-  const canvas = document.getElementById("hero-canvas");
-  const context = canvas.getContext("2d");
-  const { width, height } = galleryCanvasSize(canvas);
-  const motion = galleryState.reducedMotion ? 0 : timestamp * 0.000035;
-  const yaw = galleryState.yaw + motion;
-  context.clearRect(0, 0, width, height);
+function activateGalleryDensityFallback(error = null) {
+  if (galleryState.pointCloudRenderer) galleryState.pointCloudRenderer.dispose();
+  galleryState.pointCloud = null;
+  galleryState.pointCloudRenderer = null;
+  galleryState.densityFallback = true;
+  document.body.classList.remove("point-cloud-loading", "point-cloud-ready");
+  document.body.classList.add("point-cloud-fallback");
+  const densityCount = galleryState.data.geometry_density.cells.length;
+  document.getElementById("hero-cell-count").textContent =
+    `${densityCount.toLocaleString()} voxels · density fallback`;
+  if (error && galleryState.data.point_cloud) {
+    document.getElementById("hero-geometry-deck").textContent =
+      "The authorized colored point sample is published, but this browser could not render it; "
+      + "the coarse density fallback remains available with the same relative camera path.";
+    document.getElementById("proof-title").textContent = "The fallback stays explicit.";
+    document.getElementById("proof-copy").textContent =
+      "The scene contract still records the authorized sample and attribution. This browser is "
+      + "showing coarse normalized density because point-array loading or WebGL failed.";
+    console.warn("Gallery point-cloud rendering fell back to density", error);
+  }
+}
 
+function activateGalleryPointCloud(cloud, renderer) {
+  galleryState.pointCloud = cloud;
+  galleryState.pointCloudRenderer = renderer;
+  galleryState.densityFallback = false;
+  document.body.classList.remove("point-cloud-loading", "point-cloud-fallback");
+  document.body.classList.add("point-cloud-ready");
+  document.getElementById("hero-cell-count").textContent =
+    `${cloud.pointCount.toLocaleString()} points · relative_only`;
+  document.getElementById("hero-geometry-deck").textContent =
+    "A completed historical clip reduced to relative camera motion, an authorized colored VGGT "
+    + "Omega point sample, model summaries, and visible failure states.";
+  document.getElementById("proof-title").textContent = "The published sample is the artifact.";
+  document.getElementById("proof-copy").textContent =
+    `This authorized colored VGGT Omega point sample publishes ${cloud.pointCount.toLocaleString()} `
+    + "derived points in relative-only coordinates. Video, source frames, recognizable "
+    + "reprojections, raw NPZ/PLY, full arrays, and machine paths remain withheld.";
+}
+
+function renderGalleryPointCloudCredit() {
+  const credit = document.getElementById("gallery-point-cloud-credit");
+  const pointCloud = galleryState.data.point_cloud;
+  const authorized = pointCloud
+    && galleryState.data.publication_boundary?.real_point_sample_published === true;
+  if (!authorized) {
+    credit.hidden = true;
+    document.getElementById("gallery-point-cloud-attribution").textContent = "";
+    document.getElementById("gallery-point-cloud-authorization").textContent = "";
+    return;
+  }
+  document.getElementById("gallery-point-cloud-attribution").textContent =
+    pointCloud.attribution;
+  document.getElementById("gallery-point-cloud-authorization").textContent =
+    pointCloud.authorization_provenance;
+  credit.hidden = false;
+}
+
+async function initializeGalleryPointCloud() {
+  const declared = galleryState.data.point_cloud
+    && galleryState.data.publication_boundary?.real_point_sample_published === true;
+  if (!declared) {
+    activateGalleryDensityFallback();
+    return;
+  }
+  document.body.classList.add("point-cloud-loading");
+  try {
+    const api = window.FpvPointCloudWebGL;
+    if (!api) throw new Error("Point-cloud WebGL runtime is unavailable");
+    const cloud = await api.loadPointCloud(
+      galleryState.sceneJsonUrl,
+      galleryState.data.point_cloud,
+    );
+    const renderer = api.createPointCloudRenderer(
+      document.getElementById("hero-point-cloud-canvas"),
+      cloud,
+      { onContextLost: (error) => activateGalleryDensityFallback(error) },
+    );
+    activateGalleryPointCloud(cloud, renderer);
+  } catch (error) {
+    activateGalleryDensityFallback(error);
+  }
+}
+
+function drawGalleryDensity(context, width, height, yaw) {
   const cells = galleryState.data.geometry_density.cells
-    .map((cell) => ({ cell, projected: galleryProject(cell.position, width, height, yaw, galleryState.pitch) }))
+    .map((cell) => ({
+      cell,
+      projected: galleryProject(cell.position, width, height, yaw, galleryState.pitch),
+    }))
     .sort((left, right) => left.projected[2] - right.projected[2]);
   context.globalCompositeOperation = "lighter";
   for (const item of cells) {
@@ -53,6 +136,36 @@ function drawGalleryHero(timestamp) {
     context.fill();
   }
   context.globalCompositeOperation = "source-over";
+}
+
+function drawGalleryHero(timestamp) {
+  if (!galleryState.data) return;
+  const canvas = document.getElementById("hero-canvas");
+  const context = canvas.getContext("2d");
+  const { width, height } = galleryCanvasSize(canvas);
+  const motion = galleryState.reducedMotion ? 0 : timestamp * 0.000035;
+  const yaw = galleryState.yaw + motion;
+  context.clearRect(0, 0, width, height);
+
+  if (galleryState.pointCloudRenderer) {
+    try {
+      galleryState.pointCloudRenderer.drawPointCloud({
+        yaw,
+        pitch: galleryState.pitch,
+        anchor: [0.67, 0.5],
+        base: 1.35,
+        depth: 0.2,
+        minimumPerspective: 0.6,
+        scaleFactor: 0.48,
+        zoom: 1,
+        pointSize: 1.4,
+        alpha: 0.5,
+      });
+    } catch (error) {
+      activateGalleryDensityFallback(error);
+    }
+  }
+  if (galleryState.densityFallback) drawGalleryDensity(context, width, height, yaw);
 
   const path = galleryState.data.paths.rts || galleryState.data.paths.raw;
   context.strokeStyle = "rgba(232,242,242,.72)";
@@ -97,16 +210,16 @@ function renderGalleryMethods(methods) {
 }
 
 async function initializeGallery() {
-  const url = document.body.dataset.sceneData;
-  const response = await fetch(url, { cache: "no-store" });
+  galleryState.sceneJsonUrl = document.body.dataset.sceneData;
+  const response = await fetch(galleryState.sceneJsonUrl, { cache: "no-store" });
   if (!response.ok) throw new Error(`Scene summary request failed (${response.status})`);
   galleryState.data = await response.json();
   document.getElementById("hero-pose-count").textContent = String(galleryState.data.sample_count);
   document.getElementById("hero-connectivity").textContent =
     `${galleryState.data.match_connectivity.connected_component_count} component`;
-  document.getElementById("hero-cell-count").textContent =
-    `${galleryState.data.geometry_density.cells.length} voxels`;
+  renderGalleryPointCloudCredit();
   renderGalleryMethods(galleryState.data.methods);
+  await initializeGalleryPointCloud();
   document.body.classList.add("ready");
   requestAnimationFrame(drawGalleryHero);
 }

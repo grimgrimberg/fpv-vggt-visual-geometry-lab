@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
   <link rel="icon" href="data:,">
-  <meta name="description" content="Offline visual-geometry research presented as privacy-reduced, scale-free evidence.">
+  <meta name="description" content="Offline visual-geometry research with an authorized colored VGGT Omega point sample in scale-free relative coordinates.">
   <title>Engineering Vehicle · Taybeh — Relative Geometry Study · FPV Geometry Lab</title>
   <link rel="stylesheet" href="assets/site.css">
 </head>
@@ -20,18 +20,19 @@
 
   <main>
     <section class="gallery-hero" aria-labelledby="hero-title">
-      <canvas id="hero-canvas" aria-label="Animated coarse relative geometry-density abstraction"></canvas>
+      <canvas id="hero-point-cloud-canvas" aria-label="Authorized colored VGGT Omega point sample with a relative camera-path overlay"></canvas>
+      <canvas id="hero-canvas" aria-label="Relative camera-path overlay and density fallback"></canvas>
       <div class="hero-vignette" aria-hidden="true"></div>
       <div class="hero-copy">
         <p class="eyebrow">One accepted scene · five method lanes · zero redistributed frames</p>
         <h1 id="hero-title">Geometry,<br><em>with the evidence left on.</em></h1>
-        <p class="hero-deck">A completed historical clip reduced to relative camera motion, aggregate scene density, model summaries, and visible failure states.</p>
+        <p id="hero-geometry-deck" class="hero-deck">A completed historical clip reduced to relative camera motion, an authorized colored VGGT Omega point sample, model summaries, and visible failure states.</p>
         <a class="primary-link" href="scenes/engineering-vehicle-relative-geometry/"><span>Open the research scene</span><i aria-hidden="true">↗</i></a>
       </div>
       <dl class="hero-readout" aria-label="Scene summary">
         <div><dt>Camera poses</dt><dd id="hero-pose-count">—</dd></div>
         <div><dt>Connectivity</dt><dd id="hero-connectivity">—</dd></div>
-        <div><dt>Public geometry</dt><dd id="hero-cell-count">—</dd></div>
+        <div><dt>Public geometry</dt><dd id="hero-cell-count">120,000 points · relative_only</dd></div>
       </dl>
       <div class="scroll-cue" aria-hidden="true"><span></span>Read the evidence</div>
     </section>
@@ -39,8 +40,12 @@
     <section class="gallery-proof section-shell" aria-labelledby="proof-title">
       <div class="section-intro">
         <p class="eyebrow">Publication boundary</p>
-        <h2 id="proof-title">The abstraction is the artifact.</h2>
-        <p>No video, source frame, recognizable reprojection, raw point cloud, or machine path is included. The visual field is a coarse normalized density grid.</p>
+        <h2 id="proof-title">The published sample is the artifact.</h2>
+        <p id="proof-copy">This authorized colored VGGT Omega point sample publishes 120,000 derived points in relative-only coordinates. Video, source frames, recognizable reprojections, raw NPZ/PLY, full arrays, and machine paths remain withheld.</p>
+        <dl id="gallery-point-cloud-credit" class="point-cloud-credit" hidden>
+          <div><dt>Point-sample attribution</dt><dd id="gallery-point-cloud-attribution"></dd></div>
+          <div><dt>Authorization provenance</dt><dd id="gallery-point-cloud-authorization"></dd></div>
+        </dl>
       </div>
       <div class="proof-lines" role="list">
         <div role="listitem"><span>01</span><strong>Relative camera path</strong><p>Raw and filtered layers are resampled into normalized display coordinates.</p></div>
@@ -66,7 +71,8 @@
     </section>
   </main>
 
-  <footer class="site-footer"><span>Built 2026-07-11T15:06:17.706042Z</span><span>Offline academic review · non-metric · no media redistribution</span></footer>
+  <footer class="site-footer"><span>Built 2026-07-11T19:27:38.046698Z</span><span>Offline academic review · non-metric · no media redistribution</span></footer>
+  <script src="assets/point-cloud-webgl.js" defer></script>
   <script src="assets/gallery.js" defer></script>
 </body>
 </html>

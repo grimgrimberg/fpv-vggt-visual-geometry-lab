@@ -1,9 +1,9 @@
 {
   "audit": {
-    "checked_file_count": 7,
+    "checked_file_count": 10,
     "finding_count": 0,
     "findings": [],
-    "scope": "generated public demo files",
+    "scope": "effective public demo tree",
     "status": "passed"
   },
   "files": [
@@ -13,46 +13,93 @@
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
-      "bytes": 4967,
+      "bytes": 9684,
       "path": "assets/gallery.js",
-      "sha256": "241882b179adaaceea9c52404459662656f05a2b912776f06e822042aabd8f78"
+      "sha256": "41ffc0e72676540cd0646f0fe7f7a7c39d0c50737bd3f6788fa2b5b38acceca0"
     },
     {
-      "bytes": 19303,
+      "bytes": 17302,
+      "path": "assets/point-cloud-webgl.js",
+      "sha256": "f834172f8eea518dc106a32228a49827c2b9246de120e82c323bd1ccf7f99077"
+    },
+    {
+      "bytes": 25013,
       "path": "assets/scene.js",
-      "sha256": "291d6c142ff84ec0a8c9b938f34eaa9551628acabe7ca340b8e91b28d7a88ca3"
+      "sha256": "3f8d5a2a801d7aab17b375c6e74c7913ff90e2dbd62bd027f9dac06b2bf9f4ed"
     },
     {
-      "bytes": 16716,
+      "bytes": 18512,
       "path": "assets/site.css",
-      "sha256": "99ef3e0948c81bb1829e768ae3e8228b8fa91a362ee4d8fe91f3db54f74caf30"
+      "sha256": "2c806d07e401e3f774bb288eacbc3e0edeb0ca39d229860d7bea94ccd204d9d6"
     },
     {
-      "bytes": 4219,
+      "bytes": 4925,
       "path": "index.html",
-      "sha256": "4868422374486e395281e5dd06b8a8f7c37ba6efe4c2b9d7c4dbcea548fcf6ff"
+      "sha256": "3bbbb527cff81ce9bc509d7c3285af0208bb8f1a12caa731c040f2e0285f48e0"
     },
     {
-      "bytes": 5303,
+      "bytes": 360000,
+      "path": "scenes/engineering-vehicle-relative-geometry/geometry/vggt_omega_colors.rgb8.bin",
+      "sha256": "ffcf8f6d970701603b678f98e06fe2c0a111d55164d24f7cf7833579d0a6b0a4"
+    },
+    {
+      "bytes": 1440000,
+      "path": "scenes/engineering-vehicle-relative-geometry/geometry/vggt_omega_points.f32.bin",
+      "sha256": "5c7426ce852d73aec2fe2503abfb97353dbb1031776112ba1908bafb1246bca1"
+    },
+    {
+      "bytes": 6380,
       "path": "scenes/engineering-vehicle-relative-geometry/index.html",
-      "sha256": "cc55a44751740c4b978d387bd605ccb1096aad81d4381f3f81e03da05b2047e7"
+      "sha256": "224c5a676f0465e1c46e2dcd75c8f2e889ba9b0dc5b4687b614bf9ed59fce83e"
     },
     {
-      "bytes": 135332,
+      "bytes": 136678,
       "path": "scenes/engineering-vehicle-relative-geometry/scene.json",
-      "sha256": "1f9119c6856d6b6e3662905276c96beff55eda691dc37c572726c69b360bc9bc"
+      "sha256": "c9ef9889a378d8611b4e1b73d4c289873bb37336ab3a95a07119ed137972228c"
     }
   ],
-  "generated_at": "2026-07-11T15:06:17.706042Z",
+  "generated_at": "2026-07-11T19:27:38.046698Z",
+  "point_cloud": {
+    "attribution": "Itamar Weiss / FPV Drone Strikes Open Dataset",
+    "authorization_provenance": "Dataset maintainer Itamar approval reported by the project owner on 2026-07-11",
+    "backend": "VGGT Omega",
+    "colors": {
+      "bytes": 360000,
+      "components": 3,
+      "dtype": "uint8",
+      "path": "geometry/vggt_omega_colors.rgb8.bin",
+      "sha256": "ffcf8f6d970701603b678f98e06fe2c0a111d55164d24f7cf7833579d0a6b0a4"
+    },
+    "display_transform": {
+      "center": [
+        -0.10844883128302173,
+        0.17582053766353056,
+        -0.8381616259319707
+      ],
+      "scale": 0.8157673835055902
+    },
+    "point_count": 120000,
+    "positions": {
+      "bytes": 1440000,
+      "components": 3,
+      "dtype": "float32_le",
+      "path": "geometry/vggt_omega_points.f32.bin",
+      "sha256": "5c7426ce852d73aec2fe2503abfb97353dbb1031776112ba1908bafb1246bca1"
+    },
+    "scale_status": "relative_only",
+    "source_point_count": 1000000
+  },
   "publication_boundary": {
     "absolute_source_paths_published": false,
-    "notice": "Original media is not redistributed. This public scene contains only coarse normalized aggregates and numeric summaries.",
+    "full_backend_arrays_published": false,
+    "notice": "Original media is not redistributed. One authorized derived VGGT Omega point/color browser sample is published in relative-only coordinates; source frames, reprojections, raw NPZ/PLY, and full backend arrays remain withheld.",
     "original_video_published": false,
     "raw_npz_or_ply_published": false,
+    "real_point_sample_published": true,
     "recognizable_reprojection_published": false,
     "source_frames_published": false
   },
   "scale_status": "relative_only",
   "scene_slug": "engineering-vehicle-relative-geometry",
-  "schema_version": "1.0.0"
+  "schema_version": "1.1.0"
 }
