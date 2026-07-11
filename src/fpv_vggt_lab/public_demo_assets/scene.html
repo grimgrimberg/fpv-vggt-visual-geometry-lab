@@ -16,24 +16,27 @@
       <strong>FPV GEOMETRY LAB</strong>
     </a>
     <div class="scene-identity"><span id="scene-title">{{PUBLIC_TITLE}}</span><b>Scene 01</b></div>
-    <div class="header-meta"><span id="scene-status">validated public abstraction</span><span class="status-chip">relative only</span></div>
+    <div class="header-meta"><span id="scene-status">{{SCENE_STATUS}}</span><span class="status-chip">relative only</span></div>
   </header>
 
   <main class="scene-shell">
     <nav class="layer-rail" aria-label="Scene layers">
-      <button type="button" class="layer-button active" data-layer="density" aria-pressed="true"><span>01</span>Density</button>
-      <button type="button" class="layer-button active" data-layer="raw" aria-pressed="true"><span>02</span>Raw path</button>
-      <button type="button" class="layer-button" data-layer="bspline" aria-pressed="false"><span>03</span>B-spline</button>
-      <button type="button" class="layer-button active" data-layer="rts" aria-pressed="true"><span>04</span>RTS</button>
-      <button type="button" class="layer-button" data-layer="matches" aria-pressed="false"><span>05</span>Matches</button>
+      <button type="button" class="layer-button active" data-layer="points" aria-pressed="true"><span>01</span>Points</button>
+      <button type="button" class="layer-button" data-layer="density" aria-pressed="false"><span>02</span>Density fallback</button>
+      <button type="button" class="layer-button active" data-layer="raw" aria-pressed="true"><span>03</span>Raw path</button>
+      <button type="button" class="layer-button" data-layer="bspline" aria-pressed="false"><span>04</span>B-spline</button>
+      <button type="button" class="layer-button active" data-layer="rts" aria-pressed="true"><span>05</span>RTS</button>
+      <button type="button" class="layer-button" data-layer="matches" aria-pressed="false"><span>06</span>Matches</button>
     </nav>
 
     <section class="scene-stage" aria-label="Relative geometry workspace">
-      <canvas id="scene-canvas" aria-label="Interactive coarse geometry density, relative camera paths, and camera pose proxy"></canvas>
+      <canvas id="point-cloud-canvas" aria-label="{{POINT_CLOUD_CANVAS_LABEL}}"></canvas>
+      <canvas id="scene-canvas" aria-label="Transparent relative camera-path, grid, match, and camera-pose overlay"></canvas>
       <div class="stage-topline">
-        <span><b id="active-layer-label">Density · Raw · RTS</b></span>
+        <span><b id="active-layer-label">Points · Raw · RTS</b></span>
         <span id="pose-label">camera pose proxy · body attitude unavailable</span>
       </div>
+      <div id="point-cloud-readout" class="point-cloud-readout" aria-live="polite">{{POINT_CLOUD_READOUT}}</div>
       <div class="axis-key" aria-hidden="true"><i class="axis-x"></i>X <i class="axis-y"></i>Y <i class="axis-z"></i>Z</div>
       <div class="stage-help">drag to orbit · wheel to scale · double-click to reset</div>
     </section>
@@ -60,7 +63,7 @@
 
       <section id="media-notice" class="media-notice">
         <strong>Media non-redistribution</strong>
-        <p>original media is not redistributed. Source frames, recognizable reprojections, raw NPZ/PLY geometry, and machine paths are withheld.</p>
+        <p id="media-notice-copy">{{MEDIA_NOTICE}}</p>
       </section>
     </aside>
 
@@ -87,6 +90,7 @@
     </section>
   </main>
 
+  <script src="../../assets/point-cloud-webgl.js" defer></script>
   <script src="../../assets/scene.js" defer></script>
 </body>
 </html>

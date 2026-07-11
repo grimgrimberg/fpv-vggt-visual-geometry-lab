@@ -274,8 +274,80 @@ def _build_public_demo_stage(
     if point_cloud is not None:
         payload["point_cloud"] = point_cloud
 
+    if point_cloud is not None:
+        displayed_points = f'{int(point_cloud["point_count"]):,}'
+        source_points = f'{int(point_cloud["source_point_count"]):,}'
+        presentation_copy = {
+            "{{GALLERY_META_DESCRIPTION}}": (
+                "Offline visual-geometry research with an authorized colored VGGT Omega "
+                "point sample in scale-free relative coordinates."
+            ),
+            "{{HERO_POINT_CLOUD_LABEL}}": (
+                "Authorized colored VGGT Omega point sample with a relative camera-path overlay"
+            ),
+            "{{HERO_GEOMETRY_COPY}}": (
+                "A completed historical clip reduced to relative camera motion, an authorized "
+                "colored VGGT Omega point sample, model summaries, and visible failure states."
+            ),
+            "{{HERO_GEOMETRY_READOUT}}": f"{displayed_points} points · relative_only",
+            "{{PROOF_TITLE}}": "The published sample is the artifact.",
+            "{{PROOF_COPY}}": (
+                f"This authorized colored VGGT Omega point sample publishes {displayed_points} "
+                "derived points in relative-only coordinates. Video, source frames, recognizable "
+                "reprojections, raw NPZ/PLY, full arrays, and machine paths remain withheld."
+            ),
+            "{{SCENE_STATUS}}": "authorized point sample loading",
+            "{{POINT_CLOUD_CANVAS_LABEL}}": (
+                "Authorized colored VGGT Omega relative point sample"
+            ),
+            "{{POINT_CLOUD_READOUT}}": (
+                f"{displayed_points} displayed / {source_points} source points · relative_only"
+            ),
+            "{{MEDIA_NOTICE}}": (
+                "original media is not redistributed. An authorized colored VGGT Omega point "
+                "sample is published because the scene contract records publication approval "
+                "and attribution. Video, source frames, recognizable reprojections, raw NPZ/PLY, "
+                "full arrays, and machine paths remain withheld."
+            ),
+        }
+    else:
+        density_cells = f'{len(payload["geometry_density"]["cells"]):,}'
+        presentation_copy = {
+            "{{GALLERY_META_DESCRIPTION}}": (
+                "Offline visual-geometry research presented as a privacy-reduced, scale-free "
+                "density fallback."
+            ),
+            "{{HERO_POINT_CLOUD_LABEL}}": (
+                "Point sample unavailable; coarse relative density fallback active"
+            ),
+            "{{HERO_GEOMETRY_COPY}}": (
+                "A completed historical clip reduced to relative camera motion, a coarse density "
+                "fallback, model summaries, and visible failure states."
+            ),
+            "{{HERO_GEOMETRY_READOUT}}": f"{density_cells} voxels · density fallback",
+            "{{PROOF_TITLE}}": "The density fallback is the artifact.",
+            "{{PROOF_COPY}}": (
+                "This build publishes coarse normalized density and numeric summaries, not a "
+                "colored point sample. Video, source frames, recognizable reprojections, raw "
+                "NPZ/PLY, full arrays, and machine paths remain withheld."
+            ),
+            "{{SCENE_STATUS}}": "density fallback",
+            "{{POINT_CLOUD_CANVAS_LABEL}}": (
+                "Point sample unavailable; coarse relative density fallback active"
+            ),
+            "{{POINT_CLOUD_READOUT}}": (
+                f"{density_cells} density voxels · relative_only fallback"
+            ),
+            "{{MEDIA_NOTICE}}": (
+                "original media is not redistributed. No colored point sample is declared by "
+                "this scene contract, so the viewer uses the coarse density fallback. Video, "
+                "source frames, recognizable reprojections, raw NPZ/PLY, full arrays, and machine "
+                "paths remain withheld."
+            ),
+        }
+
     asset_source = Path(__file__).with_name("public_demo_assets")
-    for name in ("site.css", "gallery.js", "scene.js"):
+    for name in ("site.css", "point-cloud-webgl.js", "gallery.js", "scene.js"):
         source = asset_source / name
         if not source.is_file():
             raise PublicDemoError(f"missing public demo asset: {name}")
@@ -284,16 +356,20 @@ def _build_public_demo_stage(
         generated_files.append(destination)
 
     safe_title = html.escape(config.public_title, quote=True)
+    escaped_presentation_copy = {
+        key: html.escape(value, quote=True) for key, value in presentation_copy.items()
+    }
     replacements = {
         "{{PUBLIC_TITLE}}": safe_title,
         "{{SCENE_URL}}": f"scenes/{config.slug}/",
         "{{SCENE_DATA_URL}}": f"scenes/{config.slug}/scene.json",
         "{{GENERATED_AT}}": html.escape(generated_at, quote=True),
+        **escaped_presentation_copy,
     }
     gallery_html = _render_template(asset_source / "gallery.html", replacements)
     scene_html = _render_template(
         asset_source / "scene.html",
-        {"{{PUBLIC_TITLE}}": safe_title},
+        {"{{PUBLIC_TITLE}}": safe_title, **escaped_presentation_copy},
     )
 
     index_path = output_root / "index.html"
