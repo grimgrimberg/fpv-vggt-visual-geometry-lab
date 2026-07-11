@@ -15,8 +15,12 @@
       <span class="wordmark-signal" aria-hidden="true"></span>
       <strong>FPV GEOMETRY LAB</strong>
     </a>
-    <div class="scene-identity"><span id="scene-title">{{PUBLIC_TITLE}}</span><b>Scene 01</b></div>
+    <div class="scene-identity">
+      <span id="scene-title">{{PUBLIC_TITLE}}</span>
+      <b id="scene-catalog-meta">date · town · annotation</b>
+    </div>
     <div class="header-meta"><span id="scene-status">{{SCENE_STATUS}}</span><span class="status-chip">relative only</span></div>
+    <a class="scene-back-link" href="../../" aria-label="Back to research gallery">← Gallery</a>
   </header>
 
   <main class="scene-shell">
@@ -93,7 +97,12 @@
         <button id="play-toggle" type="button">Play</button>
         <button id="step-forward" type="button" aria-label="Next camera sample">+</button>
       </div>
-      <input id="pose-slider" type="range" min="0" max="1" value="0" step="1" aria-label="Camera pose sample">
+      <div class="pose-track-stack">
+        <input id="pose-slider" type="range" min="0" max="1" value="0" step="1" aria-label="Camera pose sample">
+        <div id="edit-timeline" class="edit-timeline" aria-label="Edit segmentation aligned to camera playback">
+          <div id="edit-cursor" class="edit-cursor" aria-hidden="true"></div>
+        </div>
+      </div>
       <div class="timeline-readout"><strong id="pose-readout">0 / —</strong><span>normalized time · relative only</span></div>
     </section>
   </main>

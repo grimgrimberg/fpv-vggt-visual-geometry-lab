@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import html
+import ipaddress
 import json
 import math
 import os
@@ -12,12 +13,14 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable, Mapping, Sequence
+from urllib.parse import urlsplit
 
 import numpy as np
 import typer
 
 
 PUBLIC_SCHEMA_VERSION = "1.1.0"
+PUBLIC_CATALOG_SCHEMA_VERSION = "wow-public-videos-v1"
 FORBIDDEN_PUBLIC_SUFFIXES = {
     ".avi",
     ".bin",
@@ -42,6 +45,63 @@ ABSOLUTE_PATH_PATTERN = re.compile(
 EXTERNAL_RUNTIME_PATTERN = re.compile(r"(?i)(?:https?://|//cdn\.|@import\s+url\s*\()")
 SECRET_PATTERN = re.compile(r"(?i)(?:sk-[A-Za-z0-9]{12,}|bearer\s+[A-Za-z0-9._-]{12,})")
 SLUG_PATTERN = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*")
+CATALOG_SLUG_PATTERN = re.compile(r"[a-z0-9]+(?:[_-][a-z0-9]+)*")
+SOURCE_RECORD_URL_PATTERN = re.compile(
+    r"https://www\.itamarweiss\.com/fpv/video/"
+    r"(?P<slug>[a-z0-9]+(?:[_-][a-z0-9]+)*)/"
+)
+SAFE_RELATIVE_SCENE_URL_PATTERN = re.compile(
+    r"scenes/[a-z0-9]+(?:[_-][a-z0-9]+)*/"
+)
+CATALOG_ANNOTATION_STATES = {
+    "manual_ground_truth",
+    "auto_generated",
+    "unreviewed",
+}
+CATALOG_EDIT_TYPES = {
+    "banner_start",
+    "flight_start",
+    "new_flight_start",
+    "pause_start",
+    "replay_start",
+    "other",
+    "end",
+    "video_end",
+    "uncertain",
+}
+BLOCKED_LOCAL_HOSTNAMES = {"localhost", "localdomain", "home.arpa"}
+BLOCKED_LOCAL_HOST_SUFFIXES = (
+    ".localhost",
+    ".localdomain",
+    ".local",
+    ".internal",
+    ".home.arpa",
+    ".lan",
+    ".home",
+    ".corp",
+    ".invalid",
+    ".test",
+    ".example",
+)
+FORBIDDEN_CATALOG_KEYS = {
+    "frame",
+    "frames",
+    "frame_url",
+    "frame_urls",
+    "image_path",
+    "image_url",
+    "local_path",
+    "media",
+    "media_path",
+    "media_url",
+    "raw_path",
+    "source_path",
+    "thumbnail",
+    "thumbnail_path",
+    "thumbnail_url",
+    "video_path",
+    "video_url",
+}
 POINT_POSITION_ASSET = "vggt_omega_points.f32.bin"
 POINT_COLOR_ASSET = "vggt_omega_colors.rgb8.bin"
 
@@ -57,6 +117,7 @@ class PublicDemoConfig:
     output_root: Path
     slug: str
     public_title: str
+    catalog_path: Path | None = None
     path_sample_count: int = 96
     max_density_cells: int = 560
     density_grid: tuple[int, int, int] = (16, 16, 10)
@@ -196,6 +257,16 @@ def _build_public_demo_stage(
     generated_at = config.generated_at or datetime.now(timezone.utc).isoformat().replace(
         "+00:00", "Z"
     )
+    catalog, selected_record = _build_public_catalog(
+        config,
+        scene_meta=scene_meta,
+        generated_at=generated_at,
+    )
+    annotation = _public_scene_annotation(
+        scene_meta,
+        default_kind=str(selected_record.get("annotation_state", "unreviewed")),
+    )
+    edit_segments = _public_scene_edit_segments(scene_meta)
     methods = _public_methods(method_comparison)
     payload: dict[str, Any] = {
         "schema_version": PUBLIC_SCHEMA_VERSION,
@@ -208,6 +279,13 @@ def _build_public_demo_stage(
         "pose_semantics": "camera_pose_proxy",
         "body_attitude": "unavailable",
         "sample_count": config.path_sample_count,
+        "catalog": {
+            "date": selected_record["date"],
+            "town": selected_record["town"],
+            "annotation_state": selected_record["annotation_state"],
+        },
+        "annotation": annotation,
+        "edit_segments": edit_segments,
         "quality": _public_quality(scene_meta.get("quality", {})),
         "geometry_density": _coarse_density(
             viewer / "points_preview.bin",
@@ -347,7 +425,13 @@ def _build_public_demo_stage(
         }
 
     asset_source = Path(__file__).with_name("public_demo_assets")
-    for name in ("site.css", "point-cloud-webgl.js", "gallery.js", "scene.js"):
+    for name in (
+        "site.css",
+        "point-cloud-webgl.js",
+        "gallery.js",
+        "catalog.js",
+        "scene.js",
+    ):
         source = asset_source / name
         if not source.is_file():
             raise PublicDemoError(f"missing public demo asset: {name}")
@@ -375,12 +459,19 @@ def _build_public_demo_stage(
     index_path = output_root / "index.html"
     scene_entry = scene_dir / "index.html"
     scene_json = scene_dir / "scene.json"
+    catalog_json = output_root / "catalog.json"
     nojekyll = output_root / ".nojekyll"
     index_path.write_text(gallery_html, encoding="utf-8")
     scene_entry.write_text(scene_html, encoding="utf-8")
     scene_json.write_text(json.dumps(payload, indent=2, sort_keys=True), encoding="utf-8")
+    catalog_json.write_text(
+        json.dumps(catalog, indent=2, sort_keys=True),
+        encoding="utf-8",
+    )
     nojekyll.write_text("", encoding="utf-8")
-    generated_files.extend((index_path, scene_entry, scene_json, nojekyll))
+    generated_files.extend(
+        (index_path, scene_entry, scene_json, catalog_json, nojekyll)
+    )
 
     managed_relative_paths = _managed_public_paths(
         (path.relative_to(output_root).as_posix() for path in generated_files),
@@ -471,7 +562,16 @@ def audit_public_demo(
         text = path.read_text(encoding="utf-8", errors="replace")
         if ABSOLUTE_PATH_PATTERN.search(text):
             findings.append({"path": relative, "reason": "absolute machine path"})
-        if EXTERNAL_RUNTIME_PATTERN.search(text):
+        external_scan_text = text
+        if relative == "catalog.json":
+            try:
+                for allowed_url in _validated_catalog_external_urls(text):
+                    external_scan_text = external_scan_text.replace(allowed_url, "")
+            except PublicDemoError as exc:
+                findings.append(
+                    {"path": relative, "reason": f"invalid public catalog: {exc}"}
+                )
+        if EXTERNAL_RUNTIME_PATTERN.search(external_scan_text):
             findings.append({"path": relative, "reason": "external runtime dependency"})
         if SECRET_PATTERN.search(text):
             findings.append({"path": relative, "reason": "secret-like value"})
@@ -711,6 +811,930 @@ def _read_json(path: Path) -> dict[str, Any]:
     if not isinstance(value, dict):
         raise PublicDemoError(f"expected a JSON object: {path.name}")
     return value
+
+
+def _build_public_catalog(
+    config: PublicDemoConfig,
+    *,
+    scene_meta: Mapping[str, Any],
+    generated_at: str,
+) -> tuple[dict[str, Any], dict[str, Any]]:
+    if config.catalog_path is None:
+        catalog = _synthesized_public_catalog(
+            config,
+            scene_meta=scene_meta,
+            generated_at=generated_at,
+        )
+        return catalog, catalog["records"][0]
+
+    try:
+        source_catalog = _read_json(config.catalog_path)
+    except (json.JSONDecodeError, UnicodeError) as exc:
+        raise PublicDemoError("catalog JSON could not be decoded") from exc
+    catalog = _sanitize_public_catalog(source_catalog, generated_at=generated_at)
+
+    source = scene_meta.get("source", {})
+    if not isinstance(source, dict) or source.get("video_file") is None:
+        raise PublicDemoError(
+            "scene metadata must identify source.video_file for catalog overlay"
+        )
+    selected_video_file = _catalog_video_file(source.get("video_file"))
+    selected: dict[str, Any] | None = None
+    for record in catalog["records"]:
+        if record["video_file"] != selected_video_file:
+            continue
+        record["research"] = {
+            **record["research"],
+            "public_scene_available": True,
+            "public_scene_url": f"scenes/{config.slug}/",
+            "calibration_state": "relative_only",
+        }
+        selected = record
+        break
+    if selected is None:
+        raise PublicDemoError("scene source video is not present in catalog records")
+
+    catalog["records"].sort(
+        key=lambda record: (record["date"], record["slug"]),
+        reverse=True,
+    )
+    catalog["counts"] = _public_catalog_counts(catalog["records"])
+    return catalog, selected
+
+
+def _sanitize_public_catalog(
+    value: Mapping[str, Any],
+    *,
+    generated_at: str,
+) -> dict[str, Any]:
+    _assert_catalog_input_safe(value)
+    allowed_top_level = {
+        "schema_version",
+        "generated_at",
+        "source",
+        "provenance",
+        "publication_boundary",
+        "counts",
+        "records",
+    }
+    unknown = set(value) - allowed_top_level
+    if unknown:
+        raise PublicDemoError(f"unsupported catalog fields: {sorted(unknown)}")
+    if value.get("schema_version") != PUBLIC_CATALOG_SCHEMA_VERSION:
+        raise PublicDemoError(
+            f"catalog schema_version must be {PUBLIC_CATALOG_SCHEMA_VERSION}"
+        )
+
+    publication = value.get("publication_boundary")
+    if not isinstance(publication, dict):
+        raise PublicDemoError("catalog publication_boundary must be an object")
+    allowed_boundary = {
+        "third_party_media_embedded",
+        "real_media_assets_published",
+        "source_record_links_only",
+    }
+    if set(publication) - allowed_boundary:
+        raise PublicDemoError("catalog publication boundary contains unsupported fields")
+    required_boundary = (
+        "third_party_media_embedded",
+        "real_media_assets_published",
+    )
+    if any(publication.get(key) is not False for key in required_boundary):
+        raise PublicDemoError("catalog publication boundary must withhold real media")
+    if publication.get("source_record_links_only") is not True:
+        raise PublicDemoError("catalog publication boundary must allow source-record links only")
+
+    raw_source = value.get("source")
+    if not isinstance(raw_source, dict):
+        raise PublicDemoError("catalog source metadata must be an object")
+    allowed_source = {
+        "dataset",
+        "metadata_license",
+        "source_repo",
+        "source_commit",
+        "retrieved_at",
+        "kind",
+        "selection_policy",
+    }
+    if set(raw_source) - allowed_source:
+        raise PublicDemoError("catalog source metadata contains unsupported fields")
+    source: dict[str, str] = {}
+    for key in allowed_source:
+        if key not in raw_source:
+            continue
+        source[key] = _catalog_text(
+            raw_source[key],
+            field=f"source.{key}",
+            maximum=240,
+        )
+    for required_source_field in ("kind", "selection_policy"):
+        if required_source_field not in source:
+            raise PublicDemoError(
+                f"catalog source.{required_source_field} is required"
+            )
+    if not re.fullmatch(r"[a-z0-9_]+", source["kind"]):
+        raise PublicDemoError("catalog source.kind must be a safe identifier")
+
+    provenance = _sanitize_catalog_provenance(value.get("provenance"))
+
+    raw_records = value.get("records")
+    if not isinstance(raw_records, list) or not raw_records:
+        raise PublicDemoError("catalog records must be a non-empty list")
+    records = [_sanitize_catalog_record(record) for record in raw_records]
+    if len({record["slug"] for record in records}) != len(records):
+        raise PublicDemoError("catalog record slugs must be unique")
+    if len({record["video_file"] for record in records}) != len(records):
+        raise PublicDemoError("catalog video_file values must be unique")
+
+    raw_counts = value.get("counts")
+    if not isinstance(raw_counts, dict):
+        raise PublicDemoError("catalog counts must be an object")
+    for key, count in raw_counts.items():
+        if not isinstance(key, str) or isinstance(count, bool) or not isinstance(count, int):
+            raise PublicDemoError("catalog counts must contain integer values")
+        if count < 0:
+            raise PublicDemoError("catalog counts must be non-negative")
+    if raw_counts.get("records") != len(records):
+        raise PublicDemoError("catalog record count does not match records")
+
+    records.sort(
+        key=lambda record: (record["date"], record["slug"]),
+        reverse=True,
+    )
+    return {
+        "schema_version": PUBLIC_CATALOG_SCHEMA_VERSION,
+        "generated_at": _catalog_text(
+            generated_at,
+            field="generated_at",
+            maximum=80,
+        ),
+        "source": source,
+        "provenance": provenance,
+        "publication_boundary": {
+            "third_party_media_embedded": False,
+            "real_media_assets_published": False,
+            "source_record_links_only": True,
+        },
+        "counts": _public_catalog_counts(records),
+        "records": records,
+    }
+
+
+def _sanitize_catalog_provenance(value: Any) -> dict[str, Any]:
+    if not isinstance(value, dict):
+        raise PublicDemoError("catalog provenance must be an object")
+    allowed = {
+        "generated_by",
+        "annotation_files_considered",
+        "gallery_manifest_merged",
+        "scene_routes",
+    }
+    if set(value) != allowed:
+        raise PublicDemoError("catalog provenance fields do not match the public contract")
+    generated_by = _catalog_text(
+        value.get("generated_by"),
+        field="provenance.generated_by",
+        maximum=120,
+    )
+    if not re.fullmatch(r"[a-z0-9_.-]+", generated_by):
+        raise PublicDemoError("catalog provenance.generated_by is invalid")
+    annotation_files = _nonnegative_catalog_int(
+        value.get("annotation_files_considered"),
+        field="provenance.annotation_files_considered",
+    )
+    gallery_merged = value.get("gallery_manifest_merged")
+    if not isinstance(gallery_merged, bool):
+        raise PublicDemoError("provenance.gallery_manifest_merged must be boolean")
+    scene_routes = _catalog_text(
+        value.get("scene_routes"),
+        field="provenance.scene_routes",
+        maximum=40,
+    )
+    if scene_routes != "explicit_only":
+        raise PublicDemoError("provenance.scene_routes must be explicit_only")
+    return {
+        "generated_by": generated_by,
+        "annotation_files_considered": annotation_files,
+        "gallery_manifest_merged": gallery_merged,
+        "scene_routes": scene_routes,
+    }
+
+
+def _sanitize_catalog_record(value: Any) -> dict[str, Any]:
+    if not isinstance(value, dict):
+        raise PublicDemoError("catalog records must be objects")
+    allowed = {
+        "video_file",
+        "slug",
+        "date",
+        "description",
+        "town",
+        "source_record_url",
+        "annotation_state",
+        "edit_segmentation",
+        "research",
+    }
+    unknown = set(value) - allowed
+    if unknown:
+        raise PublicDemoError(f"unsupported catalog record fields: {sorted(unknown)}")
+
+    slug = _catalog_slug(value.get("slug"))
+    video_file = _catalog_video_file(value.get("video_file"))
+    if Path(video_file).stem != slug:
+        raise PublicDemoError("catalog video_file stem must match slug")
+    annotation_state = _catalog_annotation_state(value.get("annotation_state"))
+    record: dict[str, Any] = {
+        "video_file": video_file,
+        "slug": slug,
+        "date": _catalog_date(value.get("date")),
+        "description": _catalog_text(
+            value.get("description"),
+            field="description",
+            maximum=320,
+        ),
+        "town": _catalog_text(value.get("town"), field="town", maximum=100),
+        "annotation_state": annotation_state,
+        "edit_segmentation": _sanitize_catalog_edit_segmentation(
+            value.get("edit_segmentation")
+        ),
+        "research": _sanitize_catalog_research(value.get("research")),
+    }
+    if value.get("source_record_url") is not None:
+        record["source_record_url"] = _catalog_source_record_url(
+            value.get("source_record_url"),
+            slug=slug,
+        )
+    return record
+
+
+def _sanitize_catalog_edit_segmentation(value: Any) -> dict[str, Any]:
+    if not isinstance(value, dict):
+        raise PublicDemoError("edit_segmentation must be an object")
+    allowed = {
+        "segment_count",
+        "manual_segment_count",
+        "auto_segment_count",
+        "source_span_seconds",
+        "summary",
+        "types",
+        "segments",
+    }
+    if set(value) - allowed:
+        raise PublicDemoError("edit_segmentation contains unsupported fields")
+    raw_segments = value.get("segments")
+    if not isinstance(raw_segments, list):
+        raise PublicDemoError("edit_segmentation.segments must be a list")
+    segments: list[dict[str, Any]] = []
+    last_time = -math.inf
+    for raw_segment in raw_segments:
+        if not isinstance(raw_segment, dict):
+            raise PublicDemoError("edit segmentation entries must be objects")
+        allowed_segment = {
+            "time",
+            "start_s",
+            "end_s",
+            "type",
+            "label",
+            "review_status",
+        }
+        if set(raw_segment) - allowed_segment:
+            raise PublicDemoError("edit segmentation entry contains unsupported fields")
+        edit_type = _catalog_edit_type(raw_segment.get("type"))
+        segment: dict[str, Any] = {"type": edit_type}
+        if "time" in raw_segment:
+            timestamp = _finite_catalog_number(
+                raw_segment.get("time"),
+                field="edit segment time",
+                minimum=0.0,
+            )
+            if timestamp < last_time:
+                raise PublicDemoError("edit segment times must be ordered")
+            last_time = timestamp
+            segment["time"] = timestamp
+        elif "start_s" in raw_segment and "end_s" in raw_segment:
+            start = _finite_catalog_number(
+                raw_segment.get("start_s"),
+                field="edit segment start_s",
+                minimum=0.0,
+            )
+            end = _finite_catalog_number(
+                raw_segment.get("end_s"),
+                field="edit segment end_s",
+                minimum=start,
+            )
+            if start < last_time:
+                raise PublicDemoError("edit segments must be ordered")
+            last_time = start
+            segment.update({"start_s": start, "end_s": end})
+        else:
+            raise PublicDemoError("edit segment must contain time or start_s/end_s")
+        if raw_segment.get("label") is not None:
+            segment["label"] = _catalog_text(
+                raw_segment["label"],
+                field="edit segment label",
+                maximum=120,
+            )
+        if raw_segment.get("review_status") is not None:
+            segment["review_status"] = _catalog_annotation_state(
+                raw_segment["review_status"]
+            )
+        segments.append(segment)
+
+    segment_count = value.get("segment_count")
+    if (
+        isinstance(segment_count, bool)
+        or not isinstance(segment_count, int)
+        or segment_count != len(segments)
+    ):
+        raise PublicDemoError("edit segment_count must match segments")
+    raw_types = value.get("types")
+    if not isinstance(raw_types, list):
+        raise PublicDemoError("edit segmentation types must be a list")
+    types = [_catalog_edit_type(item) for item in raw_types]
+    observed_types = [segment["type"] for segment in segments]
+    if types != observed_types:
+        raise PublicDemoError("edit segmentation types must match segment order")
+    result: dict[str, Any] = {
+        "segment_count": len(segments),
+        "types": types,
+        "segments": segments,
+    }
+    for key in ("manual_segment_count", "auto_segment_count"):
+        if key in value:
+            result[key] = _nonnegative_catalog_int(
+                value[key],
+                field=f"edit_segmentation.{key}",
+            )
+    if all(key in result for key in ("manual_segment_count", "auto_segment_count")):
+        if result["manual_segment_count"] + result["auto_segment_count"] != len(segments):
+            raise PublicDemoError(
+                "manual and auto edit counts must add up to segment_count"
+            )
+    if "source_span_seconds" in value:
+        span = _finite_catalog_number(
+            value["source_span_seconds"],
+            field="edit_segmentation.source_span_seconds",
+            minimum=0.0,
+        )
+        observed_end = max(
+            (
+                segment.get("time", segment.get("end_s", 0.0))
+                for segment in segments
+            ),
+            default=0.0,
+        )
+        if span + 1e-6 < observed_end:
+            raise PublicDemoError("edit source_span_seconds does not cover segments")
+        result["source_span_seconds"] = span
+    if "summary" in value:
+        result["summary"] = _catalog_text(
+            value["summary"],
+            field="edit_segmentation.summary",
+            maximum=2048,
+        )
+    return result
+
+
+def _sanitize_catalog_research(value: Any) -> dict[str, Any]:
+    if value is None:
+        return {"public_scene_available": False}
+    if not isinstance(value, dict):
+        raise PublicDemoError("research must be an object")
+    allowed = {
+        "public_scene_available",
+        "public_scene_url",
+        "backend",
+        "calibration_state",
+        "status",
+        "hero_score",
+        "method_status",
+        "method_coverage",
+        "warnings",
+    }
+    if set(value) - allowed:
+        raise PublicDemoError("research contains unsupported fields")
+    available = value.get("public_scene_available")
+    if not isinstance(available, bool):
+        raise PublicDemoError("research.public_scene_available must be boolean")
+    research: dict[str, Any] = {"public_scene_available": available}
+    if value.get("public_scene_url") is not None:
+        research["public_scene_url"] = _catalog_public_scene_url(
+            value.get("public_scene_url")
+        )
+    if available and "public_scene_url" not in research:
+        raise PublicDemoError("available public scenes require public_scene_url")
+    for key, maximum in (("backend", 120), ("status", 80)):
+        if value.get(key) is not None:
+            research[key] = _catalog_text(
+                value[key],
+                field=f"research.{key}",
+                maximum=maximum,
+            )
+    if value.get("calibration_state") is not None:
+        calibration = _catalog_text(
+            value["calibration_state"],
+            field="research.calibration_state",
+            maximum=40,
+        )
+        if calibration != "relative_only":
+            raise PublicDemoError("public catalog scenes must remain relative_only")
+        research["calibration_state"] = calibration
+    if value.get("hero_score") is not None:
+        research["hero_score"] = _finite_catalog_number(
+            value["hero_score"],
+            field="research.hero_score",
+            minimum=0.0,
+            maximum=1.0,
+        )
+    if value.get("method_status") is not None:
+        raw_statuses = value["method_status"]
+        if not isinstance(raw_statuses, dict):
+            raise PublicDemoError("research.method_status must be an object")
+        statuses: dict[str, str] = {}
+        for key, status in raw_statuses.items():
+            if not isinstance(key, str) or not re.fullmatch(r"[a-z0-9_]+", key):
+                raise PublicDemoError("research method identifiers must be safe")
+            statuses[key] = _catalog_text(
+                status,
+                field=f"research.method_status.{key}",
+                maximum=40,
+            )
+        research["method_status"] = statuses
+    if value.get("method_coverage") is not None:
+        research["method_coverage"] = _sanitize_catalog_method_coverage(
+            value["method_coverage"]
+        )
+    if value.get("warnings") is not None:
+        raw_warnings = value["warnings"]
+        if not isinstance(raw_warnings, list) or len(raw_warnings) > 32:
+            raise PublicDemoError("research.warnings must be a bounded list")
+        research["warnings"] = [
+            _catalog_text(
+                warning,
+                field="research.warnings",
+                maximum=280,
+            )
+            for warning in raw_warnings
+        ]
+    return research
+
+
+def _sanitize_catalog_method_coverage(value: Any) -> dict[str, Any]:
+    if not isinstance(value, dict):
+        raise PublicDemoError("research.method_coverage must be an object")
+    if set(value) != {"bucket", "done", "total", "ratio"}:
+        raise PublicDemoError("research.method_coverage fields are invalid")
+    bucket = _catalog_text(
+        value.get("bucket"),
+        field="research.method_coverage.bucket",
+        maximum=40,
+    )
+    if not re.fullmatch(r"[a-z0-9_]+", bucket):
+        raise PublicDemoError("research.method_coverage.bucket is invalid")
+    done = _nonnegative_catalog_int(
+        value.get("done"),
+        field="research.method_coverage.done",
+    )
+    total = _nonnegative_catalog_int(
+        value.get("total"),
+        field="research.method_coverage.total",
+    )
+    if done > total:
+        raise PublicDemoError("research method coverage done exceeds total")
+    ratio = _finite_catalog_number(
+        value.get("ratio"),
+        field="research.method_coverage.ratio",
+        minimum=0.0,
+        maximum=1.0,
+    )
+    expected_ratio = done / total if total else 0.0
+    if not math.isclose(ratio, expected_ratio, abs_tol=1e-6):
+        raise PublicDemoError("research method coverage ratio is inconsistent")
+    return {"bucket": bucket, "done": done, "total": total, "ratio": ratio}
+
+
+def _synthesized_public_catalog(
+    config: PublicDemoConfig,
+    *,
+    scene_meta: Mapping[str, Any],
+    generated_at: str,
+) -> dict[str, Any]:
+    source = scene_meta.get("source", {})
+    source = source if isinstance(source, dict) else {}
+    catalog_date = _optional_catalog_date(source.get("catalog_date"))
+    if catalog_date is None:
+        catalog_date = _catalog_date(generated_at[:10])
+    town = _optional_catalog_text(source.get("town"), maximum=100) or "Undisclosed"
+    video_file_value = source.get("video_file")
+    if video_file_value is None:
+        video_file = f"{config.slug}.mp4"
+        record_slug = config.slug
+    else:
+        video_file = _catalog_video_file(video_file_value)
+        record_slug = Path(video_file).stem
+    annotation_source = scene_meta.get("annotation", {})
+    annotation_kind = (
+        annotation_source.get("kind")
+        if isinstance(annotation_source, dict)
+        else None
+    )
+    annotation_state = (
+        _catalog_annotation_state(annotation_kind)
+        if annotation_kind is not None
+        else "unreviewed"
+    )
+    scene_edits = _public_scene_edit_segments(scene_meta)
+    edit_segmentation = {
+        "segment_count": len(scene_edits),
+        "types": [item["type"] for item in scene_edits],
+        "segments": scene_edits,
+    }
+    manual_count = sum(
+        item["review_status"] == "manual_ground_truth" for item in scene_edits
+    )
+    auto_count = sum(
+        item["review_status"] == "auto_generated" for item in scene_edits
+    )
+    if manual_count + auto_count == len(scene_edits):
+        edit_segmentation.update(
+            {
+                "manual_segment_count": manual_count,
+                "auto_segment_count": auto_count,
+            }
+        )
+    source_span = max((item["end_s"] for item in scene_edits), default=0.0)
+    edit_segmentation["source_span_seconds"] = round(source_span, 6)
+    type_summary = " → ".join(edit_segmentation["types"]) or "none"
+    edit_segmentation["summary"] = (
+        f"{len(scene_edits)} intervals · {type_summary} · {source_span:.1f} source s"
+    )
+    record: dict[str, Any] = {
+        "video_file": video_file,
+        "slug": record_slug,
+        "date": catalog_date,
+        "description": config.public_title.strip(),
+        "town": town,
+        "annotation_state": annotation_state,
+        "edit_segmentation": edit_segmentation,
+        "research": {
+            "public_scene_available": True,
+            "public_scene_url": f"scenes/{config.slug}/",
+            "calibration_state": "relative_only",
+        },
+    }
+    candidate_url = source.get("source_record_url")
+    if candidate_url is not None:
+        record["source_record_url"] = _catalog_source_record_url(
+            candidate_url,
+            slug=record_slug,
+        )
+    records = [record]
+    return {
+        "schema_version": PUBLIC_CATALOG_SCHEMA_VERSION,
+        "generated_at": _catalog_text(
+            generated_at,
+            field="generated_at",
+            maximum=80,
+        ),
+        "source": {
+            "kind": "synthesized_scene_metadata",
+            "selection_policy": "one metadata-only record for the selected public scene",
+        },
+        "provenance": {
+            "generated_by": "fpv_vggt_lab.public_demo",
+            "annotation_files_considered": 1 if annotation_source else 0,
+            "gallery_manifest_merged": False,
+            "scene_routes": "explicit_only",
+        },
+        "publication_boundary": {
+            "third_party_media_embedded": False,
+            "real_media_assets_published": False,
+            "source_record_links_only": True,
+        },
+        "counts": _public_catalog_counts(records),
+        "records": records,
+    }
+
+
+def _public_catalog_counts(records: Sequence[Mapping[str, Any]]) -> dict[str, int]:
+    return {
+        "records": len(records),
+        "manual_ground_truth": sum(
+            record.get("annotation_state") == "manual_ground_truth"
+            for record in records
+        ),
+        "auto_generated": sum(
+            record.get("annotation_state") == "auto_generated"
+            for record in records
+        ),
+        "unreviewed": sum(
+            record.get("annotation_state") == "unreviewed" for record in records
+        ),
+        "public_scenes": sum(
+            record.get("research", {}).get("public_scene_available") is True
+            for record in records
+        ),
+    }
+
+
+def _public_scene_annotation(
+    scene_meta: Mapping[str, Any],
+    *,
+    default_kind: str,
+) -> dict[str, Any]:
+    raw = scene_meta.get("annotation", {})
+    raw = raw if isinstance(raw, dict) else {}
+    kind = _catalog_annotation_state(raw.get("kind", default_kind))
+    source_interval: dict[str, Any] | None = None
+    intervals = raw.get("intervals", [])
+    if intervals is not None and not isinstance(intervals, list):
+        raise PublicDemoError("scene annotation intervals must be a list")
+    if intervals:
+        interval = intervals[0]
+        if not isinstance(interval, dict):
+            raise PublicDemoError("scene annotation interval must be an object")
+        start = _finite_catalog_number(
+            interval.get("start_s"),
+            field="annotation interval start_s",
+            minimum=0.0,
+        )
+        end = _finite_catalog_number(
+            interval.get("end_s"),
+            field="annotation interval end_s",
+            minimum=start,
+        )
+        source_interval = {
+            "segment_id": _catalog_text(
+                interval.get("segment_id"),
+                field="annotation interval segment_id",
+                maximum=80,
+            ),
+            "start_s": start,
+            "end_s": end,
+        }
+    return {"kind": kind, "source_interval": source_interval}
+
+
+def _public_scene_edit_segments(scene_meta: Mapping[str, Any]) -> list[dict[str, Any]]:
+    raw_segments = scene_meta.get("edit_segments", [])
+    if raw_segments is None:
+        return []
+    if not isinstance(raw_segments, list):
+        raise PublicDemoError("scene edit_segments must be a list")
+    segments: list[dict[str, Any]] = []
+    for raw in raw_segments:
+        if not isinstance(raw, dict):
+            raise PublicDemoError("scene edit segments must be objects")
+        start = _finite_catalog_number(
+            raw.get("start_s"),
+            field="scene edit start_s",
+            minimum=0.0,
+        )
+        end = _finite_catalog_number(
+            raw.get("end_s"),
+            field="scene edit end_s",
+            minimum=start,
+        )
+        segment = {
+            "start_s": start,
+            "end_s": end,
+            "type": _catalog_edit_type(raw.get("type")),
+            "label": _catalog_text(
+                raw.get("label", str(raw.get("type", "edit")).replace("_", " ")),
+                field="scene edit label",
+                maximum=120,
+            ),
+            "review_status": _catalog_annotation_state(
+                raw.get("review_status", "unreviewed")
+            ),
+        }
+        segments.append(segment)
+    segments.sort(key=lambda segment: (segment["start_s"], segment["end_s"]))
+    return segments
+
+
+def _assert_catalog_input_safe(value: Any, path: tuple[str, ...] = ()) -> None:
+    if isinstance(value, dict):
+        for key, child in value.items():
+            if not isinstance(key, str):
+                raise PublicDemoError("catalog keys must be strings")
+            normalized = key.lower()
+            if (
+                normalized in FORBIDDEN_CATALOG_KEYS
+                or normalized.endswith("_path")
+                or normalized.endswith("_paths")
+            ):
+                raise PublicDemoError(
+                    f"forbidden catalog field: {'.'.join((*path, key))}"
+                )
+            _assert_catalog_input_safe(child, (*path, key))
+        return
+    if isinstance(value, list):
+        for index, child in enumerate(value):
+            _assert_catalog_input_safe(child, (*path, str(index)))
+        return
+    if isinstance(value, float) and not math.isfinite(value):
+        raise PublicDemoError(f"non-finite catalog value: {'.'.join(path)}")
+    if isinstance(value, str):
+        if value.startswith(("/", "\\")) or ABSOLUTE_PATH_PATTERN.search(value):
+            raise PublicDemoError(f"absolute path in catalog: {'.'.join(path)}")
+        if SECRET_PATTERN.search(value):
+            raise PublicDemoError(f"secret-like catalog value: {'.'.join(path)}")
+
+
+def _catalog_text(value: Any, *, field: str, maximum: int) -> str:
+    if not isinstance(value, str):
+        raise PublicDemoError(f"{field} must be text")
+    text = value.strip()
+    if not text or len(text) > maximum:
+        raise PublicDemoError(f"{field} has an invalid length")
+    if any(ord(character) < 32 for character in text):
+        raise PublicDemoError(f"{field} contains control characters")
+    if (
+        text.startswith(("/", "\\"))
+        or ABSOLUTE_PATH_PATTERN.search(text)
+        or EXTERNAL_RUNTIME_PATTERN.search(text)
+        or SECRET_PATTERN.search(text)
+    ):
+        raise PublicDemoError(f"{field} contains a forbidden value")
+    return text
+
+
+def _optional_catalog_text(value: Any, *, maximum: int) -> str | None:
+    if value is None:
+        return None
+    return _catalog_text(value, field="catalog metadata", maximum=maximum)
+
+
+def _catalog_slug(value: Any) -> str:
+    if not isinstance(value, str) or not CATALOG_SLUG_PATTERN.fullmatch(value):
+        raise PublicDemoError("catalog slug is invalid")
+    return value
+
+
+def _catalog_video_file(value: Any) -> str:
+    if not isinstance(value, str) or not value.lower().endswith(".mp4"):
+        raise PublicDemoError("catalog video_file must be an MP4 basename")
+    if Path(value).name != value or "/" in value or "\\" in value:
+        raise PublicDemoError("catalog video_file must not contain a path")
+    stem = Path(value).stem
+    if not CATALOG_SLUG_PATTERN.fullmatch(stem):
+        raise PublicDemoError("catalog video_file stem is invalid")
+    return value
+
+
+def _catalog_date(value: Any) -> str:
+    if not isinstance(value, str):
+        raise PublicDemoError("catalog date must be YYYY-MM-DD")
+    try:
+        parsed = datetime.strptime(value, "%Y-%m-%d")
+    except ValueError as exc:
+        raise PublicDemoError("catalog date must be YYYY-MM-DD") from exc
+    return parsed.strftime("%Y-%m-%d")
+
+
+def _optional_catalog_date(value: Any) -> str | None:
+    if value is None:
+        return None
+    return _catalog_date(value)
+
+
+def _catalog_annotation_state(value: Any) -> str:
+    if value not in CATALOG_ANNOTATION_STATES:
+        raise PublicDemoError("catalog annotation_state is invalid")
+    return str(value)
+
+
+def _catalog_edit_type(value: Any) -> str:
+    if value not in CATALOG_EDIT_TYPES:
+        raise PublicDemoError("catalog edit segment type is invalid")
+    return str(value)
+
+
+def _finite_catalog_number(
+    value: Any,
+    *,
+    field: str,
+    minimum: float | None = None,
+    maximum: float | None = None,
+) -> float:
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
+        raise PublicDemoError(f"{field} must be numeric")
+    number = float(value)
+    if not math.isfinite(number):
+        raise PublicDemoError(f"{field} must be finite")
+    if minimum is not None and number < minimum:
+        raise PublicDemoError(f"{field} is below its minimum")
+    if maximum is not None and number > maximum:
+        raise PublicDemoError(f"{field} is above its maximum")
+    return round(number, 6)
+
+
+def _nonnegative_catalog_int(value: Any, *, field: str) -> int:
+    if isinstance(value, bool) or not isinstance(value, int) or value < 0:
+        raise PublicDemoError(f"{field} must be a non-negative integer")
+    return value
+
+
+def _catalog_source_record_url(value: Any, *, slug: str) -> str:
+    if not isinstance(value, str):
+        raise PublicDemoError("source_record_url must be text")
+    match = SOURCE_RECORD_URL_PATTERN.fullmatch(value)
+    if match is None or match.group("slug") != slug:
+        raise PublicDemoError("source_record_url is not an approved Itamar record URL")
+    return value
+
+
+def _catalog_public_scene_url(value: Any) -> str:
+    if not isinstance(value, str) or not value:
+        raise PublicDemoError("public_scene_url must be text")
+    if (
+        "\\" in value
+        or "%" in value
+        or "?" in value
+        or "#" in value
+        or value.startswith("//")
+    ):
+        raise PublicDemoError("public_scene_url is not canonical")
+    if SAFE_RELATIVE_SCENE_URL_PATTERN.fullmatch(value):
+        return value
+    parsed = urlsplit(value)
+    if parsed.scheme != "https" or not parsed.hostname:
+        raise PublicDemoError("public_scene_url must be relative or HTTPS")
+    if parsed.username or parsed.password or parsed.query or parsed.fragment:
+        raise PublicDemoError("public_scene_url contains unsafe URL components")
+    try:
+        port = parsed.port
+    except ValueError as exc:
+        raise PublicDemoError("public_scene_url contains an invalid port") from exc
+    if port not in (None, 443):
+        raise PublicDemoError("public_scene_url contains an unsafe port")
+    hostname = parsed.hostname.lower()
+    if hostname.endswith("."):
+        raise PublicDemoError("public_scene_url hostname must not end with a dot")
+    try:
+        address = ipaddress.ip_address(hostname)
+    except ValueError:
+        address = None
+    if address is None:
+        legacy_ipv4 = re.fullmatch(
+            r"(?:0[xX][0-9A-Fa-f]+|[0-9]+)"
+            r"(?:\.(?:0[xX][0-9A-Fa-f]+|[0-9]+)){0,3}",
+            hostname,
+        )
+        if legacy_ipv4 is not None:
+            raise PublicDemoError("public_scene_url uses a legacy numeric IPv4 form")
+        if not re.fullmatch(r"[a-z0-9.-]+", hostname):
+            raise PublicDemoError("public_scene_url hostname is invalid")
+        if (
+            "." not in hostname
+            or hostname in BLOCKED_LOCAL_HOSTNAMES
+            or hostname.endswith(BLOCKED_LOCAL_HOST_SUFFIXES)
+        ):
+            raise PublicDemoError("public_scene_url hostname is not public")
+    elif not address.is_global:
+        raise PublicDemoError("public_scene_url address is not public")
+    if not re.fullmatch(r"/[A-Za-z0-9._~/-]+/?", parsed.path):
+        raise PublicDemoError("public_scene_url path is invalid")
+    if any(part in {".", ".."} for part in parsed.path.split("/")):
+        raise PublicDemoError("public_scene_url contains traversal")
+    return value
+
+
+def _validated_catalog_external_urls(text: str) -> tuple[str, ...]:
+    try:
+        catalog = json.loads(text)
+    except json.JSONDecodeError as exc:
+        raise PublicDemoError("catalog.json is invalid JSON") from exc
+    if not isinstance(catalog, dict) or catalog.get("schema_version") != PUBLIC_CATALOG_SCHEMA_VERSION:
+        raise PublicDemoError("catalog.json has an invalid public schema")
+    generated_at = catalog.get("generated_at")
+    if not isinstance(generated_at, str):
+        raise PublicDemoError("catalog.json generated_at is invalid")
+    canonical = _sanitize_public_catalog(catalog, generated_at=generated_at)
+    if canonical != catalog:
+        raise PublicDemoError("catalog.json is not canonical public metadata")
+    catalog = canonical
+    records = catalog.get("records")
+    if not isinstance(records, list):
+        raise PublicDemoError("catalog.json records are invalid")
+    allowed: list[str] = []
+    for record in records:
+        if not isinstance(record, dict):
+            raise PublicDemoError("catalog.json record is invalid")
+        slug = _catalog_slug(record.get("slug"))
+        source_url = record.get("source_record_url")
+        if source_url is not None:
+            allowed.append(_catalog_source_record_url(source_url, slug=slug))
+        research = record.get("research", {})
+        if not isinstance(research, dict):
+            raise PublicDemoError("catalog.json research is invalid")
+        scene_url = research.get("public_scene_url")
+        if scene_url is not None:
+            validated = _catalog_public_scene_url(scene_url)
+            if validated.startswith("https://"):
+                allowed.append(validated)
+    return tuple(allowed)
 
 
 def _render_template(path: Path, replacements: Mapping[str, str]) -> str:
@@ -1286,6 +2310,14 @@ def main(
     scene_root: Path = typer.Option(..., "--scene-root", exists=True, file_okay=False),
     archive_root: Path = typer.Option(..., "--archive-root", exists=True, file_okay=False),
     output_root: Path = typer.Option(Path("build/public_demo"), "--output-root"),
+    catalog_json: Path | None = typer.Option(
+        None,
+        "--catalog-json",
+        exists=True,
+        file_okay=True,
+        dir_okay=False,
+        readable=True,
+    ),
     slug: str = typer.Option(..., "--slug"),
     title: str = typer.Option(..., "--title"),
     path_samples: int = typer.Option(96, "--path-samples", min=8, max=160),
@@ -1306,6 +2338,7 @@ def main(
             scene_root=scene_root,
             archive_root=archive_root,
             output_root=output_root,
+            catalog_path=catalog_json,
             slug=slug,
             public_title=title,
             path_sample_count=path_samples,
