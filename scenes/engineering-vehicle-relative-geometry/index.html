@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <link rel="icon" href="data:,">
+  <meta name="description" content="Interactive privacy-reduced relative visual-geometry research scene.">
+  <title>Engineering Vehicle · Taybeh — Relative Geometry Study · Research Scene</title>
+  <link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body class="scene-page" data-scene-json="scene.json">
+  <header class="scene-header">
+    <a class="wordmark" href="../../" aria-label="Back to FPV Geometry Lab gallery">
+      <span class="wordmark-signal" aria-hidden="true"></span>
+      <strong>FPV GEOMETRY LAB</strong>
+    </a>
+    <div class="scene-identity"><span id="scene-title">Engineering Vehicle · Taybeh — Relative Geometry Study</span><b>Scene 01</b></div>
+    <div class="header-meta"><span id="scene-status">validated public abstraction</span><span class="status-chip">relative only</span></div>
+  </header>
+
+  <main class="scene-shell">
+    <nav class="layer-rail" aria-label="Scene layers">
+      <button type="button" class="layer-button active" data-layer="density" aria-pressed="true"><span>01</span>Density</button>
+      <button type="button" class="layer-button active" data-layer="raw" aria-pressed="true"><span>02</span>Raw path</button>
+      <button type="button" class="layer-button" data-layer="bspline" aria-pressed="false"><span>03</span>B-spline</button>
+      <button type="button" class="layer-button active" data-layer="rts" aria-pressed="true"><span>04</span>RTS</button>
+      <button type="button" class="layer-button" data-layer="matches" aria-pressed="false"><span>05</span>Matches</button>
+    </nav>
+
+    <section class="scene-stage" aria-label="Relative geometry workspace">
+      <canvas id="scene-canvas" aria-label="Interactive coarse geometry density, relative camera paths, and camera pose proxy"></canvas>
+      <div class="stage-topline">
+        <span><b id="active-layer-label">Density · Raw · RTS</b></span>
+        <span id="pose-label">camera pose proxy · body attitude unavailable</span>
+      </div>
+      <div class="axis-key" aria-hidden="true"><i class="axis-x"></i>X <i class="axis-y"></i>Y <i class="axis-z"></i>Z</div>
+      <div class="stage-help">drag to orbit · wheel to scale · double-click to reset</div>
+    </section>
+
+    <aside class="scene-inspector" aria-label="Research evidence inspector">
+      <div class="inspector-title"><span>Evidence inspector</span><strong id="hero-score">—</strong></div>
+
+      <section class="inspector-section">
+        <div class="section-label"><span>Method I/O</span><b>native outputs</b></div>
+        <div id="method-tabs" class="method-tabs" role="tablist" aria-label="Method summaries"></div>
+        <div id="method-panel" class="method-panel" aria-live="polite"></div>
+      </section>
+
+      <section class="inspector-section">
+        <div class="section-label"><span>Provenance</span><b>public boundary</b></div>
+        <dl id="provenance" class="provenance-list"></dl>
+      </section>
+
+      <section id="failure-case" class="failure-study">
+        <div class="section-label"><span>Failure study</span><b id="failure-status">—</b></div>
+        <p id="failure-copy">Diagnostic evidence loading.</p>
+        <dl id="failure-facts"></dl>
+      </section>
+
+      <section id="media-notice" class="media-notice">
+        <strong>Media non-redistribution</strong>
+        <p>original media is not redistributed. Source frames, recognizable reprojections, raw NPZ/PLY geometry, and machine paths are withheld.</p>
+      </section>
+    </aside>
+
+    <section class="analysis-dock">
+      <article class="trajectory-panel">
+        <div class="section-label"><span>Trajectory profiles</span><b id="trajectory-readout">normalized shapes</b></div>
+        <canvas id="trajectory-canvas" aria-label="Normalized relative trajectory profiles with active cursor"></canvas>
+        <div class="chart-legend"><span class="key-cyan">speed</span><span class="key-amber">acceleration</span><span class="key-violet">RTS residual</span></div>
+      </article>
+      <article class="connectivity-panel">
+        <div class="section-label"><span>Match connectivity</span><b id="connectivity-readout">aggregate matrix</b></div>
+        <canvas id="connectivity-canvas" aria-label="Binned aggregate feature-match connectivity"></canvas>
+      </article>
+    </section>
+
+    <section class="scene-timeline" aria-label="Synchronized camera playback">
+      <div class="transport">
+        <button id="step-back" type="button" aria-label="Previous camera sample">−</button>
+        <button id="play-toggle" type="button">Play</button>
+        <button id="step-forward" type="button" aria-label="Next camera sample">+</button>
+      </div>
+      <input id="pose-slider" type="range" min="0" max="1" value="0" step="1" aria-label="Camera pose sample">
+      <div class="timeline-readout"><strong id="pose-readout">0 / —</strong><span>normalized time · relative only</span></div>
+    </section>
+  </main>
+
+  <script src="../../assets/scene.js" defer></script>
+</body>
+</html>

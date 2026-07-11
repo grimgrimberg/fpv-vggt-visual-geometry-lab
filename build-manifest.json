@@ -1,0 +1,58 @@
+{
+  "audit": {
+    "checked_file_count": 7,
+    "finding_count": 0,
+    "findings": [],
+    "scope": "generated public demo files",
+    "status": "passed"
+  },
+  "files": [
+    {
+      "bytes": 0,
+      "path": ".nojekyll",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 4967,
+      "path": "assets/gallery.js",
+      "sha256": "241882b179adaaceea9c52404459662656f05a2b912776f06e822042aabd8f78"
+    },
+    {
+      "bytes": 19303,
+      "path": "assets/scene.js",
+      "sha256": "291d6c142ff84ec0a8c9b938f34eaa9551628acabe7ca340b8e91b28d7a88ca3"
+    },
+    {
+      "bytes": 16716,
+      "path": "assets/site.css",
+      "sha256": "99ef3e0948c81bb1829e768ae3e8228b8fa91a362ee4d8fe91f3db54f74caf30"
+    },
+    {
+      "bytes": 4219,
+      "path": "index.html",
+      "sha256": "4868422374486e395281e5dd06b8a8f7c37ba6efe4c2b9d7c4dbcea548fcf6ff"
+    },
+    {
+      "bytes": 5303,
+      "path": "scenes/engineering-vehicle-relative-geometry/index.html",
+      "sha256": "cc55a44751740c4b978d387bd605ccb1096aad81d4381f3f81e03da05b2047e7"
+    },
+    {
+      "bytes": 135332,
+      "path": "scenes/engineering-vehicle-relative-geometry/scene.json",
+      "sha256": "1f9119c6856d6b6e3662905276c96beff55eda691dc37c572726c69b360bc9bc"
+    }
+  ],
+  "generated_at": "2026-07-11T15:06:17.706042Z",
+  "publication_boundary": {
+    "absolute_source_paths_published": false,
+    "notice": "Original media is not redistributed. This public scene contains only coarse normalized aggregates and numeric summaries.",
+    "original_video_published": false,
+    "raw_npz_or_ply_published": false,
+    "recognizable_reprojection_published": false,
+    "source_frames_published": false
+  },
+  "scale_status": "relative_only",
+  "scene_slug": "engineering-vehicle-relative-geometry",
+  "schema_version": "1.0.0"
+}
