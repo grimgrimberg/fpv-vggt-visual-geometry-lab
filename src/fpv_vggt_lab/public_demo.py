@@ -9,7 +9,7 @@ import os
 import re
 import shutil
 import tempfile
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable, Mapping, Sequence
@@ -155,6 +155,17 @@ class PublicDemoBuildResult:
     audit: Mapping[str, Any]
 
 
+@dataclass(frozen=True, slots=True)
+class PublicDemoCollectionBuildResult:
+    status: str
+    output_root: Path
+    scene_entries: tuple[Path, ...]
+    manifest: Path
+    file_count: int
+    total_bytes: int
+    audit: Mapping[str, Any]
+
+
 def build_public_demo(config: PublicDemoConfig) -> PublicDemoBuildResult:
     """Build an allowlisted public demonstration from private derived artifacts."""
     final_output_root = config.output_root.resolve()
@@ -193,6 +204,389 @@ def build_public_demo(config: PublicDemoConfig) -> PublicDemoBuildResult:
         )
     finally:
         shutil.rmtree(staging_root, ignore_errors=True)
+
+
+def build_public_demo_collection(
+    configs: Sequence[PublicDemoConfig],
+) -> PublicDemoCollectionBuildResult:
+    """Build and transactionally publish an authoritative multi-scene collection."""
+    scene_configs = tuple(configs)
+    if not scene_configs:
+        raise ValueError("public demo collection requires at least one scene")
+    slugs = tuple(config.slug for config in scene_configs)
+    if len(set(slugs)) != len(slugs):
+        raise ValueError("public demo collection scene slugs must be unique")
+
+    output_roots = {config.output_root.resolve() for config in scene_configs}
+    if len(output_roots) != 1:
+        raise ValueError("public demo collection scenes must share one output_root")
+    final_output_root = output_roots.pop()
+    catalog_paths = {
+        config.catalog_path.resolve() if config.catalog_path is not None else None
+        for config in scene_configs
+    }
+    if len(catalog_paths) != 1:
+        raise ValueError("public demo collection scenes must share one catalog_path")
+
+    generated_values = {
+        config.generated_at for config in scene_configs if config.generated_at is not None
+    }
+    if len(generated_values) > 1:
+        raise ValueError("public demo collection scenes must share one generated_at value")
+    generated_at = (
+        generated_values.pop()
+        if generated_values
+        else datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+    )
+    scene_configs = tuple(
+        replace(config, output_root=final_output_root, generated_at=generated_at)
+        for config in scene_configs
+    )
+
+    final_output_root.parent.mkdir(parents=True, exist_ok=True)
+    staging_root = Path(
+        tempfile.mkdtemp(
+            prefix=f".{final_output_root.name or 'public-demo'}.collection-stage-",
+            dir=final_output_root.parent,
+        )
+    )
+    scene_stage_roots: list[Path] = []
+    try:
+        scene_catalogs: list[dict[str, Any]] = []
+        scene_metas: list[dict[str, Any]] = []
+        scene_payloads: list[dict[str, Any]] = []
+        for index, config in enumerate(scene_configs):
+            scene_stage = Path(
+                tempfile.mkdtemp(
+                    prefix=f".{config.slug}.scene-stage-",
+                    dir=final_output_root.parent,
+                )
+            )
+            scene_stage_roots.append(scene_stage)
+            empty_final_root = scene_stage.parent / f".{config.slug}.empty-final"
+            _build_public_demo_stage(
+                config,
+                staging_root=scene_stage,
+                final_output_root=empty_final_root,
+            )
+
+            source_scene_dir = scene_stage / "scenes" / config.slug
+            destination_scene_dir = staging_root / "scenes" / config.slug
+            destination_scene_dir.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copytree(source_scene_dir, destination_scene_dir)
+            if index == 0:
+                shutil.copytree(scene_stage / "assets", staging_root / "assets")
+                collection_index = staging_root / "index.html"
+                shutil.copyfile(scene_stage / "index.html", collection_index)
+                _rewrite_collection_gallery_copy(
+                    collection_index,
+                    scene_count=len(scene_configs),
+                )
+                shutil.copyfile(scene_stage / ".nojekyll", staging_root / ".nojekyll")
+
+            scene_catalogs.append(_read_json(scene_stage / "catalog.json"))
+            scene_metas.append(
+                _read_json(config.scene_root.resolve() / "viewer" / "scene_meta.json")
+            )
+            scene_payloads.append(_read_json(source_scene_dir / "scene.json"))
+
+        catalog = _build_public_collection_catalog(
+            scene_configs,
+            scene_metas=scene_metas,
+            scene_catalogs=scene_catalogs,
+            generated_at=generated_at,
+        )
+        (staging_root / "catalog.json").write_text(
+            json.dumps(catalog, indent=2, sort_keys=True),
+            encoding="utf-8",
+        )
+
+        authorized_binary_paths = tuple(
+            sorted(
+                relative
+                for config in scene_configs
+                if config.publish_real_point_cloud
+                for relative in (
+                    f"scenes/{config.slug}/geometry/{POINT_POSITION_ASSET}",
+                    f"scenes/{config.slug}/geometry/{POINT_COLOR_ASSET}",
+                )
+            )
+        )
+        generated_files = _public_tree_files(staging_root)
+        staged_without_manifest = tuple(
+            path.relative_to(staging_root).as_posix() for path in generated_files
+        )
+        previous_slugs = _previous_public_collection_slugs(final_output_root)
+        previous_managed_paths = _previous_public_collection_managed_paths(
+            final_output_root,
+            previous_slugs=previous_slugs,
+        )
+        managed_slugs = tuple(dict.fromkeys((*slugs, *previous_slugs)))
+        managed_relative_paths = set(staged_without_manifest)
+        managed_relative_paths.update(previous_managed_paths)
+        managed_relative_paths.add("build-manifest.json")
+        for slug in managed_slugs:
+            managed_relative_paths.update(
+                {
+                    f"scenes/{slug}/index.html",
+                    f"scenes/{slug}/scene.json",
+                    f"scenes/{slug}/geometry/{POINT_POSITION_ASSET}",
+                    f"scenes/{slug}/geometry/{POINT_COLOR_ASSET}",
+                }
+            )
+
+        audit = _audit_effective_public_tree(
+            staging_root=staging_root,
+            output_root=final_output_root,
+            managed_relative_paths=managed_relative_paths,
+            authorized_binary_paths=authorized_binary_paths,
+        )
+        if audit["status"] != "passed":
+            reasons = "; ".join(item["reason"] for item in audit["findings"])
+            raise PublicDemoError(f"public output audit failed: {reasons}")
+
+        publication_boundary = {
+            "real_point_sample_published": any(
+                payload["publication_boundary"]["real_point_sample_published"]
+                for payload in scene_payloads
+            ),
+            "original_video_published": False,
+            "source_frames_published": False,
+            "recognizable_reprojection_published": False,
+            "raw_npz_or_ply_published": False,
+            "full_backend_arrays_published": False,
+            "absolute_source_paths_published": False,
+            "notice": (
+                "Original media is not redistributed. Only explicitly authorized derived "
+                "browser point samples and scale-free research abstractions are published."
+            ),
+        }
+        manifest_path = staging_root / "build-manifest.json"
+        manifest_payload = {
+            "schema_version": PUBLIC_SCHEMA_VERSION,
+            "generated_at": generated_at,
+            "scene_slugs": list(slugs),
+            "scale_status": "relative_only",
+            "publication_boundary": publication_boundary,
+            "authorized_binary_paths": list(authorized_binary_paths),
+            "audit": audit,
+            "files": [
+                _file_record(path, staging_root) for path in sorted(generated_files)
+            ],
+        }
+        manifest_path.write_text(
+            json.dumps(manifest_payload, indent=2, sort_keys=True),
+            encoding="utf-8",
+        )
+
+        final_audit = _audit_effective_public_tree(
+            staging_root=staging_root,
+            output_root=final_output_root,
+            managed_relative_paths=managed_relative_paths,
+            authorized_binary_paths=authorized_binary_paths,
+        )
+        if final_audit["status"] != "passed":
+            raise PublicDemoError("collection manifest failed the final public output audit")
+
+        staged_files = _public_tree_files(staging_root)
+        staged_relative_paths = tuple(
+            path.relative_to(staging_root).as_posix() for path in staged_files
+        )
+        staged_total_bytes = sum(path.stat().st_size for path in staged_files)
+        _publish_staged_public_demo(
+            staging_root=staging_root,
+            output_root=final_output_root,
+            staged_relative_paths=staged_relative_paths,
+            managed_relative_paths=managed_relative_paths,
+            slug=scene_configs[0].slug,
+            stale_slugs=managed_slugs[1:],
+        )
+        final_entries = tuple(
+            final_output_root / "scenes" / config.slug / "index.html"
+            for config in scene_configs
+        )
+        return PublicDemoCollectionBuildResult(
+            status="built",
+            output_root=final_output_root,
+            scene_entries=final_entries,
+            manifest=final_output_root / "build-manifest.json",
+            file_count=len(staged_relative_paths),
+            total_bytes=staged_total_bytes,
+            audit=final_audit,
+        )
+    finally:
+        for scene_stage in scene_stage_roots:
+            shutil.rmtree(scene_stage, ignore_errors=True)
+        shutil.rmtree(staging_root, ignore_errors=True)
+
+
+def _rewrite_collection_gallery_copy(path: Path, *, scene_count: int) -> None:
+    singleton_copy = (
+        "One accepted scene · five method lanes · zero redistributed frames"
+    )
+    noun = "scene" if scene_count == 1 else "scenes"
+    collection_copy = (
+        f"{scene_count} accepted {noun} · featured scene · "
+        "five method lanes · zero redistributed frames"
+    )
+    text = path.read_text(encoding="utf-8")
+    if text.count(singleton_copy) != 1:
+        raise PublicDemoError("public gallery template is missing singleton hero copy")
+    path.write_text(
+        text.replace(singleton_copy, collection_copy, 1),
+        encoding="utf-8",
+    )
+
+
+def _build_public_collection_catalog(
+    configs: Sequence[PublicDemoConfig],
+    *,
+    scene_metas: Sequence[Mapping[str, Any]],
+    scene_catalogs: Sequence[Mapping[str, Any]],
+    generated_at: str,
+) -> dict[str, Any]:
+    catalog_path = configs[0].catalog_path
+    if catalog_path is None:
+        records = [dict(catalog["records"][0]) for catalog in scene_catalogs]
+        if len({record["video_file"] for record in records}) != len(records):
+            raise PublicDemoError("collection scene source videos must be unique")
+        if len({record["slug"] for record in records}) != len(records):
+            raise PublicDemoError("collection catalog record slugs must be unique")
+        catalog = dict(scene_catalogs[0])
+        catalog["source"] = {
+            "kind": "synthesized_scene_metadata",
+            "selection_policy": "one metadata-only record per selected public scene",
+        }
+        catalog["provenance"] = {
+            "generated_by": "fpv_vggt_lab.public_demo",
+            "annotation_files_considered": sum(
+                int(item["provenance"]["annotation_files_considered"])
+                for item in scene_catalogs
+            ),
+            "gallery_manifest_merged": False,
+            "scene_routes": "explicit_only",
+        }
+        catalog["records"] = records
+    else:
+        try:
+            catalog = _sanitize_public_catalog(
+                _read_json(catalog_path),
+                generated_at=generated_at,
+            )
+        except (json.JSONDecodeError, UnicodeError) as exc:
+            raise PublicDemoError("catalog JSON could not be decoded") from exc
+        for record in catalog["records"]:
+            research = dict(record["research"])
+            research["public_scene_available"] = False
+            research.pop("public_scene_url", None)
+            research.pop("calibration_state", None)
+            record["research"] = research
+
+        selected_videos: set[str] = set()
+        for config, scene_meta in zip(configs, scene_metas, strict=True):
+            source = scene_meta.get("source", {})
+            if not isinstance(source, dict) or source.get("video_file") is None:
+                raise PublicDemoError(
+                    "scene metadata must identify source.video_file for catalog overlay"
+                )
+            video_file = _catalog_video_file(source["video_file"])
+            if video_file in selected_videos:
+                raise PublicDemoError("collection scene source videos must be unique")
+            selected_videos.add(video_file)
+            selected = next(
+                (
+                    record
+                    for record in catalog["records"]
+                    if record["video_file"] == video_file
+                ),
+                None,
+            )
+            if selected is None:
+                raise PublicDemoError(
+                    "scene source video is not present in catalog records"
+                )
+            selected["research"] = {
+                **selected["research"],
+                "public_scene_available": True,
+                "public_scene_url": f"scenes/{config.slug}/",
+                "calibration_state": "relative_only",
+            }
+
+    catalog["records"].sort(
+        key=lambda record: (record["date"], record["slug"]),
+        reverse=True,
+    )
+    catalog["counts"] = _public_catalog_counts(catalog["records"])
+    return catalog
+
+
+def _previous_public_collection_slugs(output_root: Path) -> tuple[str, ...]:
+    manifest_path = output_root / "build-manifest.json"
+    if not manifest_path.is_file():
+        return ()
+    try:
+        manifest = _read_json(manifest_path)
+    except (PublicDemoError, json.JSONDecodeError, UnicodeError):
+        return ()
+    if manifest.get("schema_version") != PUBLIC_SCHEMA_VERSION:
+        return ()
+    raw_slugs = manifest.get("scene_slugs")
+    if raw_slugs is None:
+        single_slug = manifest.get("scene_slug")
+        raw_slugs = [single_slug] if single_slug is not None else []
+    if not isinstance(raw_slugs, list):
+        return ()
+    slugs: list[str] = []
+    for value in raw_slugs:
+        if not isinstance(value, str) or not SLUG_PATTERN.fullmatch(value):
+            return ()
+        if value not in slugs:
+            slugs.append(value)
+    return tuple(slugs)
+
+
+def _previous_public_collection_managed_paths(
+    output_root: Path,
+    *,
+    previous_slugs: Sequence[str],
+) -> tuple[str, ...]:
+    if not previous_slugs:
+        return ()
+    manifest_path = output_root / "build-manifest.json"
+    try:
+        manifest = _read_json(manifest_path)
+    except (PublicDemoError, json.JSONDecodeError, UnicodeError):
+        return ()
+    if manifest.get("schema_version") != PUBLIC_SCHEMA_VERSION:
+        return ()
+    files = manifest.get("files")
+    if not isinstance(files, list):
+        return ()
+
+    top_level_managed = {"index.html", "catalog.json", ".nojekyll"}
+    scene_prefixes = tuple(f"scenes/{slug}/" for slug in previous_slugs)
+    managed: list[str] = []
+    for record in files:
+        if not isinstance(record, dict):
+            return ()
+        value = record.get("path")
+        if not isinstance(value, str):
+            return ()
+        relative = Path(value)
+        normalized = relative.as_posix()
+        if (
+            relative.is_absolute()
+            or ".." in relative.parts
+            or normalized != value
+        ):
+            return ()
+        if (
+            normalized in top_level_managed
+            or normalized.startswith("assets/")
+            or normalized.startswith(scene_prefixes)
+        ):
+            managed.append(normalized)
+    return tuple(dict.fromkeys(managed))
 
 
 def _build_public_demo_stage(
@@ -647,6 +1041,7 @@ def _publish_staged_public_demo(
     staged_relative_paths: Iterable[str],
     managed_relative_paths: Iterable[str],
     slug: str,
+    stale_slugs: Iterable[str] = (),
 ) -> None:
     backup_root = Path(
         tempfile.mkdtemp(
@@ -687,9 +1082,16 @@ def _publish_staged_public_demo(
             os.replace(source, destination)
             published.append(relative)
 
-        geometry_dir = _public_target(output_root, f"scenes/{slug}/geometry")
-        if geometry_dir.is_dir() and not any(geometry_dir.iterdir()):
-            geometry_dir.rmdir()
+        cleanup_slugs = tuple(dict.fromkeys((slug, *stale_slugs)))
+        for cleanup_slug in cleanup_slugs:
+            geometry_dir = _public_target(
+                output_root, f"scenes/{cleanup_slug}/geometry"
+            )
+            if geometry_dir.is_dir() and not any(geometry_dir.iterdir()):
+                geometry_dir.rmdir()
+            scene_dir = _public_target(output_root, f"scenes/{cleanup_slug}")
+            if scene_dir.is_dir() and not any(scene_dir.iterdir()):
+                scene_dir.rmdir()
     except Exception as exc:
         rollback_errors: list[str] = []
         for relative in reversed(published):

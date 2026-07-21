@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+import hashlib
 import json
+import os
 import shutil
 import subprocess
 from pathlib import Path
@@ -8,12 +10,14 @@ from pathlib import Path
 import pytest
 import typer
 
+import fpv_vggt_lab.public_demo as public_demo
 from fpv_vggt_lab.public_demo import (
     PublicDemoConfig,
     PublicDemoError,
     _catalog_public_scene_url,
     audit_public_demo,
     build_public_demo,
+    build_public_demo_collection,
     main,
 )
 from tests.test_public_demo import _synthetic_sources, _write_json
@@ -222,6 +226,262 @@ def _add_scene_catalog_context(scene: Path) -> None:
         },
     ]
     _write_json(meta_path, meta)
+
+
+def _retarget_scene_catalog_context(
+    scene: Path,
+    *,
+    video_file: str,
+    catalog_date: str,
+    town: str,
+) -> None:
+    meta_path = scene / "viewer" / "scene_meta.json"
+    meta = json.loads(meta_path.read_text(encoding="utf-8"))
+    meta["source"] = {
+        "video_file": video_file,
+        "catalog_date": catalog_date,
+        "town": town,
+    }
+    _write_json(meta_path, meta)
+
+
+def _authorized_collection_configs(
+    tmp_path: Path,
+) -> tuple[tuple[PublicDemoConfig, PublicDemoConfig], Path]:
+    first_scene, first_archive = _synthetic_sources(tmp_path / "first")
+    second_scene, second_archive = _synthetic_sources(tmp_path / "second")
+    _retarget_scene_catalog_context(
+        first_scene,
+        video_file="2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan.mp4",
+        catalog_date="2026-04-24",
+        town="Taybeh",
+    )
+    _retarget_scene_catalog_context(
+        second_scene,
+        video_file="2026-06-14_engineering_vehicle_arnoun_ababil_drone.mp4",
+        catalog_date="2026-06-14",
+        town="Arnoun",
+    )
+    catalog_path = tmp_path / "public-catalog.json"
+    _collection_fixture(catalog_path)
+    output = tmp_path / "docs"
+    return (
+        (
+            PublicDemoConfig(
+                scene_root=first_scene,
+                archive_root=first_archive,
+                output_root=output,
+                catalog_path=catalog_path,
+                slug="taybeh-geometry",
+                public_title="Taybeh Geometry",
+                path_sample_count=16,
+                max_density_cells=80,
+                generated_at="2026-07-21T12:00:00Z",
+                publish_real_point_cloud=True,
+                point_cloud_authorization="Maintainer-approved derived point sample",
+                point_cloud_attribution="Itamar Weiss / FPV Drone Strikes Open Dataset",
+            ),
+            PublicDemoConfig(
+                scene_root=second_scene,
+                archive_root=second_archive,
+                output_root=output,
+                catalog_path=catalog_path,
+                slug="arnoun-geometry",
+                public_title="Arnoun Geometry",
+                path_sample_count=16,
+                max_density_cells=80,
+                generated_at="2026-07-21T12:00:00Z",
+                publish_real_point_cloud=True,
+                point_cloud_authorization="Maintainer-approved derived point sample",
+                point_cloud_attribution="Itamar Weiss / FPV Drone Strikes Open Dataset",
+            ),
+        ),
+        output,
+    )
+
+
+def _tree_bytes(root: Path) -> dict[str, bytes]:
+    return {
+        path.relative_to(root).as_posix(): path.read_bytes()
+        for path in root.rglob("*")
+        if path.is_file()
+    }
+
+
+def test_public_demo_collection_builds_two_authorized_scenes_with_one_allowlist(
+    tmp_path: Path,
+) -> None:
+    configs, output = _authorized_collection_configs(tmp_path)
+    result = build_public_demo_collection(configs)
+
+    expected_binary_paths = [
+        "scenes/arnoun-geometry/geometry/vggt_omega_colors.rgb8.bin",
+        "scenes/arnoun-geometry/geometry/vggt_omega_points.f32.bin",
+        "scenes/taybeh-geometry/geometry/vggt_omega_colors.rgb8.bin",
+        "scenes/taybeh-geometry/geometry/vggt_omega_points.f32.bin",
+    ]
+    manifest = json.loads(result.manifest.read_text(encoding="utf-8"))
+    assert manifest["scene_slugs"] == ["taybeh-geometry", "arnoun-geometry"]
+    assert manifest["authorized_binary_paths"] == expected_binary_paths
+    assert [path.parent.name for path in result.scene_entries] == [
+        "taybeh-geometry",
+        "arnoun-geometry",
+    ]
+    for relative in expected_binary_paths:
+        assert (output / relative).is_file()
+
+    catalog = json.loads((output / "catalog.json").read_text(encoding="utf-8"))
+    public_routes = {
+        record["research"]["public_scene_url"]
+        for record in catalog["records"]
+        if record["research"]["public_scene_available"]
+    }
+    assert public_routes == {
+        "scenes/taybeh-geometry/",
+        "scenes/arnoun-geometry/",
+    }
+    assert catalog["counts"]["public_scenes"] == 2
+    assert audit_public_demo(
+        output,
+        authorized_binary_paths=manifest["authorized_binary_paths"],
+    )["status"] == "passed"
+
+
+def test_public_demo_collection_root_identifies_featured_scene_and_scene_count(
+    tmp_path: Path,
+) -> None:
+    configs, output = _authorized_collection_configs(tmp_path)
+
+    build_public_demo_collection(configs)
+
+    gallery = (output / "index.html").read_text(encoding="utf-8")
+    assert "2 accepted scenes" in gallery
+    assert "featured scene" in gallery.lower()
+    assert "One accepted scene" not in gallery
+
+
+def test_collection_total_bytes_is_computed_before_publish(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    configs, output = _authorized_collection_configs(tmp_path)
+    output_root = output.resolve()
+    publish_finished = False
+    real_publish = public_demo._publish_staged_public_demo
+    real_stat = Path.stat
+
+    def publish_then_arm_failure(**kwargs: object) -> None:
+        nonlocal publish_finished
+        real_publish(**kwargs)
+        publish_finished = True
+
+    def fail_post_publish_output_stat(self: Path, *args: object, **kwargs: object):
+        if publish_finished and self.resolve().is_relative_to(output_root):
+            raise OSError("injected post-publish stat failure")
+        return real_stat(self, *args, **kwargs)
+
+    monkeypatch.setattr(public_demo, "_publish_staged_public_demo", publish_then_arm_failure)
+    monkeypatch.setattr(Path, "stat", fail_post_publish_output_stat)
+
+    result = build_public_demo_collection(configs)
+
+    assert publish_finished is True
+    assert result.total_bytes > 0
+
+
+def test_collection_shrink_publish_failure_restores_previous_tree(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    configs, output = _authorized_collection_configs(tmp_path)
+    build_public_demo_collection(configs)
+    before = _tree_bytes(output)
+    real_replace = os.replace
+    publish_calls = 0
+    injected = False
+
+    def replace_with_one_publish_failure(source: str | Path, destination: str | Path) -> None:
+        nonlocal publish_calls, injected
+        destination_path = Path(destination).resolve()
+        if not injected and destination_path.is_relative_to(output.resolve()):
+            publish_calls += 1
+            if publish_calls == 3:
+                injected = True
+                raise OSError("injected collection publish failure")
+        real_replace(source, destination)
+
+    monkeypatch.setattr(os, "replace", replace_with_one_publish_failure)
+
+    with pytest.raises(PublicDemoError, match="transactional public publish failed"):
+        build_public_demo_collection(configs[:1])
+
+    assert injected is True
+    assert publish_calls == 3
+    assert _tree_bytes(output) == before
+
+
+def test_collection_shrink_removes_only_the_stale_declared_scene(
+    tmp_path: Path,
+) -> None:
+    configs, output = _authorized_collection_configs(tmp_path)
+    build_public_demo_collection(configs)
+    retained_note = output / "research-note.txt"
+    retained_note.write_text("retain safe unmanaged research note", encoding="utf-8")
+
+    result = build_public_demo_collection(configs[:1])
+
+    manifest = json.loads(result.manifest.read_text(encoding="utf-8"))
+    assert manifest["scene_slugs"] == ["taybeh-geometry"]
+    assert not (output / "scenes" / "arnoun-geometry").exists()
+    assert retained_note.read_text(encoding="utf-8") == (
+        "retain safe unmanaged research note"
+    )
+    catalog = json.loads((output / "catalog.json").read_text(encoding="utf-8"))
+    assert catalog["counts"]["public_scenes"] == 1
+
+
+def test_collection_shrink_removes_retired_files_declared_by_previous_manifest(
+    tmp_path: Path,
+) -> None:
+    configs, output = _authorized_collection_configs(tmp_path)
+    build_public_demo_collection(configs)
+    retained_note = output / "research-note.txt"
+    retained_note.write_text("retain safe unmanaged research note", encoding="utf-8")
+    retired = output / "scenes" / "arnoun-geometry" / "retired-summary.json"
+    retired.write_text('{"retired": true}', encoding="utf-8")
+
+    manifest_path = output / "build-manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest["files"].append(
+        {
+            "path": retired.relative_to(output).as_posix(),
+            "bytes": retired.stat().st_size,
+            "sha256": hashlib.sha256(retired.read_bytes()).hexdigest(),
+        }
+    )
+    _write_json(manifest_path, manifest)
+
+    build_public_demo_collection(configs[:1])
+
+    assert not retired.exists()
+    assert retained_note.read_text(encoding="utf-8") == (
+        "retain safe unmanaged research note"
+    )
+
+
+def test_collection_rejects_undeclared_binary_without_mutating_public_tree(
+    tmp_path: Path,
+) -> None:
+    configs, output = _authorized_collection_configs(tmp_path)
+    build_public_demo_collection(configs)
+    rogue = output / "scenes" / "taybeh-geometry" / "geometry" / "extra.bin"
+    rogue.write_bytes(b"undeclared binary")
+    before = _tree_bytes(output)
+
+    with pytest.raises(PublicDemoError, match="forbidden public file type"):
+        build_public_demo_collection(configs)
+
+    assert _tree_bytes(output) == before
 
 
 def test_public_demo_builds_scalable_catalog_and_edit_aware_scene(tmp_path: Path) -> None:
