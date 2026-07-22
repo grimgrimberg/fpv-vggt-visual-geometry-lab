@@ -6,6 +6,10 @@
     "scope": "effective public demo tree",
     "status": "passed"
   },
+  "authorized_binary_paths": [
+    "scenes/engineering-vehicle-relative-geometry/geometry/vggt_omega_colors.rgb8.bin",
+    "scenes/engineering-vehicle-relative-geometry/geometry/vggt_omega_points.f32.bin"
+  ],
   "files": [
     {
       "bytes": 0,
@@ -40,12 +44,12 @@
     {
       "bytes": 334960,
       "path": "catalog.json",
-      "sha256": "4118e13678e9e53a601d8857f111137d7bdea3d48ea10d82efaea31b51176d63"
+      "sha256": "7bfcc615fdb1a11720466ebf99f791206708f44c999683f922a4b6b60f738b43"
     },
     {
-      "bytes": 6769,
+      "bytes": 6781,
       "path": "index.html",
-      "sha256": "62d152fc1c2bcecb9a6e6362089724518109438ce5460aff658171eb4099858c"
+      "sha256": "b27a196e1125aefaa8c7efbd63341b85d35d0c10d7a785589e5ed2a931be8ae7"
     },
     {
       "bytes": 360000,
@@ -58,51 +62,21 @@
       "sha256": "5c7426ce852d73aec2fe2503abfb97353dbb1031776112ba1908bafb1246bca1"
     },
     {
-      "bytes": 6807,
+      "bytes": 6799,
       "path": "scenes/engineering-vehicle-relative-geometry/index.html",
-      "sha256": "3d90379e7103aae0c3d8057a76cc8a7fc1dedc8904cd7724b59aaca1585fadef"
+      "sha256": "77f3e0c4cbf56b39961ffc499e6871abd915e3a45408ed8330586353492cf473"
     },
     {
-      "bytes": 137516,
+      "bytes": 137505,
       "path": "scenes/engineering-vehicle-relative-geometry/scene.json",
-      "sha256": "6496cd830b7eaf574ab5ea9f936715e005be3457fff22bfb69d5b7e280251edf"
+      "sha256": "dd46ad62b881a522955fc821eaa5984f7bdc6b4aa1460bf2685bb5b7beb1dba3"
     }
   ],
-  "generated_at": "2026-07-11T21:37:25.324530Z",
-  "point_cloud": {
-    "attribution": "Itamar Weiss / FPV Drone Strikes Open Dataset",
-    "authorization_provenance": "Dataset maintainer Itamar approval reported by the project owner on 2026-07-11",
-    "backend": "VGGT Omega",
-    "colors": {
-      "bytes": 360000,
-      "components": 3,
-      "dtype": "uint8",
-      "path": "geometry/vggt_omega_colors.rgb8.bin",
-      "sha256": "ffcf8f6d970701603b678f98e06fe2c0a111d55164d24f7cf7833579d0a6b0a4"
-    },
-    "display_transform": {
-      "center": [
-        -0.10844883128302173,
-        0.17582053766353056,
-        -0.8381616259319707
-      ],
-      "scale": 0.8157673835055902
-    },
-    "point_count": 120000,
-    "positions": {
-      "bytes": 1440000,
-      "components": 3,
-      "dtype": "float32_le",
-      "path": "geometry/vggt_omega_points.f32.bin",
-      "sha256": "5c7426ce852d73aec2fe2503abfb97353dbb1031776112ba1908bafb1246bca1"
-    },
-    "scale_status": "relative_only",
-    "source_point_count": 1000000
-  },
+  "generated_at": "2026-07-21T22:47:04.873023Z",
   "publication_boundary": {
     "absolute_source_paths_published": false,
     "full_backend_arrays_published": false,
-    "notice": "Original media is not redistributed. One authorized derived VGGT Omega point/color browser sample is published in relative-only coordinates; source frames, reprojections, raw NPZ/PLY, and full backend arrays remain withheld.",
+    "notice": "Original media is not redistributed. Only explicitly authorized derived browser point samples and scale-free research abstractions are published.",
     "original_video_published": false,
     "raw_npz_or_ply_published": false,
     "real_point_sample_published": true,
@@ -110,6 +84,8 @@
     "source_frames_published": false
   },
   "scale_status": "relative_only",
-  "scene_slug": "engineering-vehicle-relative-geometry",
+  "scene_slugs": [
+    "engineering-vehicle-relative-geometry"
+  ],
   "schema_version": "1.1.0"
 }

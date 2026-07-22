@@ -100,7 +100,7 @@
     "status": "completed_with_warnings",
     "successful_reconstruction_retained": true
   },
-  "generated_at": "2026-07-11T21:37:25.324530Z",
+  "generated_at": "2026-07-21T22:47:04.873023Z",
   "geometry_density": {
     "cells": [
       {
@@ -7481,7 +7481,7 @@
   "scale_status": "relative_only",
   "schema_version": "1.1.0",
   "slug": "engineering-vehicle-relative-geometry",
-  "title": "Engineering Vehicle \u00b7 Taybeh \u2014 Relative Geometry Study",
+  "title": "D9 engineering vehicle between Taybeh and Deir Siryan",
   "trajectory_profiles": {
     "acceleration_relative": {
       "label": "relative acceleration shape",
