@@ -1,0 +1,12 @@
+{
+  "annotation_sha256": "58e760930183823525c0955a1e1d2cd53fc9c25e605fcdd9f223892f3b7eb4b9",
+  "catalog_url": "https://www.itamarweiss.com/fpv/?scene=with",
+  "dataset_commit": "28433d042f63fefd6d5f549aa1a3f0ecf1b51a67",
+  "scene_url": "https://www.itamarweiss.com/fpv/scene/2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan/",
+  "schema_version": "1.0.0",
+  "status": "published_starred_3d",
+  "verification_method": "live_catalog_browser_review",
+  "verified_at": "2026-07-18",
+  "video_file": "2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan.mp4",
+  "video_url": "https://www.itamarweiss.com/fpv/video/2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan/"
+}

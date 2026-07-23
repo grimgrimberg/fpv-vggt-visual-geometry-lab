@@ -1,0 +1,7 @@
+.pov-tabs { position:absolute; top:7px; right:10px; z-index:4; display:flex; gap:3px; }
+.pov-tabs button { border:1px solid var(--line); background:#071218; color:var(--muted); padding:4px 8px; font-size:9px; text-transform:uppercase; letter-spacing:.08em; cursor:pointer; }
+.pov-tabs button.active { color:var(--cyan); border-color:#3e6f67; }
+#source-video { width:100%; height:calc(100% - 38px); object-fit:contain; background:#020609; display:block; }
+.video-pending { height:calc(100% - 38px); display:grid; place-items:center; padding:28px; color:var(--muted); text-align:center; font-size:11px; }
+.pov-panel.video-mode #pov-frame,.pov-panel.video-mode #pov-empty { display:none !important; }
+.pov-panel.frame-mode #source-video,.pov-panel.frame-mode .video-pending { display:none !important; }

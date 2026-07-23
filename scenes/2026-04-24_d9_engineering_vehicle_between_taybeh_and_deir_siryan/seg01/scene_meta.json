@@ -1,0 +1,438 @@
+{
+  "annotation": {
+    "annotated_at": "2026-07-04T12:22:33Z",
+    "auto_generated": false,
+    "full_edit_segmentation": {
+      "artifact_sha256": "7a7bc1601fd4711b764b37a3cc99ea31d3a120aa32a02956445b8f195535f594",
+      "path": "../diagnostics/edit_segmentation.json",
+      "review_status": "manual_ground_truth",
+      "source_sha256": "58e760930183823525c0955a1e1d2cd53fc9c25e605fcdd9f223892f3b7eb4b9"
+    },
+    "intervals": [
+      {
+        "end_s": 42.129,
+        "end_type": "replay_start",
+        "is_attack": true,
+        "segment_id": "seg01",
+        "segment_index": 1,
+        "start_s": 8.067,
+        "start_type": "flight_start"
+      }
+    ],
+    "kind": "manual_ground_truth",
+    "source_commit": "28433d042f63fefd6d5f549aa1a3f0ecf1b51a67",
+    "source_path": "/workspace/fpv-drone-strikes-lebanon-dataset/annotations/2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan_annotations.json",
+    "source_snapshot": {
+      "path": "../diagnostics/annotation_snapshot.json",
+      "sha256": "58e760930183823525c0955a1e1d2cd53fc9c25e605fcdd9f223892f3b7eb4b9"
+    },
+    "source_snapshot_sha256": "58e760930183823525c0955a1e1d2cd53fc9c25e605fcdd9f223892f3b7eb4b9",
+    "video_file": "2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan.mp4"
+  },
+  "assets": {
+    "camera_path": {
+      "path": "camera_path.json"
+    },
+    "cameras": {
+      "path": "cameras.json"
+    },
+    "colmap_ba_diagnostics": {
+      "path": "../diagnostics/colmap_ba_diagnostics.md"
+    },
+    "colmap_failure_taxonomy": {
+      "path": "../diagnostics/colmap_failure_taxonomy.json"
+    },
+    "contact_sheet": {
+      "reason": "local rendered images are not copied into the public package",
+      "status": "not_published"
+    },
+    "drone_pose_proxy": {
+      "path": "../visualization/drone_pose_proxy.svg"
+    },
+    "edit_segmentation": {
+      "path": "../diagnostics/edit_segmentation.json"
+    },
+    "geometry_consistency": {
+      "path": "../diagnostics/geometry_consistency.json"
+    },
+    "ground_alignment": {
+      "artifact_sha256": "749e5d11260fcb933f9ae92eb71014fae71608546d480487a99676e3ac78a029",
+      "confidence": "high",
+      "path": "ground_alignment.json",
+      "status": "estimated"
+    },
+    "match_graph": {
+      "path": "../diagnostics/match_graph.json"
+    },
+    "match_graph_report": {
+      "path": "../diagnostics/match_graph.html"
+    },
+    "match_matrix": {
+      "reason": "local rendered images are not copied into the public package",
+      "status": "not_published"
+    },
+    "method_comparison": {
+      "alignment_policy": "method_native_not_aligned",
+      "path": "methods/method_comparison.json",
+      "sample_count": 6
+    },
+    "method_inventory": {
+      "path": "../diagnostics/method_inventory.json"
+    },
+    "points_ply": {
+      "path": "points.ply"
+    },
+    "points_preview": {
+      "components": 3,
+      "count": 120000,
+      "dtype": "float32_le",
+      "path": "points_preview.bin"
+    },
+    "points_preview_colors": {
+      "components": 3,
+      "count": 120000,
+      "dtype": "uint8",
+      "path": "points_preview_colors.bin"
+    },
+    "pose_6dof_animation": {
+      "path": "../visualization/pose_6dof_animation.json"
+    },
+    "pose_6dof_raw": {
+      "path": "../visualization/pose_6dof_raw.csv"
+    },
+    "pose_ekf_metrics": {
+      "path": "../smoothed/pose_ekf_metrics.json"
+    },
+    "pov": {
+      "reason": "extracted source frames are kept local; public cockpit uses the original CDN video",
+      "samples": [],
+      "status": "not_published"
+    },
+    "pov_timeline": {
+      "path": "../visualization/pov_timeline.json"
+    },
+    "preview": {
+      "reason": "local rendered images are not copied into the public package",
+      "status": "not_published"
+    },
+    "reprojection": {
+      "reason": "rendered source-frame overlays are kept local; public cockpit uses geometry, trajectories, and remote video",
+      "samples": [],
+      "status": "not_published"
+    },
+    "sixdof_state_space": {
+      "path": "../visualization/sixdof_state_space.html"
+    },
+    "source_thumbnail": {
+      "copied": false,
+      "kind": "remote_public_cdn",
+      "path": "https://d2fioemadmrru3.cloudfront.net/thumbnails/2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan.jpg"
+    },
+    "source_video": {
+      "copied": false,
+      "kind": "remote_public_cdn",
+      "path": "https://d2fioemadmrru3.cloudfront.net/videos/2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan.mp4"
+    },
+    "trajectory_metrics": {
+      "path": "../diagnostics/trajectory_metrics.json"
+    },
+    "trajectory_profiles": {
+      "path": "trajectory_profiles.json"
+    }
+  },
+  "body_attitude": "unavailable",
+  "bounds": {
+    "max": [
+      0.6844229698181152,
+      0.4435651898384094,
+      -0.3096122443675995
+    ],
+    "min": [
+      -0.589032769203186,
+      -0.12333055585622787,
+      -1.8386235237121582
+    ]
+  },
+  "calibration": {
+    "evidence": null,
+    "state": "relative_only"
+  },
+  "display_alignment": {
+    "default": "estimated_ground",
+    "estimated_ground_available": true,
+    "raw_available": true,
+    "scale_status": "relative_only"
+  },
+  "display_units": "relative units",
+  "edit_segments": [
+    {
+      "comment": "",
+      "end_s": 8.067,
+      "label": "Banner Start",
+      "review_status": "manual_ground_truth",
+      "source_index": 0,
+      "start_s": 0.0,
+      "type": "banner_start"
+    },
+    {
+      "comment": "",
+      "end_s": 42.129,
+      "label": "Flight Start",
+      "review_status": "manual_ground_truth",
+      "source_index": 1,
+      "start_s": 8.067,
+      "type": "flight_start"
+    },
+    {
+      "comment": "",
+      "end_s": 69.781333,
+      "label": "Replay Start",
+      "review_status": "manual_ground_truth",
+      "source_index": 2,
+      "start_s": 42.129,
+      "type": "replay_start"
+    }
+  ],
+  "generated_at": "2026-07-11T09:07:56.313961Z",
+  "layers": {
+    "calibrated": {
+      "reason": "no documented calibration",
+      "status": "absent"
+    },
+    "fitted": {
+      "path": "../fitted/trajectory_bspline.csv"
+    },
+    "normalized": {
+      "path": "camera_path.json"
+    },
+    "pose_ekf": {
+      "method": "multiplicative_error_state_ekf",
+      "orientation_source": "filtered_camera_orientation",
+      "path": "../smoothed/trajectory_pose_ekf.csv",
+      "scale_status": "relative_only"
+    },
+    "raw": {
+      "immutable_source_ref": "../raw_ref.json",
+      "path": "trajectory_raw.csv"
+    },
+    "smoothed": {
+      "path": "../smoothed/trajectory_rts.csv"
+    }
+  },
+  "methods": {
+    "hloc_lightglue": {
+      "bytes": 79817777,
+      "file_count": 22,
+      "status": "done",
+      "suffix_counts": {
+        ".154530": 1,
+        ".bin": 15,
+        ".db": 1,
+        ".done": 1,
+        ".h5": 2,
+        ".json": 1,
+        ".txt": 1
+      },
+      "summary": {
+        "input_frames": 200,
+        "pairs": 2405,
+        "pipeline": "ALIKED + LightGlue + pycolmap incremental SfM",
+        "points3D": 13755,
+        "registered_images": 200,
+        "scene": "/workspace/data/vggt_omega/2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan/seg01"
+      }
+    },
+    "lingbot_map": {
+      "bytes": 464454389,
+      "file_count": 202,
+      "status": "done",
+      "suffix_counts": {
+        ".done": 1,
+        ".json": 1,
+        ".npz": 200
+      },
+      "summary": null
+    },
+    "mast3r_sfm": {
+      "bytes": 1531,
+      "file_count": 1,
+      "status": "failed",
+      "suffix_counts": {
+        ".failed": 1
+      },
+      "summary": null
+    },
+    "r3": {
+      "bytes": 212770364,
+      "file_count": 1004,
+      "status": "done",
+      "suffix_counts": {
+        ".done": 1,
+        ".json": 2,
+        ".npy": 401,
+        ".npz": 200,
+        ".png": 400
+      },
+      "summary": null
+    }
+  },
+  "pose_semantics": "camera_pose_proxy",
+  "public_catalog": {
+    "media_copied": false,
+    "source_player_url": "https://www.itamarweiss.com/fpv/?scene=2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan",
+    "source_record_url": "https://www.itamarweiss.com/fpv/video/2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan/"
+  },
+  "publication_boundary": {
+    "local_paths_redacted": true,
+    "point_cloud_publication": "approved_by_user",
+    "scale_state": "relative_only",
+    "source_frames_copied": false,
+    "videos_copied": false
+  },
+  "quality": {
+    "components": {
+      "contamination": 0.25,
+      "match_connectivity": 1.0,
+      "path_continuity": 1.0,
+      "reconstruction_quality": 0.9,
+      "visual_clarity": 0.72
+    },
+    "hero_score": 0.878,
+    "score_confidence": 0.72,
+    "transparent_heuristic": true
+  },
+  "raw_assets": {
+    "camera_path.csv": {
+      "bytes": 41092,
+      "path": "local_raw_backend_path_redacted",
+      "sha256": "f318866e851c3869943914a0aec8378fe80e838216fe87f007f573bcff74cb71",
+      "source_label": "camera_path.csv"
+    },
+    "cameras.npz": {
+      "bytes": 25436,
+      "path": "local_raw_backend_path_redacted",
+      "sha256": "903894b28ac639ae12b627be01e505a4159c3a74b7b61545883073fbe73802c7",
+      "source_label": "cameras.npz"
+    },
+    "frames.csv": {
+      "bytes": 25870,
+      "path": "local_raw_backend_path_redacted",
+      "sha256": "332ac7bf72d46870dc05bdabb7bfabf15d83ed1e5486f631ce7c59db813caa23",
+      "source_label": "frames.csv"
+    },
+    "point_cloud.npz": {
+      "bytes": 12831057,
+      "path": "local_raw_backend_path_redacted",
+      "sha256": "a484e310c8ec79cc038f898a79e1f8bf303dacaeb5a246170b98f4ef497119c7",
+      "source_label": "point_cloud.npz"
+    },
+    "predictions.npz": {
+      "bytes": 356772635,
+      "path": "local_raw_backend_path_redacted",
+      "sha256": "e00db80c62e2c8897277386519aa84d0e19c823359f90a6893c525320f8257a6",
+      "source_label": "predictions.npz"
+    },
+    "run_manifest.json": {
+      "bytes": 3094,
+      "path": "local_raw_backend_path_redacted",
+      "sha256": "f1355a1d7d96ff0c8e9be1db4418565b0233251b2f7e07f4cd7bac23deadb653",
+      "source_label": "run_manifest.json"
+    }
+  },
+  "reconstruction": {
+    "backend": "VGGT-Omega-1B-512",
+    "backend_commit": "39a0cb8af88554f15ddcb5354cd52bde588fa014",
+    "camera_frusta": "GLB-aligned recovered camera orientations",
+    "coordinate_frame": "official_glb_alignment",
+    "frame_count": 200,
+    "point_count_source": 1000000,
+    "point_count_viewer": 120000,
+    "viewer_color_source": {
+      "color_key": "cols",
+      "count": 120000,
+      "point_key": "pts"
+    }
+  },
+  "scene_id": "2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan__seg01",
+  "schema_version": "2.0.0",
+  "source": {
+    "catalog_date": "2026-04-24",
+    "dataset_context": {
+      "catalog": {
+        "date": "2026-04-24",
+        "id": "2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan",
+        "town": "Taybeh"
+      },
+      "dataset_commit": "71584762f5dae2e9108792b080702cd19bcba813",
+      "geo": {
+        "latitude": 33.27614167,
+        "longitude": 35.52115278,
+        "semantics": "catalog metadata only",
+        "status": "mapped",
+        "town": "Taybeh"
+      },
+      "object_reference": {
+        "anchor_id": "idf_armored_d9_envelope",
+        "dimensions": [
+          {
+            "bound_semantics": "lower_bound",
+            "dimension_name": "length",
+            "source_wording": "over 8 m long",
+            "uncertainty_m": 0.5,
+            "value_m": 8.0,
+            "vote_eligible": false
+          },
+          {
+            "bound_semantics": "approximate",
+            "dimension_name": "width",
+            "source_wording": "4.5 m wide",
+            "uncertainty_m": 0.25,
+            "value_m": 4.5,
+            "vote_eligible": true
+          },
+          {
+            "bound_semantics": "approximate",
+            "dimension_name": "height",
+            "source_wording": "about 4 m high",
+            "uncertainty_m": 0.3,
+            "value_m": 4.0,
+            "vote_eligible": true
+          }
+        ],
+        "object_variant": "modernized D9R armored envelope",
+        "reason": "No image/3D endpoints are documented; this object-size reference is not a scene calibration.",
+        "source": {
+          "publisher": "Israel Defense Forces",
+          "retrieved_at": "2026-07-12",
+          "source_semantics": "Modernized D9R envelope: over 8 m long, 4.5 m wide, and about 4 m high; not an exact base-machine configuration.",
+          "source_tier": "official_primary",
+          "url": "https://m.www.idf.il/en/mini-sites/technology-and-innovation/how-does-the-d-9-save-lives/"
+        },
+        "status": "reference_only_not_applied",
+        "trajectory_application": false
+      },
+      "path": "../diagnostics/dataset_context.json",
+      "sha256": "c83f5fd8bf23d5ee0a713accec40b1e7958080a82e5d9bfd4747af92cd4f2ded",
+      "status": "canonical_catalog_starred_scene"
+    },
+    "description": "D9 engineering vehicle on the road between Taybeh and Deir Siryan (dive drone)",
+    "itamar_reference": {
+      "catalog_url": "https://www.itamarweiss.com/fpv/?scene=with",
+      "evidence_path": "../diagnostics/itamar_reference_evidence.json",
+      "evidence_sha256": "3a05d0e316e3b5767a910d3af8eecac04f354e2e635cb8dba1f04106eb5aba2a",
+      "scene_url": "https://www.itamarweiss.com/fpv/scene/2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan/",
+      "status": "published_starred_3d",
+      "verified_at": "2026-07-18",
+      "video_url": "https://www.itamarweiss.com/fpv/video/2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan/"
+    },
+    "selection": "attack-chain",
+    "town": "Taybeh",
+    "video_file": "2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan.mp4"
+  },
+  "title": "D9 engineering vehicle on the road between Taybeh and Deir Siryan (dive drone)",
+  "warnings": [
+    "relative_only: no physical scale calibration is documented",
+    "camera_pose_proxy: vehicle-body attitude is unavailable",
+    "MASt3R SfM failed; retained as a first-class failure case"
+  ]
+}

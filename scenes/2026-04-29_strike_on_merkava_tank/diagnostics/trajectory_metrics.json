@@ -1,0 +1,39 @@
+{
+  "limitations": [
+    "No physical scale calibration is documented.",
+    "Camera pose is not vehicle-body pose without a camera-to-body transform.",
+    "Derivative and discontinuity signals are retrospective reconstruction diagnostics."
+  ],
+  "methods": {
+    "bspline": "independent cubic smoothing spline per coordinate",
+    "factor_graph": {
+      "reason": "optional dependency not required for first CPU slice",
+      "status": "not_run"
+    },
+    "kalman": "constant-velocity linear state estimator",
+    "rts": "Rauch-Tung-Striebel backward smoother"
+  },
+  "normalization": {
+    "position_origin": "first raw camera center",
+    "position_scale": "raw camera-path arc length",
+    "time_origin": "first source timestamp",
+    "time_scale": "scene duration"
+  },
+  "orientation_policy": "raw_camera_orientation retained for every translation layer",
+  "sample_count": 200,
+  "scale_status": "relative_only",
+  "schema_version": "2.0.0",
+  "summary": {
+    "bspline_residual_p95": 0.0028390073514708318,
+    "curvature_p95": 2049.871414915512,
+    "end_to_end_efficiency": 0.2888274813260417,
+    "jerk_proxy_p95": 41080.78799154935,
+    "kalman_innovation_p95": 0.08598953474431374,
+    "normalized_path_length": 3.462274418656008,
+    "pose_jump_count": 4,
+    "relative_acceleration_p95": 245.7114953499752,
+    "relative_speed_median": 0.6129046540279579,
+    "relative_speed_p95": 1.5291872686445194,
+    "rts_residual_p95": 0.07563349818029015
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "lingbot_map": {
+    "bytes": 799,
+    "file_count": 1,
+    "status": "metadata_only",
+    "status_reason": "successful_batch_metadata_raw_arrays_unavailable",
+    "suffix_counts": {
+      ".json": 1
+    },
+    "summary": null
+  },
+  "r3": {
+    "bytes": 169519139,
+    "file_count": 601,
+    "status": "validated_numerical",
+    "status_reason": "complete_r3_arrays_match_declared_frame_count",
+    "suffix_counts": {
+      ".json": 1,
+      ".npy": 400,
+      ".npz": 200
+    },
+    "summary": null
+  }
+}

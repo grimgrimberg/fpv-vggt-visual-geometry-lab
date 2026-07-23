@@ -1,0 +1,57 @@
+{
+  "hloc_lightglue": {
+    "bytes": 79817777,
+    "file_count": 22,
+    "status": "done",
+    "suffix_counts": {
+      ".154530": 1,
+      ".bin": 15,
+      ".db": 1,
+      ".done": 1,
+      ".h5": 2,
+      ".json": 1,
+      ".txt": 1
+    },
+    "summary": {
+      "input_frames": 200,
+      "pairs": 2405,
+      "pipeline": "ALIKED + LightGlue + pycolmap incremental SfM",
+      "points3D": 13755,
+      "registered_images": 200,
+      "scene": "/workspace/data/vggt_omega/2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan/seg01"
+    }
+  },
+  "lingbot_map": {
+    "bytes": 464454389,
+    "file_count": 202,
+    "status": "done",
+    "suffix_counts": {
+      ".done": 1,
+      ".json": 1,
+      ".npz": 200
+    },
+    "summary": null
+  },
+  "mast3r_sfm": {
+    "bytes": 1531,
+    "file_count": 1,
+    "status": "failed",
+    "suffix_counts": {
+      ".failed": 1
+    },
+    "summary": null
+  },
+  "r3": {
+    "bytes": 212770364,
+    "file_count": 1004,
+    "status": "done",
+    "suffix_counts": {
+      ".done": 1,
+      ".json": 2,
+      ".npy": 401,
+      ".npz": 200,
+      ".png": 400
+    },
+    "summary": null
+  }
+}

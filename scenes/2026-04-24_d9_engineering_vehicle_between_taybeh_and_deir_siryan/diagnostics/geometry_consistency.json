@@ -1,0 +1,33 @@
+{
+  "artifact_masks": {
+    "reason": "bounded SAM2 lane remains GPU-gated",
+    "status": "not_run"
+  },
+  "depth_alignment": {
+    "status": "pending_array_comparison"
+  },
+  "hloc_lightglue": {
+    "match_connectivity": 1.0,
+    "status": "done"
+  },
+  "lingbot_map": {
+    "status": "done"
+  },
+  "mast3r_sfm": {
+    "status": "failed"
+  },
+  "r3": {
+    "status": "done"
+  },
+  "scale_status": "relative_only",
+  "scene_id": "2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan__seg01",
+  "schema_version": "2.0.0",
+  "tracking": {
+    "reason": "current primary GPU methods still active",
+    "status": "not_run"
+  },
+  "vggt_omega": {
+    "point_count": 1000000,
+    "status": "done"
+  }
+}

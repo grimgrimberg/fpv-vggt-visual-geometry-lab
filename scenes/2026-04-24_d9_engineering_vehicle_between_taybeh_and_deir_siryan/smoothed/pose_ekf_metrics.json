@@ -1,0 +1,28 @@
+{
+  "covariance_trace_final": 1.6207146440420577e-05,
+  "filter": "multiplicative error-state extended Kalman filter",
+  "innovation_p95": 0.276137117406375,
+  "limitations": [
+    "No inertial measurements are available; this is a visual-pose smoother.",
+    "Camera orientation is not vehicle-body attitude without documented extrinsics.",
+    "Velocity and angular-rate outputs are scale-free retrospective proxies."
+  ],
+  "measurement": [
+    "raw camera center",
+    "raw camera orientation"
+  ],
+  "parameters": {
+    "orientation_measurement_variance": 1.5194092888858091e-05,
+    "position_measurement_variance": 5.374646528463586e-07
+  },
+  "pose_semantics": "camera_pose_proxy",
+  "sample_count": 200,
+  "scale_status": "relative_only",
+  "schema_version": "1.0.0",
+  "state": [
+    "relative position",
+    "relative velocity",
+    "camera orientation on SO(3)",
+    "angular-rate proxy"
+  ]
+}

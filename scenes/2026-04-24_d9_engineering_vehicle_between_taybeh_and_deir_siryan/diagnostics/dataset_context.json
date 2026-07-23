@@ -1,0 +1,112 @@
+{
+  "calibration_state": "relative_only",
+  "catalog_record": {
+    "date": "2026-04-24",
+    "description": "D9 engineering vehicle on the road between Taybeh and Deir Siryan (dive drone)",
+    "id": "2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan",
+    "media": {
+      "thumbnail_key": "thumbnails/2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan.jpg",
+      "video_key": "videos/2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan.mp4"
+    },
+    "original_title": "\u0627\u0633\u062a\u0647\u062f\u0627\u0641 \u0622\u0644\u064a\u0651\u0629 \u0647\u0646\u062f\u0633\u064a\u0651\u0629 (D9) \u062a\u0627\u0628\u0639\u0629 \u0644\u062c\u064a\u0634 \u0627\u0644\u0639\u062f\u0648\u0651 \u0627\u0644\u0625\u0633\u0631\u0627\u0626\u064a\u0644\u064a \u0639\u0644\u0649 \u0627\u0644\u0637\u0631\u064a\u0642 \u0627\u0644\u0648\u0627\u0635\u0644\u0629 \u0628\u064a\u0646 \u0627\u0644\u0637\u064a\u0651\u0628\u0629 \u0648\u062f\u064a\u0631 \u0633\u0631\u064a\u0627\u0646 \u062c\u0646\u0648\u0628\u064a\u0651 \u0644\u0628\u0646\u0627\u0646 \u0628\u0645\u062d\u0644\u0651\u0642\u0629 \u0627\u0646\u0642\u0636\u0627\u0636\u064a\u0651\u0629",
+    "provenance": {
+      "source": "legacy_import"
+    },
+    "town": "Taybeh"
+  },
+  "geo_record": {
+    "date": "2026-04-24",
+    "description": "D9 engineering vehicle between taybeh and deir siryan",
+    "lat": "33.27614167",
+    "latitude": 33.27614167,
+    "lon": "35.52115278",
+    "longitude": 35.52115278,
+    "row": "161",
+    "status": "mapped",
+    "thumbnail_url": "https://d2fioemadmrru3.cloudfront.net/thumbnails/2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan.jpg",
+    "town": "Taybeh",
+    "video_url": "https://d2fioemadmrru3.cloudfront.net/videos/2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan.mp4"
+  },
+  "geo_semantics": "catalog metadata only; not reconstructed camera geolocation",
+  "metric_outputs": {
+    "speed_emitted": false,
+    "trajectory_emitted": false
+  },
+  "object_reference": {
+    "anchor_id": "idf_armored_d9_envelope",
+    "dimensions": [
+      {
+        "bound_semantics": "lower_bound",
+        "dimension_name": "length",
+        "source_wording": "over 8 m long",
+        "uncertainty_m": 0.5,
+        "value_m": 8.0,
+        "vote_eligible": false
+      },
+      {
+        "bound_semantics": "approximate",
+        "dimension_name": "width",
+        "source_wording": "4.5 m wide",
+        "uncertainty_m": 0.25,
+        "value_m": 4.5,
+        "vote_eligible": true
+      },
+      {
+        "bound_semantics": "approximate",
+        "dimension_name": "height",
+        "source_wording": "about 4 m high",
+        "uncertainty_m": 0.3,
+        "value_m": 4.0,
+        "vote_eligible": true
+      }
+    ],
+    "object_variant": "modernized D9R armored envelope",
+    "reason": "No image/3D endpoints are documented; this object-size reference is not a scene calibration.",
+    "source": {
+      "publisher": "Israel Defense Forces",
+      "retrieved_at": "2026-07-12",
+      "source_semantics": "Modernized D9R envelope: over 8 m long, 4.5 m wide, and about 4 m high; not an exact base-machine configuration.",
+      "source_tier": "official_primary",
+      "url": "https://m.www.idf.il/en/mini-sites/technology-and-innovation/how-does-the-d-9-save-lives/"
+    },
+    "status": "reference_only_not_applied",
+    "trajectory_application": false
+  },
+  "scene_manifests": [
+    {
+      "path": "scene-manifests/2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan/2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan_seg01.json",
+      "record": {
+        "path": "2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan/2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan_seg01",
+        "scene_id": "2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan_seg01",
+        "schema_version": 1,
+        "video_id": "2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan",
+        "viewer_key": "scenes/2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan/2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan_seg01/viewer/scene_meta.json"
+      },
+      "sha256": "1936cbd76ffdb7496104ae9392cf3c93460982824e6dd76ec8c61b294b992799"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "semantics": "retrospective_catalog_context",
+  "source_commit": "71584762f5dae2e9108792b080702cd19bcba813",
+  "source_files": {
+    "catalog": {
+      "path": "data/catalog.json",
+      "sha256": "0e343736d3bfd384b8077b7433a531417110808283f3a53abed6bfc167cf8139"
+    },
+    "curation": {
+      "path": "data/scene-curation.json",
+      "sha256": "b3bf9dd1a27645ff6db56505fefb239ecdcec02372ef3b4169de5ac95e7a7fcb"
+    },
+    "geo": {
+      "path": "geo/fpv_drone_map_records.csv",
+      "sha256": "b350f1f20098ea8165fb8b30ac6d876db4fad9c1d2fbde3d0288925e6dd4c85b"
+    },
+    "object_dimensions": {
+      "path": "schemas/calibration_priors/object_dimensions.json",
+      "sha256": "e79e7a02a7903f906fb4d0b11c8b53ec764a15d394b33ed50b8589853efdef50"
+    }
+  },
+  "source_repository": "https://github.com/itamarwe/fpv-drone-strikes-lebanon-dataset",
+  "starred_scene": true,
+  "video_id": "2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan"
+}

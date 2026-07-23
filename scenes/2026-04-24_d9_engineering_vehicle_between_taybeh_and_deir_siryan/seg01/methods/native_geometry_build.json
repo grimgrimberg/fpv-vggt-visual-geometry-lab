@@ -1,0 +1,1958 @@
+{
+  "active_dir": "native_geometry_wua6c2p4",
+  "camera_convention": {
+    "camera_forward": "+Z",
+    "handedness": "OpenCV_image_convention",
+    "image_x": "u_right",
+    "image_y": "v_down",
+    "input_pose": "camera_to_world"
+  },
+  "fail_closed": true,
+  "methods": {
+    "hloc": {
+      "alignment": {
+        "reason": "no_reliable_frame_correspondence_path",
+        "status": "alignment_unavailable"
+      },
+      "assets": {
+        "colors": {
+          "bytes": 41265,
+          "components": 3,
+          "dtype": "uint8",
+          "path": "native_geometry_wua6c2p4/hloc_sparse_colors.bin",
+          "sha256": "729f60be86bd4d0a8c7848b4369851d3799bc2c29401fcacdb544089b2c637b0",
+          "shape": [
+            13755,
+            3
+          ]
+        },
+        "points": {
+          "bytes": 165060,
+          "components": 3,
+          "dtype": "float32_le",
+          "finite_count": 41265,
+          "path": "native_geometry_wua6c2p4/hloc_sparse_points.bin",
+          "sha256": "e95fc95a8ea8968dcba05a7b573b06367ee13a4518ba55323620ddae83d201f7",
+          "shape": [
+            13755,
+            3
+          ]
+        },
+        "registered_cameras": {
+          "bytes": 167039,
+          "path": "native_geometry_wua6c2p4/hloc_registered_cameras.json",
+          "sha256": "e8875ad719a8e0428003765c583686ddcfdb04678105e5a1b519da6473172eab"
+        }
+      },
+      "evidence_hashes": {
+        "cameras.bin": "d2e11f581e8209d0d9d6a2ff81e1c35970f1cb82c55b590516206b7391010346",
+        "images.bin": "960136fbd2791c75527d88b627899e916f649edb1b994a59ca0d358e31d8e609",
+        "points3D.bin": "ed023840760b9f1fa2a15571a84dea16ee07c1af5bfd70cd6e2f4b9e7704e01c"
+      },
+      "evidence_model_path": "other_models/hloc_lightglue/sparse",
+      "point_count": 13755,
+      "registered_camera_count": 200,
+      "scale_status": "relative_only",
+      "status": "available"
+    },
+    "lingbot": {
+      "alignment": {
+        "inlier_count": 24,
+        "matched_count": 200,
+        "native_arrays_unchanged": true,
+        "normalized_residual_median": null,
+        "normalized_residual_p95": null,
+        "normalized_residuals": [],
+        "reason": "insufficient_consistent_camera_correspondences",
+        "rejected_count": 176,
+        "residual_median": null,
+        "residual_p95": null,
+        "rotation": null,
+        "scale": null,
+        "scale_status": "relative_only",
+        "source_frame_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89,
+          90,
+          91,
+          92,
+          93,
+          94,
+          95,
+          96,
+          97,
+          98,
+          99,
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          106,
+          107,
+          108,
+          109,
+          110,
+          111,
+          112,
+          113,
+          114,
+          115,
+          116,
+          117,
+          118,
+          119,
+          120,
+          121,
+          122,
+          123,
+          124,
+          125,
+          126,
+          127,
+          128,
+          129,
+          130,
+          131,
+          132,
+          133,
+          134,
+          135,
+          136,
+          137,
+          138,
+          139,
+          140,
+          141,
+          142,
+          143,
+          144,
+          145,
+          146,
+          147,
+          148,
+          149,
+          150,
+          151,
+          152,
+          153,
+          154,
+          155,
+          156,
+          157,
+          158,
+          159,
+          160,
+          161,
+          162,
+          163,
+          164,
+          165,
+          166,
+          167,
+          168,
+          169,
+          170,
+          171,
+          172,
+          173,
+          174,
+          175,
+          176,
+          177,
+          178,
+          179,
+          180,
+          181,
+          182,
+          183,
+          184,
+          185,
+          186,
+          187,
+          188,
+          189,
+          190,
+          191,
+          192,
+          193,
+          194,
+          195,
+          196,
+          197,
+          198,
+          199
+        ],
+        "status": "alignment_unavailable",
+        "target": "cameras.npz:centers_glb",
+        "translation": null
+      },
+      "alignment_provenance": {
+        "all_camera_centers_used_for_alignment": true,
+        "available_camera_center_count": 200,
+        "excluded_frame_ids": [],
+        "used_camera_center_count": 200
+      },
+      "all_camera_centers_used_for_alignment": true,
+      "assets": {
+        "cameras_native": {
+          "bytes": 201408,
+          "path": "native_geometry_wua6c2p4/lingbot_cameras_native.json",
+          "sha256": "ad77cf5d00eeb0941fe483afd32ed6876744a8e0d28292eb835c3c56c6406bb8"
+        },
+        "colors_native": {
+          "bytes": 209451,
+          "components": 3,
+          "dtype": "uint8",
+          "path": "native_geometry_wua6c2p4/lingbot_colors_native.bin",
+          "sha256": "2bfac58bf0f76ce5e1e664d42b0d392932b2a761b4a76f826e0d613d94201a43",
+          "shape": [
+            69817,
+            3
+          ]
+        },
+        "geometry_meta": {
+          "bytes": 22135,
+          "path": "native_geometry_wua6c2p4/lingbot_geometry_meta.json",
+          "sha256": "b29e516e0351b297ef77018f2148759dc06fe5e3ac50f87f5d13ecbd713066bb"
+        },
+        "points_native": {
+          "bytes": 837804,
+          "components": 3,
+          "dtype": "float32_le",
+          "finite_count": 209451,
+          "path": "native_geometry_wua6c2p4/lingbot_points_native.bin",
+          "sha256": "5d9c4aa9a63bed7172c96581ba8611629f85e1e08cc1c472965a95b7a4c0a46b",
+          "shape": [
+            69817,
+            3
+          ]
+        },
+        "points_native_ply": {
+          "bytes": 1047434,
+          "finite_count": 209451,
+          "path": "native_geometry_wua6c2p4/lingbot_points_native.ply",
+          "sha256": "46c8a519405d308bf5027ffc5be4f0c3ec88690c049d3d88a391b30921fa3877",
+          "shape": [
+            69817,
+            3
+          ]
+        }
+      },
+      "camera_convention": {
+        "camera_forward": "+Z",
+        "handedness": "OpenCV_image_convention",
+        "image_x": "u_right",
+        "image_y": "v_down",
+        "input_pose": "camera_to_world"
+      },
+      "coverage": {
+        "confidence_valid_count": 4641280,
+        "depth_valid_count": 4641280,
+        "emitted_count": 400000,
+        "pixel_count": 4641280,
+        "retained_before_sampling": 4641280
+      },
+      "frames": [
+        {
+          "confidence_quantiles": {
+            "finite_count": 116032,
+            "q02": 1.0,
+            "q50": 1.0340062975883484,
+            "q98": 1.6456767225265505
+          },
+          "confidence_valid_count": 116032,
+          "depth_valid_count": 116032,
+          "emitted_count": 10000,
+          "frame_index": 0,
+          "min_confidence": 0.0,
+          "pixel_count": 116032,
+          "retained_before_sampling": 116032
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 116032,
+            "q02": 1.0,
+            "q50": 1.0083628296852112,
+            "q98": 1.7158817744255066
+          },
+          "confidence_valid_count": 116032,
+          "depth_valid_count": 116032,
+          "emitted_count": 10000,
+          "frame_index": 5,
+          "min_confidence": 0.0,
+          "pixel_count": 116032,
+          "retained_before_sampling": 116032
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 116032,
+            "q02": 1.0,
+            "q50": 1.0017653703689575,
+            "q98": 1.6139977741241456
+          },
+          "confidence_valid_count": 116032,
+          "depth_valid_count": 116032,
+          "emitted_count": 10000,
+          "frame_index": 10,
+          "min_confidence": 0.0,
+          "pixel_count": 116032,
+          "retained_before_sampling": 116032
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 116032,
+            "q02": 1.0,
+            "q50": 1.000199019908905,
+            "q98": 1.6261189341545106
+          },
+          "confidence_valid_count": 116032,
+          "depth_valid_count": 116032,
+          "emitted_count": 10000,
+          "frame_index": 15,
+          "min_confidence": 0.0,
+          "pixel_count": 116032,
+          "retained_before_sampling": 116032
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 116032,
+            "q02": 1.0,
+            "q50": 1.0000168085098267,
+            "q98": 1.3454316711425782
+          },
+          "confidence_valid_count": 116032,
+          "depth_valid_count": 116032,
+          "emitted_count": 10000,
+          "frame_index": 20,
+          "min_confidence": 0.0,
+          "pixel_count": 116032,
+          "retained_before_sampling": 116032
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 116032,
+            "q02": 1.0,
+            "q50": 1.0000184774398804,
+            "q98": 1.4190664076805117
+          },
+          "confidence_valid_count": 116032,
+          "depth_valid_count": 116032,
+          "emitted_count": 10000,
+          "frame_index": 25,
+          "min_confidence": 0.0,
+          "pixel_count": 116032,
+          "retained_before_sampling": 116032
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 116032,
+            "q02": 1.0,
+            "q50": 1.001107931137085,
+            "q98": 2.1272847032547
+          },
+          "confidence_valid_count": 116032,
+          "depth_valid_count": 116032,
+          "emitted_count": 10000,
+          "frame_index": 30,
+          "min_confidence": 0.0,
+          "pixel_count": 116032,
+          "retained_before_sampling": 116032
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 116032,
+            "q02": 1.0,
+            "q50": 1.0005860328674316,
+            "q98": 1.9027948808670045
+          },
+          "confidence_valid_count": 116032,
+          "depth_valid_count": 116032,
+          "emitted_count": 10000,
+          "frame_index": 35,
+          "min_confidence": 0.0,
+          "pixel_count": 116032,
+          "retained_before_sampling": 116032
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 116032,
+            "q02": 1.0,
+            "q50": 1.0010398626327515,
+            "q98": 2.148190531730652
+          },
+          "confidence_valid_count": 116032,
+          "depth_valid_count": 116032,
+          "emitted_count": 10000,
+          "frame_index": 40,
+          "min_confidence": 0.0,
+          "pixel_count": 116032,
+          "retained_before_sampling": 116032
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 116032,
+            "q02": 1.0,
+            "q50": 1.0003485083580017,
+            "q98": 1.9782985162734987
+          },
+          "confidence_valid_count": 116032,
+          "depth_valid_count": 116032,
+          "emitted_count": 10000,
+          "frame_index": 45,
+          "min_confidence": 0.0,
+          "pixel_count": 116032,
+          "retained_before_sampling": 116032
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 116032,
+            "q02": 1.0,
+            "q50": 1.000001072883606,
+            "q98": 1.3291652965545655
+          },
+          "confidence_valid_count": 116032,
+          "depth_valid_count": 116032,
+          "emitted_count": 10000,
+          "frame_index": 51,
+          "min_confidence": 0.0,
+          "pixel_count": 116032,
+          "retained_before_sampling": 116032
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 116032,
+            "q02": 1.0,
+            "q50": 1.000003457069397,
+            "q98": 1.3603022718429567
+          },
+          "confidence_valid_count": 116032,
+          "depth_valid_count": 116032,
+          "emitted_count": 10000,
+          "frame_index": 56,
+          "min_confidence": 0.0,
+          "pixel_count": 116032,
+          "retained_before_sampling": 116032
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 116032,
+            "q02": 1.0,
+            "q50": 1.000000238418579,
+            "q98": 1.303359880447388
+          },
+          "confidence_valid_count": 116032,
+          "depth_valid_count": 116032,
+          "emitted_count": 10000,
+          "frame_index": 61,
+          "min_confidence": 0.0,
+          "pixel_count": 116032,
+          "retained_before_sampling": 116032
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 116032,
+            "q02": 1.0,
+            "q50": 1.0000020265579224,
+            "q98": 1.3767799568176269
+          },
+          "confidence_valid_count": 116032,
+          "depth_valid_count": 116032,
+          "emitted_count": 10000,
+          "frame_index": 66,
+          "min_confidence": 0.0,
+          "pixel_count": 116032,
+          "retained_before_sampling": 116032
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 116032,
+            "q02": 1.0,
+            "q50": 1.0000001192092896,
+            "q98": 1.4118902564048768
+          },
+          "confidence_valid_count": 116032,
+          "depth_valid_count": 116032,
+          "emitted_count": 10000,
+          "frame_index": 71,
+          "min_confidence": 0.0,
+          "pixel_count": 116032,
+          "retained_before_sampling": 116032
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 116032,
+            "q02": 1.0,
+            "q50": 1.0000003576278687,
+            "q98": 1.433894374370575
+          },
+          "confidence_valid_count": 116032,
+          "depth_valid_count": 116032,
+          "emitted_count": 10000,
+          "frame_index": 76,
+          "min_confidence": 0.0,
+          "pixel_count": 116032,
+          "retained_before_sampling": 116032
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 116032,
+            "q02": 1.0,
+            "q50": 1.0,
+            "q98": 1.1292607951164246
+          },
+          "confidence_valid_count": 116032,
+          "depth_valid_count": 116032,
+          "emitted_count": 10000,
+          "frame_index": 81,
+          "min_confidence": 0.0,
+          "pixel_count": 116032,
+          "retained_before_sampling": 116032
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 116032,
+            "q02": 1.0,
+            "q50": 1.0,
+            "q98": 1.398070397377014
+          },
+          "confidence_valid_count": 116032,
+          "depth_valid_count": 116032,
+          "emitted_count": 10000,
+          "frame_index": 86,
+          "min_confidence": 0.0,
+          "pixel_count": 116032,
+          "retained_before_sampling": 116032
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 116032,
+            "q02": 1.0,
+            "q50": 1.0000399351119995,
+            "q98": 1.718449394702912
+          },
+          "confidence_valid_count": 116032,
+          "depth_valid_count": 116032,
+          "emitted_count": 10000,
+          "frame_index": 91,
+          "min_confidence": 0.0,
+          "pixel_count": 116032,
+          "retained_before_sampling": 116032
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 116032,
+            "q02": 1.0,
+            "q50": 1.0002143383026123,
+            "q98": 1.8636183524131775
+          },
+          "confidence_valid_count": 116032,
+          "depth_valid_count": 116032,
+          "emitted_count": 10000,
+          "frame_index": 96,
+          "min_confidence": 0.0,
+          "pixel_count": 116032,
+          "retained_before_sampling": 116032
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 116032,
+            "q02": 1.0,
+            "q50": 1.014314889907837,
+            "q98": 2.351940655708313
+          },
+          "confidence_valid_count": 116032,
+          "depth_valid_count": 116032,
+          "emitted_count": 10000,
+          "frame_index": 102,
+          "min_confidence": 0.0,
+          "pixel_count": 116032,
+          "retained_before_sampling": 116032
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 116032,
+            "q02": 1.0,
+            "q50": 1.1013309359550476,
+            "q98": 2.584188528060913
+          },
+          "confidence_valid_count": 116032,
+          "depth_valid_count": 116032,
+          "emitted_count": 10000,
+          "frame_index": 107,
+          "min_confidence": 0.0,
+          "pixel_count": 116032,
+          "retained_before_sampling": 116032
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 116032,
+            "q02": 1.0,
+            "q50": 1.0003377795219421,
+            "q98": 2.2058602714538575
+          },
+          "confidence_valid_count": 116032,
+          "depth_valid_count": 116032,
+          "emitted_count": 10000,
+          "frame_index": 112,
+          "min_confidence": 0.0,
+          "pixel_count": 116032,
+          "retained_before_sampling": 116032
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 116032,
+            "q02": 1.0,
+            "q50": 1.027012825012207,
+            "q98": 2.754272465705873
+          },
+          "confidence_valid_count": 116032,
+          "depth_valid_count": 116032,
+          "emitted_count": 10000,
+          "frame_index": 117,
+          "min_confidence": 0.0,
+          "pixel_count": 116032,
+          "retained_before_sampling": 116032
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 116032,
+            "q02": 1.0,
+            "q50": 1.0713195204734802,
+            "q98": 2.8821029520034793
+          },
+          "confidence_valid_count": 116032,
+          "depth_valid_count": 116032,
+          "emitted_count": 10000,
+          "frame_index": 122,
+          "min_confidence": 0.0,
+          "pixel_count": 116032,
+          "retained_before_sampling": 116032
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 116032,
+            "q02": 1.0000001192092896,
+            "q50": 2.1523492336273193,
+            "q98": 3.828318114280701
+          },
+          "confidence_valid_count": 116032,
+          "depth_valid_count": 116032,
+          "emitted_count": 10000,
+          "frame_index": 127,
+          "min_confidence": 0.0,
+          "pixel_count": 116032,
+          "retained_before_sampling": 116032
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 116032,
+            "q02": 1.0,
+            "q50": 1.9701624512672424,
+            "q98": 3.9016912221908573
+          },
+          "confidence_valid_count": 116032,
+          "depth_valid_count": 116032,
+          "emitted_count": 10000,
+          "frame_index": 132,
+          "min_confidence": 0.0,
+          "pixel_count": 116032,
+          "retained_before_sampling": 116032
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 116032,
+            "q02": 1.0,
+            "q50": 2.1840630769729614,
+            "q98": 4.225630006790161
+          },
+          "confidence_valid_count": 116032,
+          "depth_valid_count": 116032,
+          "emitted_count": 10000,
+          "frame_index": 137,
+          "min_confidence": 0.0,
+          "pixel_count": 116032,
+          "retained_before_sampling": 116032
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 116032,
+            "q02": 1.0,
+            "q50": 2.3050845861434937,
+            "q98": 4.492525053024292
+          },
+          "confidence_valid_count": 116032,
+          "depth_valid_count": 116032,
+          "emitted_count": 10000,
+          "frame_index": 142,
+          "min_confidence": 0.0,
+          "pixel_count": 116032,
+          "retained_before_sampling": 116032
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 116032,
+            "q02": 1.0,
+            "q50": 2.5581588745117188,
+            "q98": 5.017609252929688
+          },
+          "confidence_valid_count": 116032,
+          "depth_valid_count": 116032,
+          "emitted_count": 10000,
+          "frame_index": 147,
+          "min_confidence": 0.0,
+          "pixel_count": 116032,
+          "retained_before_sampling": 116032
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 116032,
+            "q02": 1.0,
+            "q50": 2.9201067686080933,
+            "q98": 5.478544998168945
+          },
+          "confidence_valid_count": 116032,
+          "depth_valid_count": 116032,
+          "emitted_count": 10000,
+          "frame_index": 153,
+          "min_confidence": 0.0,
+          "pixel_count": 116032,
+          "retained_before_sampling": 116032
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 116032,
+            "q02": 1.0,
+            "q50": 3.008042573928833,
+            "q98": 6.999968872070314
+          },
+          "confidence_valid_count": 116032,
+          "depth_valid_count": 116032,
+          "emitted_count": 10000,
+          "frame_index": 158,
+          "min_confidence": 0.0,
+          "pixel_count": 116032,
+          "retained_before_sampling": 116032
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 116032,
+            "q02": 1.0,
+            "q50": 3.4412511587142944,
+            "q98": 6.212677450180054
+          },
+          "confidence_valid_count": 116032,
+          "depth_valid_count": 116032,
+          "emitted_count": 10000,
+          "frame_index": 163,
+          "min_confidence": 0.0,
+          "pixel_count": 116032,
+          "retained_before_sampling": 116032
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 116032,
+            "q02": 1.0,
+            "q50": 3.5836442708969116,
+            "q98": 6.268018693923951
+          },
+          "confidence_valid_count": 116032,
+          "depth_valid_count": 116032,
+          "emitted_count": 10000,
+          "frame_index": 168,
+          "min_confidence": 0.0,
+          "pixel_count": 116032,
+          "retained_before_sampling": 116032
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 116032,
+            "q02": 1.0,
+            "q50": 2.9645519256591797,
+            "q98": 6.422357492446901
+          },
+          "confidence_valid_count": 116032,
+          "depth_valid_count": 116032,
+          "emitted_count": 10000,
+          "frame_index": 173,
+          "min_confidence": 0.0,
+          "pixel_count": 116032,
+          "retained_before_sampling": 116032
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 116032,
+            "q02": 1.0,
+            "q50": 3.025346517562866,
+            "q98": 9.339226341247576
+          },
+          "confidence_valid_count": 116032,
+          "depth_valid_count": 116032,
+          "emitted_count": 10000,
+          "frame_index": 178,
+          "min_confidence": 0.0,
+          "pixel_count": 116032,
+          "retained_before_sampling": 116032
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 116032,
+            "q02": 1.0003041315078736,
+            "q50": 4.493499994277954,
+            "q98": 7.930791110992431
+          },
+          "confidence_valid_count": 116032,
+          "depth_valid_count": 116032,
+          "emitted_count": 10000,
+          "frame_index": 183,
+          "min_confidence": 0.0,
+          "pixel_count": 116032,
+          "retained_before_sampling": 116032
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 116032,
+            "q02": 1.0023248887062073,
+            "q50": 3.9947749376296997,
+            "q98": 6.409272117614747
+          },
+          "confidence_valid_count": 116032,
+          "depth_valid_count": 116032,
+          "emitted_count": 10000,
+          "frame_index": 188,
+          "min_confidence": 0.0,
+          "pixel_count": 116032,
+          "retained_before_sampling": 116032
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 116032,
+            "q02": 2.3116523885726927,
+            "q50": 5.355619668960571,
+            "q98": 9.494293327331544
+          },
+          "confidence_valid_count": 116032,
+          "depth_valid_count": 116032,
+          "emitted_count": 10000,
+          "frame_index": 193,
+          "min_confidence": 0.0,
+          "pixel_count": 116032,
+          "retained_before_sampling": 116032
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 116032,
+            "q02": 2.182178602218628,
+            "q50": 7.7759339809417725,
+            "q98": 13.328157043457033
+          },
+          "confidence_valid_count": 116032,
+          "depth_valid_count": 116032,
+          "emitted_count": 10000,
+          "frame_index": 199,
+          "min_confidence": 0.0,
+          "pixel_count": 116032,
+          "retained_before_sampling": 116032
+        }
+      ],
+      "point_count": 69817,
+      "sampled_frame_ids": [
+        0,
+        5,
+        10,
+        15,
+        20,
+        25,
+        30,
+        35,
+        40,
+        45,
+        51,
+        56,
+        61,
+        66,
+        71,
+        76,
+        81,
+        86,
+        91,
+        96,
+        102,
+        107,
+        112,
+        117,
+        122,
+        127,
+        132,
+        137,
+        142,
+        147,
+        153,
+        158,
+        163,
+        168,
+        173,
+        178,
+        183,
+        188,
+        193,
+        199
+      ],
+      "sampling": {
+        "max_frames": 40,
+        "max_points_per_frame": 10000,
+        "min_confidence": 0.0,
+        "point_budget": 250000,
+        "voxel_size_relative": 0.02
+      },
+      "scale_status": "relative_only",
+      "source_frame_count": 200,
+      "status": "available"
+    },
+    "r3": {
+      "alignment": {
+        "inlier_count": 78,
+        "matched_count": 200,
+        "native_arrays_unchanged": true,
+        "normalized_residual_median": null,
+        "normalized_residual_p95": null,
+        "normalized_residuals": [],
+        "reason": "insufficient_consistent_camera_correspondences",
+        "rejected_count": 122,
+        "residual_median": null,
+        "residual_p95": null,
+        "rotation": null,
+        "scale": null,
+        "scale_status": "relative_only",
+        "source_frame_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89,
+          90,
+          91,
+          92,
+          93,
+          94,
+          95,
+          96,
+          97,
+          98,
+          99,
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          106,
+          107,
+          108,
+          109,
+          110,
+          111,
+          112,
+          113,
+          114,
+          115,
+          116,
+          117,
+          118,
+          119,
+          120,
+          121,
+          122,
+          123,
+          124,
+          125,
+          126,
+          127,
+          128,
+          129,
+          130,
+          131,
+          132,
+          133,
+          134,
+          135,
+          136,
+          137,
+          138,
+          139,
+          140,
+          141,
+          142,
+          143,
+          144,
+          145,
+          146,
+          147,
+          148,
+          149,
+          150,
+          151,
+          152,
+          153,
+          154,
+          155,
+          156,
+          157,
+          158,
+          159,
+          160,
+          161,
+          162,
+          163,
+          164,
+          165,
+          166,
+          167,
+          168,
+          169,
+          170,
+          171,
+          172,
+          173,
+          174,
+          175,
+          176,
+          177,
+          178,
+          179,
+          180,
+          181,
+          182,
+          183,
+          184,
+          185,
+          186,
+          187,
+          188,
+          189,
+          190,
+          191,
+          192,
+          193,
+          194,
+          195,
+          196,
+          197,
+          198,
+          199
+        ],
+        "status": "alignment_unavailable",
+        "target": "cameras.npz:centers_glb",
+        "translation": null
+      },
+      "alignment_provenance": {
+        "all_camera_centers_used_for_alignment": true,
+        "available_camera_center_count": 200,
+        "excluded_frame_ids": [],
+        "used_camera_center_count": 200
+      },
+      "all_camera_centers_used_for_alignment": true,
+      "assets": {
+        "cameras_native": {
+          "bytes": 200798,
+          "path": "native_geometry_wua6c2p4/r3_cameras_native.json",
+          "sha256": "730da430f0db5851fabd0d863611162fc687ae0bbfeeca5cdaa9afceb1a35d32"
+        },
+        "colors_native": {
+          "bytes": 651468,
+          "components": 3,
+          "dtype": "uint8",
+          "path": "native_geometry_wua6c2p4/r3_colors_native.bin",
+          "sha256": "26b071bdb616fbed400c36f7e942bc33705fecbf43d23c2a93465562aeeaeac3",
+          "shape": [
+            217156,
+            3
+          ]
+        },
+        "geometry_meta": {
+          "bytes": 22245,
+          "path": "native_geometry_wua6c2p4/r3_geometry_meta.json",
+          "sha256": "d73af61c69d65eb706069cf1c1731ea067fec2dc48e8a83c2b476c705991ec14"
+        },
+        "points_native": {
+          "bytes": 2605872,
+          "components": 3,
+          "dtype": "float32_le",
+          "finite_count": 651468,
+          "path": "native_geometry_wua6c2p4/r3_points_native.bin",
+          "sha256": "2885c065aeec92b3ba46eb03a6f30b46b95ff6933b1466245d0cceed43eee830",
+          "shape": [
+            217156,
+            3
+          ]
+        },
+        "points_native_ply": {
+          "bytes": 3257520,
+          "finite_count": 651468,
+          "path": "native_geometry_wua6c2p4/r3_points_native.ply",
+          "sha256": "62dc73c6aa301bf68c5fc74c046a58a9654ab5aa57a024b23651260552b10e3e",
+          "shape": [
+            217156,
+            3
+          ]
+        }
+      },
+      "camera_convention": {
+        "camera_forward": "+Z",
+        "handedness": "OpenCV_image_convention",
+        "image_x": "u_right",
+        "image_y": "v_down",
+        "input_pose": "camera_to_world"
+      },
+      "coverage": {
+        "confidence_valid_count": 4233600,
+        "depth_valid_count": 4233600,
+        "emitted_count": 400000,
+        "pixel_count": 4233600,
+        "retained_before_sampling": 4233600
+      },
+      "frames": [
+        {
+          "confidence_quantiles": {
+            "finite_count": 105840,
+            "q02": 1.0,
+            "q50": 1.0000046491622925,
+            "q98": 1.0223398733139037
+          },
+          "confidence_valid_count": 105840,
+          "depth_valid_count": 105840,
+          "emitted_count": 10000,
+          "frame_index": 0,
+          "min_confidence": 0.0,
+          "pixel_count": 105840,
+          "retained_before_sampling": 105840
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 105840,
+            "q02": 1.0,
+            "q50": 1.3472436666488647,
+            "q98": 3.4995023727416994
+          },
+          "confidence_valid_count": 105840,
+          "depth_valid_count": 105840,
+          "emitted_count": 10000,
+          "frame_index": 5,
+          "min_confidence": 0.0,
+          "pixel_count": 105840,
+          "retained_before_sampling": 105840
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 105840,
+            "q02": 1.0,
+            "q50": 1.5430976748466492,
+            "q98": 4.880606918334961
+          },
+          "confidence_valid_count": 105840,
+          "depth_valid_count": 105840,
+          "emitted_count": 10000,
+          "frame_index": 10,
+          "min_confidence": 0.0,
+          "pixel_count": 105840,
+          "retained_before_sampling": 105840
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 105840,
+            "q02": 1.0,
+            "q50": 1.440587043762207,
+            "q98": 4.7082075500488285
+          },
+          "confidence_valid_count": 105840,
+          "depth_valid_count": 105840,
+          "emitted_count": 10000,
+          "frame_index": 15,
+          "min_confidence": 0.0,
+          "pixel_count": 105840,
+          "retained_before_sampling": 105840
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 105840,
+            "q02": 1.0,
+            "q50": 1.0037753582000732,
+            "q98": 4.007051839828491
+          },
+          "confidence_valid_count": 105840,
+          "depth_valid_count": 105840,
+          "emitted_count": 10000,
+          "frame_index": 20,
+          "min_confidence": 0.0,
+          "pixel_count": 105840,
+          "retained_before_sampling": 105840
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 105840,
+            "q02": 1.0,
+            "q50": 1.0925592184066772,
+            "q98": 4.633648014068604
+          },
+          "confidence_valid_count": 105840,
+          "depth_valid_count": 105840,
+          "emitted_count": 10000,
+          "frame_index": 25,
+          "min_confidence": 0.0,
+          "pixel_count": 105840,
+          "retained_before_sampling": 105840
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 105840,
+            "q02": 1.0,
+            "q50": 2.5544042587280273,
+            "q98": 5.843907432556152
+          },
+          "confidence_valid_count": 105840,
+          "depth_valid_count": 105840,
+          "emitted_count": 10000,
+          "frame_index": 30,
+          "min_confidence": 0.0,
+          "pixel_count": 105840,
+          "retained_before_sampling": 105840
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 105840,
+            "q02": 1.0,
+            "q50": 2.566225051879883,
+            "q98": 6.2468517398834225
+          },
+          "confidence_valid_count": 105840,
+          "depth_valid_count": 105840,
+          "emitted_count": 10000,
+          "frame_index": 35,
+          "min_confidence": 0.0,
+          "pixel_count": 105840,
+          "retained_before_sampling": 105840
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 105840,
+            "q02": 1.0,
+            "q50": 2.4581445455551147,
+            "q98": 5.7154951095581055
+          },
+          "confidence_valid_count": 105840,
+          "depth_valid_count": 105840,
+          "emitted_count": 10000,
+          "frame_index": 40,
+          "min_confidence": 0.0,
+          "pixel_count": 105840,
+          "retained_before_sampling": 105840
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 105840,
+            "q02": 1.0,
+            "q50": 2.3271336555480957,
+            "q98": 5.478869495391846
+          },
+          "confidence_valid_count": 105840,
+          "depth_valid_count": 105840,
+          "emitted_count": 10000,
+          "frame_index": 45,
+          "min_confidence": 0.0,
+          "pixel_count": 105840,
+          "retained_before_sampling": 105840
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 105840,
+            "q02": 1.0,
+            "q50": 1.1277737617492676,
+            "q98": 5.388011026382446
+          },
+          "confidence_valid_count": 105840,
+          "depth_valid_count": 105840,
+          "emitted_count": 10000,
+          "frame_index": 51,
+          "min_confidence": 0.0,
+          "pixel_count": 105840,
+          "retained_before_sampling": 105840
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 105840,
+            "q02": 1.0,
+            "q50": 1.162176489830017,
+            "q98": 5.148054361343384
+          },
+          "confidence_valid_count": 105840,
+          "depth_valid_count": 105840,
+          "emitted_count": 10000,
+          "frame_index": 56,
+          "min_confidence": 0.0,
+          "pixel_count": 105840,
+          "retained_before_sampling": 105840
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 105840,
+            "q02": 1.0,
+            "q50": 1.0180654525756836,
+            "q98": 4.645052633285522
+          },
+          "confidence_valid_count": 105840,
+          "depth_valid_count": 105840,
+          "emitted_count": 10000,
+          "frame_index": 61,
+          "min_confidence": 0.0,
+          "pixel_count": 105840,
+          "retained_before_sampling": 105840
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 105840,
+            "q02": 1.0,
+            "q50": 1.3599223494529724,
+            "q98": 5.130856657028199
+          },
+          "confidence_valid_count": 105840,
+          "depth_valid_count": 105840,
+          "emitted_count": 10000,
+          "frame_index": 66,
+          "min_confidence": 0.0,
+          "pixel_count": 105840,
+          "retained_before_sampling": 105840
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 105840,
+            "q02": 1.0,
+            "q50": 1.0001391172409058,
+            "q98": 4.339470844268799
+          },
+          "confidence_valid_count": 105840,
+          "depth_valid_count": 105840,
+          "emitted_count": 10000,
+          "frame_index": 71,
+          "min_confidence": 0.0,
+          "pixel_count": 105840,
+          "retained_before_sampling": 105840
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 105840,
+            "q02": 1.0,
+            "q50": 1.0000182390213013,
+            "q98": 4.246755666732788
+          },
+          "confidence_valid_count": 105840,
+          "depth_valid_count": 105840,
+          "emitted_count": 10000,
+          "frame_index": 76,
+          "min_confidence": 0.0,
+          "pixel_count": 105840,
+          "retained_before_sampling": 105840
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 105840,
+            "q02": 1.0,
+            "q50": 1.0000001192092896,
+            "q98": 3.6984832239151
+          },
+          "confidence_valid_count": 105840,
+          "depth_valid_count": 105840,
+          "emitted_count": 10000,
+          "frame_index": 81,
+          "min_confidence": 0.0,
+          "pixel_count": 105840,
+          "retained_before_sampling": 105840
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 105840,
+            "q02": 1.0,
+            "q50": 1.0004991292953491,
+            "q98": 3.745421094894409
+          },
+          "confidence_valid_count": 105840,
+          "depth_valid_count": 105840,
+          "emitted_count": 10000,
+          "frame_index": 86,
+          "min_confidence": 0.0,
+          "pixel_count": 105840,
+          "retained_before_sampling": 105840
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 105840,
+            "q02": 1.0,
+            "q50": 1.4317883253097534,
+            "q98": 4.7758117675781255
+          },
+          "confidence_valid_count": 105840,
+          "depth_valid_count": 105840,
+          "emitted_count": 10000,
+          "frame_index": 91,
+          "min_confidence": 0.0,
+          "pixel_count": 105840,
+          "retained_before_sampling": 105840
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 105840,
+            "q02": 1.0,
+            "q50": 1.7238067388534546,
+            "q98": 5.492795715332032
+          },
+          "confidence_valid_count": 105840,
+          "depth_valid_count": 105840,
+          "emitted_count": 10000,
+          "frame_index": 96,
+          "min_confidence": 0.0,
+          "pixel_count": 105840,
+          "retained_before_sampling": 105840
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 105840,
+            "q02": 1.0,
+            "q50": 2.3709356784820557,
+            "q98": 5.659783143997193
+          },
+          "confidence_valid_count": 105840,
+          "depth_valid_count": 105840,
+          "emitted_count": 10000,
+          "frame_index": 102,
+          "min_confidence": 0.0,
+          "pixel_count": 105840,
+          "retained_before_sampling": 105840
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 105840,
+            "q02": 1.0,
+            "q50": 2.11746883392334,
+            "q98": 4.555990505218506
+          },
+          "confidence_valid_count": 105840,
+          "depth_valid_count": 105840,
+          "emitted_count": 10000,
+          "frame_index": 107,
+          "min_confidence": 0.0,
+          "pixel_count": 105840,
+          "retained_before_sampling": 105840
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 105840,
+            "q02": 1.0,
+            "q50": 1.6700484156608582,
+            "q98": 5.637500324249268
+          },
+          "confidence_valid_count": 105840,
+          "depth_valid_count": 105840,
+          "emitted_count": 10000,
+          "frame_index": 112,
+          "min_confidence": 0.0,
+          "pixel_count": 105840,
+          "retained_before_sampling": 105840
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 105840,
+            "q02": 1.0,
+            "q50": 2.1990153789520264,
+            "q98": 5.742272815704346
+          },
+          "confidence_valid_count": 105840,
+          "depth_valid_count": 105840,
+          "emitted_count": 10000,
+          "frame_index": 117,
+          "min_confidence": 0.0,
+          "pixel_count": 105840,
+          "retained_before_sampling": 105840
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 105840,
+            "q02": 1.0,
+            "q50": 2.1485838890075684,
+            "q98": 5.598525352478028
+          },
+          "confidence_valid_count": 105840,
+          "depth_valid_count": 105840,
+          "emitted_count": 10000,
+          "frame_index": 122,
+          "min_confidence": 0.0,
+          "pixel_count": 105840,
+          "retained_before_sampling": 105840
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 105840,
+            "q02": 1.0,
+            "q50": 2.6537108421325684,
+            "q98": 5.08565957069397
+          },
+          "confidence_valid_count": 105840,
+          "depth_valid_count": 105840,
+          "emitted_count": 10000,
+          "frame_index": 127,
+          "min_confidence": 0.0,
+          "pixel_count": 105840,
+          "retained_before_sampling": 105840
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 105840,
+            "q02": 1.0,
+            "q50": 3.4393028020858765,
+            "q98": 7.878758811950684
+          },
+          "confidence_valid_count": 105840,
+          "depth_valid_count": 105840,
+          "emitted_count": 10000,
+          "frame_index": 132,
+          "min_confidence": 0.0,
+          "pixel_count": 105840,
+          "retained_before_sampling": 105840
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 105840,
+            "q02": 1.0,
+            "q50": 3.7473613023757935,
+            "q98": 8.83250551223755
+          },
+          "confidence_valid_count": 105840,
+          "depth_valid_count": 105840,
+          "emitted_count": 10000,
+          "frame_index": 137,
+          "min_confidence": 0.0,
+          "pixel_count": 105840,
+          "retained_before_sampling": 105840
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 105840,
+            "q02": 1.0,
+            "q50": 3.2800627946853638,
+            "q98": 7.175768804550171
+          },
+          "confidence_valid_count": 105840,
+          "depth_valid_count": 105840,
+          "emitted_count": 10000,
+          "frame_index": 142,
+          "min_confidence": 0.0,
+          "pixel_count": 105840,
+          "retained_before_sampling": 105840
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 105840,
+            "q02": 1.0,
+            "q50": 3.1135865449905396,
+            "q98": 6.970626811981202
+          },
+          "confidence_valid_count": 105840,
+          "depth_valid_count": 105840,
+          "emitted_count": 10000,
+          "frame_index": 147,
+          "min_confidence": 0.0,
+          "pixel_count": 105840,
+          "retained_before_sampling": 105840
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 105840,
+            "q02": 1.0,
+            "q50": 2.4488632678985596,
+            "q98": 4.953629608154297
+          },
+          "confidence_valid_count": 105840,
+          "depth_valid_count": 105840,
+          "emitted_count": 10000,
+          "frame_index": 153,
+          "min_confidence": 0.0,
+          "pixel_count": 105840,
+          "retained_before_sampling": 105840
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 105840,
+            "q02": 1.0,
+            "q50": 1.9661191701889038,
+            "q98": 5.246700315475464
+          },
+          "confidence_valid_count": 105840,
+          "depth_valid_count": 105840,
+          "emitted_count": 10000,
+          "frame_index": 158,
+          "min_confidence": 0.0,
+          "pixel_count": 105840,
+          "retained_before_sampling": 105840
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 105840,
+            "q02": 1.0,
+            "q50": 1.8173676133155823,
+            "q98": 5.1953968334198
+          },
+          "confidence_valid_count": 105840,
+          "depth_valid_count": 105840,
+          "emitted_count": 10000,
+          "frame_index": 163,
+          "min_confidence": 0.0,
+          "pixel_count": 105840,
+          "retained_before_sampling": 105840
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 105840,
+            "q02": 1.0,
+            "q50": 1.3542848825454712,
+            "q98": 4.07444091796875
+          },
+          "confidence_valid_count": 105840,
+          "depth_valid_count": 105840,
+          "emitted_count": 10000,
+          "frame_index": 168,
+          "min_confidence": 0.0,
+          "pixel_count": 105840,
+          "retained_before_sampling": 105840
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 105840,
+            "q02": 1.0,
+            "q50": 1.010092318058014,
+            "q98": 3.7980875825881957
+          },
+          "confidence_valid_count": 105840,
+          "depth_valid_count": 105840,
+          "emitted_count": 10000,
+          "frame_index": 173,
+          "min_confidence": 0.0,
+          "pixel_count": 105840,
+          "retained_before_sampling": 105840
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 105840,
+            "q02": 1.0,
+            "q50": 1.0775173902511597,
+            "q98": 2.890783638954163
+          },
+          "confidence_valid_count": 105840,
+          "depth_valid_count": 105840,
+          "emitted_count": 10000,
+          "frame_index": 178,
+          "min_confidence": 0.0,
+          "pixel_count": 105840,
+          "retained_before_sampling": 105840
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 105840,
+            "q02": 1.0,
+            "q50": 1.2796496748924255,
+            "q98": 3.056606101989746
+          },
+          "confidence_valid_count": 105840,
+          "depth_valid_count": 105840,
+          "emitted_count": 10000,
+          "frame_index": 183,
+          "min_confidence": 0.0,
+          "pixel_count": 105840,
+          "retained_before_sampling": 105840
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 105840,
+            "q02": 1.0,
+            "q50": 1.0806918740272522,
+            "q98": 3.3882607316970828
+          },
+          "confidence_valid_count": 105840,
+          "depth_valid_count": 105840,
+          "emitted_count": 10000,
+          "frame_index": 188,
+          "min_confidence": 0.0,
+          "pixel_count": 105840,
+          "retained_before_sampling": 105840
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 105840,
+            "q02": 1.0,
+            "q50": 1.3994332551956177,
+            "q98": 3.7617839670181277
+          },
+          "confidence_valid_count": 105840,
+          "depth_valid_count": 105840,
+          "emitted_count": 10000,
+          "frame_index": 193,
+          "min_confidence": 0.0,
+          "pixel_count": 105840,
+          "retained_before_sampling": 105840
+        },
+        {
+          "confidence_quantiles": {
+            "finite_count": 105840,
+            "q02": 1.0,
+            "q50": 1.021323561668396,
+            "q98": 2.070756049156189
+          },
+          "confidence_valid_count": 105840,
+          "depth_valid_count": 105840,
+          "emitted_count": 10000,
+          "frame_index": 199,
+          "min_confidence": 0.0,
+          "pixel_count": 105840,
+          "retained_before_sampling": 105840
+        }
+      ],
+      "point_count": 217156,
+      "run_params_sha256": "43baea6744405beb41515b6be12755ea277809e0e94f5cdbf19a19fb3e1f5eb6",
+      "sampled_frame_ids": [
+        0,
+        5,
+        10,
+        15,
+        20,
+        25,
+        30,
+        35,
+        40,
+        45,
+        51,
+        56,
+        61,
+        66,
+        71,
+        76,
+        81,
+        86,
+        91,
+        96,
+        102,
+        107,
+        112,
+        117,
+        122,
+        127,
+        132,
+        137,
+        142,
+        147,
+        153,
+        158,
+        163,
+        168,
+        173,
+        178,
+        183,
+        188,
+        193,
+        199
+      ],
+      "sampling": {
+        "max_frames": 40,
+        "max_points_per_frame": 10000,
+        "min_confidence": 0.0,
+        "point_budget": 250000,
+        "voxel_size_relative": 0.02
+      },
+      "scale_request_policy": "run_configuration_request_is_not_physical_scale_evidence",
+      "scale_status": "relative_only",
+      "source_frame_count": 200,
+      "status": "available"
+    }
+  },
+  "omega_correspondence_evidence": {
+    "center_count": 200,
+    "glb_alignment_present": true,
+    "source": "cameras.npz:centers_glb",
+    "source_sha256": "903894b28ac639ae12b627be01e505a4159c3a74b7b61545883073fbe73802c7"
+  },
+  "publication": "immutable_generation_with_atomic_pointer",
+  "scale_status": "relative_only",
+  "scene_id": "2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan__seg01",
+  "schema_version": "1.0.0",
+  "status": "built"
+}

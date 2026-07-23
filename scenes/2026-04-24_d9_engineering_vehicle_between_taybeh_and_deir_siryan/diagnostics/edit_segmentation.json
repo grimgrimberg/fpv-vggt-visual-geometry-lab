@@ -1,0 +1,43 @@
+{
+  "annotated_at": "2026-07-04T12:22:33Z",
+  "annotation_kind": "manual_ground_truth",
+  "exclusion_masks": [],
+  "intervals": [
+    {
+      "comment": "",
+      "end_s": 8.067,
+      "label": "Banner Start",
+      "review_status": "manual_ground_truth",
+      "source_index": 0,
+      "start_s": 0.0,
+      "type": "banner_start"
+    },
+    {
+      "comment": "",
+      "end_s": 42.129,
+      "label": "Flight Start",
+      "review_status": "manual_ground_truth",
+      "source_index": 1,
+      "start_s": 8.067,
+      "type": "flight_start"
+    },
+    {
+      "comment": "",
+      "end_s": 69.781333,
+      "label": "Replay Start",
+      "review_status": "manual_ground_truth",
+      "source_index": 2,
+      "start_s": 42.129,
+      "type": "replay_start"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "source_file": "2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan_annotations.json",
+  "source_sha256": "58e760930183823525c0955a1e1d2cd53fc9c25e605fcdd9f223892f3b7eb4b9",
+  "taxonomy": [
+    "banner_start",
+    "flight_start",
+    "replay_start"
+  ],
+  "video_file": "2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan.mp4"
+}

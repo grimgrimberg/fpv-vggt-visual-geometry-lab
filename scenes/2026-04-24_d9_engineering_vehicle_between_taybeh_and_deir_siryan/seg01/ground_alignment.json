@@ -1,0 +1,86 @@
+{
+  "aligned_bounds": {
+    "max": [
+      0.7154027823428812,
+      0.03358908702265151,
+      -0.2644703893912318
+    ],
+    "min": [
+      -0.6168558640586773,
+      -0.033717656338789426,
+      -1.855232913267748
+    ]
+  },
+  "calibration_state": "uncalibrated_display_alignment",
+  "confidence": "high",
+  "display_transform": {
+    "preserves_relative_scale": true,
+    "rotation_3x3": [
+      [
+        0.957406613906102,
+        -0.28563169728590626,
+        -0.04227421382384717
+      ],
+      [
+        0.28563169728590626,
+        0.9154491806444066,
+        0.2834913246698336
+      ],
+      [
+        -0.04227421382384717,
+        -0.2834913246698336,
+        0.9580425667383045
+      ]
+    ],
+    "source_frame": "viewer_reconstruction_frame",
+    "target_frame": "estimated_ground_y_up",
+    "translation": [
+      0.0,
+      0.21507373424994533,
+      0.0
+    ]
+  },
+  "inputs": {
+    "camera_path": {
+      "count": 200,
+      "path": "camera_path.json",
+      "sha256": "b75fb14f29df842ec9ae35b29c71ee94c6d12315b733d56e911eb5a4511eabc5"
+    },
+    "points_preview": {
+      "count": 120000,
+      "path": "points_preview.bin",
+      "sha256": "5c7426ce852d73aec2fe2503abfb97353dbb1031776112ba1908bafb1246bca1"
+    }
+  },
+  "method": "deterministic_ransac_plane_with_weak_y_up_prior",
+  "plane": {
+    "normal_source": [
+      0.28563169728590626,
+      0.9154491806444066,
+      0.2834913246698336
+    ],
+    "offset_source": 0.21507373424994533,
+    "ransac_threshold_relative_to_diagonal": 0.012
+  },
+  "quality": {
+    "camera_above_ratio": 0.985,
+    "inlier_count": 11808,
+    "inlier_ratio": 0.984,
+    "median_abs_residual_relative": 0.0021532357645618412,
+    "median_camera_clearance_relative": 0.07337015655435873,
+    "normal_y_prior_abs": 0.9154491806444066,
+    "p95_abs_residual_relative": 0.00809569874516688,
+    "sampled_point_count": 12000,
+    "source_point_count": 120000
+  },
+  "recommended_default": true,
+  "scale_status": "relative_only",
+  "scene_id": "2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan__seg01",
+  "schema_version": "1.0.0",
+  "status": "estimated",
+  "warnings": [
+    "Estimated display plane only; not physical calibration.",
+    "A weak reconstruction-Y prior rejects likely vertical facades.",
+    "Raw points, cameras, and trajectory artifacts remain unchanged."
+  ]
+}

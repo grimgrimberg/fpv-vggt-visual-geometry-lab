@@ -1,0 +1,33 @@
+{
+  "artifact_masks": {
+    "reason": "bounded SAM2 lane remains GPU-gated",
+    "status": "not_run"
+  },
+  "depth_alignment": {
+    "status": "pending_array_comparison"
+  },
+  "hloc_lightglue": {
+    "match_connectivity": 0.0,
+    "status": "missing"
+  },
+  "lingbot_map": {
+    "status": "metadata_only"
+  },
+  "mast3r_sfm": {
+    "status": "missing"
+  },
+  "r3": {
+    "status": "validated_numerical"
+  },
+  "scale_status": "relative_only",
+  "scene_id": "2026-04-29_strike_on_merkava_tank__seg01",
+  "schema_version": "2.0.0",
+  "tracking": {
+    "reason": "current primary GPU methods still active",
+    "status": "not_run"
+  },
+  "vggt_omega": {
+    "point_count": 1000000,
+    "status": "done"
+  }
+}

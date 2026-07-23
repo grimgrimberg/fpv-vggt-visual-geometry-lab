@@ -1,0 +1,228 @@
+{
+  "annotation": {
+    "intervals": [
+      {
+        "end_s": 38.196,
+        "end_type": "replay_start",
+        "is_attack": true,
+        "segment_id": "seg01",
+        "segment_index": 1,
+        "start_s": 8.082,
+        "start_type": "flight_start"
+      }
+    ],
+    "kind": "manual_ground_truth",
+    "source_commit": "28433d042f63fefd6d5f549aa1a3f0ecf1b51a67",
+    "source_path": "/workspace/fpv-drone-strikes-lebanon-dataset/annotations/2026-04-29_strike_on_merkava_tank_annotations.json"
+  },
+  "assets": {
+    "camera_path": {
+      "path": "camera_path.json"
+    },
+    "cameras": {
+      "path": "cameras.json"
+    },
+    "contact_sheet": {
+      "reason": "local rendered images are not copied into the public package",
+      "status": "not_published"
+    },
+    "geometry_consistency": {
+      "path": "../diagnostics/geometry_consistency.json"
+    },
+    "method_inventory": {
+      "path": "../diagnostics/method_inventory.json"
+    },
+    "points_ply": {
+      "path": "points.ply"
+    },
+    "points_preview": {
+      "components": 3,
+      "count": 120000,
+      "dtype": "float32_le",
+      "path": "points_preview.bin"
+    },
+    "points_preview_colors": {
+      "components": 3,
+      "count": 120000,
+      "dtype": "uint8",
+      "path": "points_preview_colors.bin"
+    },
+    "pov": {
+      "reason": "extracted source frames are kept local; public cockpit uses the original CDN video",
+      "samples": [],
+      "status": "not_published"
+    },
+    "preview": {
+      "reason": "local rendered images are not copied into the public package",
+      "status": "not_published"
+    },
+    "source_thumbnail": {
+      "copied": false,
+      "kind": "remote_public_cdn",
+      "path": "https://d2fioemadmrru3.cloudfront.net/thumbnails/2026-04-29_strike_on_merkava_tank.jpg"
+    },
+    "source_video": {
+      "copied": false,
+      "kind": "remote_public_cdn",
+      "path": "https://d2fioemadmrru3.cloudfront.net/videos/2026-04-29_strike_on_merkava_tank.mp4"
+    },
+    "trajectory_metrics": {
+      "path": "../diagnostics/trajectory_metrics.json"
+    },
+    "trajectory_profiles": {
+      "path": "trajectory_profiles.json"
+    }
+  },
+  "body_attitude": "unavailable",
+  "bounds": {
+    "max": [
+      0.17281673848628998,
+      0.24107199907302856,
+      -0.10211608558893204
+    ],
+    "min": [
+      -0.4914301931858063,
+      -0.039864927530288696,
+      -0.9950007796287537
+    ]
+  },
+  "calibration": {
+    "evidence": null,
+    "state": "relative_only"
+  },
+  "display_units": "relative units",
+  "edit_segments": [
+    {
+      "end_s": 38.196,
+      "end_type": "replay_start",
+      "is_attack": true,
+      "segment_id": "seg01",
+      "segment_index": 1,
+      "start_s": 8.082,
+      "start_type": "flight_start"
+    }
+  ],
+  "generated_at": "2026-07-17T14:54:39.963283Z",
+  "layers": {
+    "calibrated": {
+      "reason": "no documented calibration",
+      "status": "absent"
+    },
+    "fitted": {
+      "path": "../fitted/trajectory_bspline.csv"
+    },
+    "normalized": {
+      "path": "camera_path.json"
+    },
+    "raw": {
+      "immutable_source_ref": "../raw_ref.json",
+      "path": "trajectory_raw.csv"
+    },
+    "smoothed": {
+      "path": "../smoothed/trajectory_rts.csv"
+    }
+  },
+  "methods": {
+    "lingbot_map": {
+      "bytes": 799,
+      "file_count": 1,
+      "status": "metadata_only",
+      "status_reason": "successful_batch_metadata_raw_arrays_unavailable",
+      "suffix_counts": {
+        ".json": 1
+      },
+      "summary": null
+    },
+    "r3": {
+      "bytes": 169519139,
+      "file_count": 601,
+      "status": "validated_numerical",
+      "status_reason": "complete_r3_arrays_match_declared_frame_count",
+      "suffix_counts": {
+        ".json": 1,
+        ".npy": 400,
+        ".npz": 200
+      },
+      "summary": null
+    }
+  },
+  "pose_semantics": "camera_pose_proxy",
+  "public_catalog": {
+    "media_copied": false,
+    "source_player_url": "https://www.itamarweiss.com/fpv/?scene=2026-04-29_strike_on_merkava_tank",
+    "source_record_url": "https://www.itamarweiss.com/fpv/video/2026-04-29_strike_on_merkava_tank/"
+  },
+  "publication_boundary": {
+    "local_paths_redacted": true,
+    "point_cloud_publication": "approved_by_user",
+    "scale_state": "relative_only",
+    "source_frames_copied": false,
+    "videos_copied": false
+  },
+  "quality": {
+    "components": {
+      "contamination": 0.25,
+      "match_connectivity": 0.0,
+      "path_continuity": 0.98,
+      "reconstruction_quality": 0.895,
+      "visual_clarity": 0.45
+    },
+    "hero_score": 0.682,
+    "score_confidence": 0.55,
+    "transparent_heuristic": true
+  },
+  "raw_assets": {
+    "camera_path.csv": {
+      "bytes": 34945,
+      "path": "local_raw_backend_path_redacted",
+      "sha256": "a8ec7445aecad604eab7966f7609ecc58fd2bb9feabfb7869b581a8a72673745",
+      "source_label": "camera_path.csv"
+    },
+    "cameras.npz": {
+      "bytes": 25441,
+      "path": "local_raw_backend_path_redacted",
+      "sha256": "116d66886ff71523227bfa0a5a54412cb77ebd3fb1c6f252368f49b2567cf886",
+      "source_label": "cameras.npz"
+    },
+    "point_cloud.npz": {
+      "bytes": 12473073,
+      "path": "local_raw_backend_path_redacted",
+      "sha256": "7a024658417bb4c242384763c053d06da4f827cb51b679263495613ac48623f6",
+      "source_label": "point_cloud.npz"
+    },
+    "predictions.npz": {
+      "bytes": 339174424,
+      "path": "local_raw_backend_path_redacted",
+      "sha256": "d9c19e1b4e144f4af316eaec5a14401ad531e47e8d0d6b4d45c9a1a73b857206",
+      "source_label": "predictions.npz"
+    },
+    "run_manifest.json": {
+      "bytes": 2811,
+      "path": "local_raw_backend_path_redacted",
+      "sha256": "dcd7529f681513de7c329129865834f947667a5c929482f59d2cbe8115d11092",
+      "source_label": "run_manifest.json"
+    }
+  },
+  "reconstruction": {
+    "backend": "VGGT-Omega-1B-512",
+    "backend_commit": "39a0cb8af88554f15ddcb5354cd52bde588fa014",
+    "coordinate_frame": "official_glb_alignment",
+    "frame_count": 200,
+    "point_count_source": 1000000,
+    "point_count_viewer": 120000
+  },
+  "scene_id": "2026-04-29_strike_on_merkava_tank__seg01",
+  "schema_version": "2.0.0",
+  "source": {
+    "catalog_date": "2026-04-29",
+    "description": "Merkava tank, Beit Lif (dive drone)",
+    "selection": "attack-chain",
+    "town": "Beit Lif",
+    "video_file": "2026-04-29_strike_on_merkava_tank.mp4"
+  },
+  "title": "Merkava tank, Beit Lif (dive drone)",
+  "warnings": [
+    "relative_only: no physical scale calibration is documented",
+    "camera_pose_proxy: vehicle-body attitude is unavailable"
+  ]
+}
