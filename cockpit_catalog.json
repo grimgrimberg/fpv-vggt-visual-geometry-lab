@@ -2,7 +2,8 @@
   "counts": {
     "annotation_records": 143,
     "catalog_records": 161,
-    "detailed_geometry_scenes": 2
+    "detailed_geometry_scenes": 2,
+    "vggt_done_records": 139
   },
   "detailed_scenes": [
     {
@@ -28,7 +29,7 @@
       "title": "Merkava tank, Beit Lif (dive drone)"
     }
   ],
-  "generated_at": "2026-07-23T06:56:34.721473Z",
+  "generated_at": "2026-07-23T09:30:21.468295Z",
   "publication_boundary": {
     "cdn_host_allowlist": [
       "d2fioemadmrru3.cloudfront.net"
@@ -78,12 +79,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-06-17_force_position_kfar_tebnit_mmirleb_17590",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg04_seg05_seg06"
+          ]
+        }
       },
       "slug": "2026-06-17_force_position_kfar_tebnit_mmirleb_17590",
       "source_geo_status": "mapped",
@@ -138,12 +148,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-06-14_engineering_vehicle_arnoun_ababil_drone",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg02_seg03"
+          ]
+        }
       },
       "slug": "2026-06-14_engineering_vehicle_arnoun_ababil_drone",
       "source_geo_status": "mapped",
@@ -178,12 +197,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-06-13_namer_vehicle_hamammas_hill_khiam_mmirleb_17586",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01"
+          ]
+        }
       },
       "slug": "2026-06-13_namer_vehicle_hamammas_hill_khiam_mmirleb_17586",
       "source_geo_status": "mapped",
@@ -246,12 +274,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-06-13_logistics_position_bayyadah_mmirleb_17434",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg03_seg04"
+          ]
+        }
       },
       "slug": "2026-06-13_logistics_position_bayyadah_mmirleb_17434",
       "source_geo_status": "mapped",
@@ -302,12 +339,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-06-13_excavator_majdal_zoun",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg02_seg03"
+          ]
+        }
       },
       "slug": "2026-06-13_excavator_majdal_zoun",
       "source_geo_status": "mapped",
@@ -358,12 +404,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-06-13_command_center_beaufort_castle_mmirleb_17580",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg02_seg03"
+          ]
+        }
       },
       "slug": "2026-06-13_command_center_beaufort_castle_mmirleb_17580",
       "source_geo_status": "mapped",
@@ -418,12 +473,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-06-12_merkava_tank_yahmor_al_shqif",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg02"
+          ]
+        }
       },
       "slug": "2026-06-12_merkava_tank_yahmor_al_shqif",
       "source_geo_status": "mapped",
@@ -486,12 +550,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-06-12_merkava_tank_beaufort_castle_mmirleb_17595",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg03"
+          ]
+        }
       },
       "slug": "2026-06-12_merkava_tank_beaufort_castle_mmirleb_17595",
       "source_geo_status": "mapped",
@@ -542,12 +615,21 @@
       "manifest_confidence": "medium",
       "query_url": "?scene=2026-06-12_d9_armored_bulldozer_tayr_harfa_ababil_drone",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg02_seg03"
+          ]
+        }
       },
       "slug": "2026-06-12_d9_armored_bulldozer_tayr_harfa_ababil_drone",
       "source_geo_status": "mapped",
@@ -610,12 +692,21 @@
       "manifest_confidence": "medium",
       "query_url": "?scene=2026-06-11_merkava_tank_tayr_harfa_ababil_drone",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg03"
+          ]
+        }
       },
       "slug": "2026-06-11_merkava_tank_tayr_harfa_ababil_drone",
       "source_geo_status": "mapped",
@@ -662,12 +753,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-06-11_israeli_soldiers_adaissah_mmirleb_17602",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02"
+          ]
+        }
       },
       "slug": "2026-06-11_israeli_soldiers_adaissah_mmirleb_17602",
       "source_geo_status": "mapped",
@@ -726,12 +826,22 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-06-11_d9_engineering_vehicle_beaufort_castle_mmirleb_17598",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 2,
+          "error": 0,
+          "scene_ids": [
+            "seg03_seg04",
+            "seg01_seg02_seg03_seg04"
+          ]
+        }
       },
       "slug": "2026-06-11_d9_engineering_vehicle_beaufort_castle_mmirleb_17598",
       "source_geo_status": "mapped",
@@ -778,12 +888,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-06-10_merkava_tank_beaufort_castle",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02"
+          ]
+        }
       },
       "slug": "2026-06-10_merkava_tank_beaufort_castle",
       "source_geo_status": "mapped",
@@ -838,12 +957,21 @@
       "manifest_confidence": "medium",
       "query_url": "?scene=2026-06-10_humvee_yahmar_al_shaqif",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg02_seg03"
+          ]
+        }
       },
       "slug": "2026-06-10_humvee_yahmar_al_shaqif",
       "source_geo_status": "mapped",
@@ -898,12 +1026,21 @@
       "manifest_confidence": "medium",
       "query_url": "?scene=2026-06-09_namer_apc_metula_southern_outskirts_khiam",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg02_seg03"
+          ]
+        }
       },
       "slug": "2026-06-09_namer_apc_metula_southern_outskirts_khiam",
       "source_geo_status": "mapped",
@@ -930,7 +1067,12 @@
         "geometry_available": false,
         "methods": [],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "catalog_video",
+        "vggt_omega": {
+          "done": 0,
+          "error": 0,
+          "scene_ids": []
+        }
       },
       "slug": "2026-06-09_401_brigade_hq_debel",
       "source_geo_status": "",
@@ -977,12 +1119,21 @@
       "manifest_confidence": "medium",
       "query_url": "?scene=2026-06-08_strike_on_enemy_vehicles_near_yahmor_al_shqif",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02"
+          ]
+        }
       },
       "slug": "2026-06-08_strike_on_enemy_vehicles_near_yahmor_al_shqif",
       "source_geo_status": "mapped",
@@ -1009,7 +1160,12 @@
         "geometry_available": false,
         "methods": [],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "catalog_video",
+        "vggt_omega": {
+          "done": 0,
+          "error": 0,
+          "scene_ids": []
+        }
       },
       "slug": "2026-06-08_soldiers_gathering_naqoura_mmirleb_17431",
       "source_geo_status": "",
@@ -1056,12 +1212,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-06-08_command_and_control_vehicle_beaufort_castle",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02"
+          ]
+        }
       },
       "slug": "2026-06-08_command_and_control_vehicle_beaufort_castle",
       "source_geo_status": "mapped",
@@ -1088,7 +1253,12 @@
         "geometry_available": false,
         "methods": [],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "catalog_video",
+        "vggt_omega": {
+          "done": 0,
+          "error": 0,
+          "scene_ids": []
+        }
       },
       "slug": "2026-06-07_soldiers_gathering_beaufort_castle",
       "source_geo_status": "",
@@ -1135,12 +1305,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-06-07_merkava_tank_beaufort_castle",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02"
+          ]
+        }
       },
       "slug": "2026-06-07_merkava_tank_beaufort_castle",
       "source_geo_status": "mapped",
@@ -1179,12 +1358,22 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-06-07_command_namer_vehicle_yahmor_al_shqif",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 2,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02",
+            "seg03_seg04"
+          ]
+        }
       },
       "slug": "2026-06-07_command_namer_vehicle_yahmor_al_shqif",
       "source_geo_status": "mapped",
@@ -1239,12 +1428,21 @@
       "manifest_confidence": "medium",
       "query_url": "?scene=2026-06-06_sholef_howitzer_adaissah",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg02_seg03"
+          ]
+        }
       },
       "slug": "2026-06-06_sholef_howitzer_adaissah",
       "source_geo_status": "mapped",
@@ -1331,12 +1529,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-06-06_merkava_tank_blat_position",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg06_seg07"
+          ]
+        }
       },
       "slug": "2026-06-06_merkava_tank_blat_position",
       "source_geo_status": "mapped",
@@ -1391,12 +1598,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-06-06_artillery_vehicle_adaissah_mmirleb_17504",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg02_seg03"
+          ]
+        }
       },
       "slug": "2026-06-06_artillery_vehicle_adaissah_mmirleb_17504",
       "source_geo_status": "mapped",
@@ -1451,12 +1667,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-06-05_soldiers_khiam_mmirleb_17315",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02_seg03"
+          ]
+        }
       },
       "slug": "2026-06-05_soldiers_khiam_mmirleb_17315",
       "source_geo_status": "mapped",
@@ -1495,12 +1720,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-06-05_merkava_tank_beaufort_castle_mmirleb_17447",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01"
+          ]
+        }
       },
       "slug": "2026-06-05_merkava_tank_beaufort_castle_mmirleb_17447",
       "source_geo_status": "mapped",
@@ -1547,12 +1781,21 @@
       "manifest_confidence": "medium",
       "query_url": "?scene=2026-06-05_humvee_near_khiam",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02"
+          ]
+        }
       },
       "slug": "2026-06-05_humvee_near_khiam",
       "source_geo_status": "mapped",
@@ -1599,12 +1842,21 @@
       "manifest_confidence": "medium",
       "query_url": "?scene=2026-06-04_merkava_tank_beaufort_castle_02",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02"
+          ]
+        }
       },
       "slug": "2026-06-04_merkava_tank_beaufort_castle_02",
       "source_geo_status": "mapped",
@@ -1659,12 +1911,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-06-04_merkava_tank_beaufort_castle",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg02_seg03"
+          ]
+        }
       },
       "slug": "2026-06-04_merkava_tank_beaufort_castle",
       "source_geo_status": "mapped",
@@ -1719,12 +1980,22 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-06-03_personnel_carrier_zawtar_al_sharqiyah_mmirleb_17521",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 2,
+          "error": 0,
+          "scene_ids": [
+            "seg03_seg04",
+            "seg05"
+          ]
+        }
       },
       "slug": "2026-06-03_personnel_carrier_zawtar_al_sharqiyah_mmirleb_17521",
       "source_geo_status": "mapped",
@@ -1783,12 +2054,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-06-03_personnel_carrier_zawtar_al_sharqiyah_mmirleb_17492",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 1,
+          "scene_ids": [
+            "seg05_seg06"
+          ]
+        }
       },
       "slug": "2026-06-03_personnel_carrier_zawtar_al_sharqiyah_mmirleb_17492",
       "source_geo_status": "mapped",
@@ -1851,12 +2131,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-06-03_merkava_tank_zawtar_al_sharqiyah",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg03_seg04"
+          ]
+        }
       },
       "slug": "2026-06-03_merkava_tank_zawtar_al_sharqiyah",
       "source_geo_status": "mapped",
@@ -1907,12 +2196,21 @@
       "manifest_confidence": "medium",
       "query_url": "?scene=2026-06-03_m113_apc_beaufort_castle",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 1,
+          "scene_ids": [
+            "seg02_seg03"
+          ]
+        }
       },
       "slug": "2026-06-03_m113_apc_beaufort_castle",
       "source_geo_status": "mapped",
@@ -1971,12 +2269,22 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-06-03_humvee_zawtar_al_sharqiyah",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 2,
+          "error": 0,
+          "scene_ids": [
+            "seg03_seg04",
+            "seg01_seg02_seg03_seg04"
+          ]
+        }
       },
       "slug": "2026-06-03_humvee_zawtar_al_sharqiyah",
       "source_geo_status": "mapped",
@@ -2035,12 +2343,22 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-06-02_targeting_israeli_soldiers_eastern_outskirts_zawtar_al_sharqiyah",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 2,
+          "error": 0,
+          "scene_ids": [
+            "seg03_seg04",
+            "seg05_seg06"
+          ]
+        }
       },
       "slug": "2026-06-02_targeting_israeli_soldiers_eastern_outskirts_zawtar_al_sharqiyah",
       "source_geo_status": "mapped",
@@ -2091,12 +2409,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-06-02_soldiers_and_namer_vehicle_near_yahmor_al_shqif",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 1,
+          "scene_ids": [
+            "seg01_seg02_seg03"
+          ]
+        }
       },
       "slug": "2026-06-02_soldiers_and_namer_vehicle_near_yahmor_al_shqif",
       "source_geo_status": "mapped",
@@ -2135,12 +2462,22 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-06-02_namer_vehicle_near_yahmor_al_shqif",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 2,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02",
+            "seg08_seg09"
+          ]
+        }
       },
       "slug": "2026-06-02_namer_vehicle_near_yahmor_al_shqif",
       "source_geo_status": "mapped",
@@ -2183,12 +2520,22 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-06-02_merkava_tank_near_yahmor_al_shqif",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 2,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02",
+            "seg07"
+          ]
+        }
       },
       "slug": "2026-06-02_merkava_tank_near_yahmor_al_shqif",
       "source_geo_status": "mapped",
@@ -2239,12 +2586,22 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-06-01_soldiers_near_yahmor_al_shqif",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 2,
+          "error": 0,
+          "scene_ids": [
+            "seg02_seg03",
+            "seg01_seg02_seg03_seg04_seg05"
+          ]
+        }
       },
       "slug": "2026-06-01_soldiers_near_yahmor_al_shqif",
       "source_geo_status": "mapped",
@@ -2287,12 +2644,22 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-06-01_merkava_tank_near_yahmor_al_shqif",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 2,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02",
+            "seg02_seg03_seg04"
+          ]
+        }
       },
       "slug": "2026-06-01_merkava_tank_near_yahmor_al_shqif",
       "source_geo_status": "mapped",
@@ -2335,12 +2702,22 @@
       "manifest_confidence": "low",
       "query_url": "?scene=2026-05-31_soldiers_gathering_near_border_site",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 2,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02",
+            "seg03"
+          ]
+        }
       },
       "slug": "2026-05-31_soldiers_gathering_near_border_site",
       "source_geo_status": "mapped",
@@ -2399,12 +2776,22 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-31_namer_vehicle_and_apc_in_dibel",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 2,
+          "error": 0,
+          "scene_ids": [
+            "seg03_seg04",
+            "seg01_seg02"
+          ]
+        }
       },
       "slug": "2026-05-31_namer_vehicle_and_apc_in_dibel",
       "source_geo_status": "mapped",
@@ -2439,12 +2826,22 @@
       "manifest_confidence": "medium",
       "query_url": "?scene=2026-05-31_humvee_vehicle_at_al_assi",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 2,
+          "error": 0,
+          "scene_ids": [
+            "seg01",
+            "seg01_seg02_seg03_seg04_seg05"
+          ]
+        }
       },
       "slug": "2026-05-31_humvee_vehicle_at_al_assi",
       "source_geo_status": "mapped",
@@ -2487,12 +2884,22 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-30_technical_equipment_rashaf_mmirleb_17060",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 2,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02",
+            "seg01_seg02"
+          ]
+        }
       },
       "slug": "2026-05-30_technical_equipment_rashaf_mmirleb_17060",
       "source_geo_status": "mapped",
@@ -2543,12 +2950,22 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-30_merkava_tank_in_border_area",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 2,
+          "error": 0,
+          "scene_ids": [
+            "seg02_seg03",
+            "seg01_seg02_seg03_seg04"
+          ]
+        }
       },
       "slug": "2026-05-30_merkava_tank_in_border_area",
       "source_geo_status": "mapped",
@@ -2599,12 +3016,22 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-29_soldier_at_misgav_am",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 2,
+          "error": 0,
+          "scene_ids": [
+            "seg02_seg03",
+            "seg04"
+          ]
+        }
       },
       "slug": "2026-05-29_soldier_at_misgav_am",
       "source_geo_status": "mapped",
@@ -2663,12 +3090,22 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-29_namer_apc_in_ainata",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 2,
+          "error": 0,
+          "scene_ids": [
+            "seg03_seg04",
+            "seg01_seg02_seg03_seg04"
+          ]
+        }
       },
       "slug": "2026-05-29_namer_apc_in_ainata",
       "source_geo_status": "mapped",
@@ -2735,12 +3172,22 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-28_merkava_tank_zawtar_al_sharqiyah_mmirleb_17154",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 2,
+          "error": 0,
+          "scene_ids": [
+            "seg02_seg03_seg04_seg05",
+            "seg01_seg02_seg03_seg04"
+          ]
+        }
       },
       "slug": "2026-05-28_merkava_tank_zawtar_al_sharqiyah_mmirleb_17154",
       "source_geo_status": "mapped",
@@ -2767,7 +3214,12 @@
         "geometry_available": false,
         "methods": [],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "catalog_video",
+        "vggt_omega": {
+          "done": 0,
+          "error": 2,
+          "scene_ids": []
+        }
       },
       "slug": "2026-05-28_iron_technical_platform_at_al_raheb",
       "source_geo_status": "",
@@ -2826,12 +3278,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-28_iron_dome_launcher_vehicle_khiam_mmirleb_16993",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02_seg03_seg04"
+          ]
+        }
       },
       "slug": "2026-05-28_iron_dome_launcher_vehicle_khiam_mmirleb_16993",
       "source_geo_status": "mapped",
@@ -2858,7 +3319,12 @@
         "geometry_available": false,
         "methods": [],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "catalog_video",
+        "vggt_omega": {
+          "done": 0,
+          "error": 0,
+          "scene_ids": []
+        }
       },
       "slug": "2026-05-27_target_galilee_forest_mmirleb_16897",
       "source_geo_status": "",
@@ -2893,12 +3359,22 @@
       "manifest_confidence": "medium",
       "query_url": "?scene=2026-05-27_merkava_tank_on_military_route",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 2,
+          "error": 0,
+          "scene_ids": [
+            "seg01",
+            "seg01_seg02_seg03_seg04_seg05_seg06"
+          ]
+        }
       },
       "slug": "2026-05-27_merkava_tank_on_military_route",
       "source_geo_status": "mapped",
@@ -2965,12 +3441,22 @@
       "manifest_confidence": "medium",
       "query_url": "?scene=2026-05-27_iron_technical_platform_at_jal_al_alam",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 2,
+          "error": 0,
+          "scene_ids": [
+            "seg04_seg05",
+            "seg01"
+          ]
+        }
       },
       "slug": "2026-05-27_iron_technical_platform_at_jal_al_alam",
       "source_geo_status": "mapped",
@@ -3021,12 +3507,22 @@
       "manifest_confidence": "low",
       "query_url": "?scene=2026-05-27_enemy_vehicle_in_northern_settlement",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 2,
+          "error": 0,
+          "scene_ids": [
+            "seg02_seg03",
+            "seg01_seg02_seg03"
+          ]
+        }
       },
       "slug": "2026-05-27_enemy_vehicle_in_northern_settlement",
       "source_geo_status": "mapped",
@@ -3053,7 +3549,12 @@
         "geometry_available": false,
         "methods": [],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "catalog_video",
+        "vggt_omega": {
+          "done": 0,
+          "error": 0,
+          "scene_ids": []
+        }
       },
       "slug": "2026-05-26_vehicle_and_soldier_gatherings_biranit",
       "source_geo_status": "",
@@ -3105,7 +3606,12 @@
         "geometry_available": false,
         "methods": [],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "catalog_video",
+        "vggt_omega": {
+          "done": 0,
+          "error": 1,
+          "scene_ids": []
+        }
       },
       "slug": "2026-05-26_merkava_tank_in_rashaf",
       "source_geo_status": "mapped",
@@ -3148,12 +3654,22 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-26_humvee_zawtar_al_sharqiyah_riverbed_mmirleb_17068",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 2,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02",
+            "seg03"
+          ]
+        }
       },
       "slug": "2026-05-26_humvee_zawtar_al_sharqiyah_riverbed_mmirleb_17068",
       "source_geo_status": "mapped",
@@ -3180,7 +3696,12 @@
         "geometry_available": false,
         "methods": [],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "catalog_video",
+        "vggt_omega": {
+          "done": 0,
+          "error": 0,
+          "scene_ids": []
+        }
       },
       "slug": "2026-05-26_humvee_vehicle_in_wadi_near_dibel",
       "source_geo_status": "",
@@ -3223,12 +3744,22 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-26_d9_bulldozer_zawtar_al_sharqiyah_mmirleb_17143",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 2,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02",
+            "seg02_seg03_seg04"
+          ]
+        }
       },
       "slug": "2026-05-26_d9_bulldozer_zawtar_al_sharqiyah_mmirleb_17143",
       "source_geo_status": "mapped",
@@ -3271,12 +3802,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-26_communications_equipment_at_al_assi",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02_seg03_seg04"
+          ]
+        }
       },
       "slug": "2026-05-26_communications_equipment_at_al_assi",
       "source_geo_status": "mapped",
@@ -3298,12 +3838,22 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-26_anti_drone_platform_barashit",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 2,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02_seg03_seg04_seg05",
+            "seg01_seg02_seg03_seg04_seg05_seg06_seg07"
+          ]
+        }
       },
       "slug": "2026-05-26_anti_drone_platform_barashit",
       "source_geo_status": "mapped",
@@ -3338,12 +3888,21 @@
       "manifest_confidence": "low",
       "query_url": "?scene=2026-05-25_two_israeli_army_vehicles",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02_seg03_seg04_seg05_seg06_seg07"
+          ]
+        }
       },
       "slug": "2026-05-25_two_israeli_army_vehicles",
       "source_geo_status": "mapped",
@@ -3378,12 +3937,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-25_soldiers_position_tent_hadab_al_bustan",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg02_seg03_seg04"
+          ]
+        }
       },
       "slug": "2026-05-25_soldiers_position_tent_hadab_al_bustan",
       "source_geo_status": "mapped",
@@ -3423,7 +3991,12 @@
         "geometry_available": false,
         "methods": [],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "catalog_video",
+        "vggt_omega": {
+          "done": 0,
+          "error": 1,
+          "scene_ids": []
+        }
       },
       "slug": "2026-05-25_command_room_tayr_harfa",
       "source_geo_status": "mapped",
@@ -3466,12 +4039,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-24_namer_apc_taybeh",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02"
+          ]
+        }
       },
       "slug": "2026-05-24_namer_apc_taybeh",
       "source_geo_status": "mapped",
@@ -3522,12 +4104,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-24_humvee_manara_mmirleb_16823",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 1,
+          "scene_ids": [
+            "seg02_seg03"
+          ]
+        }
       },
       "slug": "2026-05-24_humvee_manara_mmirleb_16823",
       "source_geo_status": "mapped",
@@ -3602,12 +4193,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-23_two_iron_dome_platforms_ramim",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg06_seg07"
+          ]
+        }
       },
       "slug": "2026-05-23_two_iron_dome_platforms_ramim",
       "source_geo_status": "mapped",
@@ -3634,7 +4234,12 @@
         "geometry_available": false,
         "methods": [],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "catalog_video",
+        "vggt_omega": {
+          "done": 0,
+          "error": 0,
+          "scene_ids": []
+        }
       },
       "slug": "2026-05-23_soldiers_taybeh",
       "source_geo_status": "",
@@ -3697,12 +4302,21 @@
       "manifest_confidence": "medium",
       "query_url": "?scene=2026-05-23_soldier_gathering_bayyadah",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02"
+          ]
+        }
       },
       "slug": "2026-05-23_soldier_gathering_bayyadah",
       "source_geo_status": "mapped",
@@ -3761,12 +4375,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-23_anti_drone_system_jardah",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02_seg03_seg04_seg05"
+          ]
+        }
       },
       "slug": "2026-05-23_anti_drone_system_jardah",
       "source_geo_status": "mapped",
@@ -3809,12 +4432,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-22_soldier_manara",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02"
+          ]
+        }
       },
       "slug": "2026-05-22_soldier_manara",
       "source_geo_status": "mapped",
@@ -3853,12 +4485,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-22_merkava_tank_markaba",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02_seg03"
+          ]
+        }
       },
       "slug": "2026-05-22_merkava_tank_markaba",
       "source_geo_status": "mapped",
@@ -3901,12 +4542,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-21_engineering_vehicle_khallet_al_raj_deir_siryan",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg03"
+          ]
+        }
       },
       "slug": "2026-05-21_engineering_vehicle_khallet_al_raj_deir_siryan",
       "source_geo_status": "mapped",
@@ -3949,12 +4599,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-20_namer_apc_hadatha",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg03_seg04_seg05_seg06"
+          ]
+        }
       },
       "slug": "2026-05-20_namer_apc_hadatha",
       "source_geo_status": "mapped",
@@ -4077,12 +4736,21 @@
       "manifest_confidence": "medium",
       "query_url": "?scene=2026-05-20_armored_brigade_401_hq_debel",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg16_seg17_seg18_seg19"
+          ]
+        }
       },
       "slug": "2026-05-20_armored_brigade_401_hq_debel",
       "source_geo_status": "mapped",
@@ -4125,12 +4793,21 @@
       "manifest_confidence": "medium",
       "query_url": "?scene=2026-05-19_military_vehicle_misgav_am",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02"
+          ]
+        }
       },
       "slug": "2026-05-19_military_vehicle_misgav_am",
       "source_geo_status": "mapped",
@@ -4173,12 +4850,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-19_iron_dome_platform_misgav_am_mmirleb_16697",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg03"
+          ]
+        }
       },
       "slug": "2026-05-19_iron_dome_platform_misgav_am_mmirleb_16697",
       "source_geo_status": "mapped",
@@ -4221,12 +4907,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-19_iron_dome_platform_jal_al_alam_mmirleb_16395",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01"
+          ]
+        }
       },
       "slug": "2026-05-19_iron_dome_platform_jal_al_alam_mmirleb_16395",
       "source_geo_status": "mapped",
@@ -4290,7 +4985,12 @@
         "geometry_available": false,
         "methods": [],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "catalog_video",
+        "vggt_omega": {
+          "done": 0,
+          "error": 1,
+          "scene_ids": []
+        }
       },
       "slug": "2026-05-19_engineering_vehicle_khiam_mmirleb_16767",
       "source_geo_status": "mapped",
@@ -4325,12 +5025,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-19_communications_vehicle_taybeh_mmirleb_16552",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg05"
+          ]
+        }
       },
       "slug": "2026-05-19_communications_vehicle_taybeh_mmirleb_16552",
       "source_geo_status": "mapped",
@@ -4381,12 +5090,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-18_iron_dome_platform_shomera",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01"
+          ]
+        }
       },
       "slug": "2026-05-18_iron_dome_platform_shomera",
       "source_geo_status": "mapped",
@@ -4429,12 +5147,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-18_engineering_vehicle_deir_siryan_khallet_al_raj_mmirleb_16558",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02_seg03"
+          ]
+        }
       },
       "slug": "2026-05-18_engineering_vehicle_deir_siryan_khallet_al_raj_mmirleb_16558",
       "source_geo_status": "mapped",
@@ -4485,12 +5212,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-18_brigade_300_commander_vehicle_shomera_mmirleb_16516",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg04"
+          ]
+        }
       },
       "slug": "2026-05-18_brigade_300_commander_vehicle_shomera_mmirleb_16516",
       "source_geo_status": "mapped",
@@ -4533,12 +5269,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-17_military_vehicle_bayyadah_iskandarounah_mmirleb_16443",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02"
+          ]
+        }
       },
       "slug": "2026-05-17_military_vehicle_bayyadah_iskandarounah_mmirleb_16443",
       "source_geo_status": "mapped",
@@ -4581,12 +5326,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-17_logistics_position_bayyadah_iskandarounah_mmirleb_16413",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01"
+          ]
+        }
       },
       "slug": "2026-05-17_logistics_position_bayyadah_iskandarounah_mmirleb_16413",
       "source_geo_status": "mapped",
@@ -4613,7 +5367,12 @@
         "geometry_available": false,
         "methods": [],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "catalog_video",
+        "vggt_omega": {
+          "done": 0,
+          "error": 0,
+          "scene_ids": []
+        }
       },
       "slug": "2026-05-17_buggy_iskandarounah_naqoura",
       "source_geo_status": "",
@@ -4661,7 +5420,12 @@
         "geometry_available": false,
         "methods": [],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "catalog_video",
+        "vggt_omega": {
+          "done": 0,
+          "error": 1,
+          "scene_ids": []
+        }
       },
       "slug": "2026-05-16_namer_vehicle_taybeh_mmirleb_16531",
       "source_geo_status": "mapped",
@@ -4717,7 +5481,12 @@
         "geometry_available": false,
         "methods": [],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "catalog_video",
+        "vggt_omega": {
+          "done": 0,
+          "error": 2,
+          "scene_ids": []
+        }
       },
       "slug": "2026-05-16_merkava_tank_bayyadah_mmirleb_16351",
       "source_geo_status": "mapped",
@@ -4768,12 +5537,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-16_hummer_iskandarounah_naqoura",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02"
+          ]
+        }
       },
       "slug": "2026-05-16_hummer_iskandarounah_naqoura",
       "source_geo_status": "mapped",
@@ -4824,12 +5602,22 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-16_engineering_vehicle_deir_siryan_khallet_al_raj_mmirleb_16319",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 2,
+          "error": 0,
+          "scene_ids": [
+            "seg02_seg03",
+            "seg04_seg05"
+          ]
+        }
       },
       "slug": "2026-05-16_engineering_vehicle_deir_siryan_khallet_al_raj_mmirleb_16319",
       "source_geo_status": "mapped",
@@ -4880,12 +5668,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-15_personnel_carrier_deir_siryan_khallet_al_raj_mmirleb_16301",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg04_seg05_seg06"
+          ]
+        }
       },
       "slug": "2026-05-15_personnel_carrier_deir_siryan_khallet_al_raj_mmirleb_16301",
       "source_geo_status": "mapped",
@@ -4920,12 +5717,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-15_engineering_vehicle_khiam",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg02"
+          ]
+        }
       },
       "slug": "2026-05-15_engineering_vehicle_khiam",
       "source_geo_status": "mapped",
@@ -4968,12 +5774,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-14_wireless_communications_system_blat_mmirleb_16285",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02_seg03_seg04"
+          ]
+        }
       },
       "slug": "2026-05-14_wireless_communications_system_blat_mmirleb_16285",
       "source_geo_status": "mapped",
@@ -5020,12 +5835,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-14_strike_on_military_tanker_near_bint_jbeil",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02_seg03_seg04"
+          ]
+        }
       },
       "slug": "2026-05-14_strike_on_military_tanker_near_bint_jbeil",
       "source_geo_status": "mapped",
@@ -5084,12 +5908,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-14_soldiers_gathering_naqoura_ras_naqoura_mmirleb_16294",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02_seg03_seg04"
+          ]
+        }
       },
       "slug": "2026-05-14_soldiers_gathering_naqoura_ras_naqoura_mmirleb_16294",
       "source_geo_status": "mapped",
@@ -5124,12 +5957,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-14_namer_vehicle_rashaf_mmirleb_16312",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02_seg03"
+          ]
+        }
       },
       "slug": "2026-05-14_namer_vehicle_rashaf_mmirleb_16312",
       "source_geo_status": "mapped",
@@ -5188,12 +6030,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-14_merkava_tank_bint_jbeil_mmirleb_16493",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg06"
+          ]
+        }
       },
       "slug": "2026-05-14_merkava_tank_bint_jbeil_mmirleb_16493",
       "source_geo_status": "mapped",
@@ -5236,12 +6087,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-14_merkava_tank_aytaroun",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02"
+          ]
+        }
       },
       "slug": "2026-05-14_merkava_tank_aytaroun",
       "source_geo_status": "mapped",
@@ -5300,12 +6160,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-14_humvee_tayr_harfa_mmirleb_16337",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02_seg03_seg04"
+          ]
+        }
       },
       "slug": "2026-05-14_humvee_tayr_harfa_mmirleb_16337",
       "source_geo_status": "mapped",
@@ -5345,7 +6214,12 @@
         "geometry_available": false,
         "methods": [],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "catalog_video",
+        "vggt_omega": {
+          "done": 0,
+          "error": 1,
+          "scene_ids": []
+        }
       },
       "slug": "2026-05-13_strike_on_merkava_tank_near_aita_al_shaab",
       "source_geo_status": "mapped",
@@ -5388,12 +6262,21 @@
       "manifest_confidence": "medium",
       "query_url": "?scene=2026-05-13_strike_on_armored_personnel_carrier",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01"
+          ]
+        }
       },
       "slug": "2026-05-13_strike_on_armored_personnel_carrier",
       "source_geo_status": "mapped",
@@ -5540,12 +6423,21 @@
       "manifest_confidence": "medium",
       "query_url": "?scene=2026-05-12_strike_on_soldiers_and_vehicles",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02_seg03_seg04_seg05_seg06_seg07_seg08"
+          ]
+        }
       },
       "slug": "2026-05-12_strike_on_soldiers_and_vehicles",
       "source_geo_status": "mapped",
@@ -5593,7 +6485,12 @@
         "geometry_available": false,
         "methods": [],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "catalog_video",
+        "vggt_omega": {
+          "done": 0,
+          "error": 1,
+          "scene_ids": []
+        }
       },
       "slug": "2026-05-12_strike_on_namer_apc_near_houla",
       "source_geo_status": "mapped",
@@ -5636,12 +6533,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-12_strike_on_humvee",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02"
+          ]
+        }
       },
       "slug": "2026-05-12_strike_on_humvee",
       "source_geo_status": "mapped",
@@ -5676,12 +6582,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-12_strike_on_engineering_vehicle_near_tayr_harfa",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg02"
+          ]
+        }
       },
       "slug": "2026-05-12_strike_on_engineering_vehicle_near_tayr_harfa",
       "source_geo_status": "mapped",
@@ -5716,12 +6631,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-12_soldier_manara_khirbet_al_manara_mmirleb_16118",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg03"
+          ]
+        }
       },
       "slug": "2026-05-12_soldier_manara_khirbet_al_manara_mmirleb_16118",
       "source_geo_status": "mapped",
@@ -5764,12 +6688,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-12_merkava_tank_manara_khirbet_al_manara_mmirleb_16106",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg02_seg03_seg04"
+          ]
+        }
       },
       "slug": "2026-05-12_merkava_tank_manara_khirbet_al_manara_mmirleb_16106",
       "source_geo_status": "mapped",
@@ -5791,12 +6724,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-12_humvee_naqoura_naqoura_iskandarounah_road_mmirleb_16261",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02"
+          ]
+        }
       },
       "slug": "2026-05-12_humvee_naqoura_naqoura_iskandarounah_road_mmirleb_16261",
       "source_geo_status": "mapped",
@@ -5839,12 +6781,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-11_strike_on_soldier_near_dhayra",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01"
+          ]
+        }
       },
       "slug": "2026-05-11_strike_on_soldier_near_dhayra",
       "source_geo_status": "mapped",
@@ -5887,12 +6838,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-11_strike_on_logistics_vehicle_near_tayr_harfa",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02"
+          ]
+        }
       },
       "slug": "2026-05-11_strike_on_logistics_vehicle_near_tayr_harfa",
       "source_geo_status": "mapped",
@@ -5935,12 +6895,21 @@
       "manifest_confidence": "medium",
       "query_url": "?scene=2026-05-11_strike_on_engineering_vehicle_near_khiam",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg03"
+          ]
+        }
       },
       "slug": "2026-05-11_strike_on_engineering_vehicle_near_khiam",
       "source_geo_status": "mapped",
@@ -5983,12 +6952,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-11_strike_on_d9_engineering_vehicle_near_naqoura",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02"
+          ]
+        }
       },
       "slug": "2026-05-11_strike_on_d9_engineering_vehicle_near_naqoura",
       "source_geo_status": "mapped",
@@ -6059,12 +7037,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-10_strike_on_merkava_tank",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02_seg03"
+          ]
+        }
       },
       "slug": "2026-05-10_strike_on_merkava_tank",
       "source_geo_status": "mapped",
@@ -6131,12 +7118,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-10_strike_on_d9_engineering_vehicle_near_deir_siryan",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02_seg03_seg04_seg05_seg06"
+          ]
+        }
       },
       "slug": "2026-05-10_strike_on_d9_engineering_vehicle_near_deir_siryan",
       "source_geo_status": "mapped",
@@ -6195,12 +7191,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-10_strike_on_bulldozer_near_ramiya",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02_seg03_seg04"
+          ]
+        }
       },
       "slug": "2026-05-10_strike_on_bulldozer_near_ramiya",
       "source_geo_status": "mapped",
@@ -6267,12 +7272,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-10_soldiers_position_house_tayr_harfa_mmirleb_16056",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02_seg03_seg04_seg05_seg06"
+          ]
+        }
       },
       "slug": "2026-05-10_soldiers_position_house_tayr_harfa_mmirleb_16056",
       "source_geo_status": "mapped",
@@ -6331,12 +7345,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-10_headquarters_bayyadah_mmirleb_16035",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg06"
+          ]
+        }
       },
       "slug": "2026-05-10_headquarters_bayyadah_mmirleb_16035",
       "source_geo_status": "mapped",
@@ -6379,12 +7402,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-09_tent_deir_siryan_khallet_al_raj_mmirleb_16065",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg04"
+          ]
+        }
       },
       "slug": "2026-05-09_tent_deir_siryan_khallet_al_raj_mmirleb_16065",
       "source_geo_status": "mapped",
@@ -6423,12 +7455,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-09_target_deir_siryan_khallet_al_raj_mmirleb_16249",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg04_seg05_seg06"
+          ]
+        }
       },
       "slug": "2026-05-09_target_deir_siryan_khallet_al_raj_mmirleb_16249",
       "source_geo_status": "mapped",
@@ -6487,12 +7528,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-09_strike_on_soldiers_near_shlomi",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02"
+          ]
+        }
       },
       "slug": "2026-05-09_strike_on_soldiers_near_shlomi",
       "source_geo_status": "mapped",
@@ -6540,7 +7590,12 @@
         "geometry_available": false,
         "methods": [],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "catalog_video",
+        "vggt_omega": {
+          "done": 0,
+          "error": 1,
+          "scene_ids": []
+        }
       },
       "slug": "2026-05-09_strike_on_soldiers_near_deir_mimas",
       "source_geo_status": "mapped",
@@ -6583,12 +7638,21 @@
       "manifest_confidence": "medium",
       "query_url": "?scene=2026-05-09_strike_on_soldiers",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02"
+          ]
+        }
       },
       "slug": "2026-05-09_strike_on_soldiers",
       "source_geo_status": "mapped",
@@ -6639,12 +7703,21 @@
       "manifest_confidence": "medium",
       "query_url": "?scene=2026-05-09_strike_on_israeli_military_vehicle",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02_seg03_seg04_seg05"
+          ]
+        }
       },
       "slug": "2026-05-09_strike_on_israeli_military_vehicle",
       "source_geo_status": "mapped",
@@ -6666,12 +7739,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-09_soldiers_gathering_shlomi_mmirleb_15970",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02_seg03_seg04"
+          ]
+        }
       },
       "slug": "2026-05-09_soldiers_gathering_shlomi_mmirleb_15970",
       "source_geo_status": "mapped",
@@ -6693,12 +7775,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-09_soldiers_gathering_jal_al_alam_mmirleb_15988",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01"
+          ]
+        }
       },
       "slug": "2026-05-09_soldiers_gathering_jal_al_alam_mmirleb_15988",
       "source_geo_status": "mapped",
@@ -6741,12 +7832,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-09_soldiers_deir_siryan_mmirleb_16168",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02"
+          ]
+        }
       },
       "slug": "2026-05-09_soldiers_deir_siryan_mmirleb_16168",
       "source_geo_status": "mapped",
@@ -6805,12 +7905,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-09_humvee_bayyadah_mmirleb_16093",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg07"
+          ]
+        }
       },
       "slug": "2026-05-09_humvee_bayyadah_mmirleb_16093",
       "source_geo_status": "mapped",
@@ -6853,12 +7962,21 @@
       "manifest_confidence": "medium",
       "query_url": "?scene=2026-05-08_strike_on_merkava_tank_near_namr_al_jamal",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01"
+          ]
+        }
       },
       "slug": "2026-05-08_strike_on_merkava_tank_near_namr_al_jamal",
       "source_geo_status": "mapped",
@@ -6937,12 +8055,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-08_strike_on_merkava_tank",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02_seg03"
+          ]
+        }
       },
       "slug": "2026-05-08_strike_on_merkava_tank",
       "source_geo_status": "mapped",
@@ -7001,12 +8128,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-08_strike_on_humvee_in_naqoura",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02_seg03_seg04"
+          ]
+        }
       },
       "slug": "2026-05-08_strike_on_humvee_in_naqoura",
       "source_geo_status": "mapped",
@@ -7265,12 +8401,21 @@
       "manifest_confidence": "medium",
       "query_url": "?scene=2026-05-08_resistance_strikes_enemy_forces_kfar_kila",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg15_seg16_seg17_seg18_seg19_seg20"
+          ]
+        }
       },
       "slug": "2026-05-08_resistance_strikes_enemy_forces_kfar_kila",
       "source_geo_status": "mapped",
@@ -7321,12 +8466,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-08_merkava_tank_bayyadah_mmirleb_16051",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02"
+          ]
+        }
       },
       "slug": "2026-05-08_merkava_tank_bayyadah_mmirleb_16051",
       "source_geo_status": "mapped",
@@ -7385,12 +8539,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-08_humvee_bayyadah_mmirleb_16048",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02_seg03_seg04"
+          ]
+        }
       },
       "slug": "2026-05-08_humvee_bayyadah_mmirleb_16048",
       "source_geo_status": "mapped",
@@ -7433,12 +8596,21 @@
       "manifest_confidence": "medium",
       "query_url": "?scene=2026-05-07_strike_on_iron_dome_launcher_at_jal_al_alam",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02"
+          ]
+        }
       },
       "slug": "2026-05-07_strike_on_iron_dome_launcher_at_jal_al_alam",
       "source_geo_status": "mapped",
@@ -7505,12 +8677,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-06_strike_on_soldier_group",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01"
+          ]
+        }
       },
       "slug": "2026-05-06_strike_on_soldier_group",
       "source_geo_status": "mapped",
@@ -7553,12 +8734,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-06_strike_on_namer_apc_near_qouzah",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02"
+          ]
+        }
       },
       "slug": "2026-05-06_strike_on_namer_apc_near_qouzah",
       "source_geo_status": "mapped",
@@ -7601,12 +8791,21 @@
       "manifest_confidence": "medium",
       "query_url": "?scene=2026-05-06_strike_on_namer_apc_near_deir_siryan",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01"
+          ]
+        }
       },
       "slug": "2026-05-06_strike_on_namer_apc_near_deir_siryan",
       "source_geo_status": "mapped",
@@ -7641,12 +8840,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-06_strike_on_namer_apc_in_bint_jbeil",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg02"
+          ]
+        }
       },
       "slug": "2026-05-06_strike_on_namer_apc_in_bint_jbeil",
       "source_geo_status": "mapped",
@@ -7694,7 +8902,12 @@
         "geometry_available": false,
         "methods": [],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "catalog_video",
+        "vggt_omega": {
+          "done": 0,
+          "error": 1,
+          "scene_ids": []
+        }
       },
       "slug": "2026-05-06_strike_on_enemy_position",
       "source_geo_status": "mapped",
@@ -7716,12 +8929,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-06_soldiers_gathering_aita_al_shaab_mmirleb_15841",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01"
+          ]
+        }
       },
       "slug": "2026-05-06_soldiers_gathering_aita_al_shaab_mmirleb_15841",
       "source_geo_status": "mapped",
@@ -7743,12 +8965,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-06_position_point_taybeh_mmirleb_16210",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02_seg03_seg04_seg05"
+          ]
+        }
       },
       "slug": "2026-05-06_position_point_taybeh_mmirleb_16210",
       "source_geo_status": "mapped",
@@ -7799,12 +9030,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-06_d9_engineering_vehicle_houla_mmirleb_16347",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg04_seg05_seg06"
+          ]
+        }
       },
       "slug": "2026-05-06_d9_engineering_vehicle_houla_mmirleb_16347",
       "source_geo_status": "mapped",
@@ -7839,12 +9079,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-05_strike_on_merkava_tank",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02"
+          ]
+        }
       },
       "slug": "2026-05-05_strike_on_merkava_tank",
       "source_geo_status": "mapped",
@@ -7895,12 +9144,21 @@
       "manifest_confidence": "medium",
       "query_url": "?scene=2026-05-04_strike_on_troop_transport_vehicle",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02_seg03"
+          ]
+        }
       },
       "slug": "2026-05-04_strike_on_troop_transport_vehicle",
       "source_geo_status": "mapped",
@@ -7922,12 +9180,21 @@
       "manifest_confidence": "medium",
       "query_url": "?scene=2026-05-04_strike_on_engineering_vehicle",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg03"
+          ]
+        }
       },
       "slug": "2026-05-04_strike_on_engineering_vehicle",
       "source_geo_status": "mapped",
@@ -7962,12 +9229,22 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-04_hemtt_logistics_vehicle_manara_mmirleb_16528",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 2,
+          "error": 0,
+          "scene_ids": [
+            "seg01",
+            "seg03"
+          ]
+        }
       },
       "slug": "2026-05-04_hemtt_logistics_vehicle_manara_mmirleb_16528",
       "source_geo_status": "mapped",
@@ -8034,12 +9311,22 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-03_strike_on_surveillance_camera",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 2,
+          "error": 0,
+          "scene_ids": [
+            "seg04_seg05",
+            "seg01"
+          ]
+        }
       },
       "slug": "2026-05-03_strike_on_surveillance_camera",
       "source_geo_status": "mapped",
@@ -8066,7 +9353,12 @@
         "geometry_available": false,
         "methods": [],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "catalog_video",
+        "vggt_omega": {
+          "done": 0,
+          "error": 0,
+          "scene_ids": []
+        }
       },
       "slug": "2026-05-03_strike_on_company_commander_tank",
       "source_geo_status": "",
@@ -8117,12 +9409,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-03_company_commander_tank_bayyadah_mmirleb_16007",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg04_seg05"
+          ]
+        }
       },
       "slug": "2026-05-03_company_commander_tank_bayyadah_mmirleb_16007",
       "source_geo_status": "mapped",
@@ -8173,12 +9474,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-02_strike_on_namer_apc_in_bint_jbeil",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02"
+          ]
+        }
       },
       "slug": "2026-05-02_strike_on_namer_apc_in_bint_jbeil",
       "source_geo_status": "mapped",
@@ -8226,7 +9536,12 @@
         "geometry_available": false,
         "methods": [],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "catalog_video",
+        "vggt_omega": {
+          "done": 0,
+          "error": 1,
+          "scene_ids": []
+        }
       },
       "slug": "2026-05-02_strike_on_drone_control_system",
       "source_geo_status": "mapped",
@@ -8253,7 +9568,12 @@
         "geometry_available": false,
         "methods": [],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "catalog_video",
+        "vggt_omega": {
+          "done": 0,
+          "error": 0,
+          "scene_ids": []
+        }
       },
       "slug": "2026-05-01_vehicle_and_soldier_gathering_bayyadah",
       "source_geo_status": "",
@@ -8304,12 +9624,22 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-01_strike_on_soldiers",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 2,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02_seg03",
+            "seg01_seg02"
+          ]
+        }
       },
       "slug": "2026-05-01_strike_on_soldiers",
       "source_geo_status": "mapped",
@@ -8352,12 +9682,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-01_strike_on_humvee",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg01_seg02_seg03_seg04"
+          ]
+        }
       },
       "slug": "2026-05-01_strike_on_humvee",
       "source_geo_status": "mapped",
@@ -8400,12 +9739,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-01_namer_vehicle_bint_jbeil_mmirleb_15898",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "scene_ids": [
+            "seg04"
+          ]
+        }
       },
       "slug": "2026-05-01_namer_vehicle_bint_jbeil_mmirleb_15898",
       "source_geo_status": "mapped",
@@ -8456,12 +9804,22 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-01_merkava_tank_rashaf_mmirleb_15950",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 2,
+          "error": 0,
+          "scene_ids": [
+            "seg02_seg03",
+            "seg05"
+          ]
+        }
       },
       "slug": "2026-05-01_merkava_tank_rashaf_mmirleb_15950",
       "source_geo_status": "mapped",
@@ -8508,12 +9866,22 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-04-30_strike_on_humvee_in_naqoura",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "vggt_done_viewer_pending",
+        "vggt_omega": {
+          "done": 2,
+          "error": 0,
+          "scene_ids": [
+            "seg02",
+            "seg01_seg02"
+          ]
+        }
       },
       "slug": "2026-04-30_strike_on_humvee_in_naqoura",
       "source_geo_status": "mapped",
@@ -8553,7 +9921,15 @@
         "geometry_available": true,
         "methods": [],
         "scale_state": "relative_only",
-        "tier": "detailed_geometry"
+        "tier": "detailed_geometry",
+        "vggt_omega": {
+          "done": 2,
+          "error": 0,
+          "scene_ids": [
+            "seg01",
+            "seg01_seg02"
+          ]
+        }
       },
       "slug": "2026-04-29_strike_on_merkava_tank",
       "source_geo_status": "mapped",
@@ -8580,7 +9956,12 @@
         "geometry_available": false,
         "methods": [],
         "scale_state": "relative_only",
-        "tier": "catalog_video"
+        "tier": "catalog_video",
+        "vggt_omega": {
+          "done": 0,
+          "error": 0,
+          "scene_ids": []
+        }
       },
       "slug": "2026-04-28_vehicles_and_soldiers_namr_al_jamal_alma_al_shaab",
       "source_geo_status": "",
@@ -8624,7 +10005,15 @@
           "r3"
         ],
         "scale_state": "relative_only",
-        "tier": "detailed_geometry"
+        "tier": "detailed_geometry",
+        "vggt_omega": {
+          "done": 2,
+          "error": 0,
+          "scene_ids": [
+            "seg01",
+            "seg01_seg02"
+          ]
+        }
       },
       "slug": "2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan",
       "source_geo_status": "mapped",

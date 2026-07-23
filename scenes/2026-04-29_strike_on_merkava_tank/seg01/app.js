@@ -30,6 +30,15 @@ async function fetchTyped(path, Type) {
   return new Type(await response.arrayBuffer());
 }
 
+window.FPVViewer = {
+  getSceneData: () => ({ scene: state.scene, paths: state.paths, cameras: state.cameras, profiles: state.profiles, points: state.points, colors: state.colors }),
+  getViewState: () => ({ pointSize: 1.4, pointBudget: 120000, visibleLayers: Array.from(state.visibleLayers), yaw: state.yaw, pitch: state.pitch, zoom: state.zoom }),
+};
+
+function emitViewerEvent(name, detail) {
+  document.dispatchEvent(new CustomEvent(name, { detail }));
+}
+
 async function loadScene(url) {
   state.scene = await fetchJson(url);
   if (state.scene.calibration.state !== "relative_only" || state.scene.display_units !== "relative units") {
@@ -56,6 +65,7 @@ async function loadScene(url) {
   renderEditTimeline(state.scene.edit_segments, state);
   setActiveSample(0);
   document.body.classList.add("ready");
+  emitViewerEvent("fpv-scene-ready", { sampleCount: state.paths.timestamps_sec.length });
 }
 
 function canvasSize(canvas) {
@@ -298,6 +308,7 @@ function setActiveSample(index) {
   renderEditTimeline(state.scene.edit_segments, state);
   const p = state.profiles;
   document.getElementById("state-readout").textContent = `speed ${p.speed_relative[state.activeSample].toFixed(4)} · acceleration ${p.acceleration_relative[state.activeSample].toFixed(4)} · jerk proxy ${p.jerk_proxy[state.activeSample].toFixed(4)} · RTS residual ${p.rts_residual[state.activeSample].toFixed(5)}`;
+  emitViewerEvent("fpv-active-sample", { sampleIndex: state.activeSample, timestampSec: time });
   requestAnimationFrame(renderAll);
 }
 
@@ -331,6 +342,7 @@ function wireControls() {
     }
     if (state.visibleLayers.has(layer)) state.visibleLayers.delete(layer); else state.visibleLayers.add(layer);
     const active = state.visibleLayers.has(layer); button.classList.toggle("active", active); button.setAttribute("aria-pressed", String(active));
+    emitViewerEvent("fpv-view-changed", window.FPVViewer.getViewState());
     requestAnimationFrame(renderAll);
   }));
   document.getElementById("pose-slider").addEventListener("input", (event) => setActiveSample(event.target.value));
@@ -344,11 +356,11 @@ function wireControls() {
   canvas.addEventListener("pointerdown", (event) => { state.dragging = true; state.lastPointer = [event.clientX, event.clientY]; canvas.setPointerCapture(event.pointerId); });
   canvas.addEventListener("pointermove", (event) => {
     if (!state.dragging) return;
-    state.yaw += (event.clientX - state.lastPointer[0]) * .007; state.pitch = Math.max(-1.45, Math.min(1.45, state.pitch + (event.clientY - state.lastPointer[1]) * .007)); state.lastPointer = [event.clientX, event.clientY]; requestAnimationFrame(renderAll);
+    state.yaw += (event.clientX - state.lastPointer[0]) * .007; state.pitch = Math.max(-1.45, Math.min(1.45, state.pitch + (event.clientY - state.lastPointer[1]) * .007)); state.lastPointer = [event.clientX, event.clientY]; emitViewerEvent("fpv-view-changed", window.FPVViewer.getViewState()); requestAnimationFrame(renderAll);
   });
   canvas.addEventListener("pointerup", () => { state.dragging = false; });
-  canvas.addEventListener("wheel", (event) => { event.preventDefault(); state.zoom = Math.max(.25, Math.min(6, state.zoom * Math.exp(-event.deltaY * .001))); requestAnimationFrame(renderAll); }, { passive: false });
-  canvas.addEventListener("dblclick", () => { state.yaw = -.7; state.pitch = .48; state.zoom = 1; requestAnimationFrame(renderAll); });
+  canvas.addEventListener("wheel", (event) => { event.preventDefault(); state.zoom = Math.max(.25, Math.min(6, state.zoom * Math.exp(-event.deltaY * .001))); emitViewerEvent("fpv-view-changed", window.FPVViewer.getViewState()); requestAnimationFrame(renderAll); }, { passive: false });
+  canvas.addEventListener("dblclick", () => { state.yaw = -.7; state.pitch = .48; state.zoom = 1; emitViewerEvent("fpv-view-changed", window.FPVViewer.getViewState()); requestAnimationFrame(renderAll); });
   addEventListener("resize", () => requestAnimationFrame(renderAll));
 }
 
