@@ -396,7 +396,7 @@
   ],
   "policy": "recommendations only; no fallback is executed",
   "registered_frame_max": 199,
-  "root": "D:\\Drone_Analysis_Dynamics\\runpod_sync\\selected_scene_archive\\seg01\\other_models",
+  "root": "unpublished_source_cache/selected_scene_archive/seg01/other_models",
   "schema_version": "1.0.0",
   "status": "completed_with_warnings",
   "successful_reconstruction": true

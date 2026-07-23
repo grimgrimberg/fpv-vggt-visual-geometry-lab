@@ -1,9 +1,13 @@
 {
   "counts": {
-    "annotation_records": 143,
+    "annotation_records": 142,
     "catalog_records": 161,
-    "detailed_geometry_scenes": 2,
-    "vggt_done_records": 139
+    "detailed_geometry_scenes": 12,
+    "hf_native_scenes_built_this_pass": 5,
+    "hub_full_native_scene_candidates": 10,
+    "vggt_done_records": 139,
+    "annotation_source_records": 143,
+    "vggt_partial_records": 1
   },
   "detailed_scenes": [
     {
@@ -27,9 +31,168 @@
       "scene_id": "seg01",
       "slug": "2026-04-29_strike_on_merkava_tank",
       "title": "Merkava tank, Beit Lif (dive drone)"
+    },
+    {
+      "artifact_policy": "no videos/source frames copied; approved point/native geometry packaged",
+      "methods": [
+        "vggt_omega",
+        "r3",
+        "lingbot_map",
+        "hloc_lightglue_colmap"
+      ],
+      "point_count_viewer": 80000,
+      "route": "scenes/2026-05-06_strike_on_namer_apc_near_qouzah/seg01_seg02/index.html",
+      "scale_state": "relative_only",
+      "scene_id": "seg01_seg02",
+      "slug": "2026-05-06_strike_on_namer_apc_near_qouzah",
+      "title": "\"Namera\" troop carrier, Qouzah (dive drone)"
+    },
+    {
+      "artifact_policy": "no videos/source frames copied; approved point/native geometry packaged",
+      "methods": [
+        "vggt_omega",
+        "r3",
+        "lingbot_map",
+        "hloc_lightglue_colmap"
+      ],
+      "point_count_viewer": 80000,
+      "route": "scenes/2026-05-08_merkava_tank_bayyadah_mmirleb_16051/seg01_seg02/index.html",
+      "scale_state": "relative_only",
+      "scene_id": "seg01_seg02",
+      "slug": "2026-05-08_merkava_tank_bayyadah_mmirleb_16051",
+      "title": "Merkava tank, al-Bayyada (dive drone)"
+    },
+    {
+      "artifact_policy": "no videos/source frames copied; approved point/native geometry packaged",
+      "methods": [
+        "vggt_omega",
+        "r3",
+        "lingbot_map",
+        "hloc_lightglue_colmap"
+      ],
+      "point_count_viewer": 80000,
+      "route": "scenes/2026-05-07_strike_on_iron_dome_launcher_at_jal_al_alam/seg01_seg02/index.html",
+      "scale_state": "relative_only",
+      "scene_id": "seg01_seg02",
+      "slug": "2026-05-07_strike_on_iron_dome_launcher_at_jal_al_alam",
+      "title": "Iron Dome platform and its crew, Jal al-Alam site (two dive drones)"
+    },
+    {
+      "artifact_policy": "no videos/source frames copied; approved point/native geometry packaged",
+      "methods": [
+        "vggt_omega",
+        "r3",
+        "lingbot_map",
+        "hloc_lightglue_colmap"
+      ],
+      "point_count_viewer": 80000,
+      "route": "scenes/2026-05-06_strike_on_namer_apc_in_bint_jbeil/seg02/index.html",
+      "scale_state": "relative_only",
+      "scene_id": "seg02",
+      "slug": "2026-05-06_strike_on_namer_apc_in_bint_jbeil",
+      "title": "\"Namera\" vehicle, city of Bint Jbeil (dive drone)"
+    },
+    {
+      "artifact_policy": "no videos/source frames copied; approved point/native geometry packaged",
+      "methods": [
+        "vggt_omega",
+        "r3",
+        "lingbot_map",
+        "hloc_lightglue_colmap"
+      ],
+      "point_count_viewer": 80000,
+      "route": "scenes/2026-05-09_strike_on_soldiers/seg01_seg02/index.html",
+      "scale_state": "relative_only",
+      "scene_id": "seg01_seg02",
+      "slug": "2026-05-09_strike_on_soldiers",
+      "title": "Soldier gathering, Jal al-Alam site on the Lebanese border (dive drone)"
+    },
+    {
+      "artifact_policy": "no videos/source frames copied; approved point/native geometry packaged",
+      "methods": [
+        "vggt_omega",
+        "r3",
+        "lingbot_map",
+        "hloc_lightglue_colmap"
+      ],
+      "point_count_viewer": 80000,
+      "route": "scenes/2026-05-08_humvee_bayyadah_mmirleb_16048/seg01_seg02_seg03_seg04/index.html",
+      "scale_state": "relative_only",
+      "scene_id": "seg01_seg02_seg03_seg04",
+      "slug": "2026-05-08_humvee_bayyadah_mmirleb_16048",
+      "title": "Humvee, al-Bayyada (dive drone)"
+    },
+    {
+      "artifact_policy": "no videos/source frames copied; approved point/native geometry packaged",
+      "methods": [
+        "vggt_omega",
+        "r3",
+        "lingbot_map",
+        "hloc_lightglue_colmap"
+      ],
+      "point_count_viewer": 80000,
+      "route": "scenes/2026-05-09_strike_on_israeli_military_vehicle/seg01_seg02_seg03_seg04_seg05/index.html",
+      "scale_state": "relative_only",
+      "scene_id": "seg01_seg02_seg03_seg04_seg05",
+      "slug": "2026-05-09_strike_on_israeli_military_vehicle",
+      "title": "Military vehicle, Khallet al-Raj in Deir Siryan (dive drone)"
+    },
+    {
+      "artifact_policy": "no videos/source frames copied; approved point/native geometry packaged",
+      "methods": [
+        "vggt_omega",
+        "r3",
+        "lingbot_map",
+        "hloc_lightglue_colmap"
+      ],
+      "point_count_viewer": 80000,
+      "route": "scenes/2026-05-08_strike_on_humvee_in_naqoura/seg01_seg02_seg03_seg04/index.html",
+      "scale_state": "relative_only",
+      "scene_id": "seg01_seg02_seg03_seg04",
+      "slug": "2026-05-08_strike_on_humvee_in_naqoura",
+      "title": "Humvee, al-Bayyada (dive drone)"
+    },
+    {
+      "artifact_policy": "no videos/source frames copied; approved point/native geometry packaged",
+      "methods": [
+        "vggt_omega",
+        "r3",
+        "lingbot_map",
+        "hloc_lightglue_colmap"
+      ],
+      "point_count_viewer": 80000,
+      "route": "scenes/2026-05-08_resistance_strikes_enemy_forces_kfar_kila/seg15_seg16_seg17_seg18_seg19_seg20/index.html",
+      "scale_state": "relative_only",
+      "scene_id": "seg15_seg16_seg17_seg18_seg19_seg20",
+      "slug": "2026-05-08_resistance_strikes_enemy_forces_kfar_kila",
+      "title": "Series of resistance strikes on Israeli army forces, Rashaf (swarm of Ababil dive drones)"
+    },
+    {
+      "artifact_policy": "no videos/source frames copied; approved point/native geometry packaged",
+      "methods": [
+        "vggt_omega",
+        "r3",
+        "lingbot_map",
+        "hloc_lightglue_colmap"
+      ],
+      "point_count_viewer": 80000,
+      "route": "scenes/2026-05-09_soldiers_gathering_shlomi_mmirleb_15970/seg01_seg02_seg03_seg04/index.html",
+      "scale_state": "relative_only",
+      "scene_id": "seg01_seg02_seg03_seg04",
+      "slug": "2026-05-09_soldiers_gathering_shlomi_mmirleb_15970",
+      "title": "Soldier gathering at a helicopter landing pad, Shlomi settlement (dive drone)"
     }
   ],
-  "generated_at": "2026-07-23T09:30:21.468295Z",
+  "generated_at": "2026-07-23T19:58:24.301576Z",
+  "hub_inventory": {
+    "filenames_embedded": false,
+    "inventoried_at": "2026-07-23T19:58:24.301519Z",
+    "repo_id": "Grimster/FPV_Hezbo",
+    "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+    "scene_count": 213,
+    "slug_count": 139,
+    "source": "authenticated_huggingface_filename_inventory"
+  },
   "publication_boundary": {
     "cdn_host_allowlist": [
       "d2fioemadmrru3.cloudfront.net"
@@ -82,6 +245,19 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 194,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg04_seg05_seg06"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -90,9 +266,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg04_seg05_seg06"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-06-17_force_position_kfar_tebnit_mmirleb_17590",
@@ -151,6 +329,19 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg02_seg03"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -159,9 +350,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg02_seg03"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-06-14_engineering_vehicle_arnoun_ababil_drone",
@@ -200,6 +393,19 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -208,9 +414,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg01"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-06-13_namer_vehicle_hamammas_hill_khiam_mmirleb_17586",
@@ -277,6 +485,19 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg03_seg04"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -285,9 +506,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg03_seg04"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-06-13_logistics_position_bayyadah_mmirleb_17434",
@@ -342,6 +565,19 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg02_seg03"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -350,9 +586,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg02_seg03"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-06-13_excavator_majdal_zoun",
@@ -407,6 +645,19 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg02_seg03"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -415,9 +666,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg02_seg03"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-06-13_command_center_beaufort_castle_mmirleb_17580",
@@ -476,6 +729,19 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg02"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -484,9 +750,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg02"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-06-12_merkava_tank_yahmor_al_shqif",
@@ -553,6 +821,19 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg03"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -561,9 +842,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg03"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-06-12_merkava_tank_beaufort_castle_mmirleb_17595",
@@ -618,6 +901,19 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg02_seg03"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -626,9 +922,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg02_seg03"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-06-12_d9_armored_bulldozer_tayr_harfa_ababil_drone",
@@ -695,6 +993,19 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg03"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -703,9 +1014,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg03"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-06-11_merkava_tank_tayr_harfa_ababil_drone",
@@ -756,6 +1069,19 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -764,9 +1090,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg01_seg02"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-06-11_israeli_soldiers_adaissah_mmirleb_17602",
@@ -829,18 +1157,32 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg03_seg04"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
         "scale_state": "relative_only",
         "tier": "vggt_done_viewer_pending",
         "vggt_omega": {
-          "done": 2,
+          "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
-            "seg03_seg04",
-            "seg01_seg02_seg03_seg04"
-          ]
+            "seg03_seg04"
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-06-11_d9_engineering_vehicle_beaufort_castle_mmirleb_17598",
@@ -891,6 +1233,19 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -899,9 +1254,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg01_seg02"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-06-10_merkava_tank_beaufort_castle",
@@ -960,6 +1317,19 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg02_seg03"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -968,9 +1338,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg02_seg03"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-06-10_humvee_yahmar_al_shaqif",
@@ -1029,6 +1401,19 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg02_seg03"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -1037,9 +1422,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg02_seg03"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-06-09_namer_apc_metula_southern_outskirts_khiam",
@@ -1122,6 +1509,19 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -1130,9 +1530,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg01_seg02"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-06-08_strike_on_enemy_vehicles_near_yahmor_al_shqif",
@@ -1215,6 +1617,19 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -1223,9 +1638,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg01_seg02"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-06-08_command_and_control_vehicle_beaufort_castle",
@@ -1308,6 +1725,19 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -1316,9 +1746,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg01_seg02"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-06-07_merkava_tank_beaufort_castle",
@@ -1361,18 +1793,32 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
         "scale_state": "relative_only",
         "tier": "vggt_done_viewer_pending",
         "vggt_omega": {
-          "done": 2,
+          "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
-            "seg01_seg02",
-            "seg03_seg04"
-          ]
+            "seg01_seg02"
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-06-07_command_namer_vehicle_yahmor_al_shqif",
@@ -1431,6 +1877,19 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg02_seg03"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -1439,9 +1898,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg02_seg03"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-06-06_sholef_howitzer_adaissah",
@@ -1532,6 +1993,19 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg06_seg07"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -1540,9 +2014,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg06_seg07"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-06-06_merkava_tank_blat_position",
@@ -1601,6 +2077,19 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg02_seg03"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -1609,9 +2098,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg02_seg03"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-06-06_artillery_vehicle_adaissah_mmirleb_17504",
@@ -1670,6 +2161,19 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02_seg03"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -1678,9 +2182,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg01_seg02_seg03"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-06-05_soldiers_khiam_mmirleb_17315",
@@ -1723,6 +2229,19 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -1731,9 +2250,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg01"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-06-05_merkava_tank_beaufort_castle_mmirleb_17447",
@@ -1784,6 +2305,19 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -1792,9 +2326,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg01_seg02"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-06-05_humvee_near_khiam",
@@ -1845,6 +2381,19 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -1853,9 +2402,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg01_seg02"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-06-04_merkava_tank_beaufort_castle_02",
@@ -1914,6 +2465,19 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg02_seg03"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -1922,9 +2486,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg02_seg03"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-06-04_merkava_tank_beaufort_castle",
@@ -1983,18 +2549,32 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg03_seg04"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
         "scale_state": "relative_only",
         "tier": "vggt_done_viewer_pending",
         "vggt_omega": {
-          "done": 2,
+          "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
-            "seg03_seg04",
-            "seg05"
-          ]
+            "seg03_seg04"
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-06-03_personnel_carrier_zawtar_al_sharqiyah_mmirleb_17521",
@@ -2054,20 +2634,21 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-06-03_personnel_carrier_zawtar_al_sharqiyah_mmirleb_17492",
       "research": {
-        "artifact_status": "vggt_done_viewer_pending",
+        "artifact_status": "vggt_partial_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
         "methods": [
-          "vggt_omega"
+          "vggt_omega_partial"
         ],
         "scale_state": "relative_only",
-        "tier": "vggt_done_viewer_pending",
+        "tier": "vggt_partial_viewer_pending",
         "vggt_omega": {
           "done": 1,
           "error": 1,
           "scene_ids": [
             "seg05_seg06"
-          ]
+          ],
+          "status": "partial_error"
         }
       },
       "slug": "2026-06-03_personnel_carrier_zawtar_al_sharqiyah_mmirleb_17492",
@@ -2134,6 +2715,19 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg03_seg04"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -2142,9 +2736,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg03_seg04"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-06-03_merkava_tank_zawtar_al_sharqiyah",
@@ -2199,6 +2795,19 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg02_seg03"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -2207,9 +2816,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 1,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg02_seg03"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-06-03_m113_apc_beaufort_castle",
@@ -2272,18 +2883,32 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg03_seg04"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
         "scale_state": "relative_only",
         "tier": "vggt_done_viewer_pending",
         "vggt_omega": {
-          "done": 2,
+          "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
-            "seg03_seg04",
-            "seg01_seg02_seg03_seg04"
-          ]
+            "seg03_seg04"
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-06-03_humvee_zawtar_al_sharqiyah",
@@ -2346,18 +2971,32 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg03_seg04"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
         "scale_state": "relative_only",
         "tier": "vggt_done_viewer_pending",
         "vggt_omega": {
-          "done": 2,
+          "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
-            "seg03_seg04",
-            "seg05_seg06"
-          ]
+            "seg03_seg04"
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-06-02_targeting_israeli_soldiers_eastern_outskirts_zawtar_al_sharqiyah",
@@ -2412,6 +3051,20 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 13,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02_seg03",
+            "seg05_seg06_seg07_seg08_seg09"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -2420,9 +3073,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 1,
+          "evidence": "Hub filenames",
           "scene_ids": [
-            "seg01_seg02_seg03"
-          ]
+            "seg01_seg02_seg03",
+            "seg05_seg06_seg07_seg08_seg09"
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-06-02_soldiers_and_namer_vehicle_near_yahmor_al_shqif",
@@ -2465,18 +3121,32 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
         "scale_state": "relative_only",
         "tier": "vggt_done_viewer_pending",
         "vggt_omega": {
-          "done": 2,
+          "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
-            "seg01_seg02",
-            "seg08_seg09"
-          ]
+            "seg01_seg02"
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-06-02_namer_vehicle_near_yahmor_al_shqif",
@@ -2523,18 +3193,32 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
         "scale_state": "relative_only",
         "tier": "vggt_done_viewer_pending",
         "vggt_omega": {
-          "done": 2,
+          "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
-            "seg01_seg02",
-            "seg07"
-          ]
+            "seg01_seg02"
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-06-02_merkava_tank_near_yahmor_al_shqif",
@@ -2589,18 +3273,32 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg02_seg03"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
         "scale_state": "relative_only",
         "tier": "vggt_done_viewer_pending",
         "vggt_omega": {
-          "done": 2,
+          "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
-            "seg02_seg03",
-            "seg01_seg02_seg03_seg04_seg05"
-          ]
+            "seg02_seg03"
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-06-01_soldiers_near_yahmor_al_shqif",
@@ -2647,18 +3345,32 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
         "scale_state": "relative_only",
         "tier": "vggt_done_viewer_pending",
         "vggt_omega": {
-          "done": 2,
+          "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
-            "seg01_seg02",
-            "seg02_seg03_seg04"
-          ]
+            "seg01_seg02"
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-06-01_merkava_tank_near_yahmor_al_shqif",
@@ -2705,18 +3417,32 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
         "scale_state": "relative_only",
         "tier": "vggt_done_viewer_pending",
         "vggt_omega": {
-          "done": 2,
+          "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
-            "seg01_seg02",
-            "seg03"
-          ]
+            "seg01_seg02"
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-31_soldiers_gathering_near_border_site",
@@ -2779,18 +3505,32 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg03_seg04"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
         "scale_state": "relative_only",
         "tier": "vggt_done_viewer_pending",
         "vggt_omega": {
-          "done": 2,
+          "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
-            "seg03_seg04",
-            "seg01_seg02"
-          ]
+            "seg03_seg04"
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-31_namer_vehicle_and_apc_in_dibel",
@@ -2829,18 +3569,32 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
         "scale_state": "relative_only",
         "tier": "vggt_done_viewer_pending",
         "vggt_omega": {
-          "done": 2,
+          "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
-            "seg01",
-            "seg01_seg02_seg03_seg04_seg05"
-          ]
+            "seg01"
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-31_humvee_vehicle_at_al_assi",
@@ -2887,18 +3641,32 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
         "scale_state": "relative_only",
         "tier": "vggt_done_viewer_pending",
         "vggt_omega": {
-          "done": 2,
+          "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
-            "seg01_seg02",
             "seg01_seg02"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-30_technical_equipment_rashaf_mmirleb_17060",
@@ -2953,18 +3721,32 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg02_seg03"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
         "scale_state": "relative_only",
         "tier": "vggt_done_viewer_pending",
         "vggt_omega": {
-          "done": 2,
+          "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
-            "seg02_seg03",
-            "seg01_seg02_seg03_seg04"
-          ]
+            "seg02_seg03"
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-30_merkava_tank_in_border_area",
@@ -3019,18 +3801,32 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg02_seg03"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
         "scale_state": "relative_only",
         "tier": "vggt_done_viewer_pending",
         "vggt_omega": {
-          "done": 2,
+          "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
-            "seg02_seg03",
-            "seg04"
-          ]
+            "seg02_seg03"
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-29_soldier_at_misgav_am",
@@ -3093,18 +3889,32 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg03_seg04"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
         "scale_state": "relative_only",
         "tier": "vggt_done_viewer_pending",
         "vggt_omega": {
-          "done": 2,
+          "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
-            "seg03_seg04",
-            "seg01_seg02_seg03_seg04"
-          ]
+            "seg03_seg04"
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-29_namer_apc_in_ainata",
@@ -3175,18 +3985,32 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg02_seg03_seg04_seg05"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
         "scale_state": "relative_only",
         "tier": "vggt_done_viewer_pending",
         "vggt_omega": {
-          "done": 2,
+          "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
-            "seg02_seg03_seg04_seg05",
-            "seg01_seg02_seg03_seg04"
-          ]
+            "seg02_seg03_seg04_seg05"
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-28_merkava_tank_zawtar_al_sharqiyah_mmirleb_17154",
@@ -3281,6 +4105,19 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 208,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02_seg03_seg04"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -3289,9 +4126,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg01_seg02_seg03_seg04"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-28_iron_dome_launcher_vehicle_khiam_mmirleb_16993",
@@ -3362,18 +4201,32 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
         "scale_state": "relative_only",
         "tier": "vggt_done_viewer_pending",
         "vggt_omega": {
-          "done": 2,
+          "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
-            "seg01",
-            "seg01_seg02_seg03_seg04_seg05_seg06"
-          ]
+            "seg01"
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-27_merkava_tank_on_military_route",
@@ -3444,18 +4297,32 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg04_seg05"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
         "scale_state": "relative_only",
         "tier": "vggt_done_viewer_pending",
         "vggt_omega": {
-          "done": 2,
+          "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
-            "seg04_seg05",
-            "seg01"
-          ]
+            "seg04_seg05"
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-27_iron_technical_platform_at_jal_al_alam",
@@ -3510,18 +4377,32 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg02_seg03"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
         "scale_state": "relative_only",
         "tier": "vggt_done_viewer_pending",
         "vggt_omega": {
-          "done": 2,
+          "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
-            "seg02_seg03",
-            "seg01_seg02_seg03"
-          ]
+            "seg02_seg03"
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-27_enemy_vehicle_in_northern_settlement",
@@ -3657,18 +4538,34 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 17,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02",
+            "seg03"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
         "scale_state": "relative_only",
         "tier": "vggt_done_viewer_pending",
         "vggt_omega": {
-          "done": 2,
+          "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg01_seg02",
             "seg03"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-26_humvee_zawtar_al_sharqiyah_riverbed_mmirleb_17068",
@@ -3747,18 +4644,34 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 16,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02",
+            "seg02_seg03_seg04"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
         "scale_state": "relative_only",
         "tier": "vggt_done_viewer_pending",
         "vggt_omega": {
-          "done": 2,
+          "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg01_seg02",
             "seg02_seg03_seg04"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-26_d9_bulldozer_zawtar_al_sharqiyah_mmirleb_17143",
@@ -3805,6 +4718,20 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 213,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02_seg03_seg04",
+            "seg01_seg02_seg03_seg04"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -3813,9 +4740,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01_seg02_seg03_seg04",
             "seg01_seg02_seg03_seg04"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-26_communications_equipment_at_al_assi",
@@ -3841,18 +4771,34 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 16,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02_seg03_seg04_seg05",
+            "seg01_seg02_seg03_seg04_seg05_seg06_seg07"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
         "scale_state": "relative_only",
         "tier": "vggt_done_viewer_pending",
         "vggt_omega": {
-          "done": 2,
+          "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg01_seg02_seg03_seg04_seg05",
             "seg01_seg02_seg03_seg04_seg05_seg06_seg07"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-26_anti_drone_platform_barashit",
@@ -3891,6 +4837,20 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 216,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02_seg03_seg04_seg05_seg06_seg07",
+            "seg01_seg02_seg03_seg04_seg05_seg06_seg07"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -3899,9 +4859,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01_seg02_seg03_seg04_seg05_seg06_seg07",
             "seg01_seg02_seg03_seg04_seg05_seg06_seg07"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-25_two_israeli_army_vehicles",
@@ -3940,6 +4903,20 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 216,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg02_seg03_seg04",
+            "seg02_seg03_seg04"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -3948,9 +4925,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg02_seg03_seg04",
             "seg02_seg03_seg04"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-25_soldiers_position_tent_hadab_al_bustan",
@@ -4042,6 +5022,20 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 216,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02",
+            "seg01_seg02"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -4050,9 +5044,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01_seg02",
             "seg01_seg02"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-24_namer_apc_taybeh",
@@ -4107,6 +5104,19 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg02_seg03"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -4115,9 +5125,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 1,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg02_seg03"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-24_humvee_manara_mmirleb_16823",
@@ -4196,6 +5208,20 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 216,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg06_seg07",
+            "seg06_seg07"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -4204,9 +5230,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg06_seg07",
             "seg06_seg07"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-23_two_iron_dome_platforms_ramim",
@@ -4305,6 +5334,20 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 174,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02",
+            "seg01_seg02"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -4313,9 +5356,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01_seg02",
             "seg01_seg02"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-23_soldier_gathering_bayyadah",
@@ -4378,6 +5424,20 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 216,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02_seg03_seg04_seg05",
+            "seg01_seg02_seg03_seg04_seg05"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -4386,9 +5446,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01_seg02_seg03_seg04_seg05",
             "seg01_seg02_seg03_seg04_seg05"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-23_anti_drone_system_jardah",
@@ -4435,6 +5498,20 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 216,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02",
+            "seg01_seg02"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -4443,9 +5520,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01_seg02",
             "seg01_seg02"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-22_soldier_manara",
@@ -4488,6 +5568,20 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 216,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02_seg03",
+            "seg01_seg02_seg03"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -4496,9 +5590,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01_seg02_seg03",
             "seg01_seg02_seg03"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-22_merkava_tank_markaba",
@@ -4545,6 +5642,20 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 216,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg03",
+            "seg03"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -4553,9 +5664,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg03",
             "seg03"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-21_engineering_vehicle_khallet_al_raj_deir_siryan",
@@ -4602,6 +5716,20 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 150,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg03_seg04_seg05_seg06",
+            "seg03_seg04_seg05_seg06"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -4610,9 +5738,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg03_seg04_seg05_seg06",
             "seg03_seg04_seg05_seg06"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-20_namer_apc_hadatha",
@@ -4739,6 +5870,20 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 216,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg16_seg17_seg18_seg19",
+            "seg16_seg17_seg18_seg19"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -4747,9 +5892,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg16_seg17_seg18_seg19",
             "seg16_seg17_seg18_seg19"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-20_armored_brigade_401_hq_debel",
@@ -4796,6 +5944,20 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 216,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02",
+            "seg01_seg02"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -4804,9 +5966,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01_seg02",
             "seg01_seg02"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-19_military_vehicle_misgav_am",
@@ -4853,6 +6018,20 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 36,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg03",
+            "seg03"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -4861,9 +6040,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg03",
             "seg03"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-19_iron_dome_platform_misgav_am_mmirleb_16697",
@@ -4910,6 +6092,20 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 46,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01",
+            "seg01"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -4918,9 +6114,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01",
             "seg01"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-19_iron_dome_platform_jal_al_alam_mmirleb_16395",
@@ -5028,6 +6227,20 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 39,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg05",
+            "seg05"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -5036,9 +6249,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg05",
             "seg05"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-19_communications_vehicle_taybeh_mmirleb_16552",
@@ -5093,6 +6309,20 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 177,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01",
+            "seg01"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -5101,9 +6331,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01",
             "seg01"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-18_iron_dome_platform_shomera",
@@ -5150,6 +6383,20 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 216,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02_seg03",
+            "seg01_seg02_seg03"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -5158,9 +6405,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01_seg02_seg03",
             "seg01_seg02_seg03"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-18_engineering_vehicle_deir_siryan_khallet_al_raj_mmirleb_16558",
@@ -5215,6 +6465,20 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 126,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg04",
+            "seg04"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -5223,9 +6487,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg04",
             "seg04"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-18_brigade_300_commander_vehicle_shomera_mmirleb_16516",
@@ -5272,6 +6539,20 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 216,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02",
+            "seg01_seg02"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -5280,9 +6561,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01_seg02",
             "seg01_seg02"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-17_military_vehicle_bayyadah_iskandarounah_mmirleb_16443",
@@ -5329,6 +6613,20 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 216,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01",
+            "seg01"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -5337,9 +6635,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01",
             "seg01"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-17_logistics_position_bayyadah_iskandarounah_mmirleb_16413",
@@ -5476,16 +6777,35 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-16_merkava_tank_bayyadah_mmirleb_16351",
       "research": {
-        "artifact_status": "video_catalog_only",
+        "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
-        "methods": [],
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg02_seg03"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
+        "methods": [
+          "vggt_omega"
+        ],
         "scale_state": "relative_only",
-        "tier": "catalog_video",
+        "tier": "vggt_done_viewer_pending",
         "vggt_omega": {
-          "done": 0,
+          "done": 1,
           "error": 2,
-          "scene_ids": []
+          "evidence": "Hub filenames",
+          "scene_ids": [
+            "seg02_seg03"
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-16_merkava_tank_bayyadah_mmirleb_16351",
@@ -5540,6 +6860,20 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 216,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02",
+            "seg01_seg02"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -5548,9 +6882,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01_seg02",
             "seg01_seg02"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-16_hummer_iskandarounah_naqoura",
@@ -5605,18 +6942,34 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 16,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg02_seg03",
+            "seg04_seg05"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
         "scale_state": "relative_only",
         "tier": "vggt_done_viewer_pending",
         "vggt_omega": {
-          "done": 2,
+          "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg02_seg03",
             "seg04_seg05"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-16_engineering_vehicle_deir_siryan_khallet_al_raj_mmirleb_16319",
@@ -5671,6 +7024,20 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 216,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg04_seg05_seg06",
+            "seg04_seg05_seg06"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -5679,9 +7046,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg04_seg05_seg06",
             "seg04_seg05_seg06"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-15_personnel_carrier_deir_siryan_khallet_al_raj_mmirleb_16301",
@@ -5720,6 +7090,20 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 216,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg02",
+            "seg02"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -5728,9 +7112,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg02",
             "seg02"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-15_engineering_vehicle_khiam",
@@ -5777,6 +7164,20 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 216,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02_seg03_seg04",
+            "seg01_seg02_seg03_seg04"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -5785,9 +7186,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01_seg02_seg03_seg04",
             "seg01_seg02_seg03_seg04"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-14_wireless_communications_system_blat_mmirleb_16285",
@@ -5838,6 +7242,20 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 216,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02_seg03_seg04",
+            "seg01_seg02_seg03_seg04"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -5846,9 +7264,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01_seg02_seg03_seg04",
             "seg01_seg02_seg03_seg04"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-14_strike_on_military_tanker_near_bint_jbeil",
@@ -5911,6 +7332,20 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 216,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02_seg03_seg04",
+            "seg01_seg02_seg03_seg04"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -5919,9 +7354,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01_seg02_seg03_seg04",
             "seg01_seg02_seg03_seg04"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-14_soldiers_gathering_naqoura_ras_naqoura_mmirleb_16294",
@@ -5960,6 +7398,20 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 216,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02_seg03",
+            "seg01_seg02_seg03"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -5968,9 +7420,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01_seg02_seg03",
             "seg01_seg02_seg03"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-14_namer_vehicle_rashaf_mmirleb_16312",
@@ -6033,6 +7488,20 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 47,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg06",
+            "seg06"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -6041,9 +7510,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg06",
             "seg06"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-14_merkava_tank_bint_jbeil_mmirleb_16493",
@@ -6090,6 +7562,20 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 216,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02",
+            "seg01_seg02"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -6098,9 +7584,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01_seg02",
             "seg01_seg02"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-14_merkava_tank_aytaroun",
@@ -6163,6 +7652,20 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 216,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02_seg03_seg04",
+            "seg01_seg02_seg03_seg04"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -6171,9 +7674,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01_seg02_seg03_seg04",
             "seg01_seg02_seg03_seg04"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-14_humvee_tayr_harfa_mmirleb_16337",
@@ -6265,7 +7771,23 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 927,
+          "lingbot_map": true,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01",
+            "seg01"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "lingbot_map",
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
@@ -6273,9 +7795,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01",
             "seg01"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-13_strike_on_armored_personnel_carrier",
@@ -6426,7 +7951,23 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 1424,
+          "lingbot_map": true,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02_seg03_seg04_seg05_seg06_seg07_seg08",
+            "seg01_seg02_seg03_seg04_seg05_seg06_seg07_seg08"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "lingbot_map",
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
@@ -6434,9 +7975,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01_seg02_seg03_seg04_seg05_seg06_seg07_seg08",
             "seg01_seg02_seg03_seg04_seg05_seg06_seg07_seg08"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-12_strike_on_soldiers_and_vehicles",
@@ -6536,7 +8080,23 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 1424,
+          "lingbot_map": true,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02",
+            "seg01_seg02"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "lingbot_map",
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
@@ -6544,9 +8104,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01_seg02",
             "seg01_seg02"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-12_strike_on_humvee",
@@ -6585,7 +8148,22 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 142,
+          "lingbot_map": false,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg02",
+            "seg02"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
@@ -6593,9 +8171,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg02",
             "seg02"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-12_strike_on_engineering_vehicle_near_tayr_harfa",
@@ -6634,7 +8215,22 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 214,
+          "lingbot_map": false,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg03",
+            "seg03"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
@@ -6642,9 +8238,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg03",
             "seg03"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-12_soldier_manara_khirbet_al_manara_mmirleb_16118",
@@ -6691,7 +8290,23 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 1424,
+          "lingbot_map": true,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg02_seg03_seg04",
+            "seg02_seg03_seg04"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "lingbot_map",
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
@@ -6699,9 +8314,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg02_seg03_seg04",
             "seg02_seg03_seg04"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-12_merkava_tank_manara_khirbet_al_manara_mmirleb_16106",
@@ -6727,7 +8345,22 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 385,
+          "lingbot_map": false,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02",
+            "seg01_seg02"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
@@ -6735,9 +8368,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01_seg02",
             "seg01_seg02"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-12_humvee_naqoura_naqoura_iskandarounah_road_mmirleb_16261",
@@ -6784,6 +8420,19 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -6792,9 +8441,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg01"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-11_strike_on_soldier_near_dhayra",
@@ -6841,7 +8492,22 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 912,
+          "lingbot_map": true,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02",
+            "seg01_seg02"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "lingbot_map",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
@@ -6849,9 +8515,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01_seg02",
             "seg01_seg02"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-11_strike_on_logistics_vehicle_near_tayr_harfa",
@@ -6898,7 +8567,23 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 1004,
+          "lingbot_map": true,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg03",
+            "seg03"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "lingbot_map",
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
@@ -6906,9 +8591,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg03",
             "seg03"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-11_strike_on_engineering_vehicle_near_khiam",
@@ -6955,7 +8643,23 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 1424,
+          "lingbot_map": true,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02",
+            "seg01_seg02"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "lingbot_map",
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
@@ -6963,9 +8667,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01_seg02",
             "seg01_seg02"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-11_strike_on_d9_engineering_vehicle_near_naqoura",
@@ -7040,7 +8747,23 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 1424,
+          "lingbot_map": true,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02_seg03",
+            "seg01_seg02_seg03"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "lingbot_map",
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
@@ -7048,9 +8771,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01_seg02_seg03",
             "seg01_seg02_seg03"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-10_strike_on_merkava_tank",
@@ -7121,7 +8847,23 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 1424,
+          "lingbot_map": true,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02_seg03_seg04_seg05_seg06",
+            "seg01_seg02_seg03_seg04_seg05_seg06"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "lingbot_map",
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
@@ -7129,9 +8871,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01_seg02_seg03_seg04_seg05_seg06",
             "seg01_seg02_seg03_seg04_seg05_seg06"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-10_strike_on_d9_engineering_vehicle_near_deir_siryan",
@@ -7194,7 +8939,23 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 912,
+          "lingbot_map": true,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02_seg03_seg04",
+            "seg01_seg02_seg03_seg04"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "lingbot_map",
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
@@ -7202,9 +8963,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01_seg02_seg03_seg04",
             "seg01_seg02_seg03_seg04"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-10_strike_on_bulldozer_near_ramiya",
@@ -7275,7 +9039,23 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 1168,
+          "lingbot_map": true,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02_seg03_seg04_seg05_seg06",
+            "seg01_seg02_seg03_seg04_seg05_seg06"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "lingbot_map",
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
@@ -7283,9 +9063,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01_seg02_seg03_seg04_seg05_seg06",
             "seg01_seg02_seg03_seg04_seg05_seg06"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-10_soldiers_position_house_tayr_harfa_mmirleb_16056",
@@ -7348,7 +9131,22 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 190,
+          "lingbot_map": false,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg06",
+            "seg06"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
@@ -7356,9 +9154,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg06",
             "seg06"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-10_headquarters_bayyadah_mmirleb_16035",
@@ -7405,7 +9206,23 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 818,
+          "lingbot_map": true,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg04",
+            "seg04"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "lingbot_map",
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
@@ -7413,9 +9230,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg04",
             "seg04"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-09_tent_deir_siryan_khallet_al_raj_mmirleb_16065",
@@ -7458,7 +9278,23 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 1424,
+          "lingbot_map": true,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg04_seg05_seg06",
+            "seg04_seg05_seg06"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "lingbot_map",
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
@@ -7466,9 +9302,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg04_seg05_seg06",
             "seg04_seg05_seg06"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-09_target_deir_siryan_khallet_al_raj_mmirleb_16249",
@@ -7531,7 +9370,23 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 1072,
+          "lingbot_map": true,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02",
+            "seg01_seg02"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "lingbot_map",
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
@@ -7539,9 +9394,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01_seg02",
             "seg01_seg02"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-09_strike_on_soldiers_near_shlomi",
@@ -7638,20 +9496,40 @@
       "manifest_confidence": "medium",
       "query_url": "?scene=2026-05-09_strike_on_soldiers",
       "research": {
-        "artifact_status": "vggt_done_viewer_pending",
-        "detail_route": null,
-        "geometry_available": false,
+        "artifact_status": "full_hf_native_viewer_bundle",
+        "detail_route": "scenes/2026-05-09_strike_on_soldiers/seg01_seg02/index.html",
+        "geometry_available": true,
+        "hub_inventory": {
+          "full_native": true,
+          "hloc_lightglue_colmap": true,
+          "hub_file_count": 351,
+          "lingbot_map": true,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02",
+            "seg01_seg02"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "hloc_lightglue_colmap",
+          "lingbot_map",
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
-        "tier": "vggt_done_viewer_pending",
+        "tier": "detailed_geometry",
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01_seg02",
             "seg01_seg02"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-09_strike_on_soldiers",
@@ -7703,20 +9581,40 @@
       "manifest_confidence": "medium",
       "query_url": "?scene=2026-05-09_strike_on_israeli_military_vehicle",
       "research": {
-        "artifact_status": "vggt_done_viewer_pending",
-        "detail_route": null,
-        "geometry_available": false,
+        "artifact_status": "full_hf_native_viewer_bundle",
+        "detail_route": "scenes/2026-05-09_strike_on_israeli_military_vehicle/seg01_seg02_seg03_seg04_seg05/index.html",
+        "geometry_available": true,
+        "hub_inventory": {
+          "full_native": true,
+          "hloc_lightglue_colmap": true,
+          "hub_file_count": 1441,
+          "lingbot_map": true,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02_seg03_seg04_seg05",
+            "seg01_seg02_seg03_seg04_seg05"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "hloc_lightglue_colmap",
+          "lingbot_map",
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
-        "tier": "vggt_done_viewer_pending",
+        "tier": "detailed_geometry",
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01_seg02_seg03_seg04_seg05",
             "seg01_seg02_seg03_seg04_seg05"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-09_strike_on_israeli_military_vehicle",
@@ -7739,20 +9637,40 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-09_soldiers_gathering_shlomi_mmirleb_15970",
       "research": {
-        "artifact_status": "vggt_done_viewer_pending",
-        "detail_route": null,
-        "geometry_available": false,
+        "artifact_status": "full_hf_native_viewer_bundle",
+        "detail_route": "scenes/2026-05-09_soldiers_gathering_shlomi_mmirleb_15970/seg01_seg02_seg03_seg04/index.html",
+        "geometry_available": true,
+        "hub_inventory": {
+          "full_native": true,
+          "hloc_lightglue_colmap": true,
+          "hub_file_count": 1446,
+          "lingbot_map": true,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02_seg03_seg04",
+            "seg01_seg02_seg03_seg04"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "hloc_lightglue_colmap",
+          "lingbot_map",
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
-        "tier": "vggt_done_viewer_pending",
+        "tier": "detailed_geometry",
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01_seg02_seg03_seg04",
             "seg01_seg02_seg03_seg04"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-09_soldiers_gathering_shlomi_mmirleb_15970",
@@ -7778,6 +9696,20 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 38,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01",
+            "seg01"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -7786,9 +9718,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01",
             "seg01"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-09_soldiers_gathering_jal_al_alam_mmirleb_15988",
@@ -7835,6 +9770,19 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -7843,9 +9791,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg01_seg02"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-09_soldiers_deir_siryan_mmirleb_16168",
@@ -7908,6 +9858,19 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg07"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -7916,9 +9879,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg07"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-09_humvee_bayyadah_mmirleb_16093",
@@ -7965,6 +9930,19 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -7973,9 +9951,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg01"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-08_strike_on_merkava_tank_near_namr_al_jamal",
@@ -8058,6 +10038,19 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 8,
+          "lingbot_map": false,
+          "r3": false,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02_seg03"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "vggt_omega"
         ],
@@ -8066,9 +10059,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg01_seg02_seg03"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-08_strike_on_merkava_tank",
@@ -8128,20 +10123,40 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-08_strike_on_humvee_in_naqoura",
       "research": {
-        "artifact_status": "vggt_done_viewer_pending",
-        "detail_route": null,
-        "geometry_available": false,
+        "artifact_status": "full_hf_native_viewer_bundle",
+        "detail_route": "scenes/2026-05-08_strike_on_humvee_in_naqoura/seg01_seg02_seg03_seg04/index.html",
+        "geometry_available": true,
+        "hub_inventory": {
+          "full_native": true,
+          "hloc_lightglue_colmap": true,
+          "hub_file_count": 1440,
+          "lingbot_map": true,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02_seg03_seg04",
+            "seg01_seg02_seg03_seg04"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "hloc_lightglue_colmap",
+          "lingbot_map",
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
-        "tier": "vggt_done_viewer_pending",
+        "tier": "detailed_geometry",
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01_seg02_seg03_seg04",
             "seg01_seg02_seg03_seg04"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-08_strike_on_humvee_in_naqoura",
@@ -8401,20 +10416,40 @@
       "manifest_confidence": "medium",
       "query_url": "?scene=2026-05-08_resistance_strikes_enemy_forces_kfar_kila",
       "research": {
-        "artifact_status": "vggt_done_viewer_pending",
-        "detail_route": null,
-        "geometry_available": false,
+        "artifact_status": "full_hf_native_viewer_bundle",
+        "detail_route": "scenes/2026-05-08_resistance_strikes_enemy_forces_kfar_kila/seg15_seg16_seg17_seg18_seg19_seg20/index.html",
+        "geometry_available": true,
+        "hub_inventory": {
+          "full_native": true,
+          "hloc_lightglue_colmap": true,
+          "hub_file_count": 1436,
+          "lingbot_map": true,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg15_seg16_seg17_seg18_seg19_seg20",
+            "seg15_seg16_seg17_seg18_seg19_seg20"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "hloc_lightglue_colmap",
+          "lingbot_map",
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
-        "tier": "vggt_done_viewer_pending",
+        "tier": "detailed_geometry",
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg15_seg16_seg17_seg18_seg19_seg20",
             "seg15_seg16_seg17_seg18_seg19_seg20"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-08_resistance_strikes_enemy_forces_kfar_kila",
@@ -8466,20 +10501,40 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-08_merkava_tank_bayyadah_mmirleb_16051",
       "research": {
-        "artifact_status": "vggt_done_viewer_pending",
-        "detail_route": null,
-        "geometry_available": false,
+        "artifact_status": "full_hf_native_viewer_bundle",
+        "detail_route": "scenes/2026-05-08_merkava_tank_bayyadah_mmirleb_16051/seg01_seg02/index.html",
+        "geometry_available": true,
+        "hub_inventory": {
+          "full_native": true,
+          "hloc_lightglue_colmap": true,
+          "hub_file_count": 1441,
+          "lingbot_map": true,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02",
+            "seg01_seg02"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "hloc_lightglue_colmap",
+          "lingbot_map",
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
-        "tier": "vggt_done_viewer_pending",
+        "tier": "detailed_geometry",
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01_seg02",
             "seg01_seg02"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-08_merkava_tank_bayyadah_mmirleb_16051",
@@ -8539,20 +10594,40 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-08_humvee_bayyadah_mmirleb_16048",
       "research": {
-        "artifact_status": "vggt_done_viewer_pending",
-        "detail_route": null,
-        "geometry_available": false,
+        "artifact_status": "full_hf_native_viewer_bundle",
+        "detail_route": "scenes/2026-05-08_humvee_bayyadah_mmirleb_16048/seg01_seg02_seg03_seg04/index.html",
+        "geometry_available": true,
+        "hub_inventory": {
+          "full_native": true,
+          "hloc_lightglue_colmap": true,
+          "hub_file_count": 1436,
+          "lingbot_map": true,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02_seg03_seg04",
+            "seg01_seg02_seg03_seg04"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "hloc_lightglue_colmap",
+          "lingbot_map",
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
-        "tier": "vggt_done_viewer_pending",
+        "tier": "detailed_geometry",
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01_seg02_seg03_seg04",
             "seg01_seg02_seg03_seg04"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-08_humvee_bayyadah_mmirleb_16048",
@@ -8596,20 +10671,40 @@
       "manifest_confidence": "medium",
       "query_url": "?scene=2026-05-07_strike_on_iron_dome_launcher_at_jal_al_alam",
       "research": {
-        "artifact_status": "vggt_done_viewer_pending",
-        "detail_route": null,
-        "geometry_available": false,
+        "artifact_status": "full_hf_native_viewer_bundle",
+        "detail_route": "scenes/2026-05-07_strike_on_iron_dome_launcher_at_jal_al_alam/seg01_seg02/index.html",
+        "geometry_available": true,
+        "hub_inventory": {
+          "full_native": true,
+          "hloc_lightglue_colmap": true,
+          "hub_file_count": 515,
+          "lingbot_map": true,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02",
+            "seg01_seg02"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "hloc_lightglue_colmap",
+          "lingbot_map",
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
-        "tier": "vggt_done_viewer_pending",
+        "tier": "detailed_geometry",
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01_seg02",
             "seg01_seg02"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-07_strike_on_iron_dome_launcher_at_jal_al_alam",
@@ -8680,7 +10775,22 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 148,
+          "lingbot_map": false,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01",
+            "seg01"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
@@ -8688,9 +10798,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01",
             "seg01"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-06_strike_on_soldier_group",
@@ -8734,20 +10847,40 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-06_strike_on_namer_apc_near_qouzah",
       "research": {
-        "artifact_status": "vggt_done_viewer_pending",
-        "detail_route": null,
-        "geometry_available": false,
+        "artifact_status": "full_hf_native_viewer_bundle",
+        "detail_route": "scenes/2026-05-06_strike_on_namer_apc_near_qouzah/seg01_seg02/index.html",
+        "geometry_available": true,
+        "hub_inventory": {
+          "full_native": true,
+          "hloc_lightglue_colmap": true,
+          "hub_file_count": 1440,
+          "lingbot_map": true,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02",
+            "seg01_seg02"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "hloc_lightglue_colmap",
+          "lingbot_map",
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
-        "tier": "vggt_done_viewer_pending",
+        "tier": "detailed_geometry",
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01_seg02",
             "seg01_seg02"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-06_strike_on_namer_apc_near_qouzah",
@@ -8794,7 +10927,22 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 149,
+          "lingbot_map": false,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01",
+            "seg01"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
@@ -8802,9 +10950,12 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg01",
             "seg01"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-06_strike_on_namer_apc_near_deir_siryan",
@@ -8840,20 +10991,40 @@
       "manifest_confidence": "high",
       "query_url": "?scene=2026-05-06_strike_on_namer_apc_in_bint_jbeil",
       "research": {
-        "artifact_status": "vggt_done_viewer_pending",
-        "detail_route": null,
-        "geometry_available": false,
+        "artifact_status": "full_hf_native_viewer_bundle",
+        "detail_route": "scenes/2026-05-06_strike_on_namer_apc_in_bint_jbeil/seg02/index.html",
+        "geometry_available": true,
+        "hub_inventory": {
+          "full_native": true,
+          "hloc_lightglue_colmap": true,
+          "hub_file_count": 2010,
+          "lingbot_map": true,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg02",
+            "seg02"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "hloc_lightglue_colmap",
+          "lingbot_map",
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
-        "tier": "vggt_done_viewer_pending",
+        "tier": "detailed_geometry",
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
+            "seg02",
             "seg02"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-06_strike_on_namer_apc_in_bint_jbeil",
@@ -8932,7 +11103,21 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 204,
+          "lingbot_map": false,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
@@ -8940,9 +11125,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg01"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-06_soldiers_gathering_aita_al_shaab_mmirleb_15841",
@@ -8968,7 +11155,21 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 1016,
+          "lingbot_map": false,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02_seg03_seg04_seg05"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
@@ -8976,9 +11177,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg01_seg02_seg03_seg04_seg05"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-06_position_point_taybeh_mmirleb_16210",
@@ -9033,7 +11236,21 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 1016,
+          "lingbot_map": false,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg04_seg05_seg06"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
@@ -9041,9 +11258,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg04_seg05_seg06"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-06_d9_engineering_vehicle_houla_mmirleb_16347",
@@ -9082,7 +11301,21 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 214,
+          "lingbot_map": false,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
@@ -9090,9 +11323,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg01_seg02"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-05_strike_on_merkava_tank",
@@ -9147,7 +11382,21 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 1016,
+          "lingbot_map": false,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02_seg03"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
@@ -9155,9 +11404,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg01_seg02_seg03"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-04_strike_on_troop_transport_vehicle",
@@ -9183,7 +11434,21 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 1016,
+          "lingbot_map": false,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg03"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
@@ -9191,9 +11456,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg03"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-04_strike_on_engineering_vehicle",
@@ -9232,18 +11499,35 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 2032,
+          "lingbot_map": false,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01",
+            "seg03"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
         "tier": "vggt_done_viewer_pending",
         "vggt_omega": {
-          "done": 2,
+          "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg01",
             "seg03"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-04_hemtt_logistics_vehicle_manara_mmirleb_16528",
@@ -9314,18 +11598,35 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 1130,
+          "lingbot_map": false,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01",
+            "seg04_seg05"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
         "tier": "vggt_done_viewer_pending",
         "vggt_omega": {
-          "done": 2,
+          "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
-            "seg04_seg05",
-            "seg01"
-          ]
+            "seg01",
+            "seg04_seg05"
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-03_strike_on_surveillance_camera",
@@ -9412,7 +11713,21 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 861,
+          "lingbot_map": false,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg04_seg05"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
@@ -9420,9 +11735,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg04_seg05"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-03_company_commander_tank_bayyadah_mmirleb_16007",
@@ -9477,7 +11794,21 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 576,
+          "lingbot_map": false,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
@@ -9485,9 +11816,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg01_seg02"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-02_strike_on_namer_apc_in_bint_jbeil",
@@ -9627,18 +11960,35 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 1402,
+          "lingbot_map": false,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02",
+            "seg01_seg02_seg03"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
         "tier": "vggt_done_viewer_pending",
         "vggt_omega": {
-          "done": 2,
+          "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
-            "seg01_seg02_seg03",
-            "seg01_seg02"
-          ]
+            "seg01_seg02",
+            "seg01_seg02_seg03"
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-01_strike_on_soldiers",
@@ -9685,7 +12035,21 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 1016,
+          "lingbot_map": false,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02_seg03_seg04"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
@@ -9693,9 +12057,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg01_seg02_seg03_seg04"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-01_strike_on_humvee",
@@ -9742,7 +12108,21 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 236,
+          "lingbot_map": false,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg04"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
@@ -9750,9 +12130,11 @@
         "vggt_omega": {
           "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg04"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-01_namer_vehicle_bint_jbeil_mmirleb_15898",
@@ -9807,18 +12189,35 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 136,
+          "lingbot_map": false,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg02_seg03",
+            "seg05"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
         "tier": "vggt_done_viewer_pending",
         "vggt_omega": {
-          "done": 2,
+          "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg02_seg03",
             "seg05"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-05-01_merkava_tank_rashaf_mmirleb_15950",
@@ -9869,18 +12268,35 @@
         "artifact_status": "vggt_done_viewer_pending",
         "detail_route": null,
         "geometry_available": false,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 1272,
+          "lingbot_map": false,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01_seg02",
+            "seg02"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
+          "r3",
           "vggt_omega"
         ],
         "scale_state": "relative_only",
         "tier": "vggt_done_viewer_pending",
         "vggt_omega": {
-          "done": 2,
+          "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
-            "seg02",
-            "seg01_seg02"
-          ]
+            "seg01_seg02",
+            "seg02"
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-04-30_strike_on_humvee_in_naqoura",
@@ -9919,16 +12335,35 @@
         "artifact_status": "full_local_viewer_bundle",
         "detail_route": "scenes/2026-04-29_strike_on_merkava_tank/seg01/index.html",
         "geometry_available": true,
-        "methods": [],
-        "scale_state": "relative_only",
-        "tier": "detailed_geometry",
-        "vggt_omega": {
-          "done": 2,
-          "error": 0,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": false,
+          "hub_file_count": 1297,
+          "lingbot_map": false,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
           "scene_ids": [
             "seg01",
             "seg01_seg02"
-          ]
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
+        "methods": [
+          "r3",
+          "vggt_omega"
+        ],
+        "scale_state": "relative_only",
+        "tier": "detailed_geometry",
+        "vggt_omega": {
+          "done": 1,
+          "error": 0,
+          "evidence": "Hub filenames",
+          "scene_ids": [
+            "seg01",
+            "seg01_seg02"
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-04-29_strike_on_merkava_tank",
@@ -9999,20 +12434,38 @@
         "artifact_status": "full_local_viewer_bundle",
         "detail_route": "scenes/2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan/seg01/index.html",
         "geometry_available": true,
+        "hub_inventory": {
+          "full_native": false,
+          "hloc_lightglue_colmap": true,
+          "hub_file_count": 2077,
+          "lingbot_map": false,
+          "r3": true,
+          "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+          "scene_ids": [
+            "seg01",
+            "seg01_seg02"
+          ],
+          "source": "authenticated_huggingface_filename_inventory",
+          "vggt_omega": true
+        },
         "methods": [
           "hloc_lightglue",
+          "hloc_lightglue_colmap",
           "lingbot_map",
-          "r3"
+          "r3",
+          "vggt_omega"
         ],
         "scale_state": "relative_only",
         "tier": "detailed_geometry",
         "vggt_omega": {
-          "done": 2,
+          "done": 1,
           "error": 0,
+          "evidence": "Hub filenames",
           "scene_ids": [
             "seg01",
             "seg01_seg02"
-          ]
+          ],
+          "status": "done"
         }
       },
       "slug": "2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan",

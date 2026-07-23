@@ -3,46 +3,46 @@
     {
       "bytes": 3094,
       "name": "run_manifest.json",
-      "path": "D:\\Drone_Analysis_Dynamics\\runpod_sync\\selected_scene_archive\\seg01\\run_manifest.json",
+      "path": "unpublished_source_cache/selected_scene_archive/seg01/run_manifest.json",
       "sha256": "f1355a1d7d96ff0c8e9be1db4418565b0233251b2f7e07f4cd7bac23deadb653"
     },
     {
       "bytes": 25436,
       "name": "cameras.npz",
-      "path": "D:\\Drone_Analysis_Dynamics\\runpod_sync\\selected_scene_archive\\seg01\\cameras.npz",
+      "path": "unpublished_source_cache/selected_scene_archive/seg01/cameras.npz",
       "sha256": "903894b28ac639ae12b627be01e505a4159c3a74b7b61545883073fbe73802c7"
     },
     {
       "bytes": 12831057,
       "name": "point_cloud.npz",
-      "path": "D:\\Drone_Analysis_Dynamics\\runpod_sync\\selected_scene_archive\\seg01\\point_cloud.npz",
+      "path": "unpublished_source_cache/selected_scene_archive/seg01/point_cloud.npz",
       "sha256": "a484e310c8ec79cc038f898a79e1f8bf303dacaeb5a246170b98f4ef497119c7"
     },
     {
       "bytes": 356772635,
       "name": "predictions.npz",
-      "path": "D:\\Drone_Analysis_Dynamics\\runpod_sync\\selected_scene_archive\\seg01\\predictions.npz",
+      "path": "unpublished_source_cache/selected_scene_archive/seg01/predictions.npz",
       "sha256": "e00db80c62e2c8897277386519aa84d0e19c823359f90a6893c525320f8257a6"
     },
     {
       "bytes": 41092,
       "name": "camera_path.csv",
-      "path": "D:\\Drone_Analysis_Dynamics\\runpod_sync\\selected_scene_archive\\seg01\\camera_path.csv",
+      "path": "unpublished_source_cache/selected_scene_archive/seg01/camera_path.csv",
       "sha256": "f318866e851c3869943914a0aec8378fe80e838216fe87f007f573bcff74cb71"
     },
     {
       "bytes": 25870,
       "name": "frames.csv",
-      "path": "D:\\Drone_Analysis_Dynamics\\runpod_sync\\selected_scene_archive\\seg01\\frames.csv",
+      "path": "unpublished_source_cache/selected_scene_archive/seg01/frames.csv",
       "sha256": "332ac7bf72d46870dc05bdabb7bfabf15d83ed1e5486f631ce7c59db813caa23"
     },
     {
       "bytes": 927,
       "name": "annotation_snapshot.json",
-      "path": "D:\\Drone_Analysis_Dynamics\\data\\geometry\\2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan\\seg01\\diagnostics\\annotation_snapshot.json",
+      "path": "unpublished_source_cache/geometry/2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan/seg01/diagnostics/annotation_snapshot.json",
       "sha256": "58e760930183823525c0955a1e1d2cd53fc9c25e605fcdd9f223892f3b7eb4b9"
     }
   ],
   "immutable": true,
-  "source_scene": "D:\\Drone_Analysis_Dynamics\\runpod_sync\\selected_scene_archive\\seg01"
+  "source_scene": "unpublished_source_cache/selected_scene_archive/seg01"
 }

@@ -1,0 +1,93 @@
+{
+  "aligned_bounds": {
+    "max": [
+      0.14259872005795685,
+      0.0668195549968372,
+      -0.13643935182027644
+    ],
+    "min": [
+      -0.19715635759343306,
+      -0.05887967828808251,
+      -0.9387022775595024
+    ]
+  },
+  "calibration_state": "uncalibrated_display_alignment",
+  "confidence": "high",
+  "display_transform": {
+    "preserves_relative_scale": true,
+    "rotation_3x3": [
+      [
+        0.9970540180395301,
+        -0.07558769084181913,
+        -0.013030199707986988
+      ],
+      [
+        0.07558769084181913,
+        0.9394209073456204,
+        0.33432747394602946
+      ],
+      [
+        -0.013030199707986988,
+        -0.33432747394602946,
+        0.9423668893060904
+      ]
+    ],
+    "source_frame": "omega_shared",
+    "target_frame": "estimated_ground_y_up",
+    "translation": [
+      0.0,
+      0.07889525010664579,
+      0.0
+    ]
+  },
+  "inputs": {
+    "camera_path": {
+      "count": 200,
+      "path": "camera_path.json"
+    },
+    "points_preview": {
+      "count": 80000,
+      "path": "points_preview.bin",
+      "sha256": "5a70997b47b5c4999d7cda056f3dfed4f1d72e64c3d78bdc1c630cd37311465e"
+    }
+  },
+  "method": "deterministic_ransac_plane_with_weak_y_up_prior",
+  "plane": {
+    "normal_source": [
+      0.07558769084181913,
+      0.9394209073456204,
+      0.33432747394602946
+    ],
+    "offset_source": 0.07889525010664579,
+    "ransac_threshold_relative_to_diagonal": 0.012
+  },
+  "quality": {
+    "camera_above_ratio": 0.965,
+    "confidence_gates": {
+      "camera_above_ratio_min": 0.8,
+      "inlier_ratio_min": 0.2,
+      "median_abs_residual_relative_max": 0.006,
+      "normal_y_prior_abs_min": 0.76,
+      "p95_abs_residual_relative_max": 0.015,
+      "passed": true
+    },
+    "inlier_count": 7925,
+    "inlier_ratio": 0.6604166666666667,
+    "median_abs_residual_relative": 0.004882525953397458,
+    "median_camera_clearance_relative": 0.028876530343637512,
+    "normal_y_prior_abs": 0.9394209073456204,
+    "p95_abs_residual_relative": 0.010854374306039359,
+    "sampled_point_count": 12000,
+    "source_point_count": 80000
+  },
+  "recommended_default": true,
+  "scale_status": "relative_only",
+  "scene_id": "2026-05-08_resistance_strikes_enemy_forces_kfar_kila__seg15_seg16_seg17_seg18_seg19_seg20",
+  "schema_version": "1.0.0",
+  "status": "estimated",
+  "warnings": [
+    "Estimated display plane only; not physical calibration.",
+    "A weak reconstruction-Y prior rejects likely vertical facades.",
+    "Raw points, cameras, and trajectory artifacts remain unchanged."
+  ]
+}

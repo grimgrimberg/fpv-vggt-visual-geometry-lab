@@ -1,0 +1,450 @@
+{
+  "annotation": {
+    "auto_generated": false,
+    "intervals": [
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "banner_start",
+        "review_status": "manual_ground_truth",
+        "source_index": 0,
+        "start_s": 0.0,
+        "type": "banner_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "flight_start",
+        "review_status": "manual_ground_truth",
+        "source_index": 1,
+        "start_s": 0.0,
+        "type": "flight_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "other",
+        "review_status": "manual_ground_truth",
+        "source_index": 2,
+        "start_s": 0.0,
+        "type": "other"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "flight_start",
+        "review_status": "manual_ground_truth",
+        "source_index": 3,
+        "start_s": 0.0,
+        "type": "flight_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "pause_start",
+        "review_status": "manual_ground_truth",
+        "source_index": 4,
+        "start_s": 0.0,
+        "type": "pause_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "flight_start",
+        "review_status": "manual_ground_truth",
+        "source_index": 5,
+        "start_s": 0.0,
+        "type": "flight_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "replay_start",
+        "review_status": "manual_ground_truth",
+        "source_index": 6,
+        "start_s": 0.0,
+        "type": "replay_start"
+      }
+    ],
+    "kind": "manual_ground_truth",
+    "local_source_path_embedded": false,
+    "segment_count": 7,
+    "source": "public cockpit catalog plus authenticated Hub artifact inventory",
+    "source_commit": "d2149395a983d889055ab423aff2f1a4b05ebebb"
+  },
+  "assets": {
+    "camera_path": {
+      "path": "camera_path.json"
+    },
+    "cameras": {
+      "path": "cameras.json"
+    },
+    "ground_alignment": {
+      "confidence": "low",
+      "path": "ground_alignment.json",
+      "recommended_default": false,
+      "status": "rejected"
+    },
+    "method_comparison": {
+      "alignment_policy": "method_native_not_aligned",
+      "path": "methods/method_comparison.json",
+      "sample_count": 3
+    },
+    "points_ply": {
+      "bytes": 1200233,
+      "path": "points.ply",
+      "sha256": "c4cc46218ffabf57d7c2e5e43c32e60f7823c46afca2444bbd89a9cd29783a37"
+    },
+    "points_preview": {
+      "bytes": 960000,
+      "components": 3,
+      "dtype": "float32_le",
+      "path": "points_preview.bin",
+      "sha256": "cf65fb1f7e07d202c1d1fbdd0827857d22472e59f2f590929063f08a99273752",
+      "shape": [
+        80000,
+        3
+      ]
+    },
+    "points_preview_colors": {
+      "bytes": 240000,
+      "components": 3,
+      "dtype": "uint8",
+      "path": "points_preview_colors.bin",
+      "sha256": "c95eb1c5506c4e8ce3243266a18ab6b2048f667a11a68e37cc88af076d1a2066",
+      "shape": [
+        80000,
+        3
+      ]
+    },
+    "pov": {
+      "reason": "source frames are not copied",
+      "samples": [],
+      "status": "not_published"
+    },
+    "reprojection": {
+      "reason": "rendered source-frame overlays are not copied",
+      "samples": [],
+      "status": "not_published"
+    },
+    "source_video": {
+      "copied": false,
+      "kind": "remote_public_reference",
+      "path": "https://d2fioemadmrru3.cloudfront.net/videos/2026-05-08_merkava_tank_bayyadah_mmirleb_16051.mp4",
+      "synchronization": "source_timestamp_sec"
+    },
+    "trajectory_profiles": {
+      "path": "trajectory_profiles.json"
+    }
+  },
+  "body_attitude": "unavailable",
+  "bounds": {
+    "max": [
+      0.02302093431353569,
+      0.0052494024857878685,
+      -0.02160104177892208
+    ],
+    "min": [
+      -0.01527212280780077,
+      -0.012058780528604984,
+      -0.10741540789604187
+    ]
+  },
+  "calibration": {
+    "evidence": null,
+    "state": "relative_only"
+  },
+  "display_alignment": {
+    "confidence": "low",
+    "default": "raw",
+    "estimated_ground_available": false,
+    "raw_available": true,
+    "scale_status": "relative_only"
+  },
+  "display_units": "relative units",
+  "edit_segments": [
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "banner_start",
+      "review_status": "manual_ground_truth",
+      "source_index": 0,
+      "start_s": 0.0,
+      "type": "banner_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "flight_start",
+      "review_status": "manual_ground_truth",
+      "source_index": 1,
+      "start_s": 0.0,
+      "type": "flight_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "other",
+      "review_status": "manual_ground_truth",
+      "source_index": 2,
+      "start_s": 0.0,
+      "type": "other"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "flight_start",
+      "review_status": "manual_ground_truth",
+      "source_index": 3,
+      "start_s": 0.0,
+      "type": "flight_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "pause_start",
+      "review_status": "manual_ground_truth",
+      "source_index": 4,
+      "start_s": 0.0,
+      "type": "pause_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "flight_start",
+      "review_status": "manual_ground_truth",
+      "source_index": 5,
+      "start_s": 0.0,
+      "type": "flight_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "replay_start",
+      "review_status": "manual_ground_truth",
+      "source_index": 6,
+      "start_s": 0.0,
+      "type": "replay_start"
+    }
+  ],
+  "generated_at": "2026-07-23T19:40:07.566756Z",
+  "hub_inventory_evidence": {
+    "method_status": {
+      "full_native": true,
+      "hloc_lightglue_colmap": "done",
+      "hub_file_count": 1433,
+      "lingbot_frame_count": 200,
+      "lingbot_map": "done",
+      "r3": "done",
+      "r3_frame_count": 200,
+      "vggt_omega": "done"
+    },
+    "raw_hub_filenames_embedded": false,
+    "repo_id": "Grimster/FPV_Hezbo",
+    "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+    "scene_file_count": 1433
+  },
+  "layers": {
+    "calibrated": {
+      "reason": "no documented calibration",
+      "status": "absent"
+    },
+    "fitted": {
+      "coordinate_frame": "omega_shared",
+      "method": "cubic_smoothing_spline",
+      "path": "camera_path.json#layers.bspline"
+    },
+    "native_methods": {
+      "alignment": "exclusive_unaligned_frames",
+      "path": "methods/method_comparison.json"
+    },
+    "normalized": {
+      "coordinate_frame": "omega_shared",
+      "path": "camera_path.json#layers.raw",
+      "status": "identity_display_copy"
+    },
+    "raw": {
+      "coordinate_frame": "omega_shared",
+      "path": "camera_path.json#layers.raw",
+      "status": "available"
+    },
+    "smoothed": {
+      "coordinate_frame": "omega_shared",
+      "method": "constant_velocity_kalman_rts",
+      "path": "camera_path.json#layers.rts"
+    }
+  },
+  "methods": {
+    "hloc_lightglue_colmap": {
+      "assets": {
+        "native_cameras": "methods/native/hloc_registered_cameras.json"
+      },
+      "coordinate_frame": "hloc_native",
+      "pipeline": "HLoc + LightGlue + COLMAP sparse reconstruction",
+      "points3D": 11701,
+      "registered_images": 184,
+      "scale_status": "relative_only",
+      "status": "done"
+    },
+    "lingbot_map": {
+      "coordinate_frame": "lingbot_native",
+      "frame_artifact_count": 200,
+      "scale_status": "relative_only",
+      "status": "done"
+    },
+    "r3": {
+      "coordinate_frame": "r3_native",
+      "frame_artifact_count": 200,
+      "scale_status": "relative_only",
+      "status": "done"
+    },
+    "vggt_omega": {
+      "coordinate_frame": "omega_shared",
+      "scale_status": "relative_only",
+      "status": "done"
+    }
+  },
+  "native_preview_notes": {
+    "hloc_lightglue_colmap": {
+      "mean_reprojection_error": 1.3240548756541606,
+      "median_reprojection_error": 1.3482348588386994,
+      "registered_images": 184,
+      "source_count": 11701,
+      "viewer_count": 11701
+    },
+    "lingbot_map": [
+      {
+        "artifact_name": "frame_000000.npz",
+        "frame_index": 0,
+        "intrinsic_source": "intrinsic",
+        "native_shape": [
+          224,
+          518
+        ],
+        "point_count": 12000,
+        "pose_available": true,
+        "published_in_geometry": true,
+        "source_kind": "depth_backprojection"
+      },
+      {
+        "artifact_name": "frame_000099.npz",
+        "frame_index": 99,
+        "intrinsic_source": "intrinsic",
+        "native_shape": [
+          224,
+          518
+        ],
+        "point_count": 12000,
+        "pose_available": true,
+        "published_in_geometry": true,
+        "source_kind": "depth_backprojection"
+      },
+      {
+        "artifact_name": "frame_000199.npz",
+        "frame_index": 199,
+        "intrinsic_source": "intrinsic",
+        "native_shape": [
+          224,
+          518
+        ],
+        "point_count": 12000,
+        "pose_available": true,
+        "published_in_geometry": true,
+        "source_kind": "depth_backprojection"
+      }
+    ],
+    "r3": [
+      {
+        "artifact_name": "000000.npy",
+        "frame_index": 0,
+        "intrinsic_source": "intrinsics",
+        "native_shape": [
+          210,
+          504
+        ],
+        "point_count": 12000,
+        "pose_available": true,
+        "published_in_geometry": true,
+        "source_kind": "depth_backprojection"
+      },
+      {
+        "artifact_name": "000099.npy",
+        "frame_index": 99,
+        "intrinsic_source": "intrinsics",
+        "native_shape": [
+          210,
+          504
+        ],
+        "point_count": 12000,
+        "pose_available": true,
+        "published_in_geometry": true,
+        "source_kind": "depth_backprojection"
+      },
+      {
+        "artifact_name": "000199.npy",
+        "frame_index": 199,
+        "intrinsic_source": "intrinsics",
+        "native_shape": [
+          210,
+          504
+        ],
+        "point_count": 12000,
+        "pose_available": true,
+        "published_in_geometry": true,
+        "source_kind": "depth_backprojection"
+      }
+    ]
+  },
+  "pose_semantics": "camera_pose_proxy",
+  "publication_boundary": {
+    "local_paths_redacted": true,
+    "point_cloud_publication": "approved_by_user",
+    "rendered_source_images_copied": false,
+    "scale_state": "relative_only",
+    "source_frames_copied": false,
+    "thumbnails_copied": false,
+    "videos_copied": false
+  },
+  "quality": {
+    "components": {
+      "contamination": null,
+      "method_completeness": 1.0,
+      "path_continuity": 0.96,
+      "reconstruction_spread": 0.06712055284823876,
+      "visual_clarity": null
+    },
+    "hero_score": 0.7487801382120597,
+    "score_confidence": 0.65,
+    "transparent_heuristic": true
+  },
+  "reconstruction": {
+    "backend": "VGGT Omega",
+    "backend_commit": "28433d042f63fefd6d5f549aa1a3f0ecf1b51a67",
+    "coordinate_frame": "omega_shared",
+    "frame_count": 200,
+    "point_count_source": 1000000,
+    "point_count_viewer": 80000,
+    "viewer_color_source": {
+      "color_key": "cols",
+      "point_key": "pts"
+    }
+  },
+  "scene_id": "2026-05-08_merkava_tank_bayyadah_mmirleb_16051__seg01_seg02",
+  "schema_version": "2.1.0-hf-public",
+  "source": {
+    "dataset_repo": "Grimster/FPV_Hezbo",
+    "dataset_revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+    "description": "Merkava tank, al-Bayyada (dive drone)",
+    "scene_id": "seg01_seg02",
+    "slug": "2026-05-08_merkava_tank_bayyadah_mmirleb_16051",
+    "town": "Al Bayada / Bayyadah",
+    "video_file": "2026-05-08_merkava_tank_bayyadah_mmirleb_16051.mp4"
+  },
+  "title": "Merkava tank, al-Bayyada (dive drone)",
+  "warnings": [
+    "relative_only: no physical scale calibration is documented",
+    "camera_pose_proxy: vehicle-body attitude is unavailable",
+    "R3, LingBot and HLoc remain in separate method-native coordinate frames",
+    "source frames and videos are not copied into this bundle"
+  ]
+}

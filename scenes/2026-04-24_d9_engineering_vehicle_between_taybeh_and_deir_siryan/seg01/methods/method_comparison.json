@@ -1164,7 +1164,7 @@
       "points3D": 13755,
       "provenance": {
         "path": "methods/provenance/hloc_summary.json",
-        "sha256": "64b47582f1dcebf0466d1dcb421760a1c6c4992ff8f683e13e4f1ab3d5d686ab"
+        "sha256": "36011f9019916bacb4f5885c8d2e71e10a2b25cb081b6a26b9910850335abc83"
       },
       "raw_sparse_counts": {
         "cameras": 1,
@@ -1384,8 +1384,8 @@
       ],
       "parseable_npz_count": 200,
       "provenance": {
-        "path": "methods/provenance/lingbot_map.log",
-        "sha256": "b9457d57f906e0ee8dfadc5fe02575ff70aa26d4f83152e79eafce7e9cede906"
+        "status": "not_published",
+        "note": "No standalone LingBot run log is included in the public bundle."
       },
       "role": "independent depth, confidence, camera, and pose-encoding outputs",
       "scale_status": "relative_only",
@@ -2436,7 +2436,7 @@
       ],
       "provenance": {
         "path": "methods/provenance/r3_run_params.json",
-        "sha256": "43baea6744405beb41515b6be12755ea277809e0e94f5cdbf19a19fb3e1f5eb6"
+        "sha256": "26ebae3794d564f2e2b71d19522a93dae826796f2c95f720c72a32dd610bea47"
       },
       "role": "independent depth and pose reconstruction",
       "scale_note": "A physical-scale model was requested in the run configuration, but no accepted calibration artifact validates it.",

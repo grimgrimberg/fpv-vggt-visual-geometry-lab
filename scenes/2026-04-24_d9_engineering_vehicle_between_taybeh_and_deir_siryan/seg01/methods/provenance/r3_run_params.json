@@ -1,10 +1,10 @@
 {
-  "seq_path": "/workspace/data/vggt_omega/2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan/seg01/frames",
+  "seq_path": "hf_dataset_snapshot/vggt_omega/2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan/seg01/frames",
   "output_dir": "/tmp/r3_staging_2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan__seg01",
   "device": "cuda",
   "size": 504,
   "config_name": "r3-large",
-  "ckpt": "/workspace/R3/ckpt/r3_long.safetensors",
+  "ckpt": "model_cache/R3/ckpt/r3_long.safetensors",
   "max_frames": 0,
   "frame_stride": 1,
   "wrapper_mode": "online",

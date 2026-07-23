@@ -1,0 +1,93 @@
+{
+  "aligned_bounds": {
+    "max": [
+      0.09103150632481483,
+      0.07514728576052147,
+      -0.11878472614657132
+    ],
+    "min": [
+      -0.07592966244618125,
+      -0.025197845188345502,
+      -0.2783693670556661
+    ]
+  },
+  "calibration_state": "uncalibrated_display_alignment",
+  "confidence": "high",
+  "display_transform": {
+    "preserves_relative_scale": true,
+    "rotation_3x3": [
+      [
+        0.9988732098499635,
+        -0.047210280223575506,
+        -0.0048476886494793064
+      ],
+      [
+        0.047210280223575506,
+        0.9780174318317327,
+        0.20310857311909203
+      ],
+      [
+        -0.0048476886494793064,
+        -0.20310857311909203,
+        0.9791442219817692
+      ]
+    ],
+    "source_frame": "omega_shared",
+    "target_frame": "estimated_ground_y_up",
+    "translation": [
+      0.0,
+      0.084405942271935,
+      0.0
+    ]
+  },
+  "inputs": {
+    "camera_path": {
+      "count": 200,
+      "path": "camera_path.json"
+    },
+    "points_preview": {
+      "count": 80000,
+      "path": "points_preview.bin",
+      "sha256": "27a37bd23c666f41e916d7d05cde78c36076eaffc88a2d62f1d77fce7aa384af"
+    }
+  },
+  "method": "deterministic_ransac_plane_with_weak_y_up_prior",
+  "plane": {
+    "normal_source": [
+      0.047210280223575506,
+      0.9780174318317327,
+      0.20310857311909203
+    ],
+    "offset_source": 0.084405942271935,
+    "ransac_threshold_relative_to_diagonal": 0.012
+  },
+  "quality": {
+    "camera_above_ratio": 1.0,
+    "confidence_gates": {
+      "camera_above_ratio_min": 0.8,
+      "inlier_ratio_min": 0.2,
+      "median_abs_residual_relative_max": 0.006,
+      "normal_y_prior_abs_min": 0.76,
+      "p95_abs_residual_relative_max": 0.015,
+      "passed": true
+    },
+    "inlier_count": 3813,
+    "inlier_ratio": 0.31775,
+    "median_abs_residual_relative": 0.005037569309328927,
+    "median_camera_clearance_relative": 0.23485014802733342,
+    "normal_y_prior_abs": 0.9780174318317327,
+    "p95_abs_residual_relative": 0.010956930583837347,
+    "sampled_point_count": 12000,
+    "source_point_count": 80000
+  },
+  "recommended_default": true,
+  "scale_status": "relative_only",
+  "scene_id": "2026-05-08_humvee_bayyadah_mmirleb_16048__seg01_seg02_seg03_seg04",
+  "schema_version": "1.0.0",
+  "status": "estimated",
+  "warnings": [
+    "Estimated display plane only; not physical calibration.",
+    "A weak reconstruction-Y prior rejects likely vertical facades.",
+    "Raw points, cameras, and trajectory artifacts remain unchanged."
+  ]
+}

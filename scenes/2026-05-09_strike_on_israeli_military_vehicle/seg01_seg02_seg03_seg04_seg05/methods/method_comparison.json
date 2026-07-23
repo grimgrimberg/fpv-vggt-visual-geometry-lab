@@ -1,0 +1,335 @@
+{
+  "alignment_policy": "method_native_not_aligned",
+  "comparison_rule": "Switch between exclusive native coordinate frames. Do not visually imply cross-method agreement without an explicit alignment artifact.",
+  "diagnostics": {},
+  "geometry_layers": {
+    "active_dir": "native",
+    "coordinate_frames": {
+      "hloc_native": {
+        "exclusive": true,
+        "ground_display_supported": false
+      },
+      "lingbot_native": {
+        "exclusive": true,
+        "ground_display_supported": false
+      },
+      "omega_shared": {
+        "exclusive": true,
+        "ground_display_supported": true
+      },
+      "r3_native": {
+        "exclusive": true,
+        "ground_display_supported": false
+      }
+    },
+    "layers": {
+      "hloc_lightglue_colmap_native": {
+        "alignment": {
+          "native_arrays_unchanged": true,
+          "status": "method_native_not_aligned"
+        },
+        "cameras": {
+          "path": "methods/native/hloc_registered_cameras.json"
+        },
+        "colors": {
+          "bytes": 39972,
+          "components": 3,
+          "dtype": "uint8",
+          "path": "methods/native/hloc_lightglue_colmap_colors.bin",
+          "sha256": "d83f582e0e5f33ddacad79190e23a6f53b0d6ff60db5e7bb059923547587ca52",
+          "shape": [
+            13324,
+            3
+          ]
+        },
+        "coordinate_frame": "hloc_native",
+        "id": "hloc_lightglue_colmap_native",
+        "method": "hloc_lightglue_colmap",
+        "point_count": 13324,
+        "positions": {
+          "bytes": 159888,
+          "components": 3,
+          "dtype": "float32_le",
+          "path": "methods/native/hloc_lightglue_colmap_points.bin",
+          "sha256": "bbdfa2dc06b9d353cd872113db994be89b8034008ae7187afac60a4fcb8ae767",
+          "shape": [
+            13324,
+            3
+          ]
+        },
+        "scale_status": "relative_only",
+        "sparse_statistics": {
+          "mean_reprojection_error": 1.037851734968076,
+          "median_reprojection_error": 0.9870448481614373,
+          "source_count": 13324,
+          "viewer_count": 13324
+        },
+        "status": "available",
+        "variant": "native"
+      },
+      "lingbot_map_native": {
+        "alignment": {
+          "interframe_transform_complete": true,
+          "native_arrays_unchanged": true,
+          "status": "method_native_not_aligned"
+        },
+        "cameras": {
+          "path": "methods/native/lingbot_map_cameras.json"
+        },
+        "colors": {
+          "bytes": 108000,
+          "components": 3,
+          "dtype": "uint8",
+          "path": "methods/native/lingbot_map_colors.bin",
+          "sha256": "731d69d5e11adcbd55f7abfb376585ba5d9188589c505a7774f43d4306a4a5b7",
+          "shape": [
+            36000,
+            3
+          ]
+        },
+        "coordinate_frame": "lingbot_native",
+        "id": "lingbot_map_native",
+        "method": "lingbot_map",
+        "point_count": 36000,
+        "positions": {
+          "bytes": 432000,
+          "components": 3,
+          "dtype": "float32_le",
+          "path": "methods/native/lingbot_map_points.bin",
+          "sha256": "673d01172eaccc72cee0cd9ffee7384c78576fe3354ecbe56ca424163cdcb7f5",
+          "shape": [
+            36000,
+            3
+          ]
+        },
+        "sampling": {
+          "inspected_sample_count": 3,
+          "point_budget": 36000,
+          "policy": "three_evenly_spaced_native_frames",
+          "published_sample_count": 3,
+          "source_frames_copied": false
+        },
+        "scale_status": "relative_only",
+        "status": "available",
+        "variant": "native"
+      },
+      "r3_native": {
+        "alignment": {
+          "interframe_transform_complete": true,
+          "native_arrays_unchanged": true,
+          "status": "method_native_not_aligned"
+        },
+        "cameras": {
+          "path": "methods/native/r3_cameras.json"
+        },
+        "colors": {
+          "bytes": 108000,
+          "components": 3,
+          "dtype": "uint8",
+          "path": "methods/native/r3_colors.bin",
+          "sha256": "ad53c2940649de1a3e83425553ae2a965d1446ac49ce697eca0623a20514e8d6",
+          "shape": [
+            36000,
+            3
+          ]
+        },
+        "coordinate_frame": "r3_native",
+        "id": "r3_native",
+        "method": "r3",
+        "point_count": 36000,
+        "positions": {
+          "bytes": 432000,
+          "components": 3,
+          "dtype": "float32_le",
+          "path": "methods/native/r3_points.bin",
+          "sha256": "d1942f9ca92be77295fde08398e6eb15858b8e5adb7a206ef04e3757b0a632a4",
+          "shape": [
+            36000,
+            3
+          ]
+        },
+        "sampling": {
+          "inspected_sample_count": 3,
+          "point_budget": 36000,
+          "policy": "three_evenly_spaced_native_frames",
+          "published_sample_count": 3,
+          "source_frames_copied": false
+        },
+        "scale_status": "relative_only",
+        "status": "available",
+        "variant": "native"
+      },
+      "vggt_omega": {
+        "alignment": {
+          "native_arrays_unchanged": true,
+          "status": "official_vggt_glb_alignment_when_available"
+        },
+        "cameras": {
+          "path": "cameras.json"
+        },
+        "colors": {
+          "bytes": 240000,
+          "components": 3,
+          "dtype": "uint8",
+          "path": "points_preview_colors.bin",
+          "sha256": "b36fe649ad15ba55e6a30b6ae6c9194755abdfe923175de968076bbb30cee4bd",
+          "shape": [
+            80000,
+            3
+          ]
+        },
+        "coordinate_frame": "omega_shared",
+        "id": "vggt_omega",
+        "method": "vggt_omega",
+        "point_count": 80000,
+        "positions": {
+          "bytes": 960000,
+          "components": 3,
+          "dtype": "float32_le",
+          "path": "points_preview.bin",
+          "sha256": "5e4156551ebde99062e6caa4c886fd934c22eeede9c38b42662da13503696591",
+          "shape": [
+            80000,
+            3
+          ]
+        },
+        "scale_status": "relative_only",
+        "status": "available",
+        "variant": "public_downsample"
+      }
+    }
+  },
+  "input": {
+    "sample_policy": "three_evenly_spaced_native artifacts",
+    "source_frames_copied": false,
+    "source_video_copied": false
+  },
+  "methods": {
+    "hloc_lightglue_colmap": {
+      "assets": {
+        "native_cameras": "methods/native/hloc_registered_cameras.json"
+      },
+      "coordinate_frame": "hloc_native",
+      "pipeline": "HLoc + LightGlue + COLMAP sparse reconstruction",
+      "points3D": 13324,
+      "registered_images": 193,
+      "scale_status": "relative_only",
+      "status": "done"
+    },
+    "lingbot_map": {
+      "coordinate_frame": "lingbot_native",
+      "frame_artifact_count": 200,
+      "scale_status": "relative_only",
+      "status": "done"
+    },
+    "r3": {
+      "coordinate_frame": "r3_native",
+      "frame_artifact_count": 200,
+      "scale_status": "relative_only",
+      "status": "done"
+    },
+    "vggt_omega": {
+      "coordinate_frame": "omega_shared",
+      "scale_status": "relative_only",
+      "status": "done"
+    }
+  },
+  "publication_boundary": {
+    "approved_point_geometry_only": true,
+    "rendered_source_images_copied": false,
+    "source_frames_copied": false,
+    "videos_copied": false
+  },
+  "samples": [
+    {
+      "frame_index": 0,
+      "lingbot_map": {
+        "artifact_name": "frame_000000.npz",
+        "frame_index": 0,
+        "intrinsic_source": "intrinsic",
+        "native_shape": [
+          224,
+          518
+        ],
+        "point_count": 12000,
+        "pose_available": true,
+        "published_in_geometry": true,
+        "source_kind": "depth_backprojection"
+      },
+      "r3": {
+        "artifact_name": "000000.npy",
+        "frame_index": 0,
+        "intrinsic_source": "intrinsics",
+        "native_shape": [
+          210,
+          504
+        ],
+        "point_count": 12000,
+        "pose_available": true,
+        "published_in_geometry": true,
+        "source_kind": "depth_backprojection"
+      }
+    },
+    {
+      "frame_index": 99,
+      "lingbot_map": {
+        "artifact_name": "frame_000099.npz",
+        "frame_index": 99,
+        "intrinsic_source": "intrinsic",
+        "native_shape": [
+          224,
+          518
+        ],
+        "point_count": 12000,
+        "pose_available": true,
+        "published_in_geometry": true,
+        "source_kind": "depth_backprojection"
+      },
+      "r3": {
+        "artifact_name": "000099.npy",
+        "frame_index": 99,
+        "intrinsic_source": "intrinsics",
+        "native_shape": [
+          210,
+          504
+        ],
+        "point_count": 12000,
+        "pose_available": true,
+        "published_in_geometry": true,
+        "source_kind": "depth_backprojection"
+      }
+    },
+    {
+      "frame_index": 199,
+      "lingbot_map": {
+        "artifact_name": "frame_000199.npz",
+        "frame_index": 199,
+        "intrinsic_source": "intrinsic",
+        "native_shape": [
+          224,
+          518
+        ],
+        "point_count": 12000,
+        "pose_available": true,
+        "published_in_geometry": true,
+        "source_kind": "depth_backprojection"
+      },
+      "r3": {
+        "artifact_name": "000199.npy",
+        "frame_index": 199,
+        "intrinsic_source": "intrinsics",
+        "native_shape": [
+          210,
+          504
+        ],
+        "point_count": 12000,
+        "pose_available": true,
+        "published_in_geometry": true,
+        "source_kind": "depth_backprojection"
+      }
+    }
+  ],
+  "scale_status": "relative_only",
+  "scene_id": "2026-05-09_strike_on_israeli_military_vehicle__seg01_seg02_seg03_seg04_seg05",
+  "schema_version": "2.0.0"
+}

@@ -1,0 +1,486 @@
+{
+  "annotation": {
+    "auto_generated": false,
+    "intervals": [
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "banner_start",
+        "review_status": "manual_ground_truth",
+        "source_index": 0,
+        "start_s": 0.0,
+        "type": "banner_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "flight_start",
+        "review_status": "manual_ground_truth",
+        "source_index": 1,
+        "start_s": 0.0,
+        "type": "flight_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "other",
+        "review_status": "manual_ground_truth",
+        "source_index": 2,
+        "start_s": 0.0,
+        "type": "other"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "flight_start",
+        "review_status": "manual_ground_truth",
+        "source_index": 3,
+        "start_s": 0.0,
+        "type": "flight_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "other",
+        "review_status": "manual_ground_truth",
+        "source_index": 4,
+        "start_s": 0.0,
+        "type": "other"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "flight_start",
+        "review_status": "manual_ground_truth",
+        "source_index": 5,
+        "start_s": 0.0,
+        "type": "flight_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "pause_start",
+        "review_status": "manual_ground_truth",
+        "source_index": 6,
+        "start_s": 0.0,
+        "type": "pause_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "flight_start",
+        "review_status": "manual_ground_truth",
+        "source_index": 7,
+        "start_s": 0.0,
+        "type": "flight_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "replay_start",
+        "review_status": "manual_ground_truth",
+        "source_index": 8,
+        "start_s": 0.0,
+        "type": "replay_start"
+      }
+    ],
+    "kind": "manual_ground_truth",
+    "local_source_path_embedded": false,
+    "segment_count": 9,
+    "source": "public cockpit catalog plus authenticated Hub artifact inventory",
+    "source_commit": "d2149395a983d889055ab423aff2f1a4b05ebebb"
+  },
+  "assets": {
+    "camera_path": {
+      "path": "camera_path.json"
+    },
+    "cameras": {
+      "path": "cameras.json"
+    },
+    "ground_alignment": {
+      "confidence": "high",
+      "path": "ground_alignment.json",
+      "recommended_default": true,
+      "status": "estimated"
+    },
+    "method_comparison": {
+      "alignment_policy": "method_native_not_aligned",
+      "path": "methods/method_comparison.json",
+      "sample_count": 3
+    },
+    "points_ply": {
+      "bytes": 1200233,
+      "path": "points.ply",
+      "sha256": "0c24d923f3d5667def95a7402c14fff125fe07b101d86d40bf18d6886fced3cf"
+    },
+    "points_preview": {
+      "bytes": 960000,
+      "components": 3,
+      "dtype": "float32_le",
+      "path": "points_preview.bin",
+      "sha256": "27a37bd23c666f41e916d7d05cde78c36076eaffc88a2d62f1d77fce7aa384af",
+      "shape": [
+        80000,
+        3
+      ]
+    },
+    "points_preview_colors": {
+      "bytes": 240000,
+      "components": 3,
+      "dtype": "uint8",
+      "path": "points_preview_colors.bin",
+      "sha256": "2a6c6dbc9162dfabc4ead097234793ff3f7ed76e2766fbbbca1c3b35396b1c20",
+      "shape": [
+        80000,
+        3
+      ]
+    },
+    "pov": {
+      "reason": "source frames are not copied",
+      "samples": [],
+      "status": "not_published"
+    },
+    "reprojection": {
+      "reason": "rendered source-frame overlays are not copied",
+      "samples": [],
+      "status": "not_published"
+    },
+    "source_video": {
+      "copied": false,
+      "kind": "remote_public_reference",
+      "path": "https://d2fioemadmrru3.cloudfront.net/videos/2026-05-08_humvee_bayyadah_mmirleb_16048.mp4",
+      "synchronization": "source_timestamp_sec"
+    },
+    "trajectory_profiles": {
+      "path": "trajectory_profiles.json"
+    }
+  },
+  "body_attitude": "unavailable",
+  "bounds": {
+    "max": [
+      0.09063472598791122,
+      0.04188687726855278,
+      -0.12741997838020325
+    ],
+    "min": [
+      -0.0777733251452446,
+      -0.062353916466236115,
+      -0.2888351082801819
+    ]
+  },
+  "calibration": {
+    "evidence": null,
+    "state": "relative_only"
+  },
+  "display_alignment": {
+    "confidence": "high",
+    "default": "estimated_ground",
+    "estimated_ground_available": true,
+    "raw_available": true,
+    "scale_status": "relative_only"
+  },
+  "display_units": "relative units",
+  "edit_segments": [
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "banner_start",
+      "review_status": "manual_ground_truth",
+      "source_index": 0,
+      "start_s": 0.0,
+      "type": "banner_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "flight_start",
+      "review_status": "manual_ground_truth",
+      "source_index": 1,
+      "start_s": 0.0,
+      "type": "flight_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "other",
+      "review_status": "manual_ground_truth",
+      "source_index": 2,
+      "start_s": 0.0,
+      "type": "other"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "flight_start",
+      "review_status": "manual_ground_truth",
+      "source_index": 3,
+      "start_s": 0.0,
+      "type": "flight_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "other",
+      "review_status": "manual_ground_truth",
+      "source_index": 4,
+      "start_s": 0.0,
+      "type": "other"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "flight_start",
+      "review_status": "manual_ground_truth",
+      "source_index": 5,
+      "start_s": 0.0,
+      "type": "flight_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "pause_start",
+      "review_status": "manual_ground_truth",
+      "source_index": 6,
+      "start_s": 0.0,
+      "type": "pause_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "flight_start",
+      "review_status": "manual_ground_truth",
+      "source_index": 7,
+      "start_s": 0.0,
+      "type": "flight_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "replay_start",
+      "review_status": "manual_ground_truth",
+      "source_index": 8,
+      "start_s": 0.0,
+      "type": "replay_start"
+    }
+  ],
+  "generated_at": "2026-07-23T19:57:06.115562Z",
+  "hub_inventory_evidence": {
+    "method_status": {
+      "full_native": true,
+      "hloc_lightglue_colmap": "done",
+      "hub_file_count": 1428,
+      "lingbot_frame_count": 200,
+      "lingbot_map": "done",
+      "r3": "done",
+      "r3_frame_count": 200,
+      "vggt_omega": "done"
+    },
+    "raw_hub_filenames_embedded": false,
+    "repo_id": "Grimster/FPV_Hezbo",
+    "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+    "scene_file_count": 1428
+  },
+  "layers": {
+    "calibrated": {
+      "reason": "no documented calibration",
+      "status": "absent"
+    },
+    "fitted": {
+      "coordinate_frame": "omega_shared",
+      "method": "cubic_smoothing_spline",
+      "path": "camera_path.json#layers.bspline"
+    },
+    "native_methods": {
+      "alignment": "exclusive_unaligned_frames",
+      "path": "methods/method_comparison.json"
+    },
+    "normalized": {
+      "coordinate_frame": "omega_shared",
+      "path": "camera_path.json#layers.raw",
+      "status": "identity_display_copy"
+    },
+    "raw": {
+      "coordinate_frame": "omega_shared",
+      "path": "camera_path.json#layers.raw",
+      "status": "available"
+    },
+    "smoothed": {
+      "coordinate_frame": "omega_shared",
+      "method": "constant_velocity_kalman_rts",
+      "path": "camera_path.json#layers.rts"
+    }
+  },
+  "methods": {
+    "hloc_lightglue_colmap": {
+      "assets": {
+        "native_cameras": "methods/native/hloc_registered_cameras.json"
+      },
+      "coordinate_frame": "hloc_native",
+      "pipeline": "HLoc + LightGlue + COLMAP sparse reconstruction",
+      "points3D": 4454,
+      "registered_images": 187,
+      "scale_status": "relative_only",
+      "status": "done"
+    },
+    "lingbot_map": {
+      "coordinate_frame": "lingbot_native",
+      "frame_artifact_count": 200,
+      "scale_status": "relative_only",
+      "status": "done"
+    },
+    "r3": {
+      "coordinate_frame": "r3_native",
+      "frame_artifact_count": 200,
+      "scale_status": "relative_only",
+      "status": "done"
+    },
+    "vggt_omega": {
+      "coordinate_frame": "omega_shared",
+      "scale_status": "relative_only",
+      "status": "done"
+    }
+  },
+  "native_preview_notes": {
+    "hloc_lightglue_colmap": {
+      "mean_reprojection_error": 1.2447985031295767,
+      "median_reprojection_error": 1.2322734790679468,
+      "registered_images": 187,
+      "source_count": 4454,
+      "viewer_count": 4454
+    },
+    "lingbot_map": [
+      {
+        "artifact_name": "frame_000000.npz",
+        "frame_index": 0,
+        "intrinsic_source": "intrinsic",
+        "native_shape": [
+          224,
+          518
+        ],
+        "point_count": 12000,
+        "pose_available": true,
+        "published_in_geometry": true,
+        "source_kind": "depth_backprojection"
+      },
+      {
+        "artifact_name": "frame_000099.npz",
+        "frame_index": 99,
+        "intrinsic_source": "intrinsic",
+        "native_shape": [
+          224,
+          518
+        ],
+        "point_count": 12000,
+        "pose_available": true,
+        "published_in_geometry": true,
+        "source_kind": "depth_backprojection"
+      },
+      {
+        "artifact_name": "frame_000199.npz",
+        "frame_index": 199,
+        "intrinsic_source": "intrinsic",
+        "native_shape": [
+          224,
+          518
+        ],
+        "point_count": 12000,
+        "pose_available": true,
+        "published_in_geometry": true,
+        "source_kind": "depth_backprojection"
+      }
+    ],
+    "r3": [
+      {
+        "artifact_name": "000000.npy",
+        "frame_index": 0,
+        "intrinsic_source": "intrinsics",
+        "native_shape": [
+          210,
+          504
+        ],
+        "point_count": 12000,
+        "pose_available": true,
+        "published_in_geometry": true,
+        "source_kind": "depth_backprojection"
+      },
+      {
+        "artifact_name": "000099.npy",
+        "frame_index": 99,
+        "intrinsic_source": "intrinsics",
+        "native_shape": [
+          210,
+          504
+        ],
+        "point_count": 12000,
+        "pose_available": true,
+        "published_in_geometry": true,
+        "source_kind": "depth_backprojection"
+      },
+      {
+        "artifact_name": "000199.npy",
+        "frame_index": 199,
+        "intrinsic_source": "intrinsics",
+        "native_shape": [
+          210,
+          504
+        ],
+        "point_count": 12000,
+        "pose_available": true,
+        "published_in_geometry": true,
+        "source_kind": "depth_backprojection"
+      }
+    ]
+  },
+  "pose_semantics": "camera_pose_proxy",
+  "publication_boundary": {
+    "local_paths_redacted": true,
+    "point_cloud_publication": "approved_by_user",
+    "rendered_source_images_copied": false,
+    "scale_state": "relative_only",
+    "source_frames_copied": false,
+    "thumbnails_copied": false,
+    "videos_copied": false
+  },
+  "quality": {
+    "components": {
+      "contamination": null,
+      "method_completeness": 1.0,
+      "path_continuity": 0.935,
+      "reconstruction_spread": 0.1721959494359903,
+      "visual_clarity": null
+    },
+    "hero_score": 0.7637989873589976,
+    "score_confidence": 0.65,
+    "transparent_heuristic": true
+  },
+  "reconstruction": {
+    "backend": "VGGT Omega",
+    "backend_commit": "28433d042f63fefd6d5f549aa1a3f0ecf1b51a67",
+    "coordinate_frame": "omega_shared",
+    "frame_count": 200,
+    "point_count_source": 1000000,
+    "point_count_viewer": 80000,
+    "viewer_color_source": {
+      "color_key": "cols",
+      "point_key": "pts"
+    }
+  },
+  "scene_id": "2026-05-08_humvee_bayyadah_mmirleb_16048__seg01_seg02_seg03_seg04",
+  "schema_version": "2.1.0-hf-public",
+  "source": {
+    "dataset_repo": "Grimster/FPV_Hezbo",
+    "dataset_revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+    "description": "Humvee, al-Bayyada (dive drone)",
+    "scene_id": "seg01_seg02_seg03_seg04",
+    "slug": "2026-05-08_humvee_bayyadah_mmirleb_16048",
+    "town": "Al Bayada / Bayyadah",
+    "video_file": "2026-05-08_humvee_bayyadah_mmirleb_16048.mp4"
+  },
+  "title": "Humvee, al-Bayyada (dive drone)",
+  "warnings": [
+    "relative_only: no physical scale calibration is documented",
+    "camera_pose_proxy: vehicle-body attitude is unavailable",
+    "R3, LingBot and HLoc remain in separate method-native coordinate frames",
+    "source frames and videos are not copied into this bundle"
+  ]
+}

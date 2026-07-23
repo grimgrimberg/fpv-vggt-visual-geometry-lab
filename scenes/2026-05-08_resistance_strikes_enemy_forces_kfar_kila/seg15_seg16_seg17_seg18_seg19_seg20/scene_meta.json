@@ -1,0 +1,1386 @@
+{
+  "annotation": {
+    "auto_generated": true,
+    "intervals": [
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "banner_start",
+        "review_status": "auto_generated",
+        "source_index": 0,
+        "start_s": 0.0,
+        "type": "banner_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "replay_start",
+        "review_status": "auto_generated",
+        "source_index": 1,
+        "start_s": 0.0,
+        "type": "replay_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "flight_start",
+        "review_status": "auto_generated",
+        "source_index": 2,
+        "start_s": 0.0,
+        "type": "flight_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "pause_start",
+        "review_status": "auto_generated",
+        "source_index": 3,
+        "start_s": 0.0,
+        "type": "pause_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "flight_start",
+        "review_status": "auto_generated",
+        "source_index": 4,
+        "start_s": 0.0,
+        "type": "flight_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "replay_start",
+        "review_status": "auto_generated",
+        "source_index": 5,
+        "start_s": 0.0,
+        "type": "replay_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "replay_start",
+        "review_status": "auto_generated",
+        "source_index": 6,
+        "start_s": 0.0,
+        "type": "replay_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "pause_start",
+        "review_status": "auto_generated",
+        "source_index": 7,
+        "start_s": 0.0,
+        "type": "pause_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "flight_start",
+        "review_status": "auto_generated",
+        "source_index": 8,
+        "start_s": 0.0,
+        "type": "flight_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "flight_start",
+        "review_status": "auto_generated",
+        "source_index": 9,
+        "start_s": 0.0,
+        "type": "flight_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "pause_start",
+        "review_status": "auto_generated",
+        "source_index": 10,
+        "start_s": 0.0,
+        "type": "pause_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "flight_start",
+        "review_status": "auto_generated",
+        "source_index": 11,
+        "start_s": 0.0,
+        "type": "flight_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "replay_start",
+        "review_status": "auto_generated",
+        "source_index": 12,
+        "start_s": 0.0,
+        "type": "replay_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "pause_start",
+        "review_status": "auto_generated",
+        "source_index": 13,
+        "start_s": 0.0,
+        "type": "pause_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "replay_start",
+        "review_status": "auto_generated",
+        "source_index": 14,
+        "start_s": 0.0,
+        "type": "replay_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "flight_start",
+        "review_status": "auto_generated",
+        "source_index": 15,
+        "start_s": 0.0,
+        "type": "flight_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "replay_start",
+        "review_status": "auto_generated",
+        "source_index": 16,
+        "start_s": 0.0,
+        "type": "replay_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "replay_start",
+        "review_status": "auto_generated",
+        "source_index": 17,
+        "start_s": 0.0,
+        "type": "replay_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "pause_start",
+        "review_status": "auto_generated",
+        "source_index": 18,
+        "start_s": 0.0,
+        "type": "pause_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "flight_start",
+        "review_status": "auto_generated",
+        "source_index": 19,
+        "start_s": 0.0,
+        "type": "flight_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "pause_start",
+        "review_status": "auto_generated",
+        "source_index": 20,
+        "start_s": 0.0,
+        "type": "pause_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "flight_start",
+        "review_status": "auto_generated",
+        "source_index": 21,
+        "start_s": 0.0,
+        "type": "flight_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "replay_start",
+        "review_status": "auto_generated",
+        "source_index": 22,
+        "start_s": 0.0,
+        "type": "replay_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "replay_start",
+        "review_status": "auto_generated",
+        "source_index": 23,
+        "start_s": 0.0,
+        "type": "replay_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "pause_start",
+        "review_status": "auto_generated",
+        "source_index": 24,
+        "start_s": 0.0,
+        "type": "pause_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "flight_start",
+        "review_status": "auto_generated",
+        "source_index": 25,
+        "start_s": 0.0,
+        "type": "flight_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "pause_start",
+        "review_status": "auto_generated",
+        "source_index": 26,
+        "start_s": 0.0,
+        "type": "pause_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "flight_start",
+        "review_status": "auto_generated",
+        "source_index": 27,
+        "start_s": 0.0,
+        "type": "flight_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "replay_start",
+        "review_status": "auto_generated",
+        "source_index": 28,
+        "start_s": 0.0,
+        "type": "replay_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "replay_start",
+        "review_status": "auto_generated",
+        "source_index": 29,
+        "start_s": 0.0,
+        "type": "replay_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "pause_start",
+        "review_status": "auto_generated",
+        "source_index": 30,
+        "start_s": 0.0,
+        "type": "pause_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "flight_start",
+        "review_status": "auto_generated",
+        "source_index": 31,
+        "start_s": 0.0,
+        "type": "flight_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "flight_start",
+        "review_status": "auto_generated",
+        "source_index": 32,
+        "start_s": 0.0,
+        "type": "flight_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "pause_start",
+        "review_status": "auto_generated",
+        "source_index": 33,
+        "start_s": 0.0,
+        "type": "pause_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "flight_start",
+        "review_status": "auto_generated",
+        "source_index": 34,
+        "start_s": 0.0,
+        "type": "flight_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "replay_start",
+        "review_status": "auto_generated",
+        "source_index": 35,
+        "start_s": 0.0,
+        "type": "replay_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "pause_start",
+        "review_status": "auto_generated",
+        "source_index": 36,
+        "start_s": 0.0,
+        "type": "pause_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "replay_start",
+        "review_status": "auto_generated",
+        "source_index": 37,
+        "start_s": 0.0,
+        "type": "replay_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "pause_start",
+        "review_status": "auto_generated",
+        "source_index": 38,
+        "start_s": 0.0,
+        "type": "pause_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "flight_start",
+        "review_status": "auto_generated",
+        "source_index": 39,
+        "start_s": 0.0,
+        "type": "flight_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "replay_start",
+        "review_status": "auto_generated",
+        "source_index": 40,
+        "start_s": 0.0,
+        "type": "replay_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "replay_start",
+        "review_status": "auto_generated",
+        "source_index": 41,
+        "start_s": 0.0,
+        "type": "replay_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "other",
+        "review_status": "auto_generated",
+        "source_index": 42,
+        "start_s": 0.0,
+        "type": "other"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "pause_start",
+        "review_status": "auto_generated",
+        "source_index": 43,
+        "start_s": 0.0,
+        "type": "pause_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "flight_start",
+        "review_status": "auto_generated",
+        "source_index": 44,
+        "start_s": 0.0,
+        "type": "flight_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "pause_start",
+        "review_status": "auto_generated",
+        "source_index": 45,
+        "start_s": 0.0,
+        "type": "pause_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "flight_start",
+        "review_status": "auto_generated",
+        "source_index": 46,
+        "start_s": 0.0,
+        "type": "flight_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "pause_start",
+        "review_status": "auto_generated",
+        "source_index": 47,
+        "start_s": 0.0,
+        "type": "pause_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "flight_start",
+        "review_status": "auto_generated",
+        "source_index": 48,
+        "start_s": 0.0,
+        "type": "flight_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "pause_start",
+        "review_status": "auto_generated",
+        "source_index": 49,
+        "start_s": 0.0,
+        "type": "pause_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "flight_start",
+        "review_status": "auto_generated",
+        "source_index": 50,
+        "start_s": 0.0,
+        "type": "flight_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "pause_start",
+        "review_status": "auto_generated",
+        "source_index": 51,
+        "start_s": 0.0,
+        "type": "pause_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "flight_start",
+        "review_status": "auto_generated",
+        "source_index": 52,
+        "start_s": 0.0,
+        "type": "flight_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "pause_start",
+        "review_status": "auto_generated",
+        "source_index": 53,
+        "start_s": 0.0,
+        "type": "pause_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "flight_start",
+        "review_status": "auto_generated",
+        "source_index": 54,
+        "start_s": 0.0,
+        "type": "flight_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "pause_start",
+        "review_status": "auto_generated",
+        "source_index": 55,
+        "start_s": 0.0,
+        "type": "pause_start"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "other",
+        "review_status": "auto_generated",
+        "source_index": 56,
+        "start_s": 0.0,
+        "type": "other"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "other",
+        "review_status": "auto_generated",
+        "source_index": 57,
+        "start_s": 0.0,
+        "type": "other"
+      },
+      {
+        "comment": "",
+        "end_s": 33.166666666666664,
+        "label": "pause_start",
+        "review_status": "auto_generated",
+        "source_index": 58,
+        "start_s": 0.0,
+        "type": "pause_start"
+      }
+    ],
+    "kind": "auto_generated",
+    "local_source_path_embedded": false,
+    "segment_count": 59,
+    "source": "public cockpit catalog plus authenticated Hub artifact inventory",
+    "source_commit": "d2149395a983d889055ab423aff2f1a4b05ebebb"
+  },
+  "assets": {
+    "camera_path": {
+      "path": "camera_path.json"
+    },
+    "cameras": {
+      "path": "cameras.json"
+    },
+    "ground_alignment": {
+      "confidence": "high",
+      "path": "ground_alignment.json",
+      "recommended_default": true,
+      "status": "estimated"
+    },
+    "method_comparison": {
+      "alignment_policy": "method_native_not_aligned",
+      "path": "methods/method_comparison.json",
+      "sample_count": 3
+    },
+    "points_ply": {
+      "bytes": 1200233,
+      "path": "points.ply",
+      "sha256": "e9de884eeb69d1e0b412be8e9aef50b63c18eae30a4eda1880eb8e7953e00600"
+    },
+    "points_preview": {
+      "bytes": 960000,
+      "components": 3,
+      "dtype": "float32_le",
+      "path": "points_preview.bin",
+      "sha256": "5a70997b47b5c4999d7cda056f3dfed4f1d72e64c3d78bdc1c630cd37311465e",
+      "shape": [
+        80000,
+        3
+      ]
+    },
+    "points_preview_colors": {
+      "bytes": 240000,
+      "components": 3,
+      "dtype": "uint8",
+      "path": "points_preview_colors.bin",
+      "sha256": "b6a1dd2b493ff2ef8231d224b53f050ae0c342d40fc391b9ef8cb07872a06ef1",
+      "shape": [
+        80000,
+        3
+      ]
+    },
+    "pov": {
+      "reason": "source frames are not copied",
+      "samples": [],
+      "status": "not_published"
+    },
+    "reprojection": {
+      "reason": "rendered source-frame overlays are not copied",
+      "samples": [],
+      "status": "not_published"
+    },
+    "source_video": {
+      "copied": false,
+      "kind": "remote_public_reference",
+      "path": "https://d2fioemadmrru3.cloudfront.net/videos/2026-05-08_resistance_strikes_enemy_forces_kfar_kila.mp4",
+      "synchronization": "source_timestamp_sec"
+    },
+    "trajectory_profiles": {
+      "path": "trajectory_profiles.json"
+    }
+  },
+  "body_attitude": "unavailable",
+  "bounds": {
+    "max": [
+      0.14275388419628143,
+      0.23319467902183533,
+      -0.1545235961675644
+    ],
+    "min": [
+      -0.19214266538619995,
+      -0.033594463020563126,
+      -0.9193102121353149
+    ]
+  },
+  "calibration": {
+    "evidence": null,
+    "state": "relative_only"
+  },
+  "display_alignment": {
+    "confidence": "high",
+    "default": "estimated_ground",
+    "estimated_ground_available": true,
+    "raw_available": true,
+    "scale_status": "relative_only"
+  },
+  "display_units": "relative units",
+  "edit_segments": [
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "banner_start",
+      "review_status": "auto_generated",
+      "source_index": 0,
+      "start_s": 0.0,
+      "type": "banner_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "replay_start",
+      "review_status": "auto_generated",
+      "source_index": 1,
+      "start_s": 0.0,
+      "type": "replay_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "flight_start",
+      "review_status": "auto_generated",
+      "source_index": 2,
+      "start_s": 0.0,
+      "type": "flight_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "pause_start",
+      "review_status": "auto_generated",
+      "source_index": 3,
+      "start_s": 0.0,
+      "type": "pause_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "flight_start",
+      "review_status": "auto_generated",
+      "source_index": 4,
+      "start_s": 0.0,
+      "type": "flight_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "replay_start",
+      "review_status": "auto_generated",
+      "source_index": 5,
+      "start_s": 0.0,
+      "type": "replay_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "replay_start",
+      "review_status": "auto_generated",
+      "source_index": 6,
+      "start_s": 0.0,
+      "type": "replay_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "pause_start",
+      "review_status": "auto_generated",
+      "source_index": 7,
+      "start_s": 0.0,
+      "type": "pause_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "flight_start",
+      "review_status": "auto_generated",
+      "source_index": 8,
+      "start_s": 0.0,
+      "type": "flight_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "flight_start",
+      "review_status": "auto_generated",
+      "source_index": 9,
+      "start_s": 0.0,
+      "type": "flight_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "pause_start",
+      "review_status": "auto_generated",
+      "source_index": 10,
+      "start_s": 0.0,
+      "type": "pause_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "flight_start",
+      "review_status": "auto_generated",
+      "source_index": 11,
+      "start_s": 0.0,
+      "type": "flight_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "replay_start",
+      "review_status": "auto_generated",
+      "source_index": 12,
+      "start_s": 0.0,
+      "type": "replay_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "pause_start",
+      "review_status": "auto_generated",
+      "source_index": 13,
+      "start_s": 0.0,
+      "type": "pause_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "replay_start",
+      "review_status": "auto_generated",
+      "source_index": 14,
+      "start_s": 0.0,
+      "type": "replay_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "flight_start",
+      "review_status": "auto_generated",
+      "source_index": 15,
+      "start_s": 0.0,
+      "type": "flight_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "replay_start",
+      "review_status": "auto_generated",
+      "source_index": 16,
+      "start_s": 0.0,
+      "type": "replay_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "replay_start",
+      "review_status": "auto_generated",
+      "source_index": 17,
+      "start_s": 0.0,
+      "type": "replay_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "pause_start",
+      "review_status": "auto_generated",
+      "source_index": 18,
+      "start_s": 0.0,
+      "type": "pause_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "flight_start",
+      "review_status": "auto_generated",
+      "source_index": 19,
+      "start_s": 0.0,
+      "type": "flight_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "pause_start",
+      "review_status": "auto_generated",
+      "source_index": 20,
+      "start_s": 0.0,
+      "type": "pause_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "flight_start",
+      "review_status": "auto_generated",
+      "source_index": 21,
+      "start_s": 0.0,
+      "type": "flight_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "replay_start",
+      "review_status": "auto_generated",
+      "source_index": 22,
+      "start_s": 0.0,
+      "type": "replay_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "replay_start",
+      "review_status": "auto_generated",
+      "source_index": 23,
+      "start_s": 0.0,
+      "type": "replay_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "pause_start",
+      "review_status": "auto_generated",
+      "source_index": 24,
+      "start_s": 0.0,
+      "type": "pause_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "flight_start",
+      "review_status": "auto_generated",
+      "source_index": 25,
+      "start_s": 0.0,
+      "type": "flight_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "pause_start",
+      "review_status": "auto_generated",
+      "source_index": 26,
+      "start_s": 0.0,
+      "type": "pause_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "flight_start",
+      "review_status": "auto_generated",
+      "source_index": 27,
+      "start_s": 0.0,
+      "type": "flight_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "replay_start",
+      "review_status": "auto_generated",
+      "source_index": 28,
+      "start_s": 0.0,
+      "type": "replay_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "replay_start",
+      "review_status": "auto_generated",
+      "source_index": 29,
+      "start_s": 0.0,
+      "type": "replay_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "pause_start",
+      "review_status": "auto_generated",
+      "source_index": 30,
+      "start_s": 0.0,
+      "type": "pause_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "flight_start",
+      "review_status": "auto_generated",
+      "source_index": 31,
+      "start_s": 0.0,
+      "type": "flight_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "flight_start",
+      "review_status": "auto_generated",
+      "source_index": 32,
+      "start_s": 0.0,
+      "type": "flight_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "pause_start",
+      "review_status": "auto_generated",
+      "source_index": 33,
+      "start_s": 0.0,
+      "type": "pause_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "flight_start",
+      "review_status": "auto_generated",
+      "source_index": 34,
+      "start_s": 0.0,
+      "type": "flight_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "replay_start",
+      "review_status": "auto_generated",
+      "source_index": 35,
+      "start_s": 0.0,
+      "type": "replay_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "pause_start",
+      "review_status": "auto_generated",
+      "source_index": 36,
+      "start_s": 0.0,
+      "type": "pause_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "replay_start",
+      "review_status": "auto_generated",
+      "source_index": 37,
+      "start_s": 0.0,
+      "type": "replay_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "pause_start",
+      "review_status": "auto_generated",
+      "source_index": 38,
+      "start_s": 0.0,
+      "type": "pause_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "flight_start",
+      "review_status": "auto_generated",
+      "source_index": 39,
+      "start_s": 0.0,
+      "type": "flight_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "replay_start",
+      "review_status": "auto_generated",
+      "source_index": 40,
+      "start_s": 0.0,
+      "type": "replay_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "replay_start",
+      "review_status": "auto_generated",
+      "source_index": 41,
+      "start_s": 0.0,
+      "type": "replay_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "other",
+      "review_status": "auto_generated",
+      "source_index": 42,
+      "start_s": 0.0,
+      "type": "other"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "pause_start",
+      "review_status": "auto_generated",
+      "source_index": 43,
+      "start_s": 0.0,
+      "type": "pause_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "flight_start",
+      "review_status": "auto_generated",
+      "source_index": 44,
+      "start_s": 0.0,
+      "type": "flight_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "pause_start",
+      "review_status": "auto_generated",
+      "source_index": 45,
+      "start_s": 0.0,
+      "type": "pause_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "flight_start",
+      "review_status": "auto_generated",
+      "source_index": 46,
+      "start_s": 0.0,
+      "type": "flight_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "pause_start",
+      "review_status": "auto_generated",
+      "source_index": 47,
+      "start_s": 0.0,
+      "type": "pause_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "flight_start",
+      "review_status": "auto_generated",
+      "source_index": 48,
+      "start_s": 0.0,
+      "type": "flight_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "pause_start",
+      "review_status": "auto_generated",
+      "source_index": 49,
+      "start_s": 0.0,
+      "type": "pause_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "flight_start",
+      "review_status": "auto_generated",
+      "source_index": 50,
+      "start_s": 0.0,
+      "type": "flight_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "pause_start",
+      "review_status": "auto_generated",
+      "source_index": 51,
+      "start_s": 0.0,
+      "type": "pause_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "flight_start",
+      "review_status": "auto_generated",
+      "source_index": 52,
+      "start_s": 0.0,
+      "type": "flight_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "pause_start",
+      "review_status": "auto_generated",
+      "source_index": 53,
+      "start_s": 0.0,
+      "type": "pause_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "flight_start",
+      "review_status": "auto_generated",
+      "source_index": 54,
+      "start_s": 0.0,
+      "type": "flight_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "pause_start",
+      "review_status": "auto_generated",
+      "source_index": 55,
+      "start_s": 0.0,
+      "type": "pause_start"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "other",
+      "review_status": "auto_generated",
+      "source_index": 56,
+      "start_s": 0.0,
+      "type": "other"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "other",
+      "review_status": "auto_generated",
+      "source_index": 57,
+      "start_s": 0.0,
+      "type": "other"
+    },
+    {
+      "comment": "",
+      "end_s": 33.166666666666664,
+      "label": "pause_start",
+      "review_status": "auto_generated",
+      "source_index": 58,
+      "start_s": 0.0,
+      "type": "pause_start"
+    }
+  ],
+  "generated_at": "2026-07-23T19:58:02.519468Z",
+  "hub_inventory_evidence": {
+    "method_status": {
+      "full_native": true,
+      "hloc_lightglue_colmap": "done",
+      "hub_file_count": 1428,
+      "lingbot_frame_count": 200,
+      "lingbot_map": "done",
+      "r3": "done",
+      "r3_frame_count": 200,
+      "vggt_omega": "done"
+    },
+    "raw_hub_filenames_embedded": false,
+    "repo_id": "Grimster/FPV_Hezbo",
+    "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+    "scene_file_count": 1428
+  },
+  "layers": {
+    "calibrated": {
+      "reason": "no documented calibration",
+      "status": "absent"
+    },
+    "fitted": {
+      "coordinate_frame": "omega_shared",
+      "method": "cubic_smoothing_spline",
+      "path": "camera_path.json#layers.bspline"
+    },
+    "native_methods": {
+      "alignment": "exclusive_unaligned_frames",
+      "path": "methods/method_comparison.json"
+    },
+    "normalized": {
+      "coordinate_frame": "omega_shared",
+      "path": "camera_path.json#layers.raw",
+      "status": "identity_display_copy"
+    },
+    "raw": {
+      "coordinate_frame": "omega_shared",
+      "path": "camera_path.json#layers.raw",
+      "status": "available"
+    },
+    "smoothed": {
+      "coordinate_frame": "omega_shared",
+      "method": "constant_velocity_kalman_rts",
+      "path": "camera_path.json#layers.rts"
+    }
+  },
+  "methods": {
+    "hloc_lightglue_colmap": {
+      "assets": {
+        "native_cameras": "methods/native/hloc_registered_cameras.json"
+      },
+      "coordinate_frame": "hloc_native",
+      "pipeline": "HLoc + LightGlue + COLMAP sparse reconstruction",
+      "points3D": 6986,
+      "registered_images": 197,
+      "scale_status": "relative_only",
+      "status": "done"
+    },
+    "lingbot_map": {
+      "coordinate_frame": "lingbot_native",
+      "frame_artifact_count": 200,
+      "scale_status": "relative_only",
+      "status": "done"
+    },
+    "r3": {
+      "coordinate_frame": "r3_native",
+      "frame_artifact_count": 200,
+      "scale_status": "relative_only",
+      "status": "done"
+    },
+    "vggt_omega": {
+      "coordinate_frame": "omega_shared",
+      "scale_status": "relative_only",
+      "status": "done"
+    }
+  },
+  "native_preview_notes": {
+    "hloc_lightglue_colmap": {
+      "mean_reprojection_error": 1.2502994231944404,
+      "median_reprojection_error": 1.2236527134204698,
+      "registered_images": 197,
+      "source_count": 6986,
+      "viewer_count": 6986
+    },
+    "lingbot_map": [
+      {
+        "artifact_name": "frame_000000.npz",
+        "frame_index": 0,
+        "intrinsic_source": "intrinsic",
+        "native_shape": [
+          224,
+          518
+        ],
+        "point_count": 12000,
+        "pose_available": true,
+        "published_in_geometry": true,
+        "source_kind": "depth_backprojection"
+      },
+      {
+        "artifact_name": "frame_000099.npz",
+        "frame_index": 99,
+        "intrinsic_source": "intrinsic",
+        "native_shape": [
+          224,
+          518
+        ],
+        "point_count": 12000,
+        "pose_available": true,
+        "published_in_geometry": true,
+        "source_kind": "depth_backprojection"
+      },
+      {
+        "artifact_name": "frame_000199.npz",
+        "frame_index": 199,
+        "intrinsic_source": "intrinsic",
+        "native_shape": [
+          224,
+          518
+        ],
+        "point_count": 12000,
+        "pose_available": true,
+        "published_in_geometry": true,
+        "source_kind": "depth_backprojection"
+      }
+    ],
+    "r3": [
+      {
+        "artifact_name": "000000.npy",
+        "frame_index": 0,
+        "intrinsic_source": "intrinsics",
+        "native_shape": [
+          210,
+          504
+        ],
+        "point_count": 12000,
+        "pose_available": true,
+        "published_in_geometry": true,
+        "source_kind": "depth_backprojection"
+      },
+      {
+        "artifact_name": "000099.npy",
+        "frame_index": 99,
+        "intrinsic_source": "intrinsics",
+        "native_shape": [
+          210,
+          504
+        ],
+        "point_count": 12000,
+        "pose_available": true,
+        "published_in_geometry": true,
+        "source_kind": "depth_backprojection"
+      },
+      {
+        "artifact_name": "000199.npy",
+        "frame_index": 199,
+        "intrinsic_source": "intrinsics",
+        "native_shape": [
+          210,
+          504
+        ],
+        "point_count": 12000,
+        "pose_available": true,
+        "published_in_geometry": true,
+        "source_kind": "depth_backprojection"
+      }
+    ]
+  },
+  "pose_semantics": "camera_pose_proxy",
+  "publication_boundary": {
+    "local_paths_redacted": true,
+    "point_cloud_publication": "approved_by_user",
+    "rendered_source_images_copied": false,
+    "scale_state": "relative_only",
+    "source_frames_copied": false,
+    "thumbnails_copied": false,
+    "videos_copied": false
+  },
+  "quality": {
+    "components": {
+      "contamination": null,
+      "method_completeness": 1.0,
+      "path_continuity": 0.91,
+      "reconstruction_spread": 0.5776884301281435,
+      "visual_clarity": null
+    },
+    "hero_score": 0.853922107532036,
+    "score_confidence": 0.65,
+    "transparent_heuristic": true
+  },
+  "reconstruction": {
+    "backend": "VGGT Omega",
+    "backend_commit": "28433d042f63fefd6d5f549aa1a3f0ecf1b51a67",
+    "coordinate_frame": "omega_shared",
+    "frame_count": 200,
+    "point_count_source": 1000000,
+    "point_count_viewer": 80000,
+    "viewer_color_source": {
+      "color_key": "cols",
+      "point_key": "pts"
+    }
+  },
+  "scene_id": "2026-05-08_resistance_strikes_enemy_forces_kfar_kila__seg15_seg16_seg17_seg18_seg19_seg20",
+  "schema_version": "2.1.0-hf-public",
+  "source": {
+    "dataset_repo": "Grimster/FPV_Hezbo",
+    "dataset_revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+    "description": "Series of resistance strikes on Israeli army forces, Rashaf (swarm of Ababil dive drones)",
+    "scene_id": "seg15_seg16_seg17_seg18_seg19_seg20",
+    "slug": "2026-05-08_resistance_strikes_enemy_forces_kfar_kila",
+    "town": "Rachaf / Rashaf",
+    "video_file": "2026-05-08_resistance_strikes_enemy_forces_kfar_kila.mp4"
+  },
+  "title": "Series of resistance strikes on Israeli army forces, Rashaf (swarm of Ababil dive drones)",
+  "warnings": [
+    "relative_only: no physical scale calibration is documented",
+    "camera_pose_proxy: vehicle-body attitude is unavailable",
+    "R3, LingBot and HLoc remain in separate method-native coordinate frames",
+    "source frames and videos are not copied into this bundle"
+  ]
+}

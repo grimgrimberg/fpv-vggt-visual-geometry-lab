@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Military vehicle, Khallet al-Raj in Deir Siryan (dive drone) · FPV Geometry Lab</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../../../assets/local-viewer/styles.css">
+  <link rel="stylesheet" href="../../../assets/local-viewer/video-addon.css">
+  <link rel="stylesheet" href="../../../assets/local-viewer/method-comparison-addon.css">
+  <link rel="stylesheet" href="../../../assets/local-viewer/sixdof-addon.css">
+  <link rel="stylesheet" href="../../../assets/local-viewer/scene-reference-addon.css">
+  <link rel="stylesheet" href="../../../assets/local-viewer/method-scene3d.css">
+</head>
+<body>
+  <header class="masthead">
+    <div class="brand"><span class="brand-mark" aria-hidden="true"></span><strong>FPV GEOMETRY LAB</strong><span>V2 research cockpit</span></div>
+    <div class="scene-heading"><span id="scene-title">Loading scene</span><span id="relative-only-badge" class="badge">relative only</span></div>
+    <div id="run-status" class="run-status"><span class="status-dot"></span>authenticated Hub bundle</div>
+  </header>
+  <main class="cockpit">
+    <nav class="mode-rail" aria-label="Scene layers">
+      <button class="mode active" type="button" data-layer="points" aria-pressed="true"><span>01</span>Geometry</button>
+      <button id="layer-raw" class="mode active" type="button" data-layer="raw" aria-pressed="true"><span>02</span>Raw path</button>
+      <button id="layer-fitted" class="mode" type="button" data-layer="bspline" aria-pressed="false"><span>03</span>B-spline</button>
+      <button id="layer-smoothed" class="mode active" type="button" data-layer="rts" aria-pressed="true"><span>04</span>Kalman / RTS</button>
+      <button class="mode" type="button" data-layer="depth" aria-pressed="false"><span>05</span>R3 / LingBot</button>
+      <button class="mode" type="button" data-layer="matches" aria-pressed="false"><span>06</span>HLoc</button>
+      <button class="mode" type="button" data-layer="masks" aria-pressed="false"><span>07</span>Edit data</button>
+    </nav>
+    <section class="scene-workspace" aria-label="Reconstructed scene">
+      <canvas id="scene-canvas" aria-label="Interactive relative point cloud, camera paths, and camera pose proxy"></canvas>
+      <div id="method-scene3d" hidden></div>
+      <div class="canvas-topline">
+        <span><b id="point-count">—</b> viewer points</span>
+        <span><b id="frame-count">—</b> recovered poses</span>
+        <span id="pose-warning">camera pose proxy · body attitude unavailable</span>
+      </div>
+      <div class="axis-key" aria-hidden="true"><i class="axis x"></i>X <i class="axis y"></i>Y <i class="axis z"></i>Z</div>
+      <div class="view-help">drag to orbit · wheel to scale · switch native method frames above</div>
+      <div id="canvas-fallback" class="sr-only">Relative point cloud with raw, fitted, smoothed, and method-native layers.</div>
+    </section>
+    <aside class="inspector">
+      <div class="inspector-head"><span>Scene evidence</span><b id="hero-score">—</b></div>
+      <section class="evidence-block"><h2>Provenance</h2><dl id="provenance"></dl></section>
+      <section class="evidence-block"><h2>Method ensemble</h2><div id="method-list" class="method-list"></div></section>
+      <section class="evidence-block grow"><h2>Artifact inspector</h2><div id="raw-inspector" class="raw-inspector"></div></section>
+      <section class="warning-block" id="warning-list"></section>
+    </aside>
+    <section class="timeline-panel">
+      <div class="timeline-head">
+        <div><b id="pose-readout">0.000 source s</b><span id="edit-readout">flight interval</span></div>
+        <div class="transport"><button id="step-back" type="button" aria-label="Previous pose">−</button><button id="play-toggle" type="button">Play</button><button id="step-forward" type="button" aria-label="Next pose">+</button></div>
+      </div>
+      <div id="edit-timeline" role="img" aria-label="Edit segmentation timeline"></div>
+      <input id="pose-slider" type="range" min="0" max="1" value="0" step="1" aria-label="Pose sample">
+    </section>
+    <section class="analysis-strip">
+      <article class="pov-panel">
+        <div class="panel-label"><span>Recorded POV</span><b id="pov-time">remote player</b></div>
+        <img id="pov-frame" alt="">
+        <div id="pov-empty" class="empty-state">Source frames are not copied; use the synchronized public video panel.</div>
+      </article>
+      <article class="state-panel">
+        <div class="panel-label"><span>Scale-free state space</span><b>speed · residual · phase</b></div>
+        <canvas id="state-canvas" aria-label="Relative speed, smoothing residual, and phase portrait"></canvas>
+        <div id="state-readout" class="state-readout" aria-live="polite">Select a pose to inspect state signals.</div>
+      </article>
+    </section>
+  </main>
+  <script src="../../../assets/local-viewer/app.js"></script>
+  <script src="../../../assets/local-viewer/video-addon.js"></script>
+  <script src="../../../assets/local-viewer/method-comparison-addon.js"></script>
+  <script src="../../../assets/local-viewer/sixdof-addon.js"></script>
+  <script src="../../../assets/local-viewer/scene-reference-addon.js"></script>
+  <script src="../../../assets/local-viewer/playback-sync-bridge.js"></script>
+  <script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.164.1/build/three.module.js","three/addons/":"https://unpkg.com/three@0.164.1/examples/jsm/"}}</script>
+  <script type="module" src="../../../assets/local-viewer/method-scene3d.js"></script>
+</body>
+</html>

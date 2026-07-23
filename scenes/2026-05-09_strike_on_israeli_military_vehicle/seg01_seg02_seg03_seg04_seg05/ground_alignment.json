@@ -1,0 +1,93 @@
+{
+  "aligned_bounds": {
+    "max": [
+      0.013204821167009877,
+      0.005351103508152351,
+      -0.010353584226162775
+    ],
+    "min": [
+      -0.08280789251156265,
+      -0.01282223664999662,
+      -0.06762048460682521
+    ]
+  },
+  "calibration_state": "uncalibrated_display_alignment",
+  "confidence": "high",
+  "display_transform": {
+    "preserves_relative_scale": true,
+    "rotation_3x3": [
+      [
+        0.9997686422724228,
+        0.020858319525515118,
+        0.005252850209926236
+      ],
+      [
+        -0.020858319525515118,
+        0.8805055616013523,
+        0.47357669547356196
+      ],
+      [
+        0.005252850209926236,
+        -0.47357669547356196,
+        0.8807369193289296
+      ]
+    ],
+    "source_frame": "omega_shared",
+    "target_frame": "estimated_ground_y_up",
+    "translation": [
+      0.0,
+      0.019005757552418116,
+      0.0
+    ]
+  },
+  "inputs": {
+    "camera_path": {
+      "count": 200,
+      "path": "camera_path.json"
+    },
+    "points_preview": {
+      "count": 80000,
+      "path": "points_preview.bin",
+      "sha256": "5e4156551ebde99062e6caa4c886fd934c22eeede9c38b42662da13503696591"
+    }
+  },
+  "method": "deterministic_ransac_plane_with_weak_y_up_prior",
+  "plane": {
+    "normal_source": [
+      -0.020858319525515118,
+      0.8805055616013523,
+      0.47357669547356196
+    ],
+    "offset_source": 0.019005757552418116,
+    "ransac_threshold_relative_to_diagonal": 0.012
+  },
+  "quality": {
+    "camera_above_ratio": 0.99,
+    "confidence_gates": {
+      "camera_above_ratio_min": 0.8,
+      "inlier_ratio_min": 0.2,
+      "median_abs_residual_relative_max": 0.006,
+      "normal_y_prior_abs_min": 0.76,
+      "p95_abs_residual_relative_max": 0.015,
+      "passed": true
+    },
+    "inlier_count": 6637,
+    "inlier_ratio": 0.5530833333333334,
+    "median_abs_residual_relative": 0.005324276121150588,
+    "median_camera_clearance_relative": 0.03992709923986929,
+    "normal_y_prior_abs": 0.8805055616013523,
+    "p95_abs_residual_relative": 0.011203133658656963,
+    "sampled_point_count": 12000,
+    "source_point_count": 80000
+  },
+  "recommended_default": true,
+  "scale_status": "relative_only",
+  "scene_id": "2026-05-09_strike_on_israeli_military_vehicle__seg01_seg02_seg03_seg04_seg05",
+  "schema_version": "1.0.0",
+  "status": "estimated",
+  "warnings": [
+    "Estimated display plane only; not physical calibration.",
+    "A weak reconstruction-Y prior rejects likely vertical facades.",
+    "Raw points, cameras, and trajectory artifacts remain unchanged."
+  ]
+}

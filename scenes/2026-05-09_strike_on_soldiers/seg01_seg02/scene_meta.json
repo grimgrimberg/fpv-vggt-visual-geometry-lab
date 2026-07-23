@@ -1,0 +1,414 @@
+{
+  "annotation": {
+    "auto_generated": false,
+    "intervals": [
+      {
+        "comment": "",
+        "end_s": 7.333333333333333,
+        "label": "banner_start",
+        "review_status": "manual_ground_truth",
+        "source_index": 0,
+        "start_s": 0.0,
+        "type": "banner_start"
+      },
+      {
+        "comment": "",
+        "end_s": 7.333333333333333,
+        "label": "flight_start",
+        "review_status": "manual_ground_truth",
+        "source_index": 1,
+        "start_s": 0.0,
+        "type": "flight_start"
+      },
+      {
+        "comment": "",
+        "end_s": 7.333333333333333,
+        "label": "other",
+        "review_status": "manual_ground_truth",
+        "source_index": 2,
+        "start_s": 0.0,
+        "type": "other"
+      },
+      {
+        "comment": "",
+        "end_s": 7.333333333333333,
+        "label": "flight_start",
+        "review_status": "manual_ground_truth",
+        "source_index": 3,
+        "start_s": 0.0,
+        "type": "flight_start"
+      },
+      {
+        "comment": "",
+        "end_s": 7.333333333333333,
+        "label": "replay_start",
+        "review_status": "manual_ground_truth",
+        "source_index": 4,
+        "start_s": 0.0,
+        "type": "replay_start"
+      }
+    ],
+    "kind": "manual_ground_truth",
+    "local_source_path_embedded": false,
+    "segment_count": 5,
+    "source": "public cockpit catalog plus authenticated Hub artifact inventory",
+    "source_commit": "d2149395a983d889055ab423aff2f1a4b05ebebb"
+  },
+  "assets": {
+    "camera_path": {
+      "path": "camera_path.json"
+    },
+    "cameras": {
+      "path": "cameras.json"
+    },
+    "ground_alignment": {
+      "confidence": "low",
+      "path": "ground_alignment.json",
+      "recommended_default": false,
+      "status": "rejected"
+    },
+    "method_comparison": {
+      "alignment_policy": "method_native_not_aligned",
+      "path": "methods/method_comparison.json",
+      "sample_count": 3
+    },
+    "points_ply": {
+      "bytes": 1200233,
+      "path": "points.ply",
+      "sha256": "031c0a0a042734e32622b874105b86715cfc29250fd93e37d0f2ec229b4ff77a"
+    },
+    "points_preview": {
+      "bytes": 960000,
+      "components": 3,
+      "dtype": "float32_le",
+      "path": "points_preview.bin",
+      "sha256": "a285d61314fb7a69ee068591d11764266ed5272e3a93db3fdb8a3f9e97b39ae3",
+      "shape": [
+        80000,
+        3
+      ]
+    },
+    "points_preview_colors": {
+      "bytes": 240000,
+      "components": 3,
+      "dtype": "uint8",
+      "path": "points_preview_colors.bin",
+      "sha256": "96381c6826ac7a78a3365fab2b33fbfd0458de48bdf98e3660999f10b39424e8",
+      "shape": [
+        80000,
+        3
+      ]
+    },
+    "pov": {
+      "reason": "source frames are not copied",
+      "samples": [],
+      "status": "not_published"
+    },
+    "reprojection": {
+      "reason": "rendered source-frame overlays are not copied",
+      "samples": [],
+      "status": "not_published"
+    },
+    "source_video": {
+      "copied": false,
+      "kind": "remote_public_reference",
+      "path": "https://d2fioemadmrru3.cloudfront.net/videos/2026-05-09_strike_on_soldiers.mp4",
+      "synchronization": "source_timestamp_sec"
+    },
+    "trajectory_profiles": {
+      "path": "trajectory_profiles.json"
+    }
+  },
+  "body_attitude": "unavailable",
+  "bounds": {
+    "max": [
+      0.06482736021280289,
+      0.25707677006721497,
+      0.1584615260362625
+    ],
+    "min": [
+      -0.13088689744472504,
+      -0.25339627265930176,
+      -0.2453979104757309
+    ]
+  },
+  "calibration": {
+    "evidence": null,
+    "state": "relative_only"
+  },
+  "display_alignment": {
+    "confidence": "low",
+    "default": "raw",
+    "estimated_ground_available": false,
+    "raw_available": true,
+    "scale_status": "relative_only"
+  },
+  "display_units": "relative units",
+  "edit_segments": [
+    {
+      "comment": "",
+      "end_s": 7.333333333333333,
+      "label": "banner_start",
+      "review_status": "manual_ground_truth",
+      "source_index": 0,
+      "start_s": 0.0,
+      "type": "banner_start"
+    },
+    {
+      "comment": "",
+      "end_s": 7.333333333333333,
+      "label": "flight_start",
+      "review_status": "manual_ground_truth",
+      "source_index": 1,
+      "start_s": 0.0,
+      "type": "flight_start"
+    },
+    {
+      "comment": "",
+      "end_s": 7.333333333333333,
+      "label": "other",
+      "review_status": "manual_ground_truth",
+      "source_index": 2,
+      "start_s": 0.0,
+      "type": "other"
+    },
+    {
+      "comment": "",
+      "end_s": 7.333333333333333,
+      "label": "flight_start",
+      "review_status": "manual_ground_truth",
+      "source_index": 3,
+      "start_s": 0.0,
+      "type": "flight_start"
+    },
+    {
+      "comment": "",
+      "end_s": 7.333333333333333,
+      "label": "replay_start",
+      "review_status": "manual_ground_truth",
+      "source_index": 4,
+      "start_s": 0.0,
+      "type": "replay_start"
+    }
+  ],
+  "generated_at": "2026-07-23T19:41:08.867356Z",
+  "hub_inventory_evidence": {
+    "method_status": {
+      "full_native": true,
+      "hloc_lightglue_colmap": "done",
+      "hub_file_count": 343,
+      "lingbot_frame_count": 45,
+      "lingbot_map": "done",
+      "r3": "done",
+      "r3_frame_count": 45,
+      "vggt_omega": "done"
+    },
+    "raw_hub_filenames_embedded": false,
+    "repo_id": "Grimster/FPV_Hezbo",
+    "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+    "scene_file_count": 343
+  },
+  "layers": {
+    "calibrated": {
+      "reason": "no documented calibration",
+      "status": "absent"
+    },
+    "fitted": {
+      "coordinate_frame": "omega_shared",
+      "method": "cubic_smoothing_spline",
+      "path": "camera_path.json#layers.bspline"
+    },
+    "native_methods": {
+      "alignment": "exclusive_unaligned_frames",
+      "path": "methods/method_comparison.json"
+    },
+    "normalized": {
+      "coordinate_frame": "omega_shared",
+      "path": "camera_path.json#layers.raw",
+      "status": "identity_display_copy"
+    },
+    "raw": {
+      "coordinate_frame": "omega_shared",
+      "path": "camera_path.json#layers.raw",
+      "status": "available"
+    },
+    "smoothed": {
+      "coordinate_frame": "omega_shared",
+      "method": "constant_velocity_kalman_rts",
+      "path": "camera_path.json#layers.rts"
+    }
+  },
+  "methods": {
+    "hloc_lightglue_colmap": {
+      "assets": {
+        "native_cameras": "methods/native/hloc_registered_cameras.json"
+      },
+      "coordinate_frame": "hloc_native",
+      "pipeline": "HLoc + LightGlue + COLMAP sparse reconstruction",
+      "points3D": 913,
+      "registered_images": 24,
+      "scale_status": "relative_only",
+      "status": "done"
+    },
+    "lingbot_map": {
+      "coordinate_frame": "lingbot_native",
+      "frame_artifact_count": 45,
+      "scale_status": "relative_only",
+      "status": "done"
+    },
+    "r3": {
+      "coordinate_frame": "r3_native",
+      "frame_artifact_count": 45,
+      "scale_status": "relative_only",
+      "status": "done"
+    },
+    "vggt_omega": {
+      "coordinate_frame": "omega_shared",
+      "scale_status": "relative_only",
+      "status": "done"
+    }
+  },
+  "native_preview_notes": {
+    "hloc_lightglue_colmap": {
+      "mean_reprojection_error": 1.3148375708691131,
+      "median_reprojection_error": 1.3040103218556471,
+      "registered_images": 24,
+      "source_count": 913,
+      "viewer_count": 913
+    },
+    "lingbot_map": [
+      {
+        "artifact_name": "frame_000000.npz",
+        "frame_index": 0,
+        "intrinsic_source": "intrinsic",
+        "native_shape": [
+          224,
+          518
+        ],
+        "point_count": 12000,
+        "pose_available": true,
+        "published_in_geometry": true,
+        "source_kind": "depth_backprojection"
+      },
+      {
+        "artifact_name": "frame_000022.npz",
+        "frame_index": 22,
+        "intrinsic_source": "intrinsic",
+        "native_shape": [
+          224,
+          518
+        ],
+        "point_count": 12000,
+        "pose_available": true,
+        "published_in_geometry": true,
+        "source_kind": "depth_backprojection"
+      },
+      {
+        "artifact_name": "frame_000044.npz",
+        "frame_index": 44,
+        "intrinsic_source": "intrinsic",
+        "native_shape": [
+          224,
+          518
+        ],
+        "point_count": 12000,
+        "pose_available": true,
+        "published_in_geometry": true,
+        "source_kind": "depth_backprojection"
+      }
+    ],
+    "r3": [
+      {
+        "artifact_name": "000000.npy",
+        "frame_index": 0,
+        "intrinsic_source": "intrinsics",
+        "native_shape": [
+          210,
+          504
+        ],
+        "point_count": 12000,
+        "pose_available": true,
+        "published_in_geometry": true,
+        "source_kind": "depth_backprojection"
+      },
+      {
+        "artifact_name": "000022.npy",
+        "frame_index": 22,
+        "intrinsic_source": "intrinsics",
+        "native_shape": [
+          210,
+          504
+        ],
+        "point_count": 12000,
+        "pose_available": true,
+        "published_in_geometry": true,
+        "source_kind": "depth_backprojection"
+      },
+      {
+        "artifact_name": "000044.npy",
+        "frame_index": 44,
+        "intrinsic_source": "intrinsics",
+        "native_shape": [
+          210,
+          504
+        ],
+        "point_count": 12000,
+        "pose_available": true,
+        "published_in_geometry": true,
+        "source_kind": "depth_backprojection"
+      }
+    ]
+  },
+  "pose_semantics": "camera_pose_proxy",
+  "publication_boundary": {
+    "local_paths_redacted": true,
+    "point_cloud_publication": "approved_by_user",
+    "rendered_source_images_copied": false,
+    "scale_state": "relative_only",
+    "source_frames_copied": false,
+    "thumbnails_copied": false,
+    "videos_copied": false
+  },
+  "quality": {
+    "components": {
+      "contamination": null,
+      "method_completeness": 1.0,
+      "path_continuity": 1.0,
+      "reconstruction_spread": 0.2954589595877538,
+      "visual_clarity": null
+    },
+    "hero_score": 0.8238647398969385,
+    "score_confidence": 0.65,
+    "transparent_heuristic": true
+  },
+  "reconstruction": {
+    "backend": "VGGT Omega",
+    "backend_commit": "28433d042f63fefd6d5f549aa1a3f0ecf1b51a67",
+    "coordinate_frame": "omega_shared",
+    "frame_count": 45,
+    "point_count_source": 1000000,
+    "point_count_viewer": 80000,
+    "viewer_color_source": {
+      "color_key": "cols",
+      "point_key": "pts"
+    }
+  },
+  "scene_id": "2026-05-09_strike_on_soldiers__seg01_seg02",
+  "schema_version": "2.1.0-hf-public",
+  "source": {
+    "dataset_repo": "Grimster/FPV_Hezbo",
+    "dataset_revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+    "description": "Soldier gathering, Jal al-Alam site on the Lebanese border (dive drone)",
+    "scene_id": "seg01_seg02",
+    "slug": "2026-05-09_strike_on_soldiers",
+    "town": "Jal al-Alam site, border",
+    "video_file": "2026-05-09_strike_on_soldiers.mp4"
+  },
+  "title": "Soldier gathering, Jal al-Alam site on the Lebanese border (dive drone)",
+  "warnings": [
+    "relative_only: no physical scale calibration is documented",
+    "camera_pose_proxy: vehicle-body attitude is unavailable",
+    "R3, LingBot and HLoc remain in separate method-native coordinate frames",
+    "source frames and videos are not copied into this bundle"
+  ]
+}

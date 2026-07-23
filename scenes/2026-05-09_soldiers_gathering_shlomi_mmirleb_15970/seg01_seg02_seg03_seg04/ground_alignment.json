@@ -1,0 +1,36 @@
+{
+  "calibration_state": "uncalibrated_display_alignment",
+  "confidence": "low",
+  "display_transform": null,
+  "method": "deterministic_ransac_plane_with_weak_y_up_prior",
+  "quality": {
+    "camera_above_ratio": 0.71,
+    "confidence_gates": {
+      "camera_above_ratio_min": 0.8,
+      "inlier_ratio_min": 0.2,
+      "median_abs_residual_relative_max": 0.006,
+      "normal_y_prior_abs_min": 0.76,
+      "p95_abs_residual_relative_max": 0.015,
+      "passed": false
+    },
+    "inlier_count": 9077,
+    "inlier_ratio": 0.7564166666666666,
+    "median_abs_residual_relative": 0.004464886258438838,
+    "median_camera_clearance_relative": 0.006291495796617828,
+    "normal_y_prior_abs": 0.9942903583735208,
+    "p95_abs_residual_relative": 0.010882916229811362,
+    "sampled_point_count": 12000,
+    "source_point_count": 80000
+  },
+  "reason": "plane_candidate_failed_high_confidence_gate",
+  "recommended_default": false,
+  "scale_status": "relative_only",
+  "scene_id": "2026-05-09_soldiers_gathering_shlomi_mmirleb_15970__seg01_seg02_seg03_seg04",
+  "schema_version": "1.0.0",
+  "status": "rejected",
+  "warnings": [
+    "No ground display transform is activated without high confidence.",
+    "This is a display-plane estimate, never physical calibration.",
+    "Raw points, cameras, and trajectory artifacts remain unchanged."
+  ]
+}

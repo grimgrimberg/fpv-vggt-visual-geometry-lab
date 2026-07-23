@@ -1,0 +1,36 @@
+{
+  "coordinate_frame": "r3_native",
+  "interframe_semantics": "native camera-to-world transforms applied",
+  "sample_policy": "three_evenly_spaced_native_frames",
+  "samples": [
+    {
+      "center": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "frame_index": 0,
+      "pose_source": "pose"
+    },
+    {
+      "center": [
+        -0.023146839812397957,
+        0.0044735814444720745,
+        -0.05002289265394211
+      ],
+      "frame_index": 99,
+      "pose_source": "pose"
+    },
+    {
+      "center": [
+        -0.34798985719680786,
+        -0.6797485947608948,
+        1.9017189741134644
+      ],
+      "frame_index": 199,
+      "pose_source": "pose"
+    }
+  ],
+  "scale_status": "relative_only",
+  "schema_version": "1.0.0"
+}

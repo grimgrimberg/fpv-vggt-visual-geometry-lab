@@ -205,7 +205,7 @@
     ]
   ],
   "connected_component_count": 1,
-  "database": "D:\\Drone_Analysis_Dynamics\\runpod_sync\\selected_scene_archive\\seg01\\other_models\\hloc_lightglue\\sparse\\database.db",
+  "database": "unpublished_source_cache/selected_scene_archive/seg01/other_models/hloc_lightglue/sparse/database.db",
   "degree": {
     "f_000001.jpg": 13,
     "f_000002.jpg": 14,

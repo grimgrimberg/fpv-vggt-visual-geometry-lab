@@ -1,5 +1,5 @@
 {
-  "scene": "/workspace/data/vggt_omega/2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan/seg01",
+  "scene": "hf_dataset_snapshot/vggt_omega/2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan/seg01",
   "input_frames": 200,
   "pairs": 2405,
   "registered_images": 200,

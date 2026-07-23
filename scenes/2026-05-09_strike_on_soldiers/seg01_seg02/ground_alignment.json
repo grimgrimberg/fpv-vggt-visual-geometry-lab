@@ -1,0 +1,36 @@
+{
+  "calibration_state": "uncalibrated_display_alignment",
+  "confidence": "low",
+  "display_transform": null,
+  "method": "deterministic_ransac_plane_with_weak_y_up_prior",
+  "quality": {
+    "camera_above_ratio": 0.5555555555555556,
+    "confidence_gates": {
+      "camera_above_ratio_min": 0.8,
+      "inlier_ratio_min": 0.2,
+      "median_abs_residual_relative_max": 0.006,
+      "normal_y_prior_abs_min": 0.76,
+      "p95_abs_residual_relative_max": 0.015,
+      "passed": false
+    },
+    "inlier_count": 3362,
+    "inlier_ratio": 0.2801666666666667,
+    "median_abs_residual_relative": 0.0054512436097101675,
+    "median_camera_clearance_relative": 0.01301975402063248,
+    "normal_y_prior_abs": 0.6751691481989978,
+    "p95_abs_residual_relative": 0.011294166201712802,
+    "sampled_point_count": 12000,
+    "source_point_count": 80000
+  },
+  "reason": "plane_candidate_failed_high_confidence_gate",
+  "recommended_default": false,
+  "scale_status": "relative_only",
+  "scene_id": "2026-05-09_strike_on_soldiers__seg01_seg02",
+  "schema_version": "1.0.0",
+  "status": "rejected",
+  "warnings": [
+    "No ground display transform is activated without high confidence.",
+    "This is a display-plane estimate, never physical calibration.",
+    "Raw points, cameras, and trajectory artifacts remain unchanged."
+  ]
+}

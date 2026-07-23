@@ -1,0 +1,36 @@
+{
+  "coordinate_frame": "lingbot_native",
+  "interframe_semantics": "native camera-to-world transforms applied",
+  "sample_policy": "three_evenly_spaced_native_frames",
+  "samples": [
+    {
+      "center": [
+        0.0031371094045749477,
+        0.0018209369562983979,
+        0.00036529732508957396
+      ],
+      "frame_index": 0,
+      "pose_source": "inverted:extrinsic"
+    },
+    {
+      "center": [
+        0.17560026308884646,
+        0.060115476488886266,
+        0.6818762508189113
+      ],
+      "frame_index": 99,
+      "pose_source": "inverted:extrinsic"
+    },
+    {
+      "center": [
+        -0.4231431461460459,
+        -0.11713703691607957,
+        1.399387884102289
+      ],
+      "frame_index": 199,
+      "pose_source": "inverted:extrinsic"
+    }
+  ],
+  "scale_status": "relative_only",
+  "schema_version": "1.0.0"
+}

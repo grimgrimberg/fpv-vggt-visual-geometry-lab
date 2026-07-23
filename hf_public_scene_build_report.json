@@ -1,0 +1,172 @@
+{
+  "built_scene_count": 5,
+  "catalog_counts": {
+    "annotation_records": 142,
+    "catalog_records": 161,
+    "detailed_geometry_scenes": 12,
+    "hf_native_scenes_built_this_pass": 5,
+    "hub_full_native_scene_candidates": 10,
+    "vggt_done_records": 139,
+    "annotation_source_records": 143,
+    "vggt_partial_records": 1
+  },
+  "generated_at": "2026-07-23T19:58:24.340187Z",
+  "outcomes": [
+    {
+      "counts_toward_target": true,
+      "route": "scenes/2026-05-06_strike_on_namer_apc_near_qouzah/seg01_seg02/index.html",
+      "scene_id": "seg01_seg02",
+      "slug": "2026-05-06_strike_on_namer_apc_near_qouzah",
+      "status": "preserved_existing"
+    },
+    {
+      "counts_toward_target": true,
+      "route": "scenes/2026-05-08_merkava_tank_bayyadah_mmirleb_16051/seg01_seg02/index.html",
+      "scene_id": "seg01_seg02",
+      "slug": "2026-05-08_merkava_tank_bayyadah_mmirleb_16051",
+      "status": "preserved_existing"
+    },
+    {
+      "counts_toward_target": true,
+      "route": "scenes/2026-05-07_strike_on_iron_dome_launcher_at_jal_al_alam/seg01_seg02/index.html",
+      "scene_id": "seg01_seg02",
+      "slug": "2026-05-07_strike_on_iron_dome_launcher_at_jal_al_alam",
+      "status": "preserved_existing"
+    },
+    {
+      "counts_toward_target": true,
+      "route": "scenes/2026-05-06_strike_on_namer_apc_in_bint_jbeil/seg02/index.html",
+      "scene_id": "seg02",
+      "slug": "2026-05-06_strike_on_namer_apc_in_bint_jbeil",
+      "status": "preserved_existing"
+    },
+    {
+      "counts_toward_target": true,
+      "route": "scenes/2026-05-09_strike_on_soldiers/seg01_seg02/index.html",
+      "scene_id": "seg01_seg02",
+      "slug": "2026-05-09_strike_on_soldiers",
+      "status": "preserved_existing"
+    },
+    {
+      "artifact_policy": "no videos/source frames copied; approved point/native geometry packaged",
+      "methods": [
+        "vggt_omega",
+        "r3",
+        "lingbot_map",
+        "hloc_lightglue_colmap"
+      ],
+      "native_point_counts": {
+        "hloc_lightglue_colmap_native": 4454,
+        "lingbot_map_native": 36000,
+        "r3_native": 36000
+      },
+      "point_count_viewer": 80000,
+      "route": "scenes/2026-05-08_humvee_bayyadah_mmirleb_16048/seg01_seg02_seg03_seg04/index.html",
+      "scale_state": "relative_only",
+      "scene_id": "seg01_seg02_seg03_seg04",
+      "slug": "2026-05-08_humvee_bayyadah_mmirleb_16048",
+      "status": "built",
+      "title": "Humvee, al-Bayyada (dive drone)"
+    },
+    {
+      "artifact_policy": "no videos/source frames copied; approved point/native geometry packaged",
+      "methods": [
+        "vggt_omega",
+        "r3",
+        "lingbot_map",
+        "hloc_lightglue_colmap"
+      ],
+      "native_point_counts": {
+        "hloc_lightglue_colmap_native": 13324,
+        "lingbot_map_native": 36000,
+        "r3_native": 36000
+      },
+      "point_count_viewer": 80000,
+      "route": "scenes/2026-05-09_strike_on_israeli_military_vehicle/seg01_seg02_seg03_seg04_seg05/index.html",
+      "scale_state": "relative_only",
+      "scene_id": "seg01_seg02_seg03_seg04_seg05",
+      "slug": "2026-05-09_strike_on_israeli_military_vehicle",
+      "status": "built",
+      "title": "Military vehicle, Khallet al-Raj in Deir Siryan (dive drone)"
+    },
+    {
+      "artifact_policy": "no videos/source frames copied; approved point/native geometry packaged",
+      "methods": [
+        "vggt_omega",
+        "r3",
+        "lingbot_map",
+        "hloc_lightglue_colmap"
+      ],
+      "native_point_counts": {
+        "hloc_lightglue_colmap_native": 4273,
+        "lingbot_map_native": 36000,
+        "r3_native": 36000
+      },
+      "point_count_viewer": 80000,
+      "route": "scenes/2026-05-08_strike_on_humvee_in_naqoura/seg01_seg02_seg03_seg04/index.html",
+      "scale_state": "relative_only",
+      "scene_id": "seg01_seg02_seg03_seg04",
+      "slug": "2026-05-08_strike_on_humvee_in_naqoura",
+      "status": "built",
+      "title": "Humvee, al-Bayyada (dive drone)"
+    },
+    {
+      "artifact_policy": "no videos/source frames copied; approved point/native geometry packaged",
+      "methods": [
+        "vggt_omega",
+        "r3",
+        "lingbot_map",
+        "hloc_lightglue_colmap"
+      ],
+      "native_point_counts": {
+        "hloc_lightglue_colmap_native": 6986,
+        "lingbot_map_native": 36000,
+        "r3_native": 36000
+      },
+      "point_count_viewer": 80000,
+      "route": "scenes/2026-05-08_resistance_strikes_enemy_forces_kfar_kila/seg15_seg16_seg17_seg18_seg19_seg20/index.html",
+      "scale_state": "relative_only",
+      "scene_id": "seg15_seg16_seg17_seg18_seg19_seg20",
+      "slug": "2026-05-08_resistance_strikes_enemy_forces_kfar_kila",
+      "status": "built",
+      "title": "Series of resistance strikes on Israeli army forces, Rashaf (swarm of Ababil dive drones)"
+    },
+    {
+      "artifact_policy": "no videos/source frames copied; approved point/native geometry packaged",
+      "methods": [
+        "vggt_omega",
+        "r3",
+        "lingbot_map",
+        "hloc_lightglue_colmap"
+      ],
+      "native_point_counts": {
+        "hloc_lightglue_colmap_native": 8425,
+        "lingbot_map_native": 36000,
+        "r3_native": 36000
+      },
+      "point_count_viewer": 80000,
+      "route": "scenes/2026-05-09_soldiers_gathering_shlomi_mmirleb_15970/seg01_seg02_seg03_seg04/index.html",
+      "scale_state": "relative_only",
+      "scene_id": "seg01_seg02_seg03_seg04",
+      "slug": "2026-05-09_soldiers_gathering_shlomi_mmirleb_15970",
+      "status": "built",
+      "title": "Soldier gathering at a helicopter landing pad, Shlomi settlement (dive drone)"
+    }
+  ],
+  "preserved_full_native_scene_count": 5,
+  "publication_boundary": {
+    "all_scenes_relative_only": true,
+    "approved_point_geometry_only": true,
+    "local_paths_redacted": true,
+    "source_frames_copied": false,
+    "thumbnails_copied": false,
+    "videos_copied": false
+  },
+  "repo_id": "Grimster/FPV_Hezbo",
+  "requested_revision": "main",
+  "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+  "satisfied_scene_count": 10,
+  "schema_version": "hf-public-scene-build-v1",
+  "strict_full_native_default": true,
+  "target_scene_count": 10
+}

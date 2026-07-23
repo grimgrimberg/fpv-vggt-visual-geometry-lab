@@ -3,34 +3,34 @@
     {
       "bytes": 2811,
       "name": "run_manifest.json",
-      "path": "D:\\Drone_Analysis_Dynamics\\runpod_sync\\motion_observatory_hf\\scene_segments\\2026-04-29_strike_on_merkava_tank\\seg01\\run_manifest.json",
+      "path": "unpublished_source_cache/motion_observatory_hf/scene_segments/2026-04-29_strike_on_merkava_tank/seg01/run_manifest.json",
       "sha256": "dcd7529f681513de7c329129865834f947667a5c929482f59d2cbe8115d11092"
     },
     {
       "bytes": 25441,
       "name": "cameras.npz",
-      "path": "D:\\Drone_Analysis_Dynamics\\runpod_sync\\motion_observatory_hf\\scene_segments\\2026-04-29_strike_on_merkava_tank\\seg01\\cameras.npz",
+      "path": "unpublished_source_cache/motion_observatory_hf/scene_segments/2026-04-29_strike_on_merkava_tank/seg01/cameras.npz",
       "sha256": "116d66886ff71523227bfa0a5a54412cb77ebd3fb1c6f252368f49b2567cf886"
     },
     {
       "bytes": 12473073,
       "name": "point_cloud.npz",
-      "path": "D:\\Drone_Analysis_Dynamics\\runpod_sync\\motion_observatory_hf\\scene_segments\\2026-04-29_strike_on_merkava_tank\\seg01\\point_cloud.npz",
+      "path": "unpublished_source_cache/motion_observatory_hf/scene_segments/2026-04-29_strike_on_merkava_tank/seg01/point_cloud.npz",
       "sha256": "7a024658417bb4c242384763c053d06da4f827cb51b679263495613ac48623f6"
     },
     {
       "bytes": 339174424,
       "name": "predictions.npz",
-      "path": "D:\\Drone_Analysis_Dynamics\\runpod_sync\\motion_observatory_hf\\scene_segments\\2026-04-29_strike_on_merkava_tank\\seg01\\predictions.npz",
+      "path": "unpublished_source_cache/motion_observatory_hf/scene_segments/2026-04-29_strike_on_merkava_tank/seg01/predictions.npz",
       "sha256": "d9c19e1b4e144f4af316eaec5a14401ad531e47e8d0d6b4d45c9a1a73b857206"
     },
     {
       "bytes": 34945,
       "name": "camera_path.csv",
-      "path": "D:\\Drone_Analysis_Dynamics\\runpod_sync\\motion_observatory_hf\\scene_segments\\2026-04-29_strike_on_merkava_tank\\seg01\\camera_path.csv",
+      "path": "unpublished_source_cache/motion_observatory_hf/scene_segments/2026-04-29_strike_on_merkava_tank/seg01/camera_path.csv",
       "sha256": "a8ec7445aecad604eab7966f7609ecc58fd2bb9feabfb7869b581a8a72673745"
     }
   ],
   "immutable": true,
-  "source_scene": "D:\\Drone_Analysis_Dynamics\\runpod_sync\\motion_observatory_hf\\scene_segments\\2026-04-29_strike_on_merkava_tank\\seg01"
+  "source_scene": "unpublished_source_cache/motion_observatory_hf/scene_segments/2026-04-29_strike_on_merkava_tank/seg01"
 }

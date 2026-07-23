@@ -1,0 +1,36 @@
+{
+  "calibration_state": "uncalibrated_display_alignment",
+  "confidence": "low",
+  "display_transform": null,
+  "method": "deterministic_ransac_plane_with_weak_y_up_prior",
+  "quality": {
+    "camera_above_ratio": 1.0,
+    "confidence_gates": {
+      "camera_above_ratio_min": 0.8,
+      "inlier_ratio_min": 0.2,
+      "median_abs_residual_relative_max": 0.006,
+      "normal_y_prior_abs_min": 0.76,
+      "p95_abs_residual_relative_max": 0.015,
+      "passed": false
+    },
+    "inlier_count": 7067,
+    "inlier_ratio": 0.5889166666666666,
+    "median_abs_residual_relative": 0.005271243405393459,
+    "median_camera_clearance_relative": 0.5307196591515353,
+    "normal_y_prior_abs": 0.751231397312083,
+    "p95_abs_residual_relative": 0.011095311219124604,
+    "sampled_point_count": 12000,
+    "source_point_count": 80000
+  },
+  "reason": "plane_candidate_failed_high_confidence_gate",
+  "recommended_default": false,
+  "scale_status": "relative_only",
+  "scene_id": "2026-05-06_strike_on_namer_apc_in_bint_jbeil__seg02",
+  "schema_version": "1.0.0",
+  "status": "rejected",
+  "warnings": [
+    "No ground display transform is activated without high confidence.",
+    "This is a display-plane estimate, never physical calibration.",
+    "Raw points, cameras, and trajectory artifacts remain unchanged."
+  ]
+}

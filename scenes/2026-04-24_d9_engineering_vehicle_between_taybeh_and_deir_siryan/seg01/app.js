@@ -7,6 +7,8 @@ const state = {
   profiles: null,
   points: null,
   colors: null,
+  groundAlignment: null,
+  alignmentMode: "raw",
   activeSample: 0,
   visibleLayers: new Set(["points", "raw", "rts"]),
   yaw: -0.7,
@@ -31,8 +33,18 @@ async function fetchTyped(path, Type) {
 }
 
 window.FPVViewer = {
-  getSceneData: () => ({ scene: state.scene, paths: state.paths, cameras: state.cameras, profiles: state.profiles, points: state.points, colors: state.colors }),
-  getViewState: () => ({ pointSize: 1.4, pointBudget: 120000, visibleLayers: Array.from(state.visibleLayers), yaw: state.yaw, pitch: state.pitch, zoom: state.zoom }),
+  getSceneData: () => ({ scene: state.scene, paths: state.paths, cameras: state.cameras, profiles: state.profiles, points: state.points, colors: state.colors, groundAlignment: state.groundAlignment }),
+  getViewState: () => ({ pointSize: 1.4, pointBudget: 120000, visibleLayers: Array.from(state.visibleLayers), yaw: state.yaw, pitch: state.pitch, zoom: state.zoom, alignmentMode: state.alignmentMode }),
+  getAlignmentMode: () => state.alignmentMode,
+  getGroundDisplayTransform: () => state.groundAlignment?.display_transform || null,
+  setAlignmentMode: (mode) => {
+    const supported = mode === "raw" || (mode === "estimated_ground" && state.groundAlignment?.display_transform);
+    if (!supported) return false;
+    state.alignmentMode = mode;
+    emitViewerEvent("fpv-view-changed", window.FPVViewer.getViewState());
+    requestAnimationFrame(renderAll);
+    return true;
+  },
 };
 
 function emitViewerEvent(name, detail) {
@@ -45,13 +57,25 @@ async function loadScene(url) {
     throw new Error("This cockpit requires an explicitly relative-only uncalibrated scene");
   }
   const assets = state.scene.assets;
-  [state.paths, state.profiles, state.cameras, state.points, state.colors] = await Promise.all([
+  const groundAlignment = assets.ground_alignment?.path
+    ? fetchJson(assets.ground_alignment.path).catch((error) => {
+        console.warn("Estimated-ground display alignment is unavailable; retaining raw coordinates", error);
+        return null;
+      })
+    : Promise.resolve(null);
+  [state.paths, state.profiles, state.cameras, state.points, state.colors, state.groundAlignment] = await Promise.all([
     fetchJson(assets.camera_path.path),
     fetchJson(assets.trajectory_profiles.path),
     fetchJson(assets.cameras.path),
     fetchTyped(assets.points_preview.path, Float32Array),
     fetchTyped(assets.points_preview_colors.path, Uint8Array),
+    groundAlignment,
   ]);
+  const alignmentConfidence = state.groundAlignment?.confidence;
+  const recommendedGround = state.scene.display_alignment?.default === "estimated_ground"
+    && state.groundAlignment?.recommended_default === true
+    && ["high", "medium"].includes(alignmentConfidence);
+  state.alignmentMode = recommendedGround ? "estimated_ground" : "raw";
   document.getElementById("scene-title").textContent = state.scene.title;
   document.getElementById("point-count").textContent = Number(state.scene.reconstruction.point_count_viewer).toLocaleString();
   document.getElementById("frame-count").textContent = Number(state.scene.reconstruction.frame_count).toLocaleString();
@@ -65,7 +89,11 @@ async function loadScene(url) {
   renderEditTimeline(state.scene.edit_segments, state);
   setActiveSample(0);
   document.body.classList.add("ready");
-  emitViewerEvent("fpv-scene-ready", { sampleCount: state.paths.timestamps_sec.length });
+  emitViewerEvent("fpv-scene-ready", {
+    sampleCount: state.paths.timestamps_sec.length,
+    alignmentMode: state.alignmentMode,
+    groundAlignmentConfidence: state.groundAlignment?.confidence || null,
+  });
 }
 
 function canvasSize(canvas) {

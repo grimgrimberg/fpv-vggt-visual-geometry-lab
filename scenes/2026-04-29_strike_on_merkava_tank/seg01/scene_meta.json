@@ -13,7 +13,7 @@
     ],
     "kind": "manual_ground_truth",
     "source_commit": "28433d042f63fefd6d5f549aa1a3f0ecf1b51a67",
-    "source_path": "/workspace/fpv-drone-strikes-lebanon-dataset/annotations/2026-04-29_strike_on_merkava_tank_annotations.json"
+    "source_path": "source_repo_snapshot/annotations/2026-04-29_strike_on_merkava_tank_annotations.json"
   },
   "assets": {
     "camera_path": {

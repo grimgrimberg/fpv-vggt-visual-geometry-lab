@@ -21,7 +21,7 @@
     ],
     "kind": "manual_ground_truth",
     "source_commit": "28433d042f63fefd6d5f549aa1a3f0ecf1b51a67",
-    "source_path": "/workspace/fpv-drone-strikes-lebanon-dataset/annotations/2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan_annotations.json",
+    "source_path": "source_repo_snapshot/annotations/2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan_annotations.json",
     "source_snapshot": {
       "path": "../diagnostics/annotation_snapshot.json",
       "sha256": "58e760930183823525c0955a1e1d2cd53fc9c25e605fcdd9f223892f3b7eb4b9"
@@ -239,7 +239,7 @@
         "pipeline": "ALIKED + LightGlue + pycolmap incremental SfM",
         "points3D": 13755,
         "registered_images": 200,
-        "scene": "/workspace/data/vggt_omega/2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan/seg01"
+        "scene": "hf_dataset_snapshot/vggt_omega/2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan/seg01"
       }
     },
     "lingbot_map": {
