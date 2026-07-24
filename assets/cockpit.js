@@ -300,10 +300,11 @@ function buildCard(record, options) {
   );
 
   const tags = element("div", "scene-card__tags");
+  const semanticTags = [];
   if (isEnsemble(record)) {
-    tags.append(tag("Full method ensemble", "hot"));
+    semanticTags.push(["Multi-method 3D", "hot"]);
   } else if (detailed) {
-    tags.append(tag("3D geometry", "hot"));
+    semanticTags.push(["3D geometry", "hot"]);
   } else {
     const vggt = record.research?.vggt_omega || {};
     const text = vggt.status === "done"
@@ -311,38 +312,43 @@ function buildCard(record, options) {
       : vggt.status === "partial_error"
         ? "VGGT partial"
         : "Catalog record";
-    tags.append(tag(text, vggt.status === "partial_error" ? "warn" : ""));
+    semanticTags.push([text, vggt.status === "partial_error" ? "warn" : ""]);
   }
-  if (record.annotation?.state === "manual_ground_truth") tags.append(tag("Manual edits", ""));
   if (detailed && isExperimentalCase(record)) {
-    tags.append(tag("Experimental case study", "warn"));
+    semanticTags.push(["Experimental case study", "warn"]);
   } else if (detailed && !isHeroEligible(record)) {
-    tags.append(tag("Archive reconstruction", "data"));
+    semanticTags.push(["Archive reconstruction", "data"]);
+  } else if (record.annotation?.state === "manual_ground_truth") {
+    semanticTags.push(["Manual edits", ""]);
   }
-  const methodLimit = options.lead ? 5 : options.featured ? 2 : 1;
-  evidence
-    .filter((row) => row.capability !== "unknown")
-    .slice(0, methodLimit)
-    .forEach((row) => {
-      const label = `${methodLabel(row.method)} · ${capabilityLabel(row.capability)}`;
-      if (!Array.from(tags.children).some((node) => node.textContent === label)) {
-        const chip = tag(label, capabilityTone(row.capability));
-        if (row.note) chip.title = row.note;
-        tags.append(chip);
-      }
-    });
+  if (
+    record.annotation?.state === "manual_ground_truth"
+    && semanticTags.length < 2
+  ) {
+    semanticTags.push(["Manual edits", ""]);
+  }
+  semanticTags
+    .slice(0, 2)
+    .forEach(([text, tone]) => tags.append(tag(text, tone)));
   body.append(tags);
-  if (detailed && evidence.length && (options.lead || !options.featured)) {
-    const coverageParts = [
-      summary.rendered_3d ? `${summary.rendered_3d} rendered` : "",
-      summary.numerical_only ? `${summary.numerical_only} numerical` : "",
-      summary.metadata_only ? `${summary.metadata_only} metadata` : "",
-      summary.failed ? `${summary.failed} failed` : "",
-      summary.unavailable ? `${summary.unavailable} unavailable` : "",
-    ].filter(Boolean);
-    body.append(element("p", "method-coverage", coverageParts.join(" · ")));
-  }
 
+  if (detailed && evidence.length) {
+    const available = evidence.filter((row) => row.capability !== "unknown");
+    if (available.length) {
+      const roster = element("div", "method-roster");
+      const accessible = available.map(
+        (row) => `${methodLabel(row.method)}: ${capabilityLabel(row.capability)}`,
+      );
+      roster.setAttribute("aria-label", `Method evidence: ${accessible.join(", ")}`);
+      roster.title = accessible.join(" · ");
+      roster.append(...available.map((row) => {
+        const item = element("span", "", methodLabel(row.method));
+        item.dataset.capability = row.capability;
+        return item;
+      }));
+      body.append(roster);
+    }
+  }
   const action = element("span", "scene-card__action");
   action.append(
     element("span", "", detailed ? "Open full research cockpit" : "Open video and edit map"),
