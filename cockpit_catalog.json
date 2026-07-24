@@ -4,6 +4,8 @@
     "annotation_source_records": 143,
     "catalog_records": 161,
     "detailed_geometry_scenes": 12,
+    "experimental_case_studies": 2,
+    "featured_eligible_scenes": 3,
     "hf_native_scenes_built_this_pass": 5,
     "hub_full_native_scene_candidates": 10,
     "method_evidence_records": 12,
@@ -187,6 +189,17 @@
     }
   ],
   "generated_at": "2026-07-23T19:58:24.301576Z",
+  "hero_selection_contract": {
+    "accepted_slugs": [
+      "2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan",
+      "2026-05-09_strike_on_soldiers",
+      "2026-05-06_strike_on_namer_apc_near_qouzah"
+    ],
+    "fail_closed": true,
+    "featured_limit": 3,
+    "schema_version": "wow-public-hero-registry-v1",
+    "selection_policy": "Explicit public curation only. A hero must have manual_ground_truth edit provenance, relative_only labeling, a valid detailed route, and at least three independently rendered 3D method lanes. Auto-generated or missing annotation provenance is never eligible."
+  },
   "hub_inventory": {
     "filenames_embedded": false,
     "inventoried_at": "2026-07-23T19:58:24.301519Z",
@@ -9514,6 +9527,8 @@
         "artifact_status": "full_hf_native_viewer_bundle",
         "detail_route": "scenes/2026-05-09_strike_on_soldiers/seg01_seg02/index.html",
         "geometry_available": true,
+        "hero_eligible": true,
+        "hero_rank": 2,
         "hub_inventory": {
           "full_native": true,
           "hloc_lightglue_colmap": true,
@@ -9573,7 +9588,16 @@
           "lingbot_map",
           "hloc_lightglue_colmap"
         ],
+        "promotion_eligible": true,
+        "publication_role": "hero_candidate",
+        "ranking_scope": "accepted_default",
         "scale_state": "relative_only",
+        "selection_evidence": [
+          "manual_ground_truth edit provenance",
+          "authenticated Hugging Face native bundle inventory",
+          "VGGT Omega, R3, LingBot, and HLoc/COLMAP rendered 3D lanes"
+        ],
+        "selection_reason": "Curated for a visually distinct manually segmented scene with complete native multi-method WebGL coverage.",
         "tier": "detailed_geometry",
         "vggt_omega": {
           "done": 1,
@@ -9639,6 +9663,7 @@
         "artifact_status": "full_hf_native_viewer_bundle",
         "detail_route": "scenes/2026-05-09_strike_on_israeli_military_vehicle/seg01_seg02_seg03_seg04_seg05/index.html",
         "geometry_available": true,
+        "hero_eligible": false,
         "hub_inventory": {
           "full_native": true,
           "hloc_lightglue_colmap": true,
@@ -9698,6 +9723,9 @@
           "lingbot_map",
           "hloc_lightglue_colmap"
         ],
+        "promotion_eligible": false,
+        "publication_role": "archive_scene",
+        "ranking_scope": "archive_only",
         "scale_state": "relative_only",
         "tier": "detailed_geometry",
         "vggt_omega": {
@@ -9735,6 +9763,7 @@
         "artifact_status": "full_hf_native_viewer_bundle",
         "detail_route": "scenes/2026-05-09_soldiers_gathering_shlomi_mmirleb_15970/seg01_seg02_seg03_seg04/index.html",
         "geometry_available": true,
+        "hero_eligible": false,
         "hub_inventory": {
           "full_native": true,
           "hloc_lightglue_colmap": true,
@@ -9794,6 +9823,9 @@
           "lingbot_map",
           "hloc_lightglue_colmap"
         ],
+        "promotion_eligible": false,
+        "publication_role": "experimental_case_study",
+        "ranking_scope": "experimental_only",
         "scale_state": "relative_only",
         "tier": "detailed_geometry",
         "vggt_omega": {
@@ -10261,6 +10293,7 @@
         "artifact_status": "full_hf_native_viewer_bundle",
         "detail_route": "scenes/2026-05-08_strike_on_humvee_in_naqoura/seg01_seg02_seg03_seg04/index.html",
         "geometry_available": true,
+        "hero_eligible": false,
         "hub_inventory": {
           "full_native": true,
           "hloc_lightglue_colmap": true,
@@ -10320,6 +10353,9 @@
           "lingbot_map",
           "hloc_lightglue_colmap"
         ],
+        "promotion_eligible": false,
+        "publication_role": "archive_scene",
+        "ranking_scope": "archive_only",
         "scale_state": "relative_only",
         "tier": "detailed_geometry",
         "vggt_omega": {
@@ -10594,6 +10630,7 @@
         "artifact_status": "full_hf_native_viewer_bundle",
         "detail_route": "scenes/2026-05-08_resistance_strikes_enemy_forces_kfar_kila/seg15_seg16_seg17_seg18_seg19_seg20/index.html",
         "geometry_available": true,
+        "hero_eligible": false,
         "hub_inventory": {
           "full_native": true,
           "hloc_lightglue_colmap": true,
@@ -10653,6 +10690,9 @@
           "lingbot_map",
           "hloc_lightglue_colmap"
         ],
+        "promotion_eligible": false,
+        "publication_role": "experimental_case_study",
+        "ranking_scope": "experimental_only",
         "scale_state": "relative_only",
         "tier": "detailed_geometry",
         "vggt_omega": {
@@ -10719,6 +10759,7 @@
         "artifact_status": "full_hf_native_viewer_bundle",
         "detail_route": "scenes/2026-05-08_merkava_tank_bayyadah_mmirleb_16051/seg01_seg02/index.html",
         "geometry_available": true,
+        "hero_eligible": false,
         "hub_inventory": {
           "full_native": true,
           "hloc_lightglue_colmap": true,
@@ -10778,6 +10819,9 @@
           "lingbot_map",
           "hloc_lightglue_colmap"
         ],
+        "promotion_eligible": false,
+        "publication_role": "archive_scene",
+        "ranking_scope": "archive_only",
         "scale_state": "relative_only",
         "tier": "detailed_geometry",
         "vggt_omega": {
@@ -10852,6 +10896,7 @@
         "artifact_status": "full_hf_native_viewer_bundle",
         "detail_route": "scenes/2026-05-08_humvee_bayyadah_mmirleb_16048/seg01_seg02_seg03_seg04/index.html",
         "geometry_available": true,
+        "hero_eligible": false,
         "hub_inventory": {
           "full_native": true,
           "hloc_lightglue_colmap": true,
@@ -10911,6 +10956,9 @@
           "lingbot_map",
           "hloc_lightglue_colmap"
         ],
+        "promotion_eligible": false,
+        "publication_role": "archive_scene",
+        "ranking_scope": "archive_only",
         "scale_state": "relative_only",
         "tier": "detailed_geometry",
         "vggt_omega": {
@@ -10969,6 +11017,7 @@
         "artifact_status": "full_hf_native_viewer_bundle",
         "detail_route": "scenes/2026-05-07_strike_on_iron_dome_launcher_at_jal_al_alam/seg01_seg02/index.html",
         "geometry_available": true,
+        "hero_eligible": false,
         "hub_inventory": {
           "full_native": true,
           "hloc_lightglue_colmap": true,
@@ -11028,6 +11077,9 @@
           "lingbot_map",
           "hloc_lightglue_colmap"
         ],
+        "promotion_eligible": false,
+        "publication_role": "archive_scene",
+        "ranking_scope": "archive_only",
         "scale_state": "relative_only",
         "tier": "detailed_geometry",
         "vggt_omega": {
@@ -11185,6 +11237,8 @@
         "artifact_status": "full_hf_native_viewer_bundle",
         "detail_route": "scenes/2026-05-06_strike_on_namer_apc_near_qouzah/seg01_seg02/index.html",
         "geometry_available": true,
+        "hero_eligible": true,
+        "hero_rank": 3,
         "hub_inventory": {
           "full_native": true,
           "hloc_lightglue_colmap": true,
@@ -11244,7 +11298,16 @@
           "lingbot_map",
           "hloc_lightglue_colmap"
         ],
+        "promotion_eligible": true,
+        "publication_role": "hero_candidate",
+        "ranking_scope": "accepted_default",
         "scale_state": "relative_only",
+        "selection_evidence": [
+          "manual_ground_truth edit provenance",
+          "authenticated Hugging Face native bundle inventory",
+          "VGGT Omega, R3, LingBot, and HLoc/COLMAP rendered 3D lanes"
+        ],
+        "selection_reason": "Curated for manually reviewed edit structure, full native method coverage, visual diversity, and future scale validation against documented Namer APC dimensions.",
         "tier": "detailed_geometry",
         "vggt_omega": {
           "done": 1,
@@ -11369,6 +11432,7 @@
         "artifact_status": "full_hf_native_viewer_bundle",
         "detail_route": "scenes/2026-05-06_strike_on_namer_apc_in_bint_jbeil/seg02/index.html",
         "geometry_available": true,
+        "hero_eligible": false,
         "hub_inventory": {
           "full_native": true,
           "hloc_lightglue_colmap": true,
@@ -11428,6 +11492,9 @@
           "lingbot_map",
           "hloc_lightglue_colmap"
         ],
+        "promotion_eligible": false,
+        "publication_role": "archive_scene",
+        "ranking_scope": "archive_only",
         "scale_state": "relative_only",
         "tier": "detailed_geometry",
         "vggt_omega": {
@@ -12750,6 +12817,7 @@
         "artifact_status": "full_local_viewer_bundle",
         "detail_route": "scenes/2026-04-29_strike_on_merkava_tank/seg01/index.html",
         "geometry_available": true,
+        "hero_eligible": false,
         "hub_inventory": {
           "full_native": false,
           "hloc_lightglue_colmap": false,
@@ -12808,6 +12876,9 @@
           "r3",
           "lingbot_map"
         ],
+        "promotion_eligible": false,
+        "publication_role": "archive_scene",
+        "ranking_scope": "archive_only",
         "scale_state": "relative_only",
         "tier": "detailed_geometry",
         "vggt_omega": {
@@ -12890,6 +12961,9 @@
         "artifact_status": "full_local_viewer_bundle",
         "detail_route": "scenes/2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan/seg01/index.html",
         "geometry_available": true,
+        "hero_eligible": true,
+        "hero_rank": 1,
+        "hero_score": 0.878,
         "hub_inventory": {
           "full_native": false,
           "hloc_lightglue_colmap": true,
@@ -12956,7 +13030,17 @@
           "lingbot_map",
           "hloc_lightglue_colmap"
         ],
+        "promotion_eligible": true,
+        "publication_role": "hero_candidate",
+        "ranking_scope": "accepted_default",
         "scale_state": "relative_only",
+        "score_confidence": 0.72,
+        "selection_evidence": [
+          "runs/20260711_v2_research_cockpit/top_scenes.json",
+          "manual_ground_truth edit provenance",
+          "VGGT Omega, R3, LingBot, and HLoc/COLMAP rendered 3D lanes"
+        ],
+        "selection_reason": "Explicit accepted_default rank 1 in the reviewed local hero register; strong multi-method coverage and a useful retained failure case.",
         "tier": "detailed_geometry",
         "vggt_omega": {
           "done": 1,

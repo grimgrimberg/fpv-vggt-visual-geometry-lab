@@ -1,5 +1,10 @@
 "use strict";
 
+const viewerQuery = new URLSearchParams(window.location.search);
+if (viewerQuery.get("embed") === "1") {
+  document.body.classList.add("is-embedded");
+}
+
 const state = {
   scene: null,
   paths: null,
@@ -7,6 +12,8 @@ const state = {
   profiles: null,
   points: null,
   colors: null,
+  groundAlignment: null,
+  alignmentMode: "raw",
   activeSample: 0,
   visibleLayers: new Set(["points", "raw", "rts"]),
   yaw: -0.7,
@@ -31,8 +38,18 @@ async function fetchTyped(path, Type) {
 }
 
 window.FPVViewer = {
-  getSceneData: () => ({ scene: state.scene, paths: state.paths, cameras: state.cameras, profiles: state.profiles, points: state.points, colors: state.colors }),
-  getViewState: () => ({ pointSize: 1.4, pointBudget: 120000, visibleLayers: Array.from(state.visibleLayers), yaw: state.yaw, pitch: state.pitch, zoom: state.zoom }),
+  getSceneData: () => ({ scene: state.scene, paths: state.paths, cameras: state.cameras, profiles: state.profiles, points: state.points, colors: state.colors, groundAlignment: state.groundAlignment }),
+  getViewState: () => ({ pointSize: 1.4, pointBudget: 120000, visibleLayers: Array.from(state.visibleLayers), yaw: state.yaw, pitch: state.pitch, zoom: state.zoom, alignmentMode: state.alignmentMode }),
+  getAlignmentMode: () => state.alignmentMode,
+  getGroundDisplayTransform: () => state.groundAlignment?.display_transform || null,
+  setAlignmentMode: (mode) => {
+    const supported = mode === "raw" || (mode === "estimated_ground" && state.groundAlignment?.display_transform);
+    if (!supported) return false;
+    state.alignmentMode = mode;
+    emitViewerEvent("fpv-view-changed", window.FPVViewer.getViewState());
+    requestAnimationFrame(renderAll);
+    return true;
+  },
 };
 
 function emitViewerEvent(name, detail) {
@@ -45,13 +62,25 @@ async function loadScene(url) {
     throw new Error("This cockpit requires an explicitly relative-only uncalibrated scene");
   }
   const assets = state.scene.assets;
-  [state.paths, state.profiles, state.cameras, state.points, state.colors] = await Promise.all([
+  const groundAlignment = assets.ground_alignment?.path
+    ? fetchJson(assets.ground_alignment.path).catch((error) => {
+        console.warn("Estimated-ground display alignment is unavailable; retaining raw coordinates", error);
+        return null;
+      })
+    : Promise.resolve(null);
+  [state.paths, state.profiles, state.cameras, state.points, state.colors, state.groundAlignment] = await Promise.all([
     fetchJson(assets.camera_path.path),
     fetchJson(assets.trajectory_profiles.path),
     fetchJson(assets.cameras.path),
     fetchTyped(assets.points_preview.path, Float32Array),
     fetchTyped(assets.points_preview_colors.path, Uint8Array),
+    groundAlignment,
   ]);
+  const alignmentConfidence = state.groundAlignment?.confidence;
+  const recommendedGround = state.scene.display_alignment?.default === "estimated_ground"
+    && state.groundAlignment?.recommended_default === true
+    && ["high", "medium"].includes(alignmentConfidence);
+  state.alignmentMode = recommendedGround ? "estimated_ground" : "raw";
   document.getElementById("scene-title").textContent = state.scene.title;
   document.getElementById("point-count").textContent = Number(state.scene.reconstruction.point_count_viewer).toLocaleString();
   document.getElementById("frame-count").textContent = Number(state.scene.reconstruction.frame_count).toLocaleString();
@@ -65,7 +94,11 @@ async function loadScene(url) {
   renderEditTimeline(state.scene.edit_segments, state);
   setActiveSample(0);
   document.body.classList.add("ready");
-  emitViewerEvent("fpv-scene-ready", { sampleCount: state.paths.timestamps_sec.length });
+  emitViewerEvent("fpv-scene-ready", {
+    sampleCount: state.paths.timestamps_sec.length,
+    alignmentMode: state.alignmentMode,
+    groundAlignmentConfidence: state.groundAlignment?.confidence || null,
+  });
 }
 
 function canvasSize(canvas) {
@@ -116,6 +149,14 @@ function drawPointCloud(context, scene, viewState) {
   context.restore();
 }
 
+function segmentStartMask(payload, length) {
+  const supplied = payload?.segment_boundaries;
+  if (Array.isArray(supplied) && supplied.length === length) {
+    return supplied.map(Boolean);
+  }
+  return Array.from({ length }, (_, index) => index === 0);
+}
+
 function drawCameraPath(context, layer, viewState) {
   if (!viewState.visibleLayers.has(layer)) return;
   const points = viewState.paths.layers[layer];
@@ -125,10 +166,15 @@ function drawCameraPath(context, layer, viewState) {
   context.save();
   context.strokeStyle = palette[layer] || "#dcecef";
   context.lineWidth = layer === "raw" ? 1.1 : 2.3;
+  const segmentStarts = segmentStartMask(viewState.paths, points.length);
   context.beginPath();
   points.forEach((point, index) => {
     const projected = sceneTransform(point, width, height);
-    if (index === 0) context.moveTo(projected[0], projected[1]); else context.lineTo(projected[0], projected[1]);
+    if (index === 0 || segmentStarts[index]) {
+      context.moveTo(projected[0], projected[1]);
+    } else {
+      context.lineTo(projected[0], projected[1]);
+    }
   });
   context.stroke();
   context.restore();
@@ -186,13 +232,18 @@ function drawSixDofTraces(context, animation, viewState) {
     [animation.jerk_proxy, "#7f9cff", "jerk"],
   ];
   series.forEach(([values, color, label], seriesIndex) => {
+    const segmentStarts = segmentStartMask(animation, values.length);
     const finite = values.filter(Number.isFinite);
     const ceiling = Math.max(...finite, 1e-8);
     context.strokeStyle = color; context.lineWidth = 1.4; context.beginPath();
     values.forEach((value, index) => {
       const x = left + (right - left) * index / Math.max(values.length - 1, 1);
       const y = bottom - (bottom - top) * Math.min(value / ceiling, 1);
-      if (index === 0) context.moveTo(x, y); else context.lineTo(x, y);
+      if (index === 0 || segmentStarts[index]) {
+        context.moveTo(x, y);
+      } else {
+        context.lineTo(x, y);
+      }
     });
     context.stroke(); context.fillStyle = color; context.font = "9px ui-monospace, monospace"; context.fillText(label, left + seriesIndex * 48, 12);
   });
@@ -207,11 +258,16 @@ function drawPhasePortrait(context, animation, viewState) {
   const velocity = animation.speed_relative;
   const minX = Math.min(...positions), maxX = Math.max(...positions);
   const maxV = Math.max(...velocity, 1e-8);
+  const segmentStarts = segmentStartMask(animation, positions.length);
   context.strokeStyle = "rgba(84,229,194,.7)"; context.lineWidth = 1.2; context.beginPath();
   positions.forEach((value, index) => {
     const x = left + (right - left) * (value - minX) / Math.max(maxX - minX, 1e-8);
     const y = bottom - (bottom - top) * velocity[index] / maxV;
-    if (index === 0) context.moveTo(x, y); else context.lineTo(x, y);
+    if (index === 0 || segmentStarts[index]) {
+      context.moveTo(x, y);
+    } else {
+      context.lineTo(x, y);
+    }
   });
   context.stroke();
   const index = viewState.activeSample;
@@ -322,7 +378,10 @@ function renderAll() {
   ["raw", "bspline", "kalman", "rts"].forEach((layer) => drawCameraPath(context, layer, state));
   const raw = state.paths.layers.raw;
   const current = raw[state.activeSample];
-  const next = raw[Math.min(state.activeSample + 1, raw.length - 1)] || current;
+  const nextIndex = Math.min(state.activeSample + 1, raw.length - 1);
+  const next = state.paths.segment_boundaries?.[nextIndex]
+    ? current
+    : (raw[nextIndex] || current);
   const camera = state.cameras.samples[state.activeSample];
   drawCameraProxy(context, { position: current, next, quaternion_wxyz: camera?.quaternion_wxyz }, state);
   const stateCanvas = document.getElementById("state-canvas");

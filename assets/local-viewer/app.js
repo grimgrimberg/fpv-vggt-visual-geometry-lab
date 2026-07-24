@@ -1,5 +1,10 @@
 "use strict";
 
+const viewerQuery = new URLSearchParams(window.location.search);
+if (viewerQuery.get("embed") === "1") {
+  document.body.classList.add("is-embedded");
+}
+
 const state = {
   scene: null,
   paths: null,
@@ -144,6 +149,14 @@ function drawPointCloud(context, scene, viewState) {
   context.restore();
 }
 
+function segmentStartMask(payload, length) {
+  const supplied = payload?.segment_boundaries;
+  if (Array.isArray(supplied) && supplied.length === length) {
+    return supplied.map(Boolean);
+  }
+  return Array.from({ length }, (_, index) => index === 0);
+}
+
 function drawCameraPath(context, layer, viewState) {
   if (!viewState.visibleLayers.has(layer)) return;
   const points = viewState.paths.layers[layer];
@@ -153,10 +166,15 @@ function drawCameraPath(context, layer, viewState) {
   context.save();
   context.strokeStyle = palette[layer] || "#dcecef";
   context.lineWidth = layer === "raw" ? 1.1 : 2.3;
+  const segmentStarts = segmentStartMask(viewState.paths, points.length);
   context.beginPath();
   points.forEach((point, index) => {
     const projected = sceneTransform(point, width, height);
-    if (index === 0) context.moveTo(projected[0], projected[1]); else context.lineTo(projected[0], projected[1]);
+    if (index === 0 || segmentStarts[index]) {
+      context.moveTo(projected[0], projected[1]);
+    } else {
+      context.lineTo(projected[0], projected[1]);
+    }
   });
   context.stroke();
   context.restore();
@@ -214,13 +232,18 @@ function drawSixDofTraces(context, animation, viewState) {
     [animation.jerk_proxy, "#7f9cff", "jerk"],
   ];
   series.forEach(([values, color, label], seriesIndex) => {
+    const segmentStarts = segmentStartMask(animation, values.length);
     const finite = values.filter(Number.isFinite);
     const ceiling = Math.max(...finite, 1e-8);
     context.strokeStyle = color; context.lineWidth = 1.4; context.beginPath();
     values.forEach((value, index) => {
       const x = left + (right - left) * index / Math.max(values.length - 1, 1);
       const y = bottom - (bottom - top) * Math.min(value / ceiling, 1);
-      if (index === 0) context.moveTo(x, y); else context.lineTo(x, y);
+      if (index === 0 || segmentStarts[index]) {
+        context.moveTo(x, y);
+      } else {
+        context.lineTo(x, y);
+      }
     });
     context.stroke(); context.fillStyle = color; context.font = "9px ui-monospace, monospace"; context.fillText(label, left + seriesIndex * 48, 12);
   });
@@ -235,11 +258,16 @@ function drawPhasePortrait(context, animation, viewState) {
   const velocity = animation.speed_relative;
   const minX = Math.min(...positions), maxX = Math.max(...positions);
   const maxV = Math.max(...velocity, 1e-8);
+  const segmentStarts = segmentStartMask(animation, positions.length);
   context.strokeStyle = "rgba(84,229,194,.7)"; context.lineWidth = 1.2; context.beginPath();
   positions.forEach((value, index) => {
     const x = left + (right - left) * (value - minX) / Math.max(maxX - minX, 1e-8);
     const y = bottom - (bottom - top) * velocity[index] / maxV;
-    if (index === 0) context.moveTo(x, y); else context.lineTo(x, y);
+    if (index === 0 || segmentStarts[index]) {
+      context.moveTo(x, y);
+    } else {
+      context.lineTo(x, y);
+    }
   });
   context.stroke();
   const index = viewState.activeSample;
@@ -350,7 +378,10 @@ function renderAll() {
   ["raw", "bspline", "kalman", "rts"].forEach((layer) => drawCameraPath(context, layer, state));
   const raw = state.paths.layers.raw;
   const current = raw[state.activeSample];
-  const next = raw[Math.min(state.activeSample + 1, raw.length - 1)] || current;
+  const nextIndex = Math.min(state.activeSample + 1, raw.length - 1);
+  const next = state.paths.segment_boundaries?.[nextIndex]
+    ? current
+    : (raw[nextIndex] || current);
   const camera = state.cameras.samples[state.activeSample];
   drawCameraProxy(context, { position: current, next, quaternion_wxyz: camera?.quaternion_wxyz }, state);
   const stateCanvas = document.getElementById("state-canvas");

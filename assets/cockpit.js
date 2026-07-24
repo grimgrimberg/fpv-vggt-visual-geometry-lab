@@ -8,6 +8,8 @@ const app = {
   routeNotice: "",
 };
 
+const FEATURED_LIMIT = 3;
+
 const $ = (id) => document.getElementById(id);
 
 function element(tagName, className, text) {
@@ -30,7 +32,9 @@ function methodLabel(method) {
 
 function annotationLabel(state) {
   if (state === "manual_ground_truth") return "Manual edit map";
-  if (state === "auto") return "Auto edit map";
+  if (["auto", "auto_generated", "auto_candidate"].includes(state)) {
+    return "Auto edit candidate";
+  }
   return "Annotation pending";
 }
 
@@ -190,19 +194,40 @@ function passes(record) {
   ].join(" ").toLowerCase().includes(query);
 }
 
+function isHeroEligible(record) {
+  return isDetailed(record) && record.research?.promotion_eligible === true;
+}
+
+function isExperimentalCase(record) {
+  return record.research?.publication_role === "experimental_case_study";
+}
+
+function curatedHeroRank(record) {
+  const rank = Number(record.research?.hero_rank);
+  return Number.isInteger(rank) && rank > 0 ? rank : Number.MAX_SAFE_INTEGER;
+}
+
 function featuredRank(record) {
   const summary = methodSummary(record);
   const rendered = Number(summary.rendered_3d || 0);
   const evidence = methodEvidence(record).length;
-  return (isEnsemble(record) ? 100 : 0) + rendered * 10 + evidence;
+  const quality = Number(record.research?.hero_score || 0);
+  const confidence = Number(record.research?.score_confidence || 0);
+  return quality * 100 + confidence * 20
+    + (isEnsemble(record) ? 100 : 0) + rendered * 10 + evidence;
 }
 
 function renderGallery() {
   const rows = app.records.filter(passes);
   const featured = rows
-    .filter(isDetailed)
-    .sort((left, right) => featuredRank(right) - featuredRank(left));
-  const archive = rows.filter((record) => !isDetailed(record));
+    .filter(isHeroEligible)
+    .sort((left, right) => (
+      curatedHeroRank(left) - curatedHeroRank(right)
+      || featuredRank(right) - featuredRank(left)
+    ))
+    .slice(0, FEATURED_LIMIT);
+  const featuredSlugs = new Set(featured.map((record) => record.slug));
+  const archive = rows.filter((record) => !featuredSlugs.has(record.slug));
 
   $("featured-list").replaceChildren(...featured.map((record, index) => buildCard(record, {
     featured: true,
@@ -216,8 +241,8 @@ function renderGallery() {
   $("featured-section").hidden = featured.length === 0;
   $("archive-section").hidden = archive.length === 0;
   $("no-results").hidden = rows.length !== 0;
-  $("featured-count").textContent = `${featured.length} scene${featured.length === 1 ? "" : "s"}`;
-  $("archive-count").textContent = `${archive.length} scene${archive.length === 1 ? "" : "s"}`;
+  $("featured-count").textContent = `${featured.length} reviewed scene${featured.length === 1 ? "" : "s"}`;
+  $("archive-count").textContent = `${archive.length} remaining scene${archive.length === 1 ? "" : "s"}`;
   $("results-count").textContent = app.routeNotice || `Showing ${rows.length} of ${app.records.length} scenes`;
 }
 
@@ -249,11 +274,18 @@ function buildCard(record, options) {
   const evidence = methodEvidence(record);
   const summary = methodSummary(record);
   const renderedCount = Number(summary.rendered_3d || 0);
-  const availabilityText = detailed
-    ? renderedCount >= 3
+  let availabilityText = "Video record";
+  if (detailed && isExperimentalCase(record)) {
+    availabilityText = "Experimental 3D · unreviewed";
+  } else if (detailed && renderedCount >= 3) {
+    availabilityText = isHeroEligible(record)
       ? "Full multi-method 3D"
-      : "Omega WebGL · partial ensemble"
-    : "Video record";
+      : "Full multi-method 3D · archive";
+  } else if (detailed) {
+    availabilityText = isHeroEligible(record)
+      ? "Omega WebGL · partial ensemble"
+      : "3D reconstruction · archive";
+  }
   const availability = element(
     "span",
     `scene-card__availability${detailed ? " is-ready" : ""}`,
@@ -282,7 +314,12 @@ function buildCard(record, options) {
     tags.append(tag(text, vggt.status === "partial_error" ? "warn" : ""));
   }
   if (record.annotation?.state === "manual_ground_truth") tags.append(tag("Manual edits", ""));
-  const methodLimit = options.featured ? 5 : 1;
+  if (detailed && isExperimentalCase(record)) {
+    tags.append(tag("Experimental case study", "warn"));
+  } else if (detailed && !isHeroEligible(record)) {
+    tags.append(tag("Archive reconstruction", "data"));
+  }
+  const methodLimit = options.lead ? 5 : options.featured ? 2 : 1;
   evidence
     .filter((row) => row.capability !== "unknown")
     .slice(0, methodLimit)
@@ -295,7 +332,7 @@ function buildCard(record, options) {
       }
     });
   body.append(tags);
-  if (detailed && evidence.length) {
+  if (detailed && evidence.length && (options.lead || !options.featured)) {
     const coverageParts = [
       summary.rendered_3d ? `${summary.rendered_3d} rendered` : "",
       summary.numerical_only ? `${summary.numerical_only} numerical` : "",
@@ -361,6 +398,12 @@ function showGallery(push) {
   }
 }
 
+function embeddedRoute(route) {
+  const url = new URL(route, window.location.href);
+  url.searchParams.set("embed", "1");
+  return url.href;
+}
+
 function renderDetail(record) {
   $("kicker").textContent = `${record.date || "Undated"} · ${record.town || "Town not reported"}`;
   $("title").textContent = record.title;
@@ -374,7 +417,7 @@ function renderDetail(record) {
     $("viewer-loading").hidden = false;
     const frame = $("scene-frame");
     frame.title = `${record.title} — full reconstruction cockpit`;
-    frame.src = record.research.detail_route;
+    frame.src = embeddedRoute(record.research.detail_route);
     $("detail-action").href = record.research.detail_route;
     $("detail-action").querySelector("span:first-child").textContent = "Open standalone";
   } else {
