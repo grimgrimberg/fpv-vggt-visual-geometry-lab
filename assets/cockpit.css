@@ -129,6 +129,16 @@ a:focus-visible {
   gap: 18px;
 }
 
+.research-nav {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.research-nav__compact {
+  display: none;
+}
+
 .research-nav a {
   min-height: 44px;
   display: inline-flex;
@@ -1043,13 +1053,21 @@ dd {
     gap: 0;
   }
 
+  .research-nav {
+    gap: 10px;
+  }
+
   .research-nav a {
     min-height: 44px;
     font-size: 10px;
   }
 
-  .research-nav__long {
+  .research-nav__wide {
     display: none;
+  }
+
+  .research-nav__compact {
+    display: inline;
   }
 
   .gallery-main {

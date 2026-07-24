@@ -1,0 +1,236 @@
+{
+  "analysis_semantics": "offline_historical_reconstruction_research",
+  "artifacts": {
+    "artifact_status": "artifact_status.json",
+    "events": "events.jsonl",
+    "gpu_trace": "gpu_trace.csv",
+    "hero_gallery": "hero_gallery.html",
+    "live_status": "live_status.html"
+  },
+  "generated_at": "2026-07-24T17:06:33.643143Z",
+  "heroes": [
+    {
+      "annotation_kind": "manual_ground_truth",
+      "hero_rank": 1,
+      "hero_score": 0.878,
+      "methods": [
+        "vggt_omega",
+        "r3",
+        "lingbot_map",
+        "hloc_lightglue_colmap"
+      ],
+      "route": "scenes/2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan/seg01/index.html",
+      "scale_state": "relative_only",
+      "scene_id": "seg01",
+      "selection_reason": "Explicit accepted_default rank 1 in the reviewed local hero register; strong multi-method coverage and a useful retained failure case.",
+      "slug": "2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan",
+      "title": "D9 engineering vehicle on the road between Taybeh and Deir Siryan (dive drone)"
+    },
+    {
+      "annotation_kind": "manual_ground_truth",
+      "hero_rank": 2,
+      "hero_score": 0.8238647398969385,
+      "methods": [
+        "vggt_omega",
+        "r3",
+        "lingbot_map",
+        "hloc_lightglue_colmap"
+      ],
+      "route": "scenes/2026-05-09_strike_on_soldiers/seg01_seg02/index.html",
+      "scale_state": "relative_only",
+      "scene_id": "seg01_seg02",
+      "selection_reason": "Curated for a visually distinct manually segmented scene with complete native multi-method WebGL coverage.",
+      "slug": "2026-05-09_strike_on_soldiers",
+      "title": "Soldier gathering, Jal al-Alam site on the Lebanese border (dive drone)"
+    },
+    {
+      "annotation_kind": "manual_ground_truth",
+      "hero_rank": 3,
+      "hero_score": 0.7566054658239767,
+      "methods": [
+        "vggt_omega",
+        "r3",
+        "lingbot_map",
+        "hloc_lightglue_colmap"
+      ],
+      "route": "scenes/2026-05-06_strike_on_namer_apc_near_qouzah/seg01_seg02/index.html",
+      "scale_state": "relative_only",
+      "scene_id": "seg01_seg02",
+      "selection_reason": "Curated for manually reviewed edit structure, full native method coverage, visual diversity, and future scale validation against documented Namer APC dimensions.",
+      "slug": "2026-05-06_strike_on_namer_apc_near_qouzah",
+      "title": "\"Namera\" troop carrier, Qouzah (dive drone)"
+    }
+  ],
+  "lanes": {
+    "artifact_masks": {
+      "coverage": {},
+      "evidence": [],
+      "reason": "Edit segmentation is first-class temporal provenance, not a pixel mask.",
+      "status": "not_run",
+      "summary": "No SAM2 pixel-mask artifact is published."
+    },
+    "catalog_registry": {
+      "coverage": {
+        "records": 161
+      },
+      "evidence": [
+        "cockpit_catalog.json"
+      ],
+      "reason": null,
+      "status": "done",
+      "summary": "161 catalog records are represented."
+    },
+    "colmap_ba_doctor": {
+      "coverage": {
+        "classified": 1,
+        "match_graphs": 1,
+        "total": 12
+      },
+      "evidence": [
+        "diagnostics/colmap_failure_taxonomy.json"
+      ],
+      "reason": null,
+      "status": "partial",
+      "summary": "1/12 scenes have classified BA diagnostics; 1 expose a match graph."
+    },
+    "cotracker3": {
+      "coverage": {},
+      "evidence": [],
+      "reason": "No validated tracking output exists in the public registry.",
+      "status": "not_run",
+      "summary": "No CoTracker3 execution artifact is published."
+    },
+    "depth_anything": {
+      "coverage": {},
+      "evidence": [],
+      "reason": "R3/LingBot native depth evidence is not a substitute for this lane.",
+      "status": "not_run",
+      "summary": "No Depth Anything V2 or Video Depth Anything comparison is published."
+    },
+    "edit_segmentation": {
+      "coverage": {
+        "manual": 10,
+        "segmented": 12,
+        "total": 12
+      },
+      "evidence": [
+        "scene_meta.json:edit_segments"
+      ],
+      "reason": null,
+      "status": "done",
+      "summary": "12/12 detailed scenes preserve edit intervals; 10 are manual-ground-truth scenes."
+    },
+    "geometry_consistency": {
+      "coverage": {
+        "quantitative": 1,
+        "total": 12
+      },
+      "evidence": [
+        "diagnostics/geometry_consistency.json"
+      ],
+      "reason": null,
+      "status": "partial",
+      "summary": "1/12 scenes have a schema-valid quantitative scale-free cross-method report."
+    },
+    "gpu_trace": {
+      "coverage": {},
+      "evidence": [],
+      "reason": "Static artifact refresh only; no GPU process was started.",
+      "status": "not_collected",
+      "summary": "This registry refresh did not sample a GPU session."
+    },
+    "hero_curator": {
+      "coverage": {
+        "detailed_scenes": 12,
+        "heroes": 3
+      },
+      "evidence": [
+        "cockpit_catalog.json:research.hero_rank"
+      ],
+      "reason": null,
+      "status": "done",
+      "summary": "3 manually reviewed hero scenes pass the strict promotion gate."
+    },
+    "method_ensemble": {
+      "coverage": {
+        "four_method_scenes": 11,
+        "method_manifests": 12,
+        "total": 12
+      },
+      "evidence": [
+        "methods/method_comparison.json"
+      ],
+      "reason": null,
+      "status": "done",
+      "summary": "12/12 validated method manifests; 11 scenes expose evidence from four method families."
+    },
+    "public_scene_packages": {
+      "coverage": {
+        "invalid": 0,
+        "parsed": 12,
+        "ready": 12,
+        "total": 12
+      },
+      "evidence": [
+        "scene_meta.json",
+        "points.ply",
+        "cameras.json",
+        "camera_path.json"
+      ],
+      "reason": null,
+      "status": "done",
+      "summary": "12/12 declared detailed scenes expose a validated core public bundle."
+    },
+    "trajectory_lab": {
+      "coverage": {
+        "ready": 12,
+        "total": 12
+      },
+      "evidence": [
+        "camera_path.json",
+        "trajectory_profiles.json"
+      ],
+      "reason": "Factor-graph paths remain not_run.",
+      "status": "done",
+      "summary": "12/12 public scenes expose validated, separate path and signal layers."
+    }
+  },
+  "publication_boundary": {
+    "body_attitude_claims": false,
+    "gpu_metrics_invented": false,
+    "metric_claims_without_documented_calibration": false,
+    "point_arrays_duplicated": false,
+    "source_media_copied": false,
+    "trajectory_arrays_duplicated": false
+  },
+  "registry": {
+    "catalog_records": 161,
+    "declared_detailed_scenes": 12,
+    "detailed_scenes": 12,
+    "invalid_detailed_scenes": 0,
+    "local_path_published": false,
+    "public_counts": {
+      "annotation_records": 142,
+      "annotation_source_records": 143,
+      "catalog_records": 161,
+      "detailed_geometry_scenes": 12,
+      "experimental_case_studies": 2,
+      "featured_eligible_scenes": 3,
+      "hf_native_scenes_built_this_pass": 5,
+      "hub_full_native_scene_candidates": 10,
+      "method_evidence_records": 12,
+      "partial_ensemble_webgl_scenes": 1,
+      "vggt_done_records": 139,
+      "vggt_partial_records": 1,
+      "webgl_detailed_scenes": 12
+    },
+    "scale_states": {
+      "relative_only": 12
+    },
+    "source": "cockpit_catalog.json"
+  },
+  "scale_policy": "No metric labels without documented calibration evidence",
+  "schema_version": "2.0.0",
+  "snapshot_kind": "static_registry_refresh",
+  "warnings": []
+}
