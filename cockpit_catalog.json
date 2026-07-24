@@ -30,7 +30,9 @@
     },
     {
       "artifact_policy": "source media referenced remotely; approved point/native geometry packaged",
-      "methods": [],
+      "methods": [
+        "r3"
+      ],
       "route": "scenes/2026-04-29_strike_on_merkava_tank/seg01/index.html",
       "scale_state": "relative_only",
       "scene_id": "seg01",
@@ -12841,11 +12843,11 @@
             "status": "done"
           },
           {
-            "available_3d": false,
-            "capability": "numerical_only",
+            "available_3d": true,
+            "capability": "rendered_3d",
             "method": "r3",
-            "note": "complete_r3_arrays_match_declared_frame_count",
-            "status": "validated_numerical"
+            "note": "150000-point native depth cloud published; uniform color is display-only",
+            "status": "done"
           },
           {
             "available_3d": false,
@@ -12866,8 +12868,8 @@
           "artifact_complete": 0,
           "failed": 0,
           "metadata_only": 1,
-          "numerical_only": 1,
-          "rendered_3d": 1,
+          "numerical_only": 0,
+          "rendered_3d": 2,
           "unavailable": 1,
           "unknown": 0
         },

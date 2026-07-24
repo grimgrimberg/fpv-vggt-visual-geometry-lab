@@ -1,6 +1,9 @@
 {
   "alignment_policy": "method_native_not_aligned",
   "comparison_rule": "Only geometry backed by published, validated buffers is selectable.",
+  "diagnostics": {
+    "geometry_consistency": "../diagnostics/geometry_consistency.json"
+  },
   "geometry_layers": {
     "coordinate_frames": {
       "hloc_native": {
@@ -58,12 +61,37 @@
         "variant": "aligned_to_omega"
       },
       "r3_native": {
+        "cameras": {
+          "bytes": 200364,
+          "path": "methods/native_consistency_5hbn0m9p/r3_cameras_native.json",
+          "sha256": "3d1452b1c1e832bd5cb3e42c0541deff91e67ee92c9f1e54e7f7960a541235e2"
+        },
         "coordinate_frame": "r3_native",
         "id": "r3_native",
         "method": "r3",
-        "reason": "complete_r3_arrays_match_declared_frame_count",
+        "point_count": 150000,
+        "positions": {
+          "bytes": 1800000,
+          "components": 3,
+          "dtype": "float32_le",
+          "path": "methods/native_consistency_5hbn0m9p/r3_points_native.bin",
+          "sha256": "1a9d45e1c6d476907e0371daf724cfdff7026001711537319e8bf26b4470f8df",
+          "shape": [
+            150000,
+            3
+          ]
+        },
+        "render_style": {
+          "color": "#61dfc2",
+          "color_mode": "uniform",
+          "source": "display_only_not_method_output"
+        },
         "scale_status": "relative_only",
-        "status": "unavailable",
+        "source_pointer": {
+          "path": "methods/native_consistency_build.json",
+          "sha256": "c6eeba691979783c9cb21a737546378fda782d947f4f3028910035298d636cd0"
+        },
+        "status": "available",
         "variant": "native"
       },
       "vggt_omega": {
@@ -142,11 +170,14 @@
       "status": "metadata_only"
     },
     "r3": {
-      "geometry_status": "not_published",
-      "reason": "complete_r3_arrays_match_declared_frame_count",
+      "camera_count": 200,
+      "frame_count": 200,
+      "geometry_status": "published_native_colorless",
+      "point_count": 150000,
+      "reason": "native depth geometry published; method RGB output is unavailable",
       "role": "independent depth and camera reconstruction",
       "scale_status": "relative_only",
-      "status": "validated_numerical"
+      "status": "done"
     },
     "vggt_omega": {
       "alignment": "viewer_native",

@@ -1,33 +1,276 @@
 {
-  "artifact_masks": {
-    "reason": "bounded SAM2 lane remains GPU-gated",
-    "status": "not_run"
+  "methods": {
+    "lingbot_map": {
+      "metrics": null,
+      "parameter_hash": "ab134aad3880fbdff7bdb6e541f21dd677a0a173319bfa97769409ef6bb6c024",
+      "provenance": {
+        "backend": "LingBot Map",
+        "native_geometry_status": "missing",
+        "reason": "method-native camera or point arrays are absent",
+        "scale_state": "relative_only"
+      },
+      "reason": "Raw LingBot arrays are absent; completion metadata is not geometry validation.",
+      "reason_code": "raw_outputs_absent",
+      "role": "comparison_inputs_not_reconstruction_truth",
+      "status": "metadata_only",
+      "summary": null
+    },
+    "omega": {
+      "metrics": null,
+      "parameter_hash": "ab134aad3880fbdff7bdb6e541f21dd677a0a173319bfa97769409ef6bb6c024",
+      "provenance": {
+        "backend": "VGGT Omega",
+        "camera_source": "cameras.npz:centers_glb",
+        "camera_source_sha256": "116d66886ff71523227bfa0a5a54412cb77ebd3fb1c6f252368f49b2567cf886",
+        "coordinate_frame": "official_glb_alignment",
+        "point_sampling": "deterministic_even_index_after_finite_filter",
+        "point_source": "point_cloud.npz:pts",
+        "point_source_sha256": "7a024658417bb4c242384763c053d06da4f827cb51b679263495613ac48623f6",
+        "sampled_point_count": 20000,
+        "scale_state": "relative_only",
+        "shared_camera_frame_count": 200,
+        "shared_camera_frame_first": 0,
+        "shared_camera_frame_last": 199
+      },
+      "reason": null,
+      "reason_code": null,
+      "role": "comparison_reference_inputs_not_reconstruction_truth",
+      "status": "reference",
+      "summary": {
+        "point_count": 20000,
+        "position_count": 200
+      }
+    },
+    "r3": {
+      "metrics": {
+        "depth": null,
+        "points": {
+          "alignment": {
+            "count": 200,
+            "inlier_count": 23,
+            "provenance": {
+              "residual_threshold": 0.05,
+              "seed": 20260724
+            },
+            "rotation": [
+              [
+                0.9997216737097109,
+                0.01343737525284169,
+                0.019391030435976342
+              ],
+              [
+                0.01354547685124052,
+                -0.9998933797246707,
+                -0.00545428635548901
+              ],
+              [
+                0.01931567166647741,
+                0.0057154290380938555,
+                -0.9997970987650362
+              ]
+            ],
+            "scale": 4.65913444044747,
+            "source": "trajectory_ransac_huber",
+            "transform_hash": "7f89540f799481257eb5971d7115120c829c7b1fdf41c9da2a3cbbcef6c89c8a",
+            "translation": [
+              0.0031883553026843467,
+              -0.0037525283670734044,
+              0.017121480866049033
+            ]
+          },
+          "metrics": {
+            "algorithm": "scipy_ckdtree_symmetric_nearest_neighbor",
+            "distance": {
+              "count": 36000,
+              "max": 0.961332288448639,
+              "mean": 0.14347705836946587,
+              "median": 0.08024979380759469,
+              "p90": 0.4135555864530226,
+              "p95": 0.5780517162988354,
+              "rmse": 0.22797729684102638
+            },
+            "normal_angle_degrees": null,
+            "normal_orientation_policy": null,
+            "retained_sample_count": 36000,
+            "scale_state": "relative_only",
+            "source_coverage": 1.0,
+            "source_input_count": 20000,
+            "source_mask_provenance": null,
+            "source_valid_count": 20000,
+            "symmetric_sample_count": 40000,
+            "target_coverage": 1.0,
+            "target_input_count": 20000,
+            "target_mask_provenance": null,
+            "target_valid_count": 20000,
+            "trim_fraction": 0.1,
+            "trim_policy": "drop_largest_symmetric_residuals"
+          },
+          "reason": null,
+          "reason_code": null,
+          "status": "validated"
+        },
+        "trajectory": {
+          "alignment": {
+            "inlier_count": 23,
+            "rotation": [
+              [
+                0.9997216737097109,
+                0.01343737525284169,
+                0.019391030435976342
+              ],
+              [
+                0.01354547685124052,
+                -0.9998933797246707,
+                -0.00545428635548901
+              ],
+              [
+                0.01931567166647741,
+                0.0057154290380938555,
+                -0.9997970987650362
+              ]
+            ],
+            "sample_count": 200,
+            "scale": 4.65913444044747,
+            "translation": [
+              0.0031883553026843467,
+              -0.0037525283670734044,
+              0.017121480866049033
+            ]
+          },
+          "ate": {
+            "median": 1.1282732312556747,
+            "rmse": 1.1790336744209835,
+            "rotation_angle_degrees": null,
+            "rotation_unavailable_reason": "orientations_not_provided",
+            "translation_relative": {
+              "count": 200,
+              "max": 2.212478027447184,
+              "mean": 1.0238640597762427,
+              "median": 1.1282732312556747,
+              "p90": 1.636962977298375,
+              "p95": 1.8143426230478459,
+              "rmse": 1.1790336744209835
+            }
+          },
+          "held_out": {
+            "alignment": {
+              "inlier_count": 18,
+              "rotation": [
+                [
+                  0.9999450248978943,
+                  -0.0035400148111948237,
+                  0.009869927917041279
+                ],
+                [
+                  -0.0034772346716533116,
+                  -0.9999736613493843,
+                  -0.00637067080812141
+                ],
+                [
+                  0.009892220225476187,
+                  0.0063360005242834435,
+                  -0.9999309971574878
+                ]
+              ],
+              "sample_count": 160,
+              "scale": 4.404589894025397,
+              "translation": [
+                0.003099506064497548,
+                -0.008786003268703907,
+                0.04036521524159231
+              ]
+            },
+            "evaluation_count": 40,
+            "reason": null,
+            "reason_code": null,
+            "split_policy": "every_fifth_sample_held_out",
+            "status": "evaluated",
+            "train_count": 160,
+            "train_translation_residual": {
+              "count": 160,
+              "max": 2.0291103328617726,
+              "mean": 0.8887424486851454,
+              "median": 0.9642163197316099,
+              "p90": 1.4302015932485934,
+              "p95": 1.6100002425387625,
+              "rmse": 1.026618098126158
+            },
+            "translation_residual": {
+              "count": 40,
+              "max": 1.8365064072330928,
+              "mean": 0.8677206349842864,
+              "median": 0.9426629807356104,
+              "p90": 1.4495679665582084,
+              "p95": 1.5474919642721148,
+              "rmse": 1.0063633638960354
+            }
+          },
+          "orientation_convention": "wxyz_active_camera_to_world",
+          "rpe": {
+            "rotation_angle_degrees": null,
+            "rotation_unavailable_reason": "orientations_not_provided",
+            "translation": {
+              "count": 199,
+              "max": 0.7320760689934739,
+              "mean": 0.09769238547324453,
+              "median": 0.07907021480057368,
+              "p90": 0.16969231575311586,
+              "p95": 0.2327557241003592,
+              "rmse": 0.13293981441199515
+            },
+            "translation_relative": {
+              "count": 199,
+              "max": 0.7320760689934739,
+              "mean": 0.09769238547324453,
+              "median": 0.07907021480057368,
+              "p90": 0.16969231575311586,
+              "p95": 0.2327557241003592,
+              "rmse": 0.13293981441199515
+            }
+          },
+          "scale_state": "relative_only",
+          "translation_residual": {
+            "count": 200,
+            "max": 2.212478027447184,
+            "mean": 1.0238640597762427,
+            "median": 1.1282732312556747,
+            "p90": 1.636962977298375,
+            "p95": 1.8143426230478459,
+            "rmse": 1.1790336744209835
+          }
+        }
+      },
+      "parameter_hash": "ab134aad3880fbdff7bdb6e541f21dd677a0a173319bfa97769409ef6bb6c024",
+      "provenance": {
+        "backend": "R3",
+        "camera_sample_count": 200,
+        "camera_source": "native_consistency_5hbn0m9p/r3_cameras_native.json",
+        "camera_source_sha256": "3d1452b1c1e832bd5cb3e42c0541deff91e67ee92c9f1e54e7f7960a541235e2",
+        "coordinate_frame": "r3_native",
+        "native_geometry_status": "available",
+        "point_sampling": "deterministic_even_index_after_finite_filter",
+        "point_source": "native_consistency_5hbn0m9p/r3_points_native.bin",
+        "point_source_sha256": "1a9d45e1c6d476907e0371daf724cfdff7026001711537319e8bf26b4470f8df",
+        "sampled_point_count": 20000,
+        "scale_state": "relative_only",
+        "shared_camera_frame_count": 200,
+        "shared_camera_frame_first": 0,
+        "shared_camera_frame_last": 199
+      },
+      "reason": null,
+      "reason_code": null,
+      "role": "comparison_inputs_not_reconstruction_truth",
+      "status": "validated",
+      "summary": null
+    }
   },
-  "depth_alignment": {
-    "status": "pending_array_comparison"
+  "parameter_hash": "ab134aad3880fbdff7bdb6e541f21dd677a0a173319bfa97769409ef6bb6c024",
+  "parameters": {
+    "seed": 20260724,
+    "trajectory_threshold": 0.05,
+    "trim_fraction": 0.1
   },
-  "hloc_lightglue": {
-    "match_connectivity": 0.0,
-    "status": "missing"
-  },
-  "lingbot_map": {
-    "status": "metadata_only"
-  },
-  "mast3r_sfm": {
-    "status": "missing"
-  },
-  "r3": {
-    "status": "validated_numerical"
-  },
-  "scale_status": "relative_only",
-  "scene_id": "2026-04-29_strike_on_merkava_tank__seg01",
-  "schema_version": "2.0.0",
-  "tracking": {
-    "reason": "current primary GPU methods still active",
-    "status": "not_run"
-  },
-  "vggt_omega": {
-    "point_count": 1000000,
-    "status": "done"
-  }
+  "scale_state": "relative_only",
+  "scene_key": "2026-04-29_strike_on_merkava_tank__seg01",
+  "schema_version": "1.0.0"
 }

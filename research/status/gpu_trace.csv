@@ -1,2 +1,2 @@
 timestamp_utc,status,gpu_util_pct,memory_used_mib,memory_total_mib,temperature_c,power_w,source,note
-2026-07-24T17:06:33.643143Z,not_collected,,,,,,static_registry_refresh,No GPU session was sampled and no heavy model was started.
+2026-07-24T19:08:57.485976Z,not_collected,,,,,,static_registry_refresh,No GPU session was sampled and no heavy model was started.

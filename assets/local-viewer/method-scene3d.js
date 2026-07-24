@@ -140,18 +140,36 @@ async function reuseOmegaBuffers(layer) {
   return { positions: data.points, colors: data.colors };
 }
 
+function uniformPointColor(layer) {
+  const style = layer.render_style;
+  if (
+    style?.color_mode !== "uniform"
+    || style?.source !== "display_only_not_method_output"
+    || typeof style.color !== "string"
+    || !/^#[0-9a-f]{6}$/i.test(style.color)
+  ) {
+    throw new Error(`${layer.id} colorless geometry requires an explicit display-only uniform color`);
+  }
+  return style.color;
+}
+
 function geometryFromBuffers(layer, positions, colors) {
   const total = layer.point_count;
   const geometry = new THREE.BufferGeometry();
   geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-  geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3, true));
-  const material = new THREE.PointsMaterial({
+  const materialOptions = {
     size: pointSize,
     sizeAttenuation: false,
-    vertexColors: true,
     transparent: true,
     opacity: 0.94,
-  });
+  };
+  if (colors) {
+    geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3, true));
+    materialOptions.vertexColors = true;
+  } else {
+    materialOptions.color = uniformPointColor(layer);
+  }
+  const material = new THREE.PointsMaterial(materialOptions);
   geometry.setDrawRange(0, total);
   const points = new THREE.Points(geometry, material);
   points.frustumCulled = false;
@@ -169,10 +187,20 @@ async function fetchCameraCenters(layer) {
   return records.map((sample) => sample.center).filter((center) => Array.isArray(center) && center.length === 3 && center.every(Number.isFinite));
 }
 
-function lineFromPoints(points, color) {
+function lineFromPoints(points, color, segmentStarts = []) {
   if (!Array.isArray(points) || points.length < 2) return null;
-  const geometry = new THREE.BufferGeometry().setFromPoints(points.map((point) => new THREE.Vector3(...point)));
-  return new THREE.Line(geometry, new THREE.LineBasicMaterial({ color, transparent: true, opacity: 0.9 }));
+  const vertices = [];
+  for (let index = 1; index < points.length; index += 1) {
+    if (segmentStarts[index]) continue;
+    vertices.push(...points[index - 1], ...points[index]);
+  }
+  if (!vertices.length) return null;
+  const geometry = new THREE.BufferGeometry();
+  geometry.setAttribute("position", new THREE.Float32BufferAttribute(vertices, 3));
+  return new THREE.LineSegments(
+    geometry,
+    new THREE.LineBasicMaterial({ color, transparent: true, opacity: 0.9 }),
+  );
 }
 
 function addNativeCameraPath(group, centers) {
@@ -189,7 +217,11 @@ function addOmegaPaths(group) {
   const paths = window.FPVViewer?.getSceneData?.().paths;
   if (!paths?.layers) return;
   Object.entries(PATH_COLORS).forEach(([name, color]) => {
-    const line = lineFromPoints(paths.layers[name], color);
+    const line = lineFromPoints(
+      paths.layers[name],
+      color,
+      paths.segment_boundaries || [],
+    );
     if (!line) return;
     line.name = `omega-${name}-path`;
     line.userData.pathLayer = name;
@@ -258,7 +290,9 @@ function updateActiveCameraProxy() {
   if (!centers?.length) return;
   const index = Math.max(0, Math.min(centers.length - 1, activeSample));
   proxy.position.fromArray(centers[index]);
-  const next = centers[Math.min(index + 1, centers.length - 1)];
+  const nextIndex = Math.min(index + 1, centers.length - 1);
+  const segmentStarts = window.FPVViewer?.getSceneData?.().paths?.segment_boundaries || [];
+  const next = segmentStarts[nextIndex] ? centers[index] : centers[nextIndex];
   if (next && new THREE.Vector3(...next).distanceTo(proxy.position) > 1e-8) proxy.lookAt(...next);
 }
 
@@ -274,15 +308,20 @@ async function loadLayer(id) {
     if (layer.status !== "available") throw new Error(layer.reason || "layer unavailable");
     const buffers = id === "vggt_omega"
       ? await reuseOmegaBuffers(layer)
-      : await Promise.all([
-          fetchBuffer(layer.positions, `${id} positions`),
-          fetchBuffer(layer.colors, `${id} colors`),
-        ]).then(([positions, colors]) => ({
-          positions: new Float32Array(positions),
-          colors: new Uint8Array(colors),
-        }));
+      : await fetchBuffer(layer.positions, `${id} positions`).then(async (positions) => {
+          let colors = null;
+          if (layer.colors) {
+            colors = new Uint8Array(await fetchBuffer(layer.colors, `${id} colors`));
+          } else {
+            uniformPointColor(layer);
+          }
+          return { positions: new Float32Array(positions), colors };
+        });
     const count = validateBuffer(buffers.positions.buffer, layer.positions, `${id} positions`);
-    validateBuffer(buffers.colors.buffer, layer.colors, `${id} colors`);
+    if (buffers.colors) {
+      const colorCount = validateBuffer(buffers.colors.buffer, layer.colors, `${id} colors`);
+      if (colorCount !== count) throw new Error(`${id} color count mismatch`);
+    }
     if (count !== layer.point_count) throw new Error(`${id} point_count mismatch`);
     const group = renderGroups.get(layer.coordinate_frame);
     const object = geometryFromBuffers(layer, buffers.positions, buffers.colors);
