@@ -3,57 +3,144 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#05090b">
   <title>FPV Visual Geometry Lab V2</title>
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="assets/cockpit.css">
 </head>
-<body>
-  <main id="app" class="shell">
-    <aside class="rail">
-      <div class="brand">
-        <span>FPV Visual Geometry Lab</span>
-        <b>V2 research cockpit</b>
-      </div>
-      <input id="search" type="search" placeholder="Search scene, town, method" autocomplete="off">
-      <div class="filters">
-        <button type="button" data-filter="all" class="active">All</button>
-        <button type="button" data-filter="detailed">3D</button>
-        <button type="button" data-filter="manual">Manual</button>
-      </div>
-      <div id="scene-list" class="scene-list" aria-label="Scene catalog"></div>
-    </aside>
-    <section class="stage">
-      <header class="topbar">
-        <div>
-          <div id="kicker" class="kicker">loading catalog</div>
-          <h1 id="title">FPV Visual Geometry Lab</h1>
-        </div>
-        <div id="badges" class="badges"></div>
+<body data-view="gallery">
+  <main id="app" class="app-shell">
+    <section id="gallery-view" class="gallery-view" aria-labelledby="gallery-title">
+      <header class="site-header">
+        <a id="brand-home" class="brand-lockup" href="./" aria-label="FPV Visual Geometry Lab scene gallery">
+          <span class="brand-sigil" aria-hidden="true"></span>
+          <span>
+            <strong>FPV Geometry Lab</strong>
+            <small>V2 research viewer</small>
+          </span>
+        </a>
+        <p id="catalog-count" class="catalog-count">Loading scene catalog…</p>
       </header>
-      <section class="media-grid">
-        <article class="video-panel">
-          <video id="video" controls preload="metadata" playsinline></video>
-          <div id="timeline" class="timeline"></div>
-        </article>
-        <article class="viewer-panel">
-          <iframe id="scene-frame" title="Detailed local reconstruction cockpit"></iframe>
-          <div id="empty-viewer" class="empty-viewer"></div>
-        </article>
-      </section>
-      <section class="evidence-grid">
-        <article>
-          <h2>Research State</h2>
-          <dl id="state-table"></dl>
-        </article>
-        <article>
-          <h2>Method Coverage</h2>
-          <div id="methods" class="method-chips"></div>
-        </article>
-        <article>
-          <h2>Publication Boundary</h2>
-          <p id="boundary"></p>
-        </article>
-      </section>
+
+      <div class="gallery-main">
+        <section class="gallery-intro">
+          <div class="intro-copy">
+            <p class="scope-line">Retrospective visual-geometry research</p>
+            <h1 id="gallery-title">Historical scene gallery</h1>
+            <p>Browse the complete published catalog. The strongest multi-method reconstructions open into a dedicated WebGL cockpit with geometry, camera paths, trajectory layers, and method evidence.</p>
+          </div>
+          <div id="summary-stats" class="summary-stats" aria-label="Catalog coverage"></div>
+        </section>
+
+        <section class="gallery-tools" aria-label="Scene search and filters">
+          <label class="search-control" for="search">
+            <span>Find a scene</span>
+            <input id="search" type="search" placeholder="Search title, town, date, or method" autocomplete="off">
+          </label>
+          <div class="filters" role="group" aria-label="Filter scene catalog">
+            <button type="button" data-filter="all" class="active" aria-pressed="true">All scenes</button>
+            <button type="button" data-filter="detailed" aria-pressed="false">Full 3D</button>
+            <button type="button" data-filter="ensemble" aria-pressed="false">Multi-method</button>
+            <button type="button" data-filter="manual" aria-pressed="false">Manual edits</button>
+          </div>
+        </section>
+
+        <div class="gallery-status">
+          <p id="results-count" aria-live="polite">Preparing gallery…</p>
+          <p>Relative scale unless calibration is documented. Source media remains on the public CDN.</p>
+        </div>
+
+        <section id="featured-section" class="catalog-section">
+          <header class="section-heading">
+            <div>
+              <h2>Full reconstruction cockpits</h2>
+              <p>Selected scenes with packaged 3D geometry and research layers.</p>
+            </div>
+            <span id="featured-count"></span>
+          </header>
+          <div id="featured-list" class="featured-grid" aria-label="Detailed reconstruction scenes"></div>
+        </section>
+
+        <section id="archive-section" class="catalog-section archive-section">
+          <header class="section-heading">
+            <div>
+              <h2>Complete scene archive</h2>
+              <p>Every catalog record remains inspectable through its original video and edit map.</p>
+            </div>
+            <span id="archive-count"></span>
+          </header>
+          <div id="scene-list" class="scene-grid" aria-label="Complete scene catalog"></div>
+        </section>
+
+        <section id="no-results" class="no-results" hidden>
+          <h2>No scenes match this view</h2>
+          <p>Clear the search or choose another filter to return to the full catalog.</p>
+        </section>
+      </div>
+
+      <footer class="site-footer">
+        <span>Offline retrospective research viewer</span>
+        <span>No live guidance or operational analysis</span>
+      </footer>
+    </section>
+
+    <section id="detail-view" class="detail-view" aria-labelledby="title" hidden>
+      <header class="detail-header">
+        <button id="back-to-gallery" class="back-button" type="button">
+          <span aria-hidden="true">←</span>
+          <span>Scene gallery</span>
+        </button>
+        <div class="detail-identity">
+          <p id="kicker">Scene record</p>
+          <h1 id="title" tabindex="-1">Scene</h1>
+        </div>
+        <div id="badges" class="badges" aria-label="Scene status"></div>
+        <a id="detail-action" class="detail-action" href="#" target="_blank" rel="noopener">
+          <span>Open standalone</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+      </header>
+
+      <div class="detail-main">
+        <section id="viewer-panel" class="viewer-panel" aria-label="Full reconstruction viewer">
+          <iframe id="scene-frame" title="Detailed reconstruction cockpit" allow="fullscreen" allowfullscreen></iframe>
+          <div id="viewer-loading" class="viewer-loading" role="status">
+            <div>
+              <span></span>
+              <span></span>
+              <p>Loading reconstruction cockpit…</p>
+            </div>
+          </div>
+          <div id="empty-viewer" class="empty-viewer" hidden></div>
+        </section>
+
+        <section id="video-detail" class="video-detail" aria-label="Original scene video" hidden>
+          <div class="video-stage">
+            <video id="video" controls preload="metadata" playsinline></video>
+            <div id="timeline" class="timeline" aria-label="Edit segmentation timeline"></div>
+          </div>
+          <div class="video-context">
+            <div>
+              <h2>Research state</h2>
+              <dl id="state-table"></dl>
+            </div>
+            <div>
+              <h2>Available methods</h2>
+              <div id="methods" class="method-chips"></div>
+            </div>
+            <div>
+              <h2>Publication boundary</h2>
+              <p id="boundary"></p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section id="load-error" class="load-error" hidden>
+      <h1>Catalog unavailable</h1>
+      <p id="load-error-message">The public catalog could not be loaded.</p>
+      <button id="retry-load" type="button">Retry</button>
     </section>
   </main>
   <script src="assets/cockpit.js"></script>
