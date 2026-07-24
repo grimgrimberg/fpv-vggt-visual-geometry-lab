@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#05090b">
+  <title>Motion Observatory · FPV Geometry Lab</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="observatory.css">
+</head>
+<body>
+  <a class="skip-link" href="#trajectory-stage">Skip to trajectory stage</a>
+
+  <header class="site-header">
+    <a class="brand" href="../../" aria-label="Return to the FPV Geometry Lab gallery">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span><strong>FPV Geometry Lab</strong><small>Motion Observatory</small></span>
+    </a>
+    <div class="truth-strip" role="status">
+      <span class="truth-dot" aria-hidden="true"></span>
+      <strong>RELATIVE ONLY</strong>
+      <span>camera-motion research · no metric claims</span>
+    </div>
+  </header>
+
+  <main class="observatory">
+    <section class="intro" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">Scale-free trajectory laboratory</p>
+        <h1 id="page-title">Motion structure across reconstructed scenes</h1>
+        <p class="intro-copy">Inspect raw, fitted, and smoothed camera paths without collapsing them into one “best” answer. Signals are retrospective camera-pose proxies—not measured IMU, vehicle attitude, or physical speed.</p>
+      </div>
+      <dl class="coverage" aria-label="Observatory coverage">
+        <div><dt>Scenes</dt><dd id="scene-count">—</dd></div>
+        <div><dt>Layers</dt><dd>4</dd></div>
+        <div><dt>Scale</dt><dd>relative</dd></div>
+      </dl>
+    </section>
+
+    <section class="control-deck" aria-label="Motion Observatory controls">
+      <label>
+        <span>Scene</span>
+        <select id="scene-select"><option>Loading scenes…</option></select>
+      </label>
+      <label>
+        <span>Trajectory layer</span>
+        <select id="layer-select">
+          <option value="raw">Raw</option>
+          <option value="bspline">B-spline</option>
+          <option value="kalman">Kalman</option>
+          <option value="rts" selected>Kalman / RTS</option>
+        </select>
+      </label>
+      <label>
+        <span>Projection</span>
+        <select id="projection-select">
+          <option value="xz">X / Z</option>
+          <option value="xy">X / Y</option>
+          <option value="yz">Y / Z</option>
+        </select>
+      </label>
+      <div class="view-switch" role="group" aria-label="Observatory view">
+        <button type="button" data-view="trajectory" class="active" aria-pressed="true">Trajectory</button>
+        <button type="button" data-view="phase" aria-pressed="false">Phase</button>
+        <button type="button" data-view="compare" aria-pressed="false">Compare</button>
+      </div>
+      <a id="open-scene" class="scene-link" href="../../">Open full WebGL scene <span aria-hidden="true">↗</span></a>
+    </section>
+
+    <section class="workspace">
+      <aside class="scene-rail" aria-labelledby="cohort-title">
+        <div class="panel-heading">
+          <div><p class="eyebrow">Cohort</p><h2 id="cohort-title">Published 3D scenes</h2></div>
+          <span id="ready-count">—</span>
+        </div>
+        <div id="scene-list" class="scene-list" role="list"></div>
+      </aside>
+
+      <section id="trajectory-stage" class="trajectory-stage" tabindex="-1" aria-labelledby="stage-title">
+        <header class="panel-heading stage-heading">
+          <div><p id="stage-kicker" class="eyebrow">Trajectory field</p><h2 id="stage-title">Loading reconstruction motion…</h2></div>
+          <div class="stage-status"><span id="sample-readout">—</span><strong id="load-status">loading</strong></div>
+        </header>
+        <div class="canvas-wrap">
+          <canvas id="trajectory-canvas" width="1200" height="680" aria-label="Scale-free reconstructed camera trajectory"></canvas>
+          <div class="canvas-legend" aria-hidden="true">
+            <span><i class="legend-raw"></i>raw</span>
+            <span><i class="legend-selected"></i>selected layer</span>
+            <span id="compare-legend" hidden><i class="legend-cohort"></i>cohort shape</span>
+          </div>
+          <p id="plane-note" class="plane-note">X/Z coordinate projection · no ground plane inferred</p>
+          <div id="empty-state" class="empty-state" hidden>
+            <strong>Trajectory evidence unavailable</strong>
+            <span id="empty-reason">The selected public scene does not expose the required numerical artifacts.</span>
+          </div>
+        </div>
+        <div class="transport">
+          <button id="play-toggle" type="button">Play</button>
+          <input id="time-slider" type="range" min="0" max="199" value="0" step="1" aria-label="Normalized trajectory sample">
+          <output id="time-readout" for="time-slider">0.000</output>
+        </div>
+      </section>
+
+      <aside class="evidence" aria-labelledby="evidence-title">
+        <div class="panel-heading">
+          <div><p class="eyebrow">Evidence</p><h2 id="evidence-title">Active state</h2></div>
+          <span id="evidence-status">pending</span>
+        </div>
+        <dl id="evidence-list" class="evidence-list"></dl>
+        <section class="proxy-state" aria-labelledby="proxy-title">
+          <div class="section-label"><h3 id="proxy-title">Camera-path proxy</h3><span>not body attitude</span></div>
+          <div class="proxy-glyph" aria-hidden="true">
+            <span id="proxy-arrow"></span>
+            <i></i>
+          </div>
+          <dl class="state-grid">
+            <div><dt>X relative</dt><dd id="state-x">—</dd></div>
+            <div><dt>Y relative</dt><dd id="state-y">—</dd></div>
+            <div><dt>Z relative</dt><dd id="state-z">—</dd></div>
+            <div><dt>Tangent proxy</dt><dd id="state-heading">—</dd></div>
+            <div><dt>Speed</dt><dd id="state-speed">—</dd></div>
+            <div><dt>Acceleration</dt><dd id="state-accel">—</dd></div>
+            <div><dt>Jerk proxy</dt><dd id="state-jerk">—</dd></div>
+            <div><dt>Curvature</dt><dd id="state-curvature">—</dd></div>
+          </dl>
+        </section>
+        <p class="research-boundary">A lower residual or smoother curve is not automatically more accurate. Compare layers with source provenance, edit segmentation, and reconstruction diagnostics.</p>
+      </aside>
+    </section>
+
+    <section class="signals" aria-labelledby="signal-title">
+      <header class="panel-heading">
+        <div><p class="eyebrow">Synchronized signals</p><h2 id="signal-title">Relative dynamics ribbon</h2></div>
+        <span>speed · acceleration · jerk proxy · curvature</span>
+      </header>
+      <canvas id="signal-canvas" width="1600" height="260" aria-label="Synchronized scale-free trajectory signals"></canvas>
+      <div class="signal-legend" aria-hidden="true">
+        <span class="speed">speed</span><span class="accel">acceleration</span><span class="jerk">jerk proxy</span><span class="curve">curvature</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Completed historical recordings · static public research bundle</span>
+    <span>No live guidance, targeting, or operational analysis</span>
+  </footer>
+  <script type="module" src="observatory.js"></script>
+</body>
+</html>

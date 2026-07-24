@@ -1,0 +1,300 @@
+{
+  "analysis_semantics": "offline_historical_reconstruction_research",
+  "publication_boundary": {
+    "body_attitude_claims": false,
+    "metric_claims": false,
+    "scene_assets_reused": true,
+    "source_media_copied": false,
+    "trajectory_arrays_duplicated": false
+  },
+  "scale_state": "relative_only",
+  "scene_count": 12,
+  "scenes": [
+    {
+      "annotation_kind": "manual_ground_truth",
+      "artifact_policy": "reuse_existing_public_scene_bundle",
+      "assets": {
+        "camera_path": "camera_path.json",
+        "scene_meta": "scene_meta.json",
+        "trajectory_profiles": "trajectory_profiles.json"
+      },
+      "hero_eligible": false,
+      "hero_score": 0.9637375171604743,
+      "methods": [
+        "hloc_lightglue_colmap",
+        "lingbot_map",
+        "r3",
+        "vggt_omega"
+      ],
+      "review_status": "not_reported",
+      "route": "scenes/2026-05-06_strike_on_namer_apc_in_bint_jbeil/seg02/index.html",
+      "scale_state": "relative_only",
+      "scene_id": "seg02",
+      "score_confidence": 0.65,
+      "slug": "2026-05-06_strike_on_namer_apc_in_bint_jbeil",
+      "title": "\"Namera\" vehicle, city of Bint Jbeil (dive drone)"
+    },
+    {
+      "annotation_kind": "manual_ground_truth",
+      "artifact_policy": "reuse_existing_public_scene_bundle",
+      "assets": {
+        "camera_path": "camera_path.json",
+        "scene_meta": "scene_meta.json",
+        "trajectory_profiles": "trajectory_profiles.json"
+      },
+      "hero_eligible": false,
+      "hero_score": 0.878,
+      "methods": [
+        "vggt_omega",
+        "hloc_lightglue",
+        "lingbot_map",
+        "r3"
+      ],
+      "review_status": "not_reported",
+      "route": "scenes/2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan/seg01/index.html",
+      "scale_state": "relative_only",
+      "scene_id": "seg01",
+      "score_confidence": 0.72,
+      "slug": "2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan",
+      "title": "D9 engineering vehicle on the road between Taybeh and Deir Siryan (dive drone)"
+    },
+    {
+      "annotation_kind": "manual_ground_truth",
+      "artifact_policy": "reuse_existing_public_scene_bundle",
+      "assets": {
+        "camera_path": "camera_path.json",
+        "scene_meta": "scene_meta.json",
+        "trajectory_profiles": "trajectory_profiles.json"
+      },
+      "hero_eligible": false,
+      "hero_score": 0.8358731994639297,
+      "methods": [
+        "hloc_lightglue_colmap",
+        "lingbot_map",
+        "r3",
+        "vggt_omega"
+      ],
+      "review_status": "not_reported",
+      "route": "scenes/2026-05-07_strike_on_iron_dome_launcher_at_jal_al_alam/seg01_seg02/index.html",
+      "scale_state": "relative_only",
+      "scene_id": "seg01_seg02",
+      "score_confidence": 0.65,
+      "slug": "2026-05-07_strike_on_iron_dome_launcher_at_jal_al_alam",
+      "title": "Iron Dome platform and its crew, Jal al-Alam site (two dive drones)"
+    },
+    {
+      "annotation_kind": "manual_ground_truth",
+      "artifact_policy": "reuse_existing_public_scene_bundle",
+      "assets": {
+        "camera_path": "camera_path.json",
+        "scene_meta": "scene_meta.json",
+        "trajectory_profiles": "trajectory_profiles.json"
+      },
+      "hero_eligible": false,
+      "hero_score": 0.8238647398969385,
+      "methods": [
+        "hloc_lightglue_colmap",
+        "lingbot_map",
+        "r3",
+        "vggt_omega"
+      ],
+      "review_status": "not_reported",
+      "route": "scenes/2026-05-09_strike_on_soldiers/seg01_seg02/index.html",
+      "scale_state": "relative_only",
+      "scene_id": "seg01_seg02",
+      "score_confidence": 0.65,
+      "slug": "2026-05-09_strike_on_soldiers",
+      "title": "Soldier gathering, Jal al-Alam site on the Lebanese border (dive drone)"
+    },
+    {
+      "annotation_kind": "manual_ground_truth",
+      "artifact_policy": "reuse_existing_public_scene_bundle",
+      "assets": {
+        "camera_path": "camera_path.json",
+        "scene_meta": "scene_meta.json",
+        "trajectory_profiles": "trajectory_profiles.json"
+      },
+      "hero_eligible": false,
+      "hero_score": 0.7827454381479108,
+      "methods": [
+        "hloc_lightglue_colmap",
+        "lingbot_map",
+        "r3",
+        "vggt_omega"
+      ],
+      "review_status": "not_reported",
+      "route": "scenes/2026-05-08_strike_on_humvee_in_naqoura/seg01_seg02_seg03_seg04/index.html",
+      "scale_state": "relative_only",
+      "scene_id": "seg01_seg02_seg03_seg04",
+      "score_confidence": 0.65,
+      "slug": "2026-05-08_strike_on_humvee_in_naqoura",
+      "title": "Humvee, al-Bayyada (dive drone)"
+    },
+    {
+      "annotation_kind": "manual_ground_truth",
+      "artifact_policy": "reuse_existing_public_scene_bundle",
+      "assets": {
+        "camera_path": "camera_path.json",
+        "scene_meta": "scene_meta.json",
+        "trajectory_profiles": "trajectory_profiles.json"
+      },
+      "hero_eligible": false,
+      "hero_score": 0.7661432556816292,
+      "methods": [
+        "hloc_lightglue_colmap",
+        "lingbot_map",
+        "r3",
+        "vggt_omega"
+      ],
+      "review_status": "not_reported",
+      "route": "scenes/2026-05-09_strike_on_israeli_military_vehicle/seg01_seg02_seg03_seg04_seg05/index.html",
+      "scale_state": "relative_only",
+      "scene_id": "seg01_seg02_seg03_seg04_seg05",
+      "score_confidence": 0.65,
+      "slug": "2026-05-09_strike_on_israeli_military_vehicle",
+      "title": "Military vehicle, Khallet al-Raj in Deir Siryan (dive drone)"
+    },
+    {
+      "annotation_kind": "manual_ground_truth",
+      "artifact_policy": "reuse_existing_public_scene_bundle",
+      "assets": {
+        "camera_path": "camera_path.json",
+        "scene_meta": "scene_meta.json",
+        "trajectory_profiles": "trajectory_profiles.json"
+      },
+      "hero_eligible": false,
+      "hero_score": 0.7637989873589976,
+      "methods": [
+        "hloc_lightglue_colmap",
+        "lingbot_map",
+        "r3",
+        "vggt_omega"
+      ],
+      "review_status": "not_reported",
+      "route": "scenes/2026-05-08_humvee_bayyadah_mmirleb_16048/seg01_seg02_seg03_seg04/index.html",
+      "scale_state": "relative_only",
+      "scene_id": "seg01_seg02_seg03_seg04",
+      "score_confidence": 0.65,
+      "slug": "2026-05-08_humvee_bayyadah_mmirleb_16048",
+      "title": "Humvee, al-Bayyada (dive drone)"
+    },
+    {
+      "annotation_kind": "manual_ground_truth",
+      "artifact_policy": "reuse_existing_public_scene_bundle",
+      "assets": {
+        "camera_path": "camera_path.json",
+        "scene_meta": "scene_meta.json",
+        "trajectory_profiles": "trajectory_profiles.json"
+      },
+      "hero_eligible": false,
+      "hero_score": 0.7566054658239767,
+      "methods": [
+        "hloc_lightglue_colmap",
+        "lingbot_map",
+        "r3",
+        "vggt_omega"
+      ],
+      "review_status": "not_reported",
+      "route": "scenes/2026-05-06_strike_on_namer_apc_near_qouzah/seg01_seg02/index.html",
+      "scale_state": "relative_only",
+      "scene_id": "seg01_seg02",
+      "score_confidence": 0.65,
+      "slug": "2026-05-06_strike_on_namer_apc_near_qouzah",
+      "title": "\"Namera\" troop carrier, Qouzah (dive drone)"
+    },
+    {
+      "annotation_kind": "manual_ground_truth",
+      "artifact_policy": "reuse_existing_public_scene_bundle",
+      "assets": {
+        "camera_path": "camera_path.json",
+        "scene_meta": "scene_meta.json",
+        "trajectory_profiles": "trajectory_profiles.json"
+      },
+      "hero_eligible": false,
+      "hero_score": 0.7487801382120597,
+      "methods": [
+        "hloc_lightglue_colmap",
+        "lingbot_map",
+        "r3",
+        "vggt_omega"
+      ],
+      "review_status": "not_reported",
+      "route": "scenes/2026-05-08_merkava_tank_bayyadah_mmirleb_16051/seg01_seg02/index.html",
+      "scale_state": "relative_only",
+      "scene_id": "seg01_seg02",
+      "score_confidence": 0.65,
+      "slug": "2026-05-08_merkava_tank_bayyadah_mmirleb_16051",
+      "title": "Merkava tank, al-Bayyada (dive drone)"
+    },
+    {
+      "annotation_kind": "manual_ground_truth",
+      "artifact_policy": "reuse_existing_public_scene_bundle",
+      "assets": {
+        "camera_path": "camera_path.json",
+        "scene_meta": "scene_meta.json",
+        "trajectory_profiles": "trajectory_profiles.json"
+      },
+      "hero_eligible": false,
+      "hero_score": 0.682,
+      "methods": [
+        "vggt_omega"
+      ],
+      "review_status": "not_reported",
+      "route": "scenes/2026-04-29_strike_on_merkava_tank/seg01/index.html",
+      "scale_state": "relative_only",
+      "scene_id": "seg01",
+      "score_confidence": 0.55,
+      "slug": "2026-04-29_strike_on_merkava_tank",
+      "title": "Merkava tank, Beit Lif (dive drone)"
+    },
+    {
+      "annotation_kind": "auto_generated",
+      "artifact_policy": "reuse_existing_public_scene_bundle",
+      "assets": {
+        "camera_path": "camera_path.json",
+        "scene_meta": "scene_meta.json",
+        "trajectory_profiles": "trajectory_profiles.json"
+      },
+      "hero_eligible": false,
+      "hero_score": 0.853922107532036,
+      "methods": [
+        "hloc_lightglue_colmap",
+        "lingbot_map",
+        "r3",
+        "vggt_omega"
+      ],
+      "review_status": "not_reported",
+      "route": "scenes/2026-05-08_resistance_strikes_enemy_forces_kfar_kila/seg15_seg16_seg17_seg18_seg19_seg20/index.html",
+      "scale_state": "relative_only",
+      "scene_id": "seg15_seg16_seg17_seg18_seg19_seg20",
+      "score_confidence": 0.65,
+      "slug": "2026-05-08_resistance_strikes_enemy_forces_kfar_kila",
+      "title": "Series of resistance strikes on Israeli army forces, Rashaf (swarm of Ababil dive drones)"
+    },
+    {
+      "annotation_kind": "not_available",
+      "artifact_policy": "reuse_existing_public_scene_bundle",
+      "assets": {
+        "camera_path": "camera_path.json",
+        "scene_meta": "scene_meta.json",
+        "trajectory_profiles": "trajectory_profiles.json"
+      },
+      "hero_eligible": false,
+      "hero_score": 0.7581726737250112,
+      "methods": [
+        "hloc_lightglue_colmap",
+        "lingbot_map",
+        "r3",
+        "vggt_omega"
+      ],
+      "review_status": "not_reported",
+      "route": "scenes/2026-05-09_soldiers_gathering_shlomi_mmirleb_15970/seg01_seg02_seg03_seg04/index.html",
+      "scale_state": "relative_only",
+      "scene_id": "seg01_seg02_seg03_seg04",
+      "score_confidence": 0.65,
+      "slug": "2026-05-09_soldiers_gathering_shlomi_mmirleb_15970",
+      "title": "Soldier gathering at a helicopter landing pad, Shlomi settlement (dive drone)"
+    }
+  ],
+  "schema_version": "1.0.0"
+}
