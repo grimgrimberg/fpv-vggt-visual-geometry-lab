@@ -1,0 +1,166 @@
+{
+  "alignment_policy": "method_native_not_aligned",
+  "comparison_rule": "Only geometry backed by published, validated buffers is selectable.",
+  "geometry_layers": {
+    "coordinate_frames": {
+      "hloc_native": {
+        "exclusive": true,
+        "ground_display_supported": false
+      },
+      "lingbot_native": {
+        "exclusive": true,
+        "ground_display_supported": false
+      },
+      "omega_shared": {
+        "exclusive": true,
+        "ground_display_supported": true
+      },
+      "r3_native": {
+        "exclusive": true,
+        "ground_display_supported": false
+      }
+    },
+    "layers": {
+      "hloc_lightglue_colmap_native": {
+        "coordinate_frame": "hloc_native",
+        "id": "hloc_lightglue_colmap_native",
+        "method": "hloc_lightglue_colmap",
+        "reason": "method evidence is absent",
+        "scale_status": "relative_only",
+        "status": "unavailable",
+        "variant": "native"
+      },
+      "lingbot_map_aligned": {
+        "coordinate_frame": "omega_shared",
+        "id": "lingbot_map_aligned",
+        "method": "lingbot_map",
+        "reason": "successful_batch_metadata_raw_arrays_unavailable",
+        "scale_status": "relative_only",
+        "status": "unavailable",
+        "variant": "aligned_to_omega"
+      },
+      "lingbot_map_native": {
+        "coordinate_frame": "lingbot_native",
+        "id": "lingbot_map_native",
+        "method": "lingbot_map",
+        "reason": "successful_batch_metadata_raw_arrays_unavailable",
+        "scale_status": "relative_only",
+        "status": "unavailable",
+        "variant": "native"
+      },
+      "r3_aligned": {
+        "coordinate_frame": "omega_shared",
+        "id": "r3_aligned",
+        "method": "r3",
+        "reason": "complete_r3_arrays_match_declared_frame_count",
+        "scale_status": "relative_only",
+        "status": "unavailable",
+        "variant": "aligned_to_omega"
+      },
+      "r3_native": {
+        "coordinate_frame": "r3_native",
+        "id": "r3_native",
+        "method": "r3",
+        "reason": "complete_r3_arrays_match_declared_frame_count",
+        "scale_status": "relative_only",
+        "status": "unavailable",
+        "variant": "native"
+      },
+      "vggt_omega": {
+        "colors": {
+          "bytes": 360000,
+          "components": 3,
+          "dtype": "uint8",
+          "path": "points_preview_colors.bin",
+          "shape": [
+            120000,
+            3
+          ]
+        },
+        "coordinate_frame": "omega_shared",
+        "id": "vggt_omega",
+        "method": "vggt_omega",
+        "point_count": 120000,
+        "positions": {
+          "bytes": 1440000,
+          "components": 3,
+          "dtype": "float32_le",
+          "path": "points_preview.bin",
+          "shape": [
+            120000,
+            3
+          ]
+        },
+        "scale_status": "relative_only",
+        "status": "available",
+        "variant": "viewer_native"
+      }
+    },
+    "method_aliases": {
+      "hloc": "hloc_lightglue_colmap",
+      "lingbot": "lingbot_map"
+    }
+  },
+  "geometry_overlay_policy": "exclusive_coordinate_frame_groups",
+  "input": {
+    "edit_segments": [
+      {
+        "end_s": 38.196,
+        "end_type": "replay_start",
+        "is_attack": true,
+        "segment_id": "seg01",
+        "segment_index": 1,
+        "start_s": 8.082,
+        "start_type": "flight_start"
+      }
+    ],
+    "frame_count": 200,
+    "source_video": {
+      "copied": false,
+      "kind": "remote_public_cdn",
+      "path": "https://d2fioemadmrru3.cloudfront.net/videos/2026-04-29_strike_on_merkava_tank.mp4"
+    }
+  },
+  "masks": {
+    "reason": "No artifact-mask bundle is published for this scene.",
+    "status": "not_run"
+  },
+  "methods": {
+    "hloc_lightglue_colmap": {
+      "assets": {},
+      "geometry_status": "unavailable",
+      "reason": "method evidence is absent",
+      "role": "feature matching and sparse reconstruction",
+      "scale_status": "relative_only",
+      "status": "missing"
+    },
+    "lingbot_map": {
+      "geometry_status": "not_published",
+      "reason": "successful_batch_metadata_raw_arrays_unavailable",
+      "role": "independent mapping method",
+      "scale_status": "relative_only",
+      "status": "metadata_only"
+    },
+    "r3": {
+      "geometry_status": "not_published",
+      "reason": "complete_r3_arrays_match_declared_frame_count",
+      "role": "independent depth and camera reconstruction",
+      "scale_status": "relative_only",
+      "status": "validated_numerical"
+    },
+    "vggt_omega": {
+      "alignment": "viewer_native",
+      "role": "primary reconstructed geometry and camera path",
+      "scale_status": "relative_only",
+      "status": "done"
+    }
+  },
+  "publication_boundary": {
+    "derived_geometry_only": true,
+    "source_images_copied": false
+  },
+  "samples": [],
+  "scale_status": "relative_only",
+  "scene_id": "2026-04-29_strike_on_merkava_tank__seg01",
+  "schema_version": "1.0.0"
+}

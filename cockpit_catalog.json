@@ -1,13 +1,16 @@
 {
   "counts": {
     "annotation_records": 142,
+    "annotation_source_records": 143,
     "catalog_records": 161,
     "detailed_geometry_scenes": 12,
     "hf_native_scenes_built_this_pass": 5,
     "hub_full_native_scene_candidates": 10,
+    "method_evidence_records": 12,
+    "partial_ensemble_webgl_scenes": 1,
     "vggt_done_records": 139,
-    "annotation_source_records": 143,
-    "vggt_partial_records": 1
+    "vggt_partial_records": 1,
+    "webgl_detailed_scenes": 12
   },
   "detailed_scenes": [
     {
@@ -192,6 +195,18 @@
     "scene_count": 213,
     "slug_count": 139,
     "source": "authenticated_huggingface_filename_inventory"
+  },
+  "method_evidence_contract": {
+    "capabilities": [
+      "rendered_3d",
+      "artifact_complete",
+      "numerical_only",
+      "metadata_only",
+      "failed",
+      "unavailable",
+      "unknown"
+    ],
+    "rule": "A method name does not imply renderable geometry; capability is reported separately and unavailable controls remain disabled."
   },
   "publication_boundary": {
     "cdn_host_allowlist": [
@@ -9513,11 +9528,50 @@
           "source": "authenticated_huggingface_filename_inventory",
           "vggt_omega": true
         },
+        "method_evidence": [
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "vggt_omega",
+            "note": "",
+            "status": "done"
+          },
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "r3",
+            "note": "",
+            "status": "done"
+          },
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "lingbot_map",
+            "note": "",
+            "status": "done"
+          },
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "hloc_lightglue_colmap",
+            "note": "",
+            "status": "done"
+          }
+        ],
+        "method_summary": {
+          "artifact_complete": 0,
+          "failed": 0,
+          "metadata_only": 0,
+          "numerical_only": 0,
+          "rendered_3d": 4,
+          "unavailable": 0,
+          "unknown": 0
+        },
         "methods": [
-          "hloc_lightglue_colmap",
-          "lingbot_map",
+          "vggt_omega",
           "r3",
-          "vggt_omega"
+          "lingbot_map",
+          "hloc_lightglue_colmap"
         ],
         "scale_state": "relative_only",
         "tier": "detailed_geometry",
@@ -9530,7 +9584,8 @@
             "seg01_seg02"
           ],
           "status": "done"
-        }
+        },
+        "viewer_mode": "full_multi_method_webgl"
       },
       "slug": "2026-05-09_strike_on_soldiers",
       "source_geo_status": "mapped",
@@ -9598,11 +9653,50 @@
           "source": "authenticated_huggingface_filename_inventory",
           "vggt_omega": true
         },
+        "method_evidence": [
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "vggt_omega",
+            "note": "",
+            "status": "done"
+          },
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "r3",
+            "note": "",
+            "status": "done"
+          },
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "lingbot_map",
+            "note": "",
+            "status": "done"
+          },
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "hloc_lightglue_colmap",
+            "note": "",
+            "status": "done"
+          }
+        ],
+        "method_summary": {
+          "artifact_complete": 0,
+          "failed": 0,
+          "metadata_only": 0,
+          "numerical_only": 0,
+          "rendered_3d": 4,
+          "unavailable": 0,
+          "unknown": 0
+        },
         "methods": [
-          "hloc_lightglue_colmap",
-          "lingbot_map",
+          "vggt_omega",
           "r3",
-          "vggt_omega"
+          "lingbot_map",
+          "hloc_lightglue_colmap"
         ],
         "scale_state": "relative_only",
         "tier": "detailed_geometry",
@@ -9615,7 +9709,8 @@
             "seg01_seg02_seg03_seg04_seg05"
           ],
           "status": "done"
-        }
+        },
+        "viewer_mode": "full_multi_method_webgl"
       },
       "slug": "2026-05-09_strike_on_israeli_military_vehicle",
       "source_geo_status": "mapped",
@@ -9654,11 +9749,50 @@
           "source": "authenticated_huggingface_filename_inventory",
           "vggt_omega": true
         },
+        "method_evidence": [
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "vggt_omega",
+            "note": "",
+            "status": "done"
+          },
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "r3",
+            "note": "",
+            "status": "done"
+          },
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "lingbot_map",
+            "note": "",
+            "status": "done"
+          },
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "hloc_lightglue_colmap",
+            "note": "",
+            "status": "done"
+          }
+        ],
+        "method_summary": {
+          "artifact_complete": 0,
+          "failed": 0,
+          "metadata_only": 0,
+          "numerical_only": 0,
+          "rendered_3d": 4,
+          "unavailable": 0,
+          "unknown": 0
+        },
         "methods": [
-          "hloc_lightglue_colmap",
-          "lingbot_map",
+          "vggt_omega",
           "r3",
-          "vggt_omega"
+          "lingbot_map",
+          "hloc_lightglue_colmap"
         ],
         "scale_state": "relative_only",
         "tier": "detailed_geometry",
@@ -9671,7 +9805,8 @@
             "seg01_seg02_seg03_seg04"
           ],
           "status": "done"
-        }
+        },
+        "viewer_mode": "full_multi_method_webgl"
       },
       "slug": "2026-05-09_soldiers_gathering_shlomi_mmirleb_15970",
       "source_geo_status": "mapped",
@@ -10140,11 +10275,50 @@
           "source": "authenticated_huggingface_filename_inventory",
           "vggt_omega": true
         },
+        "method_evidence": [
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "vggt_omega",
+            "note": "",
+            "status": "done"
+          },
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "r3",
+            "note": "",
+            "status": "done"
+          },
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "lingbot_map",
+            "note": "",
+            "status": "done"
+          },
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "hloc_lightglue_colmap",
+            "note": "",
+            "status": "done"
+          }
+        ],
+        "method_summary": {
+          "artifact_complete": 0,
+          "failed": 0,
+          "metadata_only": 0,
+          "numerical_only": 0,
+          "rendered_3d": 4,
+          "unavailable": 0,
+          "unknown": 0
+        },
         "methods": [
-          "hloc_lightglue_colmap",
-          "lingbot_map",
+          "vggt_omega",
           "r3",
-          "vggt_omega"
+          "lingbot_map",
+          "hloc_lightglue_colmap"
         ],
         "scale_state": "relative_only",
         "tier": "detailed_geometry",
@@ -10157,7 +10331,8 @@
             "seg01_seg02_seg03_seg04"
           ],
           "status": "done"
-        }
+        },
+        "viewer_mode": "full_multi_method_webgl"
       },
       "slug": "2026-05-08_strike_on_humvee_in_naqoura",
       "source_geo_status": "mapped",
@@ -10433,11 +10608,50 @@
           "source": "authenticated_huggingface_filename_inventory",
           "vggt_omega": true
         },
+        "method_evidence": [
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "vggt_omega",
+            "note": "",
+            "status": "done"
+          },
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "r3",
+            "note": "",
+            "status": "done"
+          },
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "lingbot_map",
+            "note": "",
+            "status": "done"
+          },
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "hloc_lightglue_colmap",
+            "note": "",
+            "status": "done"
+          }
+        ],
+        "method_summary": {
+          "artifact_complete": 0,
+          "failed": 0,
+          "metadata_only": 0,
+          "numerical_only": 0,
+          "rendered_3d": 4,
+          "unavailable": 0,
+          "unknown": 0
+        },
         "methods": [
-          "hloc_lightglue_colmap",
-          "lingbot_map",
+          "vggt_omega",
           "r3",
-          "vggt_omega"
+          "lingbot_map",
+          "hloc_lightglue_colmap"
         ],
         "scale_state": "relative_only",
         "tier": "detailed_geometry",
@@ -10450,7 +10664,8 @@
             "seg15_seg16_seg17_seg18_seg19_seg20"
           ],
           "status": "done"
-        }
+        },
+        "viewer_mode": "full_multi_method_webgl"
       },
       "slug": "2026-05-08_resistance_strikes_enemy_forces_kfar_kila",
       "source_geo_status": "mapped",
@@ -10518,11 +10733,50 @@
           "source": "authenticated_huggingface_filename_inventory",
           "vggt_omega": true
         },
+        "method_evidence": [
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "vggt_omega",
+            "note": "",
+            "status": "done"
+          },
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "r3",
+            "note": "",
+            "status": "done"
+          },
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "lingbot_map",
+            "note": "",
+            "status": "done"
+          },
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "hloc_lightglue_colmap",
+            "note": "",
+            "status": "done"
+          }
+        ],
+        "method_summary": {
+          "artifact_complete": 0,
+          "failed": 0,
+          "metadata_only": 0,
+          "numerical_only": 0,
+          "rendered_3d": 4,
+          "unavailable": 0,
+          "unknown": 0
+        },
         "methods": [
-          "hloc_lightglue_colmap",
-          "lingbot_map",
+          "vggt_omega",
           "r3",
-          "vggt_omega"
+          "lingbot_map",
+          "hloc_lightglue_colmap"
         ],
         "scale_state": "relative_only",
         "tier": "detailed_geometry",
@@ -10535,7 +10789,8 @@
             "seg01_seg02"
           ],
           "status": "done"
-        }
+        },
+        "viewer_mode": "full_multi_method_webgl"
       },
       "slug": "2026-05-08_merkava_tank_bayyadah_mmirleb_16051",
       "source_geo_status": "mapped",
@@ -10611,11 +10866,50 @@
           "source": "authenticated_huggingface_filename_inventory",
           "vggt_omega": true
         },
+        "method_evidence": [
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "vggt_omega",
+            "note": "",
+            "status": "done"
+          },
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "r3",
+            "note": "",
+            "status": "done"
+          },
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "lingbot_map",
+            "note": "",
+            "status": "done"
+          },
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "hloc_lightglue_colmap",
+            "note": "",
+            "status": "done"
+          }
+        ],
+        "method_summary": {
+          "artifact_complete": 0,
+          "failed": 0,
+          "metadata_only": 0,
+          "numerical_only": 0,
+          "rendered_3d": 4,
+          "unavailable": 0,
+          "unknown": 0
+        },
         "methods": [
-          "hloc_lightglue_colmap",
-          "lingbot_map",
+          "vggt_omega",
           "r3",
-          "vggt_omega"
+          "lingbot_map",
+          "hloc_lightglue_colmap"
         ],
         "scale_state": "relative_only",
         "tier": "detailed_geometry",
@@ -10628,7 +10922,8 @@
             "seg01_seg02_seg03_seg04"
           ],
           "status": "done"
-        }
+        },
+        "viewer_mode": "full_multi_method_webgl"
       },
       "slug": "2026-05-08_humvee_bayyadah_mmirleb_16048",
       "source_geo_status": "mapped",
@@ -10688,11 +10983,50 @@
           "source": "authenticated_huggingface_filename_inventory",
           "vggt_omega": true
         },
+        "method_evidence": [
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "vggt_omega",
+            "note": "",
+            "status": "done"
+          },
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "r3",
+            "note": "",
+            "status": "done"
+          },
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "lingbot_map",
+            "note": "",
+            "status": "done"
+          },
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "hloc_lightglue_colmap",
+            "note": "",
+            "status": "done"
+          }
+        ],
+        "method_summary": {
+          "artifact_complete": 0,
+          "failed": 0,
+          "metadata_only": 0,
+          "numerical_only": 0,
+          "rendered_3d": 4,
+          "unavailable": 0,
+          "unknown": 0
+        },
         "methods": [
-          "hloc_lightglue_colmap",
-          "lingbot_map",
+          "vggt_omega",
           "r3",
-          "vggt_omega"
+          "lingbot_map",
+          "hloc_lightglue_colmap"
         ],
         "scale_state": "relative_only",
         "tier": "detailed_geometry",
@@ -10705,7 +11039,8 @@
             "seg01_seg02"
           ],
           "status": "done"
-        }
+        },
+        "viewer_mode": "full_multi_method_webgl"
       },
       "slug": "2026-05-07_strike_on_iron_dome_launcher_at_jal_al_alam",
       "source_geo_status": "mapped",
@@ -10864,11 +11199,50 @@
           "source": "authenticated_huggingface_filename_inventory",
           "vggt_omega": true
         },
+        "method_evidence": [
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "vggt_omega",
+            "note": "",
+            "status": "done"
+          },
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "r3",
+            "note": "",
+            "status": "done"
+          },
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "lingbot_map",
+            "note": "",
+            "status": "done"
+          },
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "hloc_lightglue_colmap",
+            "note": "",
+            "status": "done"
+          }
+        ],
+        "method_summary": {
+          "artifact_complete": 0,
+          "failed": 0,
+          "metadata_only": 0,
+          "numerical_only": 0,
+          "rendered_3d": 4,
+          "unavailable": 0,
+          "unknown": 0
+        },
         "methods": [
-          "hloc_lightglue_colmap",
-          "lingbot_map",
+          "vggt_omega",
           "r3",
-          "vggt_omega"
+          "lingbot_map",
+          "hloc_lightglue_colmap"
         ],
         "scale_state": "relative_only",
         "tier": "detailed_geometry",
@@ -10881,7 +11255,8 @@
             "seg01_seg02"
           ],
           "status": "done"
-        }
+        },
+        "viewer_mode": "full_multi_method_webgl"
       },
       "slug": "2026-05-06_strike_on_namer_apc_near_qouzah",
       "source_geo_status": "mapped",
@@ -11008,11 +11383,50 @@
           "source": "authenticated_huggingface_filename_inventory",
           "vggt_omega": true
         },
+        "method_evidence": [
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "vggt_omega",
+            "note": "",
+            "status": "done"
+          },
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "r3",
+            "note": "",
+            "status": "done"
+          },
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "lingbot_map",
+            "note": "",
+            "status": "done"
+          },
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "hloc_lightglue_colmap",
+            "note": "",
+            "status": "done"
+          }
+        ],
+        "method_summary": {
+          "artifact_complete": 0,
+          "failed": 0,
+          "metadata_only": 0,
+          "numerical_only": 0,
+          "rendered_3d": 4,
+          "unavailable": 0,
+          "unknown": 0
+        },
         "methods": [
-          "hloc_lightglue_colmap",
-          "lingbot_map",
+          "vggt_omega",
           "r3",
-          "vggt_omega"
+          "lingbot_map",
+          "hloc_lightglue_colmap"
         ],
         "scale_state": "relative_only",
         "tier": "detailed_geometry",
@@ -11025,7 +11439,8 @@
             "seg02"
           ],
           "status": "done"
-        }
+        },
+        "viewer_mode": "full_multi_method_webgl"
       },
       "slug": "2026-05-06_strike_on_namer_apc_in_bint_jbeil",
       "source_geo_status": "mapped",
@@ -12349,9 +12764,49 @@
           "source": "authenticated_huggingface_filename_inventory",
           "vggt_omega": true
         },
+        "method_evidence": [
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "vggt_omega",
+            "note": "viewer geometry published",
+            "status": "done"
+          },
+          {
+            "available_3d": false,
+            "capability": "numerical_only",
+            "method": "r3",
+            "note": "complete_r3_arrays_match_declared_frame_count",
+            "status": "validated_numerical"
+          },
+          {
+            "available_3d": false,
+            "capability": "metadata_only",
+            "method": "lingbot_map",
+            "note": "successful_batch_metadata_raw_arrays_unavailable",
+            "status": "metadata_only"
+          },
+          {
+            "available_3d": false,
+            "capability": "unavailable",
+            "method": "hloc_lightglue_colmap",
+            "note": "method evidence is absent",
+            "status": "missing"
+          }
+        ],
+        "method_summary": {
+          "artifact_complete": 0,
+          "failed": 0,
+          "metadata_only": 1,
+          "numerical_only": 1,
+          "rendered_3d": 1,
+          "unavailable": 1,
+          "unknown": 0
+        },
         "methods": [
+          "vggt_omega",
           "r3",
-          "vggt_omega"
+          "lingbot_map"
         ],
         "scale_state": "relative_only",
         "tier": "detailed_geometry",
@@ -12364,7 +12819,8 @@
             "seg01_seg02"
           ],
           "status": "done"
-        }
+        },
+        "viewer_mode": "omega_webgl_partial_ensemble"
       },
       "slug": "2026-04-29_strike_on_merkava_tank",
       "source_geo_status": "mapped",
@@ -12448,12 +12904,57 @@
           "source": "authenticated_huggingface_filename_inventory",
           "vggt_omega": true
         },
+        "method_evidence": [
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "vggt_omega",
+            "note": "viewer geometry published",
+            "status": "done"
+          },
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "r3",
+            "note": "",
+            "status": "done"
+          },
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "lingbot_map",
+            "note": "",
+            "status": "done"
+          },
+          {
+            "available_3d": true,
+            "capability": "rendered_3d",
+            "method": "hloc_lightglue_colmap",
+            "note": "",
+            "status": "done"
+          },
+          {
+            "available_3d": false,
+            "capability": "failed",
+            "method": "mast3r_sfm",
+            "note": "",
+            "status": "failed"
+          }
+        ],
+        "method_summary": {
+          "artifact_complete": 0,
+          "failed": 1,
+          "metadata_only": 0,
+          "numerical_only": 0,
+          "rendered_3d": 4,
+          "unavailable": 0,
+          "unknown": 0
+        },
         "methods": [
-          "hloc_lightglue",
-          "hloc_lightglue_colmap",
-          "lingbot_map",
+          "vggt_omega",
           "r3",
-          "vggt_omega"
+          "lingbot_map",
+          "hloc_lightglue_colmap"
         ],
         "scale_state": "relative_only",
         "tier": "detailed_geometry",
@@ -12466,7 +12967,8 @@
             "seg01_seg02"
           ],
           "status": "done"
-        }
+        },
+        "viewer_mode": "full_multi_method_webgl"
       },
       "slug": "2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan",
       "source_geo_status": "mapped",

@@ -7,9 +7,10 @@
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="video-addon.css">
-  <link rel="stylesheet" href="method-comparison-addon.css">
+  <link rel="stylesheet" href="method-comparison-addon.css?v=20260724-method-evidence">
   <link rel="stylesheet" href="sixdof-addon.css">
   <link rel="stylesheet" href="scene-reference-addon.css">
+  <link rel="stylesheet" href="../../../assets/local-viewer/method-scene3d.css">
 </head>
 <body>
   <header class="masthead">
@@ -31,6 +32,7 @@
 
     <section class="scene-workspace" aria-label="Reconstructed scene">
       <canvas id="scene-canvas" aria-label="Interactive relative point cloud, camera paths, and camera pose proxy"></canvas>
+      <div id="method-scene3d" hidden></div>
       <div class="canvas-topline">
         <span><b id="point-count">—</b> viewer points</span>
         <span><b id="frame-count">—</b> recovered poses</span>
@@ -83,9 +85,11 @@
 
   <script src="app.js"></script>
   <script src="video-addon.js"></script>
-  <script src="method-comparison-addon.js"></script>
+  <script src="method-comparison-addon.js?v=20260724-method-evidence"></script>
   <script src="sixdof-addon.js"></script>
   <script src="scene-reference-addon.js"></script>
   <script src="playback-sync-bridge.js"></script>
+  <script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.164.1/build/three.module.js","three/addons/":"https://unpkg.com/three@0.164.1/examples/jsm/"}}</script>
+  <script type="module" src="../../../assets/local-viewer/method-scene3d.js"></script>
 </body>
 </html>

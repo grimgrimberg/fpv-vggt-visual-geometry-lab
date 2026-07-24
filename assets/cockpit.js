@@ -34,13 +34,56 @@ function annotationLabel(state) {
   return "Annotation pending";
 }
 
+function capabilityLabel(capability) {
+  return {
+    rendered_3d: "3D",
+    artifact_complete: "artifact",
+    numerical_only: "numerical",
+    metadata_only: "metadata",
+    failed: "failed",
+    unavailable: "unavailable",
+    unknown: "unknown",
+  }[capability] || "unknown";
+}
+
+function capabilityTone(capability) {
+  if (capability === "rendered_3d") return "hot";
+  if (capability === "numerical_only") return "data";
+  if (capability === "metadata_only" || capability === "artifact_complete") return "meta";
+  if (capability === "failed" || capability === "unavailable") return "warn";
+  return "";
+}
+
+function methodEvidence(record) {
+  const evidence = record.research?.method_evidence;
+  if (Array.isArray(evidence) && evidence.length) return evidence;
+  const fullNative = Boolean(record.research?.hub_inventory?.full_native);
+  return (record.research?.methods || []).map((method) => ({
+    method,
+    status: "reported",
+    capability: fullNative ? "rendered_3d" : "artifact_complete",
+    available_3d: fullNative,
+    note: "",
+  }));
+}
+
+function methodSummary(record) {
+  const declared = record.research?.method_summary;
+  if (declared && Number.isFinite(Number(declared.rendered_3d))) return declared;
+  return methodEvidence(record).reduce((summary, row) => {
+    summary[row.capability] = (summary[row.capability] || 0) + 1;
+    return summary;
+  }, {});
+}
+
 function isDetailed(record) {
   return Boolean(record.research && record.research.detail_route);
 }
 
 function isEnsemble(record) {
   const inventory = record.research?.hub_inventory || {};
-  return Boolean(inventory.full_native || (record.research?.methods || []).length >= 4);
+  const rendered = Number(methodSummary(record).rendered_3d || 0);
+  return Boolean(inventory.full_native || rendered >= 3);
 }
 
 async function main() {
@@ -139,12 +182,19 @@ function passes(record) {
     record.town,
     record.date,
     ...(record.research?.methods || []),
+    ...methodEvidence(record).flatMap((row) => [
+      row.method,
+      row.status,
+      row.capability,
+    ]),
   ].join(" ").toLowerCase().includes(query);
 }
 
 function featuredRank(record) {
-  const methodCount = (record.research?.methods || []).length;
-  return (isEnsemble(record) ? 100 : 0) + methodCount;
+  const summary = methodSummary(record);
+  const rendered = Number(summary.rendered_3d || 0);
+  const evidence = methodEvidence(record).length;
+  return (isEnsemble(record) ? 100 : 0) + rendered * 10 + evidence;
 }
 
 function renderGallery() {
@@ -196,10 +246,18 @@ function buildCard(record, options) {
     image.remove();
     thumb.classList.add("is-missing");
   }, { once: true });
+  const evidence = methodEvidence(record);
+  const summary = methodSummary(record);
+  const renderedCount = Number(summary.rendered_3d || 0);
+  const availabilityText = detailed
+    ? renderedCount >= 3
+      ? "Full multi-method 3D"
+      : "Omega WebGL · partial ensemble"
+    : "Video record";
   const availability = element(
     "span",
     `scene-card__availability${detailed ? " is-ready" : ""}`,
-    detailed ? "Full 3D cockpit" : "Video record",
+    availabilityText,
   );
   thumb.append(image, availability);
 
@@ -224,14 +282,29 @@ function buildCard(record, options) {
     tags.append(tag(text, vggt.status === "partial_error" ? "warn" : ""));
   }
   if (record.annotation?.state === "manual_ground_truth") tags.append(tag("Manual edits", ""));
-  const methodLimit = options.featured ? 4 : 1;
-  (record.research?.methods || []).slice(0, methodLimit).forEach((method) => {
-    const label = methodLabel(method);
-    if (!Array.from(tags.children).some((node) => node.textContent === label)) {
-      tags.append(tag(label, detailed ? "hot" : ""));
-    }
-  });
+  const methodLimit = options.featured ? 5 : 1;
+  evidence
+    .filter((row) => row.capability !== "unknown")
+    .slice(0, methodLimit)
+    .forEach((row) => {
+      const label = `${methodLabel(row.method)} · ${capabilityLabel(row.capability)}`;
+      if (!Array.from(tags.children).some((node) => node.textContent === label)) {
+        const chip = tag(label, capabilityTone(row.capability));
+        if (row.note) chip.title = row.note;
+        tags.append(chip);
+      }
+    });
   body.append(tags);
+  if (detailed && evidence.length) {
+    const coverageParts = [
+      summary.rendered_3d ? `${summary.rendered_3d} rendered` : "",
+      summary.numerical_only ? `${summary.numerical_only} numerical` : "",
+      summary.metadata_only ? `${summary.metadata_only} metadata` : "",
+      summary.failed ? `${summary.failed} failed` : "",
+      summary.unavailable ? `${summary.unavailable} unavailable` : "",
+    ].filter(Boolean);
+    body.append(element("p", "method-coverage", coverageParts.join(" · ")));
+  }
 
   const action = element("span", "scene-card__action");
   action.append(
@@ -316,9 +389,15 @@ function renderDetail(record) {
 }
 
 function renderBadges(record) {
+  const evidence = methodEvidence(record);
+  const summary = methodSummary(record);
+  const rendered = Number(summary.rendered_3d || 0);
+  const coverage = isDetailed(record)
+    ? `${rendered}/${Math.max(evidence.length, rendered)} method lanes in 3D`
+    : "Video record";
   const values = [
     ["Relative only", "warn"],
-    [isDetailed(record) ? "Full 3D" : "Video record", "good"],
+    [coverage, rendered >= 3 ? "good" : "partial"],
     [annotationLabel(record.annotation?.state), ""],
   ];
   $("badges").replaceChildren(...values.map(([text, tone]) => (
@@ -362,10 +441,17 @@ function renderVideoContext(record) {
     element("dd", "", value),
   ]));
 
-  const methods = record.research?.methods || [];
-  $("methods").replaceChildren(...(methods.length ? methods : ["Video + edit segmentation"]).map((method) => {
-    const label = methods.length ? methodLabel(method) : method;
-    return element("span", `method${methods.length ? " live" : ""}`, label);
+  const evidence = methodEvidence(record);
+  const fallback = ["Video + edit segmentation"];
+  $("methods").replaceChildren(...(evidence.length ? evidence : fallback).map((row) => {
+    if (typeof row === "string") return element("span", "method", row);
+    const chip = element(
+      "span",
+      `method ${row.capability === "rendered_3d" ? "live" : row.capability}`,
+      `${methodLabel(row.method)} · ${capabilityLabel(row.capability)}`,
+    );
+    if (row.note) chip.title = row.note;
+    return chip;
   }));
   $("boundary").textContent = app.catalog.publication_boundary?.media_copied === false
     ? "Video and thumbnail are referenced from the public CDN. Extracted frames are not copied; detailed geometry is published only for approved scene bundles."

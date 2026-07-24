@@ -29,6 +29,12 @@
     "geometry_consistency": {
       "path": "../diagnostics/geometry_consistency.json"
     },
+    "method_comparison": {
+      "alignment_policy": "method_native_not_aligned",
+      "capability": "omega_webgl_partial_ensemble",
+      "path": "methods/method_comparison.json",
+      "sample_count": 0
+    },
     "method_inventory": {
       "path": "../diagnostics/method_inventory.json"
     },

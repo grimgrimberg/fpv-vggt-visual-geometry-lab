@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#05090b">
   <title>FPV Visual Geometry Lab V2</title>
   <link rel="icon" href="data:,">
-  <link rel="stylesheet" href="assets/cockpit.css">
+  <link rel="stylesheet" href="assets/cockpit.css?v=20260724-method-evidence">
 </head>
 <body data-view="gallery">
   <main id="app" class="app-shell">
@@ -86,7 +86,7 @@
 
     <section id="detail-view" class="detail-view" aria-labelledby="title" hidden>
       <header class="detail-header">
-        <button id="back-to-gallery" class="back-button" type="button">
+        <button id="back-to-gallery" class="back-button" type="button" aria-label="Return to scene gallery">
           <span aria-hidden="true">←</span>
           <span>Scene gallery</span>
         </button>
@@ -95,7 +95,7 @@
           <h1 id="title" tabindex="-1">Scene</h1>
         </div>
         <div id="badges" class="badges" aria-label="Scene status"></div>
-        <a id="detail-action" class="detail-action" href="#" target="_blank" rel="noopener">
+        <a id="detail-action" class="detail-action" href="#" target="_blank" rel="noopener" aria-label="Open current scene in a standalone viewer">
           <span>Open standalone</span>
           <span aria-hidden="true">↗</span>
         </a>
@@ -143,6 +143,6 @@
       <button id="retry-load" type="button">Retry</button>
     </section>
   </main>
-  <script src="assets/cockpit.js"></script>
+  <script src="assets/cockpit.js?v=20260724-method-evidence"></script>
 </body>
 </html>

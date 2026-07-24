@@ -479,9 +479,25 @@ a:focus-visible {
   color: var(--accent);
 }
 
+.tag.data {
+  border-color: rgba(142, 185, 255, 0.55);
+  color: #a9c9ff;
+}
+
+.tag.meta {
+  border-color: rgba(195, 167, 245, 0.45);
+  color: #d2bdf8;
+}
+
 .tag.warn {
   border-color: rgba(244, 191, 95, 0.5);
   color: var(--amber);
+}
+
+.method-coverage {
+  margin: -1px 0 0;
+  color: var(--muted-quiet);
+  font: 9px/1.35 ui-monospace, SFMono-Regular, Consolas, monospace;
 }
 
 .scene-card__action {
@@ -632,6 +648,11 @@ a:focus-visible {
 .badge.good {
   border-color: rgba(67, 224, 205, 0.55);
   color: var(--accent);
+}
+
+.badge.partial {
+  border-color: rgba(142, 185, 255, 0.5);
+  color: #a9c9ff;
 }
 
 .badge.warn {
@@ -819,6 +840,23 @@ dd {
 .method.live {
   border-color: rgba(67, 224, 205, 0.5);
   color: var(--accent);
+}
+
+.method.numerical_only {
+  border-color: rgba(142, 185, 255, 0.5);
+  color: #a9c9ff;
+}
+
+.method.metadata_only,
+.method.artifact_complete {
+  border-color: rgba(195, 167, 245, 0.45);
+  color: #d2bdf8;
+}
+
+.method.failed,
+.method.unavailable {
+  border-color: rgba(244, 191, 95, 0.5);
+  color: var(--amber);
 }
 
 @media (max-width: 1600px) {
