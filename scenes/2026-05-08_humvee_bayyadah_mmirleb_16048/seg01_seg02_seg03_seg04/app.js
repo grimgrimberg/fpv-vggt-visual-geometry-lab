@@ -81,6 +81,9 @@ const state = {
   points: null,
   colors: null,
   groundAlignment: null,
+  methodComparison: null,
+  geometryConsistency: null,
+  colmapDoctor: null,
   alignmentMode: "raw",
   pointBudget: 52000,
   pointSize: 1.4,
@@ -100,6 +103,16 @@ async function fetchJson(path) {
   const response = await fetch(path, { cache: "no-store" });
   if (!response.ok) throw new Error(`${path} request failed (${response.status})`);
   return response.json();
+}
+
+async function fetchOptionalLocalJson(path) {
+  if (typeof path !== "string" || !path.trim()) return null;
+  const resolved = new URL(path, window.location.href);
+  if (
+    resolved.origin !== window.location.origin
+    || !resolved.pathname.toLowerCase().endsWith(".json")
+  ) return null;
+  return fetchJson(path).catch(() => null);
 }
 
 async function fetchTyped(path, Type) {
@@ -177,19 +190,40 @@ async function loadScene(url) {
     throw new Error("This cockpit requires an explicitly relative-only uncalibrated scene");
   }
   const assets = state.scene.assets;
+  const methodComparison = fetchOptionalLocalJson(
+    "methods/method_comparison.json",
+  );
   const groundAlignment = assets.ground_alignment?.path
     ? fetchJson(assets.ground_alignment.path).catch((error) => {
         console.warn("Estimated-ground display alignment is unavailable; retaining raw coordinates", error);
         return null;
       })
     : Promise.resolve(null);
-  [state.paths, state.profiles, state.cameras, state.points, state.colors, state.groundAlignment] = await Promise.all([
+  [
+    state.paths,
+    state.profiles,
+    state.cameras,
+    state.points,
+    state.colors,
+    state.groundAlignment,
+    state.methodComparison,
+  ] = await Promise.all([
     fetchJson(assets.camera_path.path),
     fetchJson(assets.trajectory_profiles.path),
     fetchJson(assets.cameras.path),
     fetchTyped(assets.points_preview.path, Float32Array),
     fetchTyped(assets.points_preview_colors.path, Uint8Array),
     groundAlignment,
+    methodComparison,
+  ]);
+  const hloc = state.methodComparison?.methods?.hloc_lightglue_colmap
+    || state.methodComparison?.methods?.hloc_lightglue
+    || null;
+  [state.geometryConsistency, state.colmapDoctor] = await Promise.all([
+    fetchOptionalLocalJson(
+      state.methodComparison?.diagnostics?.geometry_consistency,
+    ),
+    fetchOptionalLocalJson(hloc?.assets?.failure_taxonomy),
   ]);
   const alignmentConfidence = state.groundAlignment?.confidence;
   const recommendedGround = state.scene.display_alignment?.default === "estimated_ground"
@@ -199,6 +233,7 @@ async function loadScene(url) {
   state.alignmentMode = recommendedGround ? "estimated_ground" : "raw";
   syncSceneControls();
   document.getElementById("scene-title").textContent = state.scene.title;
+  document.title = `${state.scene.title} · FPV Geometry Lab`;
   document.getElementById("point-count").textContent = Number(state.scene.reconstruction.point_count_viewer).toLocaleString();
   document.getElementById("frame-count").textContent = Number(state.scene.reconstruction.frame_count).toLocaleString();
   document.getElementById("hero-score").textContent = state.scene.quality.hero_score.toFixed(3);
@@ -457,15 +492,170 @@ function renderEditTimeline(segments, viewState) {
   timeline.setAttribute("aria-label", `Edit state: ${label}`);
 }
 
+function firstFinite(...values) {
+  return values.find((value) => Number.isFinite(Number(value)));
+}
+
+function formatRelative(value) {
+  const number = Number(value);
+  if (!Number.isFinite(number)) return "not available";
+  const magnitude = Math.abs(number);
+  const digits = magnitude >= 100 ? 1 : magnitude >= 10 ? 2 : 4;
+  return `${number.toFixed(digits)} rel`;
+}
+
+function diagnosticMetric(grid, label, value) {
+  const term = document.createElement("dt");
+  term.textContent = label;
+  const measurement = document.createElement("dd");
+  measurement.textContent = value;
+  grid.append(term, measurement);
+}
+
+function methodDiagnostic(name, payload) {
+  const card = document.createElement("section");
+  card.className = "diagnostic-method";
+  const heading = document.createElement("div");
+  heading.className = "diagnostic-method-head";
+  const label = document.createElement("b");
+  label.textContent = name.replaceAll("_", " ");
+  const status = document.createElement("span");
+  status.className = `diagnostic-status ${String(payload?.status || "unavailable").replaceAll("_", "-")}`;
+  status.textContent = String(payload?.status || "unavailable").replaceAll("_", " ");
+  heading.append(label, status);
+  card.appendChild(heading);
+
+  if (!payload?.metrics) {
+    const reason = document.createElement("p");
+    reason.textContent = payload?.reason || "Quantitative comparison unavailable.";
+    card.appendChild(reason);
+    return card;
+  }
+
+  const trajectory = payload.metrics.trajectory || {};
+  const points = payload.metrics.points || {};
+  const grid = document.createElement("dl");
+  grid.className = "diagnostic-metrics";
+  diagnosticMetric(
+    grid,
+    "ATE median",
+    formatRelative(firstFinite(
+      trajectory.ate?.translation_relative?.median,
+      trajectory.ate?.median,
+    )),
+  );
+  diagnosticMetric(
+    grid,
+    "RPE median",
+    formatRelative(firstFinite(
+      trajectory.rpe?.translation_relative?.median,
+      trajectory.rpe?.translation?.median,
+    )),
+  );
+  diagnosticMetric(
+    grid,
+    "point median",
+    formatRelative(points.metrics?.distance?.median),
+  );
+  const samples = firstFinite(
+    trajectory.alignment?.sample_count,
+    points.alignment?.count,
+  );
+  const inliers = firstFinite(
+    trajectory.alignment?.inlier_count,
+    points.alignment?.inlier_count,
+  );
+  diagnosticMetric(
+    grid,
+    "trajectory support",
+    Number.isFinite(Number(samples))
+      ? `${Number(inliers || 0)} / ${Number(samples)} inliers`
+      : "not available",
+  );
+  card.appendChild(grid);
+  return card;
+}
+
+function diagnosticDetails(title, statusText, open = false) {
+  const details = document.createElement("details");
+  details.className = "research-diagnostic";
+  details.open = open;
+  const summary = document.createElement("summary");
+  const label = document.createElement("span");
+  label.textContent = title;
+  const status = document.createElement("b");
+  status.textContent = statusText;
+  summary.append(label, status);
+  details.appendChild(summary);
+  return details;
+}
+
+function renderResearchDiagnostics() {
+  const rows = [];
+  if (state.geometryConsistency) {
+    const details = diagnosticDetails(
+      "Cross-method geometry",
+      "relative only",
+      true,
+    );
+    const note = document.createElement("p");
+    note.className = "diagnostic-note";
+    note.textContent = "Robust Sim(3) alignment against Omega. Lower residuals are better only within this uncalibrated scene.";
+    details.appendChild(note);
+    ["r3", "lingbot_map"].forEach((name) => {
+      const payload = state.geometryConsistency.methods?.[name];
+      if (payload) details.appendChild(methodDiagnostic(name, payload));
+    });
+    const href = state.methodComparison?.diagnostics?.geometry_consistency;
+    if (typeof href === "string") {
+      const link = document.createElement("a");
+      link.className = "diagnostic-link";
+      link.href = href;
+      link.textContent = "Open quantitative report JSON";
+      details.appendChild(link);
+    }
+    rows.push(details);
+  }
+
+  if (state.colmapDoctor) {
+    const details = diagnosticDetails(
+      "COLMAP BA doctor",
+      state.colmapDoctor.status || "classified",
+    );
+    const grid = document.createElement("dl");
+    grid.className = "diagnostic-metrics";
+    diagnosticMetric(grid, "BA events", String(state.colmapDoctor.ba_invocations ?? "not reported"));
+    diagnosticMetric(grid, "registered max", String(state.colmapDoctor.registered_frame_max ?? "not reported"));
+    diagnosticMetric(grid, "fallback eligible", state.colmapDoctor.fallback_eligible ? "yes" : "no");
+    diagnosticMetric(grid, "fallback executed", state.colmapDoctor.executes_fallback ? "yes" : "no");
+    details.appendChild(grid);
+    const hloc = state.methodComparison?.methods?.hloc_lightglue_colmap
+      || state.methodComparison?.methods?.hloc_lightglue;
+    const href = hloc?.assets?.failure_taxonomy;
+    if (typeof href === "string") {
+      const link = document.createElement("a");
+      link.className = "diagnostic-link";
+      link.href = href;
+      link.textContent = "Open BA classification JSON";
+      details.appendChild(link);
+    }
+    rows.push(details);
+  }
+  return rows;
+}
+
 function renderRawInspector(scene) {
   const inspector = document.getElementById("raw-inspector");
-  const items = Object.entries(scene.raw_assets || {}).map(([label, asset]) => {
+  const items = [
+    ...renderResearchDiagnostics(),
+    ...Object.entries(scene.raw_assets || {}).map(([label, asset]) => {
     const row = document.createElement("div"); row.className = "raw-item";
     const name = document.createElement("b"); name.textContent = label;
     const path = document.createElement("span"); path.textContent = `${asset.bytes.toLocaleString()} bytes · sha256 ${asset.sha256.slice(0, 12)}…`;
     const source = document.createElement("span"); source.textContent = asset.path;
     row.append(name, path, source); return row;
-  });
+    }),
+  ];
   inspector.replaceChildren(...items);
 }
 

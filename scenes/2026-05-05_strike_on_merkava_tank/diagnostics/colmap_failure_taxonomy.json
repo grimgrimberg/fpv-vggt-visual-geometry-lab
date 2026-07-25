@@ -1,0 +1,22 @@
+{
+  "ba_invocations": 16,
+  "bounded_recommendations": [],
+  "categories": [
+    "success"
+  ],
+  "evidence": {},
+  "executes_fallback": false,
+  "fallback_eligible": false,
+  "log_count": 3,
+  "log_paths": [
+    "hloc_lightglue/sparse/colmap.LOG.20260711-014546.200326",
+    "lingbot_map.log",
+    "r3.log"
+  ],
+  "policy": "recommendations only; no fallback is executed",
+  "registered_frame_max": 19,
+  "root": "2026-05-05_strike_on_merkava_tank/seg01_seg02/other_models",
+  "schema_version": "1.0.0",
+  "status": "success",
+  "successful_reconstruction": true
+}

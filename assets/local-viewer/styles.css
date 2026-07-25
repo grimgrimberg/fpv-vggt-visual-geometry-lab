@@ -70,6 +70,22 @@ dt { color: var(--muted); } dd { margin: 0; overflow-wrap: anywhere; }
 .raw-inspector { display: grid; gap: 7px; }
 .raw-item { border-left: 1px solid var(--line); padding-left: 9px; display: grid; gap: 2px; }
 .raw-item b { font: 10px ui-monospace, monospace; color: var(--ink); }.raw-item span { color: var(--muted); font-size: 9px; overflow-wrap: anywhere; }
+.research-diagnostic { border: 1px solid rgba(84,229,194,.28); background: rgba(84,229,194,.035); }
+.research-diagnostic summary { cursor: pointer; display: flex; justify-content: space-between; gap: 8px; padding: 8px; color: var(--ink); font: 10px ui-monospace, monospace; text-transform: uppercase; letter-spacing: .06em; }
+.research-diagnostic summary::marker { color: var(--cyan); }
+.research-diagnostic summary b { color: var(--cyan); font: 8px ui-monospace, monospace; white-space: nowrap; }
+.diagnostic-note { margin: 0; padding: 0 8px 8px; color: var(--muted); font-size: 9px; line-height: 1.45; }
+.diagnostic-method { margin: 0 8px 8px; padding: 7px; border-top: 1px solid rgba(37,63,73,.75); background: rgba(4,12,16,.45); }
+.diagnostic-method-head { display: flex; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
+.diagnostic-method-head b { color: var(--ink); font: 9px ui-monospace, monospace; text-transform: uppercase; }
+.diagnostic-status { color: var(--muted); font: 8px ui-monospace, monospace; text-transform: uppercase; }
+.diagnostic-status.validated,.diagnostic-status.reference { color: var(--ok); }
+.diagnostic-status.failed,.diagnostic-status.failed-soft { color: var(--danger); }
+.diagnostic-method p { margin: 4px 0 0; color: var(--warm); font-size: 9px; line-height: 1.4; }
+.diagnostic-metrics { margin: 0 8px 8px; grid-template-columns: 1fr auto; gap: 4px 8px; font: 9px ui-monospace, monospace; }
+.diagnostic-metrics dt { color: var(--muted); }.diagnostic-metrics dd { color: var(--ink); text-align: right; }
+.diagnostic-link { display: block; margin: 0 8px 8px; color: var(--cyan); font: 9px ui-monospace, monospace; text-decoration: none; }
+.diagnostic-link:hover,.diagnostic-link:focus-visible { text-decoration: underline; }
 .warning-block { padding: 12px 16px; display: grid; gap: 6px; color: var(--warm); font-size: 10px; }
 
 .timeline-panel { grid-column: 2 / 4; border-top: 1px solid var(--line); background: #071218; padding: 10px 16px 9px; }

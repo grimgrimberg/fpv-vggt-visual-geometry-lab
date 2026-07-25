@@ -1,0 +1,483 @@
+{
+  "methods": {
+    "lingbot_map": {
+      "metrics": {
+        "depth": null,
+        "points": {
+          "alignment": {
+            "count": 24,
+            "inlier_count": 5,
+            "provenance": {
+              "residual_threshold": 0.05,
+              "seed": 20260724
+            },
+            "rotation": [
+              [
+                0.3602928718880259,
+                0.7792410839950742,
+                -0.5128083262592965
+              ],
+              [
+                0.885859872432348,
+                -0.45806743142861084,
+                -0.07366488090358758
+              ],
+              [
+                -0.2923034944724804,
+                -0.42773538698426244,
+                -0.8553368376497065
+              ]
+            ],
+            "scale": 17.07411067081439,
+            "source": "trajectory_ransac_huber",
+            "transform_hash": "36ff69938ff169265096ac216fd52bfd2ac43a153404d997dd95633f69d8d52d",
+            "translation": [
+              -0.8054593880434249,
+              0.161832159657514,
+              -1.503133811378067
+            ]
+          },
+          "metrics": {
+            "algorithm": "scipy_ckdtree_symmetric_nearest_neighbor",
+            "distance": {
+              "count": 108000,
+              "max": 0.8176409620887091,
+              "mean": 0.19237586017833558,
+              "median": 0.06455265153027051,
+              "p90": 0.6200671672356157,
+              "p95": 0.7268202987378073,
+              "rmse": 0.30023409598893774
+            },
+            "normal_angle_degrees": null,
+            "normal_orientation_policy": null,
+            "retained_sample_count": 108000,
+            "scale_state": "relative_only",
+            "source_coverage": 1.0,
+            "source_input_count": 60000,
+            "source_mask_provenance": null,
+            "source_valid_count": 60000,
+            "symmetric_sample_count": 120000,
+            "target_coverage": 1.0,
+            "target_input_count": 60000,
+            "target_mask_provenance": null,
+            "target_valid_count": 60000,
+            "trim_fraction": 0.1,
+            "trim_policy": "drop_largest_symmetric_residuals"
+          },
+          "reason": null,
+          "reason_code": null,
+          "status": "validated"
+        },
+        "trajectory": {
+          "alignment": {
+            "inlier_count": 5,
+            "rotation": [
+              [
+                0.3602928718880259,
+                0.7792410839950742,
+                -0.5128083262592965
+              ],
+              [
+                0.885859872432348,
+                -0.45806743142861084,
+                -0.07366488090358758
+              ],
+              [
+                -0.2923034944724804,
+                -0.42773538698426244,
+                -0.8553368376497065
+              ]
+            ],
+            "sample_count": 24,
+            "scale": 17.07411067081439,
+            "translation": [
+              -0.8054593880434249,
+              0.161832159657514,
+              -1.503133811378067
+            ]
+          },
+          "ate": {
+            "median": 0.2868694876677367,
+            "rmse": 0.6622279551507524,
+            "rotation_angle_degrees": null,
+            "rotation_unavailable_reason": "orientations_not_provided",
+            "translation_relative": {
+              "count": 24,
+              "max": 1.707514466663685,
+              "mean": 0.48592698815843144,
+              "median": 0.2868694876677367,
+              "p90": 1.0163310760836155,
+              "p95": 1.0864859419151898,
+              "rmse": 0.6622279551507524
+            }
+          },
+          "held_out": {
+            "alignment": {
+              "inlier_count": 5,
+              "rotation": [
+                [
+                  0.3602928718880259,
+                  0.7792410839950742,
+                  -0.5128083262592965
+                ],
+                [
+                  0.885859872432348,
+                  -0.45806743142861084,
+                  -0.07366488090358758
+                ],
+                [
+                  -0.2923034944724804,
+                  -0.42773538698426244,
+                  -0.8553368376497065
+                ]
+              ],
+              "sample_count": 19,
+              "scale": 17.07411067081439,
+              "translation": [
+                -0.8054593880434249,
+                0.161832159657514,
+                -1.503133811378067
+              ]
+            },
+            "evaluation_count": 5,
+            "reason": null,
+            "reason_code": null,
+            "split_policy": "every_fifth_sample_held_out",
+            "status": "evaluated",
+            "train_count": 19,
+            "train_translation_residual": {
+              "count": 19,
+              "max": 1.093813930137188,
+              "mean": 0.4373908028696464,
+              "median": 0.21659468057467257,
+              "p90": 0.9356495412800553,
+              "p95": 1.049846000805199,
+              "rmse": 0.5861761106940356
+            },
+            "translation_residual": {
+              "count": 5,
+              "max": 1.707514466663685,
+              "mean": 0.6703644922558153,
+              "median": 0.29699849742523626,
+              "p90": 1.4043201511407557,
+              "p95": 1.5559173089022202,
+              "rmse": 0.8940530775939631
+            }
+          },
+          "orientation_convention": "wxyz_active_camera_to_world",
+          "rpe": {
+            "rotation_angle_degrees": null,
+            "rotation_unavailable_reason": "orientations_not_provided",
+            "translation": {
+              "count": 23,
+              "max": 0.7509667603495962,
+              "mean": 0.19284963614728706,
+              "median": 0.13677089527625869,
+              "p90": 0.3475393673520301,
+              "p95": 0.4708542533138946,
+              "rmse": 0.2546460695201773
+            },
+            "translation_relative": {
+              "count": 23,
+              "max": 0.7509667603495962,
+              "mean": 0.19284963614728706,
+              "median": 0.13677089527625869,
+              "p90": 0.3475393673520301,
+              "p95": 0.4708542533138946,
+              "rmse": 0.2546460695201773
+            }
+          },
+          "scale_state": "relative_only",
+          "translation_residual": {
+            "count": 24,
+            "max": 1.707514466663685,
+            "mean": 0.48592698815843144,
+            "median": 0.2868694876677367,
+            "p90": 1.0163310760836155,
+            "p95": 1.0864859419151898,
+            "rmse": 0.6622279551507524
+          }
+        }
+      },
+      "parameter_hash": "ab134aad3880fbdff7bdb6e541f21dd677a0a173319bfa97769409ef6bb6c024",
+      "provenance": {
+        "backend": "LingBot Map",
+        "camera_sample_count": 24,
+        "camera_source": "native_consistency_afomzbmr/lingbot_cameras_native.json",
+        "camera_source_sha256": "c28e34e4e472b62296cc57a0ac11356c6ad7ac905acb917f9556b994d889da99",
+        "coordinate_frame": "lingbot_native",
+        "native_geometry_status": "available",
+        "point_sampling": "deterministic_even_index_after_finite_filter",
+        "point_source": "native_consistency_afomzbmr/lingbot_points_native.bin",
+        "point_source_sha256": "fa1cc42c0dd004497f787939830f065dd871f09180a8aa9a08e498a30489a7d9",
+        "sampled_point_count": 60000,
+        "scale_state": "relative_only",
+        "shared_camera_frame_count": 24,
+        "shared_camera_frame_first": 0,
+        "shared_camera_frame_last": 199
+      },
+      "reason": null,
+      "reason_code": null,
+      "role": "comparison_inputs_not_reconstruction_truth",
+      "status": "validated",
+      "summary": null
+    },
+    "omega": {
+      "metrics": null,
+      "parameter_hash": "ab134aad3880fbdff7bdb6e541f21dd677a0a173319bfa97769409ef6bb6c024",
+      "provenance": {
+        "backend": "VGGT Omega",
+        "camera_source": "cameras.npz:centers_glb",
+        "camera_source_sha256": "9826c3d9e074041db99046daf26bd1f46e06c1ad4010d512902a6a2ae4547fa6",
+        "coordinate_frame": "official_glb_alignment",
+        "point_sampling": "deterministic_even_index_after_finite_filter",
+        "point_source": "point_cloud.npz:pts",
+        "point_source_sha256": "423041bf45ff4cd4c86a2890aedd24a5abe3001100da145ac5e946d8dbeb2a35",
+        "sampled_point_count": 60000,
+        "scale_state": "relative_only",
+        "shared_camera_frame_count": 24,
+        "shared_camera_frame_first": 0,
+        "shared_camera_frame_last": 199
+      },
+      "reason": null,
+      "reason_code": null,
+      "role": "comparison_reference_inputs_not_reconstruction_truth",
+      "status": "reference",
+      "summary": {
+        "point_count": 60000,
+        "position_count": 24
+      }
+    },
+    "r3": {
+      "metrics": {
+        "depth": null,
+        "points": {
+          "alignment": {
+            "count": 24,
+            "inlier_count": 3,
+            "provenance": {
+              "residual_threshold": 0.05,
+              "seed": 20260724
+            },
+            "rotation": [
+              [
+                -0.7735554311153522,
+                0.49661868938405224,
+                0.39367737088434335
+              ],
+              [
+                0.5377644744171042,
+                0.8430673740960891,
+                -0.006839063504621064
+              ],
+              [
+                -0.33529295406679477,
+                0.20641530972578342,
+                -0.9192232345105138
+              ]
+            ],
+            "scale": 125.4778224809607,
+            "source": "trajectory_ransac_huber",
+            "transform_hash": "c521fee584f734dbbedb1022b557d802a6e7a30934d84bce13f6cfd85914804d",
+            "translation": [
+              0.346793194978962,
+              -0.11931250681868363,
+              -2.2975984268376264
+            ]
+          },
+          "metrics": {
+            "algorithm": "scipy_ckdtree_symmetric_nearest_neighbor",
+            "distance": {
+              "count": 108000,
+              "max": 10.358795336840654,
+              "mean": 1.4403571086774243,
+              "median": 0.1315615638990453,
+              "p90": 7.582671246026314,
+              "p95": 9.42640249779335,
+              "rmse": 3.2589109988821847
+            },
+            "normal_angle_degrees": null,
+            "normal_orientation_policy": null,
+            "retained_sample_count": 108000,
+            "scale_state": "relative_only",
+            "source_coverage": 1.0,
+            "source_input_count": 60000,
+            "source_mask_provenance": null,
+            "source_valid_count": 60000,
+            "symmetric_sample_count": 120000,
+            "target_coverage": 1.0,
+            "target_input_count": 60000,
+            "target_mask_provenance": null,
+            "target_valid_count": 60000,
+            "trim_fraction": 0.1,
+            "trim_policy": "drop_largest_symmetric_residuals"
+          },
+          "reason": null,
+          "reason_code": null,
+          "status": "validated"
+        },
+        "trajectory": {
+          "alignment": {
+            "inlier_count": 3,
+            "rotation": [
+              [
+                -0.7735554311153522,
+                0.49661868938405224,
+                0.39367737088434335
+              ],
+              [
+                0.5377644744171042,
+                0.8430673740960891,
+                -0.006839063504621064
+              ],
+              [
+                -0.33529295406679477,
+                0.20641530972578342,
+                -0.9192232345105138
+              ]
+            ],
+            "sample_count": 24,
+            "scale": 125.4778224809607,
+            "translation": [
+              0.346793194978962,
+              -0.11931250681868363,
+              -2.2975984268376264
+            ]
+          },
+          "ate": {
+            "median": 2.911221781079268,
+            "rmse": 6.062511386387879,
+            "rotation_angle_degrees": null,
+            "rotation_unavailable_reason": "orientations_not_provided",
+            "translation_relative": {
+              "count": 24,
+              "max": 11.410584509349313,
+              "mean": 4.485633825396484,
+              "median": 2.911221781079268,
+              "p90": 9.967796341539902,
+              "p95": 10.885459191641154,
+              "rmse": 6.062511386387879
+            }
+          },
+          "held_out": {
+            "alignment": {
+              "inlier_count": 3,
+              "rotation": [
+                [
+                  0.8654784106792094,
+                  -0.35116600162461165,
+                  0.3572527955820248
+                ],
+                [
+                  -0.3541236671197298,
+                  -0.933303624083127,
+                  -0.05950440033288125
+                ],
+                [
+                  0.3543212511745007,
+                  -0.07501189623176054,
+                  -0.9321103295156917
+                ]
+              ],
+              "sample_count": 19,
+              "scale": 76.58236006635575,
+              "translation": [
+                0.8351126486568472,
+                -0.01575053563590456,
+                -1.0036962157660698
+              ]
+            },
+            "evaluation_count": 5,
+            "reason": null,
+            "reason_code": null,
+            "split_policy": "every_fifth_sample_held_out",
+            "status": "evaluated",
+            "train_count": 19,
+            "train_translation_residual": {
+              "count": 19,
+              "max": 11.69567345874653,
+              "mean": 4.740050643905858,
+              "median": 3.3338642331672386,
+              "p90": 10.228349620251215,
+              "p95": 10.712428053643098,
+              "rmse": 6.326061337141958
+            },
+            "translation_residual": {
+              "count": 5,
+              "max": 11.493259288364825,
+              "mean": 4.8305741561956435,
+              "median": 2.806127379617096,
+              "p90": 10.187559675258745,
+              "p95": 10.840409481811784,
+              "rmse": 6.472692470173726
+            }
+          },
+          "orientation_convention": "wxyz_active_camera_to_world",
+          "rpe": {
+            "rotation_angle_degrees": null,
+            "rotation_unavailable_reason": "orientations_not_provided",
+            "translation": {
+              "count": 23,
+              "max": 3.3488478824034886,
+              "mean": 0.9193585083640897,
+              "median": 0.5474714346587275,
+              "p90": 1.9208079765616919,
+              "p95": 2.2695755831758717,
+              "rmse": 1.207661177481361
+            },
+            "translation_relative": {
+              "count": 23,
+              "max": 3.3488478824034886,
+              "mean": 0.9193585083640897,
+              "median": 0.5474714346587275,
+              "p90": 1.9208079765616919,
+              "p95": 2.2695755831758717,
+              "rmse": 1.207661177481361
+            }
+          },
+          "scale_state": "relative_only",
+          "translation_residual": {
+            "count": 24,
+            "max": 11.410584509349313,
+            "mean": 4.485633825396484,
+            "median": 2.911221781079268,
+            "p90": 9.967796341539902,
+            "p95": 10.885459191641154,
+            "rmse": 6.062511386387879
+          }
+        }
+      },
+      "parameter_hash": "ab134aad3880fbdff7bdb6e541f21dd677a0a173319bfa97769409ef6bb6c024",
+      "provenance": {
+        "backend": "R3",
+        "camera_sample_count": 24,
+        "camera_source": "native_consistency_afomzbmr/r3_cameras_native.json",
+        "camera_source_sha256": "a6a9c48d395420a5a415e53562e321f336f693e10ce141023ae33d8b6b318f89",
+        "coordinate_frame": "r3_native",
+        "native_geometry_status": "available",
+        "point_sampling": "deterministic_even_index_after_finite_filter",
+        "point_source": "native_consistency_afomzbmr/r3_points_native.bin",
+        "point_source_sha256": "bfd0e6dfe41985f7e339fcb09d5288368bde5f84bd24fec639f7c46d4e99c947",
+        "sampled_point_count": 60000,
+        "scale_state": "relative_only",
+        "shared_camera_frame_count": 24,
+        "shared_camera_frame_first": 0,
+        "shared_camera_frame_last": 199
+      },
+      "reason": null,
+      "reason_code": null,
+      "role": "comparison_inputs_not_reconstruction_truth",
+      "status": "validated",
+      "summary": null
+    }
+  },
+  "parameter_hash": "ab134aad3880fbdff7bdb6e541f21dd677a0a173319bfa97769409ef6bb6c024",
+  "parameters": {
+    "seed": 20260724,
+    "trajectory_threshold": 0.05,
+    "trim_fraction": 0.1
+  },
+  "scale_state": "relative_only",
+  "scene_key": "2026-05-06_strike_on_namer_apc_near_qouzah__seg01_seg02",
+  "schema_version": "1.0.0"
+}

@@ -105,8 +105,8 @@
         "match_matrix": "not_published"
       },
       "assets": {
-        "ba_diagnostics": null,
-        "failure_taxonomy": null,
+        "ba_diagnostics": "../diagnostics/colmap_ba_diagnostics.md",
+        "failure_taxonomy": "../diagnostics/colmap_failure_taxonomy.json",
         "match_graph": null,
         "match_matrix": null
       },

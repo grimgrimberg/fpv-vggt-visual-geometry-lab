@@ -7,7 +7,7 @@
     "hero_gallery": "hero_gallery.html",
     "live_status": "live_status.html"
   },
-  "generated_at": "2026-07-25T10:38:25.392447Z",
+  "generated_at": "2026-07-25T13:10:57.356443Z",
   "heroes": [
     {
       "annotation_kind": "manual_ground_truth",
@@ -82,7 +82,7 @@
     },
     "colmap_ba_doctor": {
       "coverage": {
-        "classified": 1,
+        "classified": 2,
         "match_graphs": 1,
         "total": 13
       },
@@ -91,7 +91,7 @@
       ],
       "reason": null,
       "status": "partial",
-      "summary": "1/13 scenes have classified BA diagnostics; 1 expose a match graph."
+      "summary": "2/13 scenes have classified BA diagnostics; 1 expose a match graph."
     },
     "cotracker3": {
       "coverage": {},
@@ -122,7 +122,7 @@
     },
     "geometry_consistency": {
       "coverage": {
-        "quantitative": 2,
+        "quantitative": 4,
         "total": 13
       },
       "evidence": [
@@ -130,7 +130,7 @@
       ],
       "reason": null,
       "status": "partial",
-      "summary": "2/13 scenes have a schema-valid quantitative scale-free cross-method report."
+      "summary": "4/13 scenes have a schema-valid quantitative scale-free cross-method report."
     },
     "gpu_trace": {
       "coverage": {},

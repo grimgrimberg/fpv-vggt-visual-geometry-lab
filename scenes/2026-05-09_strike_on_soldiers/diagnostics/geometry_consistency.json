@@ -1,0 +1,239 @@
+{
+  "methods": {
+    "lingbot_map": {
+      "metrics": {
+        "depth": null,
+        "points": {
+          "alignment": {
+            "count": 3,
+            "inlier_count": 3,
+            "provenance": {
+              "residual_threshold": 0.05,
+              "seed": 20260725
+            },
+            "rotation": [
+              [
+                0.6615145344792752,
+                0.4816081219279769,
+                0.5748496651870594
+              ],
+              [
+                0.3506600124949443,
+                -0.8762198415324566,
+                0.33056972780622507
+              ],
+              [
+                0.6628997483101897,
+                -0.01709988882546707,
+                -0.7485128706257782
+              ]
+            ],
+            "scale": 3.692509684869461,
+            "source": "trajectory_ransac_huber",
+            "transform_hash": "75363c22b3cbedd746346c7a7d667ef0b4f573d2ed8ca125f44a4726fb79ed0e",
+            "translation": [
+              0.0011117139926269393,
+              -0.00232546442422521,
+              0.007380186098014219
+            ]
+          },
+          "metrics": {
+            "algorithm": "scipy_ckdtree_symmetric_nearest_neighbor",
+            "distance": {
+              "count": 54000,
+              "max": 0.6765953513572509,
+              "mean": 0.34269051880678336,
+              "median": 0.3245279654878027,
+              "p90": 0.6192315279760416,
+              "p95": 0.6474340235525027,
+              "rmse": 0.3930381823293817
+            },
+            "normal_angle_degrees": null,
+            "normal_orientation_policy": null,
+            "retained_sample_count": 54000,
+            "scale_state": "relative_only",
+            "source_coverage": 1.0,
+            "source_input_count": 30000,
+            "source_mask_provenance": null,
+            "source_valid_count": 30000,
+            "symmetric_sample_count": 60000,
+            "target_coverage": 1.0,
+            "target_input_count": 30000,
+            "target_mask_provenance": null,
+            "target_valid_count": 30000,
+            "trim_fraction": 0.1,
+            "trim_policy": "drop_largest_symmetric_residuals"
+          },
+          "reason": null,
+          "reason_code": null,
+          "status": "validated"
+        },
+        "trajectory": {
+          "alignment": {
+            "inlier_count": 3,
+            "rotation": [
+              [
+                0.6615145344792752,
+                0.4816081219279769,
+                0.5748496651870594
+              ],
+              [
+                0.3506600124949443,
+                -0.8762198415324566,
+                0.33056972780622507
+              ],
+              [
+                0.6628997483101897,
+                -0.01709988882546707,
+                -0.7485128706257782
+              ]
+            ],
+            "sample_count": 3,
+            "scale": 3.692509684869461,
+            "translation": [
+              0.0011117139926269393,
+              -0.00232546442422521,
+              0.007380186098014219
+            ]
+          },
+          "ate": {
+            "median": 0.034382471181182296,
+            "rmse": 0.028535652264581126,
+            "rotation_angle_degrees": null,
+            "rotation_unavailable_reason": "orientations_not_provided",
+            "translation_relative": {
+              "count": 3,
+              "max": 0.03514853202398429,
+              "mean": 0.024852866434547215,
+              "median": 0.034382471181182296,
+              "p90": 0.03499531985542389,
+              "p95": 0.03507192593970409,
+              "rmse": 0.028535652264581126
+            }
+          },
+          "held_out": {
+            "reason": "At least six samples are required for a nonempty deterministic holdout.",
+            "reason_code": "too_few_samples",
+            "split_policy": "every_fifth_sample_held_out",
+            "status": "unavailable"
+          },
+          "orientation_convention": "wxyz_active_camera_to_world",
+          "rpe": {
+            "rotation_angle_degrees": null,
+            "rotation_unavailable_reason": "orientations_not_provided",
+            "translation": {
+              "count": 2,
+              "max": 0.06935323015838815,
+              "mean": 0.05297441363131542,
+              "median": 0.05297441363131542,
+              "p90": 0.06607746685297361,
+              "p95": 0.06771534850568088,
+              "rmse": 0.055448662115593086
+            },
+            "translation_relative": {
+              "count": 2,
+              "max": 0.06935323015838815,
+              "mean": 0.05297441363131542,
+              "median": 0.05297441363131542,
+              "p90": 0.06607746685297361,
+              "p95": 0.06771534850568088,
+              "rmse": 0.055448662115593086
+            }
+          },
+          "scale_state": "relative_only",
+          "translation_residual": {
+            "count": 3,
+            "max": 0.03514853202398429,
+            "mean": 0.024852866434547215,
+            "median": 0.034382471181182296,
+            "p90": 0.03499531985542389,
+            "p95": 0.03507192593970409,
+            "rmse": 0.028535652264581126
+          }
+        }
+      },
+      "parameter_hash": "4ae4ea9accd27cbc4c92702a0334071f8354daf916d5ae1c60ce1155c501b94f",
+      "provenance": {
+        "backend": "LingBot Map",
+        "camera_sample_count": 3,
+        "camera_source": "native/lingbot_map_cameras.json",
+        "camera_source_sha256": "6c9c5c0e29354593ffdf1afa60b16d4bf5b0e039b973a870d4b3c50ce8cbd5ea",
+        "coordinate_frame": "lingbot_native",
+        "native_geometry_status": "available",
+        "point_sampling": "deterministic_even_index_after_finite_filter",
+        "point_source": "native/lingbot_map_points.bin",
+        "point_source_sha256": "a28f7a62ee74cce00736ff6b14c79ca1dca3c346fb1b1027637206103bd66603",
+        "sampled_point_count": 30000,
+        "scale_state": "relative_only",
+        "shared_camera_frame_count": 3,
+        "shared_camera_frame_first": 0,
+        "shared_camera_frame_last": 44
+      },
+      "reason": null,
+      "reason_code": null,
+      "role": "comparison_inputs_not_reconstruction_truth",
+      "status": "validated",
+      "summary": null
+    },
+    "omega": {
+      "metrics": null,
+      "parameter_hash": "4ae4ea9accd27cbc4c92702a0334071f8354daf916d5ae1c60ce1155c501b94f",
+      "provenance": {
+        "backend": "VGGT Omega",
+        "camera_source": "cameras.npz:centers_glb",
+        "camera_source_sha256": "5d813eb570ff609af52b8fe3548772e04424496f5b3a03919bc68659619d9e3d",
+        "coordinate_frame": "official_glb_alignment",
+        "point_sampling": "deterministic_even_index_after_finite_filter",
+        "point_source": "point_cloud.npz:pts",
+        "point_source_sha256": "cb58d63223ce3eb072e11d591f1b2133abd0df18126813a5f8fceaf6711abd3f",
+        "sampled_point_count": 30000,
+        "scale_state": "relative_only",
+        "shared_camera_frame_count": 3,
+        "shared_camera_frame_first": 0,
+        "shared_camera_frame_last": 44
+      },
+      "reason": null,
+      "reason_code": null,
+      "role": "comparison_reference_inputs_not_reconstruction_truth",
+      "status": "reference",
+      "summary": {
+        "point_count": 30000,
+        "position_count": 3
+      }
+    },
+    "r3": {
+      "metrics": null,
+      "parameter_hash": "4ae4ea9accd27cbc4c92702a0334071f8354daf916d5ae1c60ce1155c501b94f",
+      "provenance": {
+        "backend": "R3",
+        "camera_sample_count": 3,
+        "camera_source": "native/r3_cameras.json",
+        "camera_source_sha256": "35ffd45f23b3fbfdb262acc50c47b4b3e986316ec4f4e92a6a8efb89c7b99612",
+        "coordinate_frame": "r3_native",
+        "native_geometry_status": "available",
+        "point_sampling": "deterministic_even_index_after_finite_filter",
+        "point_source": "native/r3_points.bin",
+        "point_source_sha256": "b673c94d06bec95c29dd72d6630e2d15a0e225fd1cb47642bba43ae657729935",
+        "sampled_point_count": 30000,
+        "scale_state": "relative_only",
+        "shared_camera_frame_count": 3,
+        "shared_camera_frame_first": 0,
+        "shared_camera_frame_last": 44
+      },
+      "reason": "robust Sim3 failed to find a nondegenerate consensus",
+      "reason_code": "geometry_comparison_failed",
+      "role": "comparison_inputs_not_reconstruction_truth",
+      "status": "failed_soft",
+      "summary": null
+    }
+  },
+  "parameter_hash": "4ae4ea9accd27cbc4c92702a0334071f8354daf916d5ae1c60ce1155c501b94f",
+  "parameters": {
+    "seed": 20260725,
+    "trajectory_threshold": 0.05,
+    "trim_fraction": 0.1
+  },
+  "scale_state": "relative_only",
+  "scene_key": "2026-05-09_strike_on_soldiers__seg01_seg02",
+  "schema_version": "1.0.0"
+}

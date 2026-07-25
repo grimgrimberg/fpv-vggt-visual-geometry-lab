@@ -1,7 +1,9 @@
 {
   "alignment_policy": "method_native_not_aligned",
   "comparison_rule": "Switch between exclusive native coordinate frames. Do not visually imply cross-method agreement without an explicit alignment artifact.",
-  "diagnostics": {},
+  "diagnostics": {
+    "geometry_consistency": "../diagnostics/geometry_consistency.json"
+  },
   "geometry_layers": {
     "active_dir": "native",
     "coordinate_frames": {

@@ -1,0 +1,1445 @@
+{
+  "active_dir": "native_consistency_afomzbmr",
+  "camera_convention": {
+    "camera_forward": "+Z",
+    "handedness": "OpenCV_image_convention",
+    "image_x": "u_right",
+    "image_y": "v_down",
+    "input_pose": "camera_to_world"
+  },
+  "coordinate_policy": "method_native_frames_remain_separate",
+  "fail_closed": true,
+  "methods": {
+    "lingbot_map": {
+      "assets": {
+        "cameras_native": {
+          "bytes": 24583,
+          "count": 24,
+          "path": "native_consistency_afomzbmr/lingbot_cameras_native.json",
+          "sha256": "c28e34e4e472b62296cc57a0ac11356c6ad7ac905acb917f9556b994d889da99",
+          "shape": [
+            24,
+            4,
+            4
+          ]
+        },
+        "points_native": {
+          "bytes": 3000000,
+          "components": 3,
+          "count": 250000,
+          "dtype": "float32_le",
+          "path": "native_consistency_afomzbmr/lingbot_points_native.bin",
+          "sha256": "fa1cc42c0dd004497f787939830f065dd871f09180a8aa9a08e498a30489a7d9",
+          "shape": [
+            250000,
+            3
+          ]
+        }
+      },
+      "camera_convention": {
+        "camera_forward": "+Z",
+        "handedness": "OpenCV_image_convention",
+        "image_x": "u_right",
+        "image_y": "v_down",
+        "input_pose": "camera_to_world"
+      },
+      "complete_source_frame_count": 24,
+      "coordinate_frame": "lingbot_native",
+      "coverage": {
+        "emitted_count": 288000,
+        "pixel_count": 2784768,
+        "positive_finite_depth_confidence_count": 2784768
+      },
+      "excluded_nonshared_frame_ids": [],
+      "frame_id_join": "exact_method_filename_id_to_omega_frame_id",
+      "frames": [
+        {
+          "confidence_shape": [
+            224,
+            518
+          ],
+          "depth_shape": [
+            224,
+            518
+          ],
+          "emitted_count": 12000,
+          "frame_index": 0,
+          "pixel_count": 116032,
+          "positive_finite_depth_confidence_count": 116032,
+          "sources": {
+            "frame": {
+              "sha256": "913380ec108a91e1ce24bf05f2f62d0406e6558c472f516896191939c5de32da",
+              "source_path": "other_models/lingbot_map/frames/frame_000000.npz"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            224,
+            518
+          ],
+          "depth_shape": [
+            224,
+            518
+          ],
+          "emitted_count": 12000,
+          "frame_index": 8,
+          "pixel_count": 116032,
+          "positive_finite_depth_confidence_count": 116032,
+          "sources": {
+            "frame": {
+              "sha256": "4ebd615b37acf73e7179e9a1d8484a9c4af7db233e58f3aa62b0be1d766ddd6b",
+              "source_path": "other_models/lingbot_map/frames/frame_000008.npz"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            224,
+            518
+          ],
+          "depth_shape": [
+            224,
+            518
+          ],
+          "emitted_count": 12000,
+          "frame_index": 17,
+          "pixel_count": 116032,
+          "positive_finite_depth_confidence_count": 116032,
+          "sources": {
+            "frame": {
+              "sha256": "2e3ff3feb4198d412dbe17371fb000ba69618621323dd4e5e0a9b94719524706",
+              "source_path": "other_models/lingbot_map/frames/frame_000017.npz"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            224,
+            518
+          ],
+          "depth_shape": [
+            224,
+            518
+          ],
+          "emitted_count": 12000,
+          "frame_index": 25,
+          "pixel_count": 116032,
+          "positive_finite_depth_confidence_count": 116032,
+          "sources": {
+            "frame": {
+              "sha256": "69b7bbd1647ab0cafeb1b3222cffd2206b736e192b26221407c496c91765345d",
+              "source_path": "other_models/lingbot_map/frames/frame_000025.npz"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            224,
+            518
+          ],
+          "depth_shape": [
+            224,
+            518
+          ],
+          "emitted_count": 12000,
+          "frame_index": 34,
+          "pixel_count": 116032,
+          "positive_finite_depth_confidence_count": 116032,
+          "sources": {
+            "frame": {
+              "sha256": "7dc18fba47fcb4618c494e04ed074d753a33f395abc68548cfd9c6666638518b",
+              "source_path": "other_models/lingbot_map/frames/frame_000034.npz"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            224,
+            518
+          ],
+          "depth_shape": [
+            224,
+            518
+          ],
+          "emitted_count": 12000,
+          "frame_index": 43,
+          "pixel_count": 116032,
+          "positive_finite_depth_confidence_count": 116032,
+          "sources": {
+            "frame": {
+              "sha256": "68f4166e0e89331e0758bdedbef53068ebd0935da49411a48dc79a5ad9a7fa9f",
+              "source_path": "other_models/lingbot_map/frames/frame_000043.npz"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            224,
+            518
+          ],
+          "depth_shape": [
+            224,
+            518
+          ],
+          "emitted_count": 12000,
+          "frame_index": 51,
+          "pixel_count": 116032,
+          "positive_finite_depth_confidence_count": 116032,
+          "sources": {
+            "frame": {
+              "sha256": "eccd83369faa9f465df9efaad1dc07d84ca9111a9f5954b34b70ceb2fe4634b0",
+              "source_path": "other_models/lingbot_map/frames/frame_000051.npz"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            224,
+            518
+          ],
+          "depth_shape": [
+            224,
+            518
+          ],
+          "emitted_count": 12000,
+          "frame_index": 60,
+          "pixel_count": 116032,
+          "positive_finite_depth_confidence_count": 116032,
+          "sources": {
+            "frame": {
+              "sha256": "662d5a6824066dadd39ab8d13bf0e22f20fd344c88314a37156fff2fcfe6267d",
+              "source_path": "other_models/lingbot_map/frames/frame_000060.npz"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            224,
+            518
+          ],
+          "depth_shape": [
+            224,
+            518
+          ],
+          "emitted_count": 12000,
+          "frame_index": 68,
+          "pixel_count": 116032,
+          "positive_finite_depth_confidence_count": 116032,
+          "sources": {
+            "frame": {
+              "sha256": "6cdf761aa6e76ba12b50a251853a03954fef12ac2a8575d73db96722cd18f1a7",
+              "source_path": "other_models/lingbot_map/frames/frame_000068.npz"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            224,
+            518
+          ],
+          "depth_shape": [
+            224,
+            518
+          ],
+          "emitted_count": 12000,
+          "frame_index": 77,
+          "pixel_count": 116032,
+          "positive_finite_depth_confidence_count": 116032,
+          "sources": {
+            "frame": {
+              "sha256": "074fc24c461c4c269f81314dca9afb1cbde6a2dc7309363a03fdde3e0e4e3c63",
+              "source_path": "other_models/lingbot_map/frames/frame_000077.npz"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            224,
+            518
+          ],
+          "depth_shape": [
+            224,
+            518
+          ],
+          "emitted_count": 12000,
+          "frame_index": 86,
+          "pixel_count": 116032,
+          "positive_finite_depth_confidence_count": 116032,
+          "sources": {
+            "frame": {
+              "sha256": "d70d8e2d24833b45f3cd0143d02c1e5198c2d80c8b076203a049f4e2706134e0",
+              "source_path": "other_models/lingbot_map/frames/frame_000086.npz"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            224,
+            518
+          ],
+          "depth_shape": [
+            224,
+            518
+          ],
+          "emitted_count": 12000,
+          "frame_index": 94,
+          "pixel_count": 116032,
+          "positive_finite_depth_confidence_count": 116032,
+          "sources": {
+            "frame": {
+              "sha256": "9c5bff8a4910362454ddc2cc604c22ecefa206766915739c0acd78939cdf12ac",
+              "source_path": "other_models/lingbot_map/frames/frame_000094.npz"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            224,
+            518
+          ],
+          "depth_shape": [
+            224,
+            518
+          ],
+          "emitted_count": 12000,
+          "frame_index": 103,
+          "pixel_count": 116032,
+          "positive_finite_depth_confidence_count": 116032,
+          "sources": {
+            "frame": {
+              "sha256": "6aa99550f455ba758a0e5acecbe2779b153b59bdff52fa0328438f1b0b70c1e9",
+              "source_path": "other_models/lingbot_map/frames/frame_000103.npz"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            224,
+            518
+          ],
+          "depth_shape": [
+            224,
+            518
+          ],
+          "emitted_count": 12000,
+          "frame_index": 111,
+          "pixel_count": 116032,
+          "positive_finite_depth_confidence_count": 116032,
+          "sources": {
+            "frame": {
+              "sha256": "fe0c66ecd5d962d4184634a25b12572d013ca468dd9e32df7d0f0b058b087819",
+              "source_path": "other_models/lingbot_map/frames/frame_000111.npz"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            224,
+            518
+          ],
+          "depth_shape": [
+            224,
+            518
+          ],
+          "emitted_count": 12000,
+          "frame_index": 120,
+          "pixel_count": 116032,
+          "positive_finite_depth_confidence_count": 116032,
+          "sources": {
+            "frame": {
+              "sha256": "75282ccb70e47459641e288c33d90ed02755411f77e0aa6ac73cbcf3f295fb38",
+              "source_path": "other_models/lingbot_map/frames/frame_000120.npz"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            224,
+            518
+          ],
+          "depth_shape": [
+            224,
+            518
+          ],
+          "emitted_count": 12000,
+          "frame_index": 129,
+          "pixel_count": 116032,
+          "positive_finite_depth_confidence_count": 116032,
+          "sources": {
+            "frame": {
+              "sha256": "f5e5bfa8bca3e4aa93730dd8779eddd016de2c298174cb3f5c0beb8c41733661",
+              "source_path": "other_models/lingbot_map/frames/frame_000129.npz"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            224,
+            518
+          ],
+          "depth_shape": [
+            224,
+            518
+          ],
+          "emitted_count": 12000,
+          "frame_index": 137,
+          "pixel_count": 116032,
+          "positive_finite_depth_confidence_count": 116032,
+          "sources": {
+            "frame": {
+              "sha256": "df75c285d5dd0c79ef814ef60126acaa75a8f573c62eb83ad1fda48cd913b70f",
+              "source_path": "other_models/lingbot_map/frames/frame_000137.npz"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            224,
+            518
+          ],
+          "depth_shape": [
+            224,
+            518
+          ],
+          "emitted_count": 12000,
+          "frame_index": 146,
+          "pixel_count": 116032,
+          "positive_finite_depth_confidence_count": 116032,
+          "sources": {
+            "frame": {
+              "sha256": "d786fcb65972092fdcfd5fee30445c3727cc52ab261749c10b34c399c7974a1d",
+              "source_path": "other_models/lingbot_map/frames/frame_000146.npz"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            224,
+            518
+          ],
+          "depth_shape": [
+            224,
+            518
+          ],
+          "emitted_count": 12000,
+          "frame_index": 154,
+          "pixel_count": 116032,
+          "positive_finite_depth_confidence_count": 116032,
+          "sources": {
+            "frame": {
+              "sha256": "319cd56720599ceeaf854ce78ca704e64bebab2352129cc485d7787e57a561d6",
+              "source_path": "other_models/lingbot_map/frames/frame_000154.npz"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            224,
+            518
+          ],
+          "depth_shape": [
+            224,
+            518
+          ],
+          "emitted_count": 12000,
+          "frame_index": 163,
+          "pixel_count": 116032,
+          "positive_finite_depth_confidence_count": 116032,
+          "sources": {
+            "frame": {
+              "sha256": "39d5c129bd093523bfb188a54c825c6abdc6e4b52e5e16e851b35738f244ac89",
+              "source_path": "other_models/lingbot_map/frames/frame_000163.npz"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            224,
+            518
+          ],
+          "depth_shape": [
+            224,
+            518
+          ],
+          "emitted_count": 12000,
+          "frame_index": 173,
+          "pixel_count": 116032,
+          "positive_finite_depth_confidence_count": 116032,
+          "sources": {
+            "frame": {
+              "sha256": "5542091b0631818127c87012423324857cf04796ee0df4d29fd59a8679904c31",
+              "source_path": "other_models/lingbot_map/frames/frame_000173.npz"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            224,
+            518
+          ],
+          "depth_shape": [
+            224,
+            518
+          ],
+          "emitted_count": 12000,
+          "frame_index": 181,
+          "pixel_count": 116032,
+          "positive_finite_depth_confidence_count": 116032,
+          "sources": {
+            "frame": {
+              "sha256": "220cc2748f40a1a4e0de7272c0ee29faeb5de4083a9ad935ddf53b1389ed13cf",
+              "source_path": "other_models/lingbot_map/frames/frame_000181.npz"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            224,
+            518
+          ],
+          "depth_shape": [
+            224,
+            518
+          ],
+          "emitted_count": 12000,
+          "frame_index": 190,
+          "pixel_count": 116032,
+          "positive_finite_depth_confidence_count": 116032,
+          "sources": {
+            "frame": {
+              "sha256": "167e6c75a5cf6ff9972e37d30af987f3346e853feaa1ff57cf708a86fd3ffacd",
+              "source_path": "other_models/lingbot_map/frames/frame_000190.npz"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            224,
+            518
+          ],
+          "depth_shape": [
+            224,
+            518
+          ],
+          "emitted_count": 12000,
+          "frame_index": 199,
+          "pixel_count": 116032,
+          "positive_finite_depth_confidence_count": 116032,
+          "sources": {
+            "frame": {
+              "sha256": "5036ecbfe4efe8e6e921fafcb5607f967567ae49417f224d96e658d3f4d912c0",
+              "source_path": "other_models/lingbot_map/frames/frame_000199.npz"
+            }
+          }
+        }
+      ],
+      "inventory": {
+        "complete_frame_count": 24,
+        "frame_count": 24,
+        "images_required": false,
+        "incomplete_frames": {}
+      },
+      "method": "lingbot_map",
+      "point_count": 250000,
+      "sampled_frame_ids": [
+        0,
+        8,
+        17,
+        25,
+        34,
+        43,
+        51,
+        60,
+        68,
+        77,
+        86,
+        94,
+        103,
+        111,
+        120,
+        129,
+        137,
+        146,
+        154,
+        163,
+        173,
+        181,
+        190,
+        199
+      ],
+      "sampling": {
+        "max_frames": 24,
+        "max_points_per_frame": 12000,
+        "min_confidence": 0.0,
+        "point_budget": 250000,
+        "selection": "deterministic_even_row_major",
+        "validity": "finite_depth_gt_zero_and_finite_confidence_gt_zero"
+      },
+      "scale_status": "relative_only",
+      "shared_camera_frame_count": 24,
+      "shared_frame_ids": [
+        0,
+        8,
+        17,
+        25,
+        34,
+        43,
+        51,
+        60,
+        68,
+        77,
+        86,
+        94,
+        103,
+        111,
+        120,
+        129,
+        137,
+        146,
+        154,
+        163,
+        173,
+        181,
+        190,
+        199
+      ],
+      "status": "available"
+    },
+    "r3": {
+      "assets": {
+        "cameras_native": {
+          "bytes": 24241,
+          "count": 24,
+          "path": "native_consistency_afomzbmr/r3_cameras_native.json",
+          "sha256": "a6a9c48d395420a5a415e53562e321f336f693e10ce141023ae33d8b6b318f89",
+          "shape": [
+            24,
+            4,
+            4
+          ]
+        },
+        "points_native": {
+          "bytes": 3000000,
+          "components": 3,
+          "count": 250000,
+          "dtype": "float32_le",
+          "path": "native_consistency_afomzbmr/r3_points_native.bin",
+          "sha256": "bfd0e6dfe41985f7e339fcb09d5288368bde5f84bd24fec639f7c46d4e99c947",
+          "shape": [
+            250000,
+            3
+          ]
+        }
+      },
+      "camera_convention": {
+        "camera_forward": "+Z",
+        "handedness": "OpenCV_image_convention",
+        "image_x": "u_right",
+        "image_y": "v_down",
+        "input_pose": "camera_to_world"
+      },
+      "complete_source_frame_count": 24,
+      "coordinate_frame": "r3_native",
+      "coverage": {
+        "emitted_count": 288000,
+        "pixel_count": 2540160,
+        "positive_finite_depth_confidence_count": 2540160
+      },
+      "excluded_nonshared_frame_ids": [],
+      "frame_id_join": "exact_method_filename_id_to_omega_frame_id",
+      "frames": [
+        {
+          "confidence_shape": [
+            210,
+            504
+          ],
+          "depth_shape": [
+            210,
+            504
+          ],
+          "emitted_count": 12000,
+          "frame_index": 0,
+          "pixel_count": 105840,
+          "positive_finite_depth_confidence_count": 105840,
+          "sources": {
+            "camera": {
+              "sha256": "1c98ca8e4d61528e7471de51ef3623e56ec26d27750dcc1888c5b3b7ab3a2c92",
+              "source_path": "other_models/r3/camera/000000.npz"
+            },
+            "confidence": {
+              "sha256": "a339cbcdf2cbad3fb43c64ee34b3d2959fccc83af80715fda3886d2b1dded957",
+              "source_path": "other_models/r3/conf/000000.npy"
+            },
+            "depth": {
+              "sha256": "609a53a53cac00d83c987beac239240dfa4641723da0833a42e362bea9bf5341",
+              "source_path": "other_models/r3/depth/000000.npy"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            210,
+            504
+          ],
+          "depth_shape": [
+            210,
+            504
+          ],
+          "emitted_count": 12000,
+          "frame_index": 8,
+          "pixel_count": 105840,
+          "positive_finite_depth_confidence_count": 105840,
+          "sources": {
+            "camera": {
+              "sha256": "839900ffb3e9ac316160c18339f15fedcfba04a046c6d4ed5d3d4d5ecb9283c0",
+              "source_path": "other_models/r3/camera/000008.npz"
+            },
+            "confidence": {
+              "sha256": "534158d5a8a2732d4fa774ecac6d85cf11c2b6ca7f634c04776f817149e16c15",
+              "source_path": "other_models/r3/conf/000008.npy"
+            },
+            "depth": {
+              "sha256": "90c5f92a85d626e2cf99e9c0faeb28107ea4b3ad6cf5d587a129b0b2a315924e",
+              "source_path": "other_models/r3/depth/000008.npy"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            210,
+            504
+          ],
+          "depth_shape": [
+            210,
+            504
+          ],
+          "emitted_count": 12000,
+          "frame_index": 17,
+          "pixel_count": 105840,
+          "positive_finite_depth_confidence_count": 105840,
+          "sources": {
+            "camera": {
+              "sha256": "1718d0d6c2214720a5deee31c5de8153b9544476197a5812d97107f1feaeb9ef",
+              "source_path": "other_models/r3/camera/000017.npz"
+            },
+            "confidence": {
+              "sha256": "cee1a023bb3d8ee67c7fc38275d5b1de6519bb0b79f184142ee365ad9053b3a8",
+              "source_path": "other_models/r3/conf/000017.npy"
+            },
+            "depth": {
+              "sha256": "1bf7b3e40a9aae1b676cf534286c7ca24c8997e370ea9324568dac390572ec7d",
+              "source_path": "other_models/r3/depth/000017.npy"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            210,
+            504
+          ],
+          "depth_shape": [
+            210,
+            504
+          ],
+          "emitted_count": 12000,
+          "frame_index": 25,
+          "pixel_count": 105840,
+          "positive_finite_depth_confidence_count": 105840,
+          "sources": {
+            "camera": {
+              "sha256": "dfd3dbf8df24a8dac3eebf450ad0a6abbf4e060955b402b4796868af3634bc6c",
+              "source_path": "other_models/r3/camera/000025.npz"
+            },
+            "confidence": {
+              "sha256": "1c8889d0e1d1eb17e5a442da579ccf2fe28b87bf82103f0f26dfb876cbc22e8a",
+              "source_path": "other_models/r3/conf/000025.npy"
+            },
+            "depth": {
+              "sha256": "c331b990fbab8a1e585bef1a81031e51a332e4353b8bd0744df7983657d7bb29",
+              "source_path": "other_models/r3/depth/000025.npy"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            210,
+            504
+          ],
+          "depth_shape": [
+            210,
+            504
+          ],
+          "emitted_count": 12000,
+          "frame_index": 34,
+          "pixel_count": 105840,
+          "positive_finite_depth_confidence_count": 105840,
+          "sources": {
+            "camera": {
+              "sha256": "50a1fa467461cd3922f2f0465c7fc6af4dbabad61f3c626940e50ee827f4edcf",
+              "source_path": "other_models/r3/camera/000034.npz"
+            },
+            "confidence": {
+              "sha256": "e8b23fa6493f126195b7f2549344aff781d042268e667ed7ec9efd4f37a61260",
+              "source_path": "other_models/r3/conf/000034.npy"
+            },
+            "depth": {
+              "sha256": "816d89fe654d2943bf6708399c84cc44f1e43e835f852ab314fab6dabb09f6d8",
+              "source_path": "other_models/r3/depth/000034.npy"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            210,
+            504
+          ],
+          "depth_shape": [
+            210,
+            504
+          ],
+          "emitted_count": 12000,
+          "frame_index": 43,
+          "pixel_count": 105840,
+          "positive_finite_depth_confidence_count": 105840,
+          "sources": {
+            "camera": {
+              "sha256": "6b6d53d5ca26b367e06bc05e47b34bf90dd995e12cbfdc26c4272bd80aaff530",
+              "source_path": "other_models/r3/camera/000043.npz"
+            },
+            "confidence": {
+              "sha256": "18c442a6ec3fd90a4f0541259312f91ef3663b8b1c98196e44c1aa98cc1f8c1b",
+              "source_path": "other_models/r3/conf/000043.npy"
+            },
+            "depth": {
+              "sha256": "a851db87d57fd5a78275e5c3d9ad618c7bd2458f15f208178801d741b01062a8",
+              "source_path": "other_models/r3/depth/000043.npy"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            210,
+            504
+          ],
+          "depth_shape": [
+            210,
+            504
+          ],
+          "emitted_count": 12000,
+          "frame_index": 51,
+          "pixel_count": 105840,
+          "positive_finite_depth_confidence_count": 105840,
+          "sources": {
+            "camera": {
+              "sha256": "07ede525c52476c39094e1959af1bbee2d70aa3fcf0602adb9d5450f725619e5",
+              "source_path": "other_models/r3/camera/000051.npz"
+            },
+            "confidence": {
+              "sha256": "64fcebe019c66303c86fea2b3b6bf0ed2de5511698cbfb162c98930d2e540902",
+              "source_path": "other_models/r3/conf/000051.npy"
+            },
+            "depth": {
+              "sha256": "8e7eb8dc5bb3deaaedfc00086252918ca79537b2003adc4c8009ca5ec6b85f76",
+              "source_path": "other_models/r3/depth/000051.npy"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            210,
+            504
+          ],
+          "depth_shape": [
+            210,
+            504
+          ],
+          "emitted_count": 12000,
+          "frame_index": 60,
+          "pixel_count": 105840,
+          "positive_finite_depth_confidence_count": 105840,
+          "sources": {
+            "camera": {
+              "sha256": "28200a5b4150f4c9d82e3c4d5ef58d9675bc50c0cccefb7832ccf2a7633ff9f4",
+              "source_path": "other_models/r3/camera/000060.npz"
+            },
+            "confidence": {
+              "sha256": "3478366fa2f67ed0790ae95b5f98001e552f5357d9b1dbf016b35d76af7f6e55",
+              "source_path": "other_models/r3/conf/000060.npy"
+            },
+            "depth": {
+              "sha256": "ca36df5c9fbebbd06843e29ac2bbf7a32f5eecdb84d182dbb5fc182e5390a348",
+              "source_path": "other_models/r3/depth/000060.npy"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            210,
+            504
+          ],
+          "depth_shape": [
+            210,
+            504
+          ],
+          "emitted_count": 12000,
+          "frame_index": 68,
+          "pixel_count": 105840,
+          "positive_finite_depth_confidence_count": 105840,
+          "sources": {
+            "camera": {
+              "sha256": "b17c9b6af5af6319082df2812003b1c8aab5ef60f67d4d43b795f5197f05bada",
+              "source_path": "other_models/r3/camera/000068.npz"
+            },
+            "confidence": {
+              "sha256": "6ec69cb7b8f6ba51c147de554f31f6749a4957af48a9b62edcd2ba4e86e86412",
+              "source_path": "other_models/r3/conf/000068.npy"
+            },
+            "depth": {
+              "sha256": "2698d38137b83274d176fbdc7bc9c3b2b1209dbd3d35e705ab214269b214e75c",
+              "source_path": "other_models/r3/depth/000068.npy"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            210,
+            504
+          ],
+          "depth_shape": [
+            210,
+            504
+          ],
+          "emitted_count": 12000,
+          "frame_index": 77,
+          "pixel_count": 105840,
+          "positive_finite_depth_confidence_count": 105840,
+          "sources": {
+            "camera": {
+              "sha256": "8a7399642981625ceacf0b99c998880bd0dce3f852af9f77f523f96dde46b8b7",
+              "source_path": "other_models/r3/camera/000077.npz"
+            },
+            "confidence": {
+              "sha256": "7c7c20d268fef28e0fcdbaae181e39a571f461f97233f4940897119c8ee09209",
+              "source_path": "other_models/r3/conf/000077.npy"
+            },
+            "depth": {
+              "sha256": "c1534a7ad98c1d1b55644d29dfbaf6af5b21edece43c8c6c43d85a1c2529f190",
+              "source_path": "other_models/r3/depth/000077.npy"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            210,
+            504
+          ],
+          "depth_shape": [
+            210,
+            504
+          ],
+          "emitted_count": 12000,
+          "frame_index": 86,
+          "pixel_count": 105840,
+          "positive_finite_depth_confidence_count": 105840,
+          "sources": {
+            "camera": {
+              "sha256": "80c994f9459efa2243e79ccf6dd4deff69d9ab2096170d17d72b1c4b26068a73",
+              "source_path": "other_models/r3/camera/000086.npz"
+            },
+            "confidence": {
+              "sha256": "4f415eda8ff2ca2fb2390203b27f0b85d5e0e9b3c34c87d492d58c72a8ded689",
+              "source_path": "other_models/r3/conf/000086.npy"
+            },
+            "depth": {
+              "sha256": "8c1da6da8caa488c0585e6401e92b18101348dee1dcaad20898f47ed63d0ba04",
+              "source_path": "other_models/r3/depth/000086.npy"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            210,
+            504
+          ],
+          "depth_shape": [
+            210,
+            504
+          ],
+          "emitted_count": 12000,
+          "frame_index": 94,
+          "pixel_count": 105840,
+          "positive_finite_depth_confidence_count": 105840,
+          "sources": {
+            "camera": {
+              "sha256": "8268a929e5758490c4402f8240499afc2fd624ad125971618bdc8f7fa7dba43d",
+              "source_path": "other_models/r3/camera/000094.npz"
+            },
+            "confidence": {
+              "sha256": "8a7dc1715f5b4110c5eacb2b24bebe79a324728a9782ab222ebd29eeeab51313",
+              "source_path": "other_models/r3/conf/000094.npy"
+            },
+            "depth": {
+              "sha256": "35c9df72224afc27317587e874992ee72f6d3b924a43dbbf70bcbedd9521c544",
+              "source_path": "other_models/r3/depth/000094.npy"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            210,
+            504
+          ],
+          "depth_shape": [
+            210,
+            504
+          ],
+          "emitted_count": 12000,
+          "frame_index": 103,
+          "pixel_count": 105840,
+          "positive_finite_depth_confidence_count": 105840,
+          "sources": {
+            "camera": {
+              "sha256": "4644c1e1df87cc4b8810b86506c3de2edcf5713880025e6a224cc0142bcf00f0",
+              "source_path": "other_models/r3/camera/000103.npz"
+            },
+            "confidence": {
+              "sha256": "3c7588e91af85d460ce1705b6c3da43d766acef245dcd595cfde735ada49be16",
+              "source_path": "other_models/r3/conf/000103.npy"
+            },
+            "depth": {
+              "sha256": "3450e8a6a270e3500a1a8b4607f73eaa747d855e66644c6002f589cb05975677",
+              "source_path": "other_models/r3/depth/000103.npy"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            210,
+            504
+          ],
+          "depth_shape": [
+            210,
+            504
+          ],
+          "emitted_count": 12000,
+          "frame_index": 111,
+          "pixel_count": 105840,
+          "positive_finite_depth_confidence_count": 105840,
+          "sources": {
+            "camera": {
+              "sha256": "82b79a8848f7a968cf2650972846abdc8c89f2ec719491938b00db40ed68b8c1",
+              "source_path": "other_models/r3/camera/000111.npz"
+            },
+            "confidence": {
+              "sha256": "fa38aba7463204c9680ff646f1f3e2172e7254e25f949d9584f040609a30cce4",
+              "source_path": "other_models/r3/conf/000111.npy"
+            },
+            "depth": {
+              "sha256": "07be966357095c616dcdf36031c069eb778b8260eb1762e287ea03170f4a6487",
+              "source_path": "other_models/r3/depth/000111.npy"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            210,
+            504
+          ],
+          "depth_shape": [
+            210,
+            504
+          ],
+          "emitted_count": 12000,
+          "frame_index": 120,
+          "pixel_count": 105840,
+          "positive_finite_depth_confidence_count": 105840,
+          "sources": {
+            "camera": {
+              "sha256": "65ba318b96907535e1a65ee1f5b3eed2c80bb81fd67b8876342fe9e30b5778e2",
+              "source_path": "other_models/r3/camera/000120.npz"
+            },
+            "confidence": {
+              "sha256": "1cd455c6bd6569feabc0995acb88b3ef31bb1d8bbb58a1b35f3fac709311d6e1",
+              "source_path": "other_models/r3/conf/000120.npy"
+            },
+            "depth": {
+              "sha256": "74769a085c624c8ff11975085e6e60a3582c91b12d959ba28dba550de9e104e8",
+              "source_path": "other_models/r3/depth/000120.npy"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            210,
+            504
+          ],
+          "depth_shape": [
+            210,
+            504
+          ],
+          "emitted_count": 12000,
+          "frame_index": 129,
+          "pixel_count": 105840,
+          "positive_finite_depth_confidence_count": 105840,
+          "sources": {
+            "camera": {
+              "sha256": "0e2cab426e78529502d696013fb31b7bc39f60f608f9eeb58d6da4577faa027e",
+              "source_path": "other_models/r3/camera/000129.npz"
+            },
+            "confidence": {
+              "sha256": "79fc148a478b61ae700c8fb9daee716b23268c0b1ea91322ba5c3039838438de",
+              "source_path": "other_models/r3/conf/000129.npy"
+            },
+            "depth": {
+              "sha256": "da37687b9d233aeb453b676c3d668b9c2e56c57da22f4f6f37929482c73e31e5",
+              "source_path": "other_models/r3/depth/000129.npy"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            210,
+            504
+          ],
+          "depth_shape": [
+            210,
+            504
+          ],
+          "emitted_count": 12000,
+          "frame_index": 137,
+          "pixel_count": 105840,
+          "positive_finite_depth_confidence_count": 105840,
+          "sources": {
+            "camera": {
+              "sha256": "f191add3ba83ff032eddf7117f453c992130f3cee7407868bc0e5ddce8f24ff8",
+              "source_path": "other_models/r3/camera/000137.npz"
+            },
+            "confidence": {
+              "sha256": "97233a82ba0ca77bfa3839af2cf7a7c3933742c8a6acc45c8575e8478c344900",
+              "source_path": "other_models/r3/conf/000137.npy"
+            },
+            "depth": {
+              "sha256": "3350847851b864d4c3548433300ca174ded4a46d653b1412340d89b96235e203",
+              "source_path": "other_models/r3/depth/000137.npy"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            210,
+            504
+          ],
+          "depth_shape": [
+            210,
+            504
+          ],
+          "emitted_count": 12000,
+          "frame_index": 146,
+          "pixel_count": 105840,
+          "positive_finite_depth_confidence_count": 105840,
+          "sources": {
+            "camera": {
+              "sha256": "14b80308daadf79f0adf1c737dcb67c3e37ed0fa4cd19bbc646f65242d99b2e5",
+              "source_path": "other_models/r3/camera/000146.npz"
+            },
+            "confidence": {
+              "sha256": "667abe2206d4011d9b4f1160d56a734af80c9b465e3dc7e284beface7d3cb5cb",
+              "source_path": "other_models/r3/conf/000146.npy"
+            },
+            "depth": {
+              "sha256": "e6fd369e7788c278c37353526691fdbe2b94e382264693509774fb75e804d86d",
+              "source_path": "other_models/r3/depth/000146.npy"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            210,
+            504
+          ],
+          "depth_shape": [
+            210,
+            504
+          ],
+          "emitted_count": 12000,
+          "frame_index": 154,
+          "pixel_count": 105840,
+          "positive_finite_depth_confidence_count": 105840,
+          "sources": {
+            "camera": {
+              "sha256": "a24b2a1d5bdfaf5dec2ca27a2a2a22dfc3af0353320a520cfb8dd5dba23b900b",
+              "source_path": "other_models/r3/camera/000154.npz"
+            },
+            "confidence": {
+              "sha256": "2b769f4dae12c7ac7a46542c21d3712e9b37feb6853b780813716c66522f40e9",
+              "source_path": "other_models/r3/conf/000154.npy"
+            },
+            "depth": {
+              "sha256": "e8a755d259e95b1630a210b547622f9e0d036c292f236d443af375a80568800e",
+              "source_path": "other_models/r3/depth/000154.npy"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            210,
+            504
+          ],
+          "depth_shape": [
+            210,
+            504
+          ],
+          "emitted_count": 12000,
+          "frame_index": 163,
+          "pixel_count": 105840,
+          "positive_finite_depth_confidence_count": 105840,
+          "sources": {
+            "camera": {
+              "sha256": "7c6451124c2f463a8f9e73bf27649837ad342f9c19325de9933d4a65f160e6b5",
+              "source_path": "other_models/r3/camera/000163.npz"
+            },
+            "confidence": {
+              "sha256": "7bbed805a91c0fc26e7da92d7c19cbcf411b97674dca74d7337c2ee8964fd0b4",
+              "source_path": "other_models/r3/conf/000163.npy"
+            },
+            "depth": {
+              "sha256": "86a8600b470fc12b3fafa4ae762a5a140695e6d1791313027becb1d256afcc63",
+              "source_path": "other_models/r3/depth/000163.npy"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            210,
+            504
+          ],
+          "depth_shape": [
+            210,
+            504
+          ],
+          "emitted_count": 12000,
+          "frame_index": 173,
+          "pixel_count": 105840,
+          "positive_finite_depth_confidence_count": 105840,
+          "sources": {
+            "camera": {
+              "sha256": "48a5041a501303544a4b5b37a171f76b515502d1a90bb2e820950ddabdc20b34",
+              "source_path": "other_models/r3/camera/000173.npz"
+            },
+            "confidence": {
+              "sha256": "12cf30d1e1089346bbcde41119a9f736394d1a12b7d5bda0ff7d65f9df808f42",
+              "source_path": "other_models/r3/conf/000173.npy"
+            },
+            "depth": {
+              "sha256": "038a7fbb4f31bb81c737f68250374f0d83af974dbad12a1723eb3968f1a155f8",
+              "source_path": "other_models/r3/depth/000173.npy"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            210,
+            504
+          ],
+          "depth_shape": [
+            210,
+            504
+          ],
+          "emitted_count": 12000,
+          "frame_index": 181,
+          "pixel_count": 105840,
+          "positive_finite_depth_confidence_count": 105840,
+          "sources": {
+            "camera": {
+              "sha256": "5715ce788c43394acbf0fbade9f620d77b43557f0afa13476e36e0a279f784b1",
+              "source_path": "other_models/r3/camera/000181.npz"
+            },
+            "confidence": {
+              "sha256": "efd8a9c37f8169cc4c8a7bba2b154063db7ef9a16b1dbbb30a115f4406a1ae0f",
+              "source_path": "other_models/r3/conf/000181.npy"
+            },
+            "depth": {
+              "sha256": "ca636f3d520c39c1fa6d9c59f38a09c0a5b7894fdd4308ae1ed91e9a007db30d",
+              "source_path": "other_models/r3/depth/000181.npy"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            210,
+            504
+          ],
+          "depth_shape": [
+            210,
+            504
+          ],
+          "emitted_count": 12000,
+          "frame_index": 190,
+          "pixel_count": 105840,
+          "positive_finite_depth_confidence_count": 105840,
+          "sources": {
+            "camera": {
+              "sha256": "daada0ba52b2b159f5c4d07aa4381bd1e3688ddcf3ac68f9c72fd79afa63cffe",
+              "source_path": "other_models/r3/camera/000190.npz"
+            },
+            "confidence": {
+              "sha256": "863d8ed468028309ec18c796b939a79c6831c676c2c8983594c64990ec983891",
+              "source_path": "other_models/r3/conf/000190.npy"
+            },
+            "depth": {
+              "sha256": "a8388fd83d47a584ffb62355cf5a855d27bc5c53c1d6fe416693f2a2ac9418d3",
+              "source_path": "other_models/r3/depth/000190.npy"
+            }
+          }
+        },
+        {
+          "confidence_shape": [
+            210,
+            504
+          ],
+          "depth_shape": [
+            210,
+            504
+          ],
+          "emitted_count": 12000,
+          "frame_index": 199,
+          "pixel_count": 105840,
+          "positive_finite_depth_confidence_count": 105840,
+          "sources": {
+            "camera": {
+              "sha256": "74f2e487b9e5368c47cce5e03e12f9a42feba77dcf9ca5b662ff70bc25eafe22",
+              "source_path": "other_models/r3/camera/000199.npz"
+            },
+            "confidence": {
+              "sha256": "619eb570483695c71e4ab4c1b650e4264a02be236319ba686baedc8903d237a9",
+              "source_path": "other_models/r3/conf/000199.npy"
+            },
+            "depth": {
+              "sha256": "47f820c778c67f2ef33a09f262144c485f7592834505df1e4110568cb2dd56c6",
+              "source_path": "other_models/r3/depth/000199.npy"
+            }
+          }
+        }
+      ],
+      "inventory": {
+        "camera_frame_count": 24,
+        "complete_frame_count": 24,
+        "confidence_frame_count": 24,
+        "depth_frame_count": 24
+      },
+      "method": "r3",
+      "point_count": 250000,
+      "sampled_frame_ids": [
+        0,
+        8,
+        17,
+        25,
+        34,
+        43,
+        51,
+        60,
+        68,
+        77,
+        86,
+        94,
+        103,
+        111,
+        120,
+        129,
+        137,
+        146,
+        154,
+        163,
+        173,
+        181,
+        190,
+        199
+      ],
+      "sampling": {
+        "max_frames": 24,
+        "max_points_per_frame": 12000,
+        "min_confidence": 0.0,
+        "point_budget": 250000,
+        "selection": "deterministic_even_row_major",
+        "validity": "finite_depth_gt_zero_and_finite_confidence_gt_zero"
+      },
+      "scale_status": "relative_only",
+      "shared_camera_frame_count": 24,
+      "shared_frame_ids": [
+        0,
+        8,
+        17,
+        25,
+        34,
+        43,
+        51,
+        60,
+        68,
+        77,
+        86,
+        94,
+        103,
+        111,
+        120,
+        129,
+        137,
+        146,
+        154,
+        163,
+        173,
+        181,
+        190,
+        199
+      ],
+      "status": "available"
+    }
+  },
+  "omega_evidence": {
+    "array_shapes": {
+      "camera_to_world": [
+        200,
+        4,
+        4
+      ],
+      "centers_glb": [
+        200,
+        3
+      ],
+      "centers_world": [
+        200,
+        3
+      ],
+      "extrinsic": [
+        200,
+        3,
+        4
+      ],
+      "intrinsic": [
+        200,
+        3,
+        3
+      ]
+    },
+    "frame_count": 200,
+    "frame_id_source": "ordinal_array_index",
+    "path": "cameras.npz",
+    "sha256": "9826c3d9e074041db99046daf26bd1f46e06c1ad4010d512902a6a2ae4547fa6"
+  },
+  "parameters": {
+    "colors_required": false,
+    "execution": "cpu_only_existing_arrays",
+    "images_required": false,
+    "max_frames": 24,
+    "max_points_per_frame": 12000,
+    "min_confidence": 0.0,
+    "minimum_shared_camera_frames": 3,
+    "point_budget": 250000
+  },
+  "publication": "immutable_generation_with_atomic_pointer",
+  "scale_status": "relative_only",
+  "scene_id": "2026-05-06_strike_on_namer_apc_near_qouzah__seg01_seg02",
+  "schema_version": "1.0.0",
+  "separate_from": "native_geometry_build.json",
+  "status": "built"
+}
