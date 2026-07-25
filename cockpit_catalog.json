@@ -1,19 +1,30 @@
 {
   "assembly": {
     "atomic_candidate": true,
-    "baseline_scene_count": 12,
+    "baseline_scene_count": 13,
     "baseline_scene_keys_preserved": true,
     "candidate_scene_count": 13,
     "mode": "baseline_preserving_staged_merge",
-    "overlay_scene_count": 3,
+    "overlay_scene_count": 13,
     "same_key_overrides": [
       "2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan/seg01",
-      "2026-04-29_strike_on_merkava_tank/seg01"
+      "2026-04-29_strike_on_merkava_tank/seg01",
+      "2026-05-05_strike_on_merkava_tank/seg01_seg02",
+      "2026-05-06_strike_on_namer_apc_in_bint_jbeil/seg02",
+      "2026-05-06_strike_on_namer_apc_near_qouzah/seg01_seg02",
+      "2026-05-07_strike_on_iron_dome_launcher_at_jal_al_alam/seg01_seg02",
+      "2026-05-08_humvee_bayyadah_mmirleb_16048/seg01_seg02_seg03_seg04",
+      "2026-05-08_merkava_tank_bayyadah_mmirleb_16051/seg01_seg02",
+      "2026-05-08_resistance_strikes_enemy_forces_kfar_kila/seg15_seg16_seg17_seg18_seg19_seg20",
+      "2026-05-08_strike_on_humvee_in_naqoura/seg01_seg02_seg03_seg04",
+      "2026-05-09_soldiers_gathering_shlomi_mmirleb_15970/seg01_seg02_seg03_seg04",
+      "2026-05-09_strike_on_israeli_military_vehicle/seg01_seg02_seg03_seg04_seg05",
+      "2026-05-09_strike_on_soldiers/seg01_seg02"
     ],
     "viewer_runtime_sha256": {
-      "app.js": "b98ee2cb2580c91d99a460ce431e4c43068e990d6e5c60be26ebcc6dc050c820",
+      "app.js": "8c2f81390b4665e229c1d0f705ede09d51e4393e9ec84b8f21039beaffe226db",
       "method-scene3d.css": "0e93fee6c9fe048c7d980c33264ed424f49d2b7e8a7d7305182cae701b674f0f",
-      "method-scene3d.js": "e68b2d2ffc11ad178093f6bf91fc41eae167ad33cab3bf67a2245a1b85156f5b",
+      "method-scene3d.js": "1f6b9b4ca892ee55416f01522950735e19738907b3c7737ae8cfac842e571f90",
       "scene-reference-addon.js": "1f7589dbbe13f22d9342093e268d6b61e8534ffdd66a604fc565c1220407747d",
       "sixdof-addon.js": "c1292d9921099996eb9b81e3a3d59180a7fd625c1681a22c28ad9ca5f9c8aecb",
       "styles.css": "bbcebfff4726a695590d3f1aa412536799ae56b14c0c512d45a941285d9e4545"

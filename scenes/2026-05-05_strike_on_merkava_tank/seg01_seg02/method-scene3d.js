@@ -42,11 +42,13 @@ let manifestUrl;
 let activeFrameGroup = "omega_shared";
 let activeSample = 0;
 let pointSize = 1.4;
+let cameraDensity = 18;
 let toolbar;
 let layerTray;
 let layerDetails;
 let viewNote;
 let groundButton;
+let observerButton;
 let animationFrame = 0;
 let resizeObserver;
 let omegaAlignmentMode = null;
@@ -238,7 +240,7 @@ function addOmegaCameraFrusta(group) {
   const bounds = data.scene?.bounds;
   const span = bounds ? Math.max(...bounds.max.map((value, axis) => value - bounds.min[axis]), 1e-6) : 1;
   const depth = span * 0.035;
-  const stride = Math.max(1, Math.floor(samples.length / 24));
+  const stride = Math.max(1, Math.ceil(samples.length / cameraDensity));
   const vertices = [];
   const pushSegment = (start, end) => vertices.push(...start.toArray(), ...end.toArray());
   for (let index = 0; index < samples.length; index += stride) {
@@ -360,6 +362,10 @@ function setGroundAvailability() {
   const supported = manifest.geometry_layers.coordinate_frames?.[activeFrameGroup]?.ground_display_supported === true && canShowGroundGrid();
   groundButton.disabled = !supported;
   groundButton.title = supported ? "Use the confidence-gated estimated display plane; scale remains relative" : "Estimated ground is unavailable in this method-native frame";
+  observerButton.disabled = !supported;
+  observerButton.title = supported
+    ? "Enter a synthetic ground observer view with relative eye height and camera-path orientation proxy"
+    : "Synthetic observer requires the confidence-gated estimated-ground display frame";
 }
 
 async function selectFrameGroup(frame, preferredLayer) {
@@ -452,6 +458,55 @@ function robustPointBounds(object) {
   return local.applyMatrix4(object.matrixWorld);
 }
 
+function computeGroundObserverPose(bounds, cameraCenters = []) {
+  const finiteVector = (value) => (
+    Array.isArray(value)
+    && value.length === 3
+    && value.every((coordinate) => Number.isFinite(Number(coordinate)))
+  ) ? value.map(Number) : null;
+  const minimum = finiteVector(bounds?.min);
+  const maximum = finiteVector(bounds?.max);
+  if (!minimum || !maximum) throw new Error("observer bounds must contain finite min/max vectors");
+
+  const size = maximum.map((value, axis) => Math.abs(value - minimum[axis]));
+  const center = maximum.map((value, axis) => (value + minimum[axis]) / 2);
+  const horizontalSpan = Math.max(size[0], size[2], 1e-4);
+  const span = Math.max(size[0], size[1], size[2], 1);
+  let forward = [Math.SQRT1_2, Math.SQRT1_2];
+  let orientationSource = "scene_diagonal_fallback";
+  const validCenters = cameraCenters.map(finiteVector).filter(Boolean);
+  if (validCenters.length > 1) {
+    const start = validCenters[0];
+    const end = validCenters[validCenters.length - 1];
+    const delta = [end[0] - start[0], end[2] - start[2]];
+    const length = Math.hypot(...delta);
+    if (length > Math.max(horizontalSpan * 1e-6, 1e-8)) {
+      forward = delta.map((value) => value / length);
+      orientationSource = "camera_path_horizontal_proxy";
+    }
+  }
+
+  const eyeHeight = Math.max(span * 0.035, horizontalSpan * 0.02, 1e-4);
+  const observerDistance = Math.max(horizontalSpan * 0.72, span * 0.18);
+  const targetHeight = Math.max(
+    eyeHeight * 1.35,
+    Math.min(span * 0.16, Math.max(size[1] * 0.18, eyeHeight * 1.35)),
+  );
+  return {
+    position: [
+      center[0] - forward[0] * observerDistance,
+      eyeHeight,
+      center[2] - forward[1] * observerDistance,
+    ],
+    target: [center[0], targetHeight, center[2]],
+    near: Math.max(span / 10000, 1e-5),
+    far: span * 1000,
+    synthetic: true,
+    scaleState: "relative_only",
+    orientationSource,
+  };
+}
+
 function currentBounds() {
   const group = renderGroups.get(activeFrameGroup);
   group?.updateMatrixWorld(true);
@@ -519,10 +574,36 @@ function fitBounds(preset) {
     }
   }
   controls.target.copy(center);
+  controls.enablePan = true;
+  controls.minDistance = 0;
+  controls.maxDistance = Infinity;
+  controls.minPolarAngle = 0;
+  controls.maxPolarAngle = Math.PI;
+  camera.fov = 48;
   if (preset === "Ground-relative") {
     const groundY = canShowGroundGrid() ? 0 : box.min.y;
     camera.position.set(center.x + span * 0.8, groundY + span * 0.08, center.z + span * 1.1);
     viewNote.textContent = "Estimated display ground · uncalibrated orientation only · relative scale preserved";
+  } else if (preset === "Observer") {
+    const worldCenters = activeCameraCenters().map((position) => {
+      const vector = new THREE.Vector3(...position);
+      if (activeFrameGroup === "omega_shared") renderGroups.get("omega_shared")?.localToWorld(vector);
+      return vector.toArray();
+    });
+    const pose = computeGroundObserverPose(
+      { min: box.min.toArray(), max: box.max.toArray() },
+      worldCenters,
+    );
+    camera.position.fromArray(pose.position);
+    controls.target.fromArray(pose.target);
+    controls.enablePan = false;
+    controls.minDistance = span * 0.002;
+    controls.maxDistance = span * 4;
+    controls.maxPolarAngle = Math.PI * 0.56;
+    camera.fov = 62;
+    camera.near = pose.near;
+    camera.far = pose.far;
+    viewNote.textContent = "Synthetic ground observer · recovered-path orientation proxy · relative eye height only · not a recorded person or metric pose";
   } else if (preset === "Camera") {
     const centers = activeCameraCenters();
     const index = Math.min(activeSample, Math.max(centers.length - 1, 0));
@@ -544,8 +625,10 @@ function fitBounds(preset) {
     camera.position.set(center.x + span * 0.95, center.y + span * 0.58, center.z + span * 0.95);
     viewNote.textContent = `${FRAME_LABELS[activeFrameGroup]} · ${FRAME_HINTS[activeFrameGroup]} · relative only`;
   }
-  camera.near = Math.max(span / 10000, 1e-5);
-  camera.far = span * 1000;
+  if (preset !== "Observer") {
+    camera.near = Math.max(span / 10000, 1e-5);
+    camera.far = span * 1000;
+  }
   camera.updateProjectionMatrix();
   controls.update();
 }
@@ -582,11 +665,12 @@ function buildToolbar() {
   });
   const presets = document.createElement("div");
   presets.className = "method-scene3d-presets";
-  ["Orbit", "Ground-relative", "Camera"].forEach((name) => {
+  ["Orbit", "Ground-relative", "Observer", "Camera"].forEach((name) => {
     const button = document.createElement("button");
     button.type = "button";
     button.textContent = name;
     if (name === "Ground-relative") groundButton = button;
+    if (name === "Observer") observerButton = button;
     button.addEventListener("click", () => fitBounds(name));
     presets.appendChild(button);
   });
@@ -693,6 +777,7 @@ async function boot() {
     const initialView = window.FPVViewer?.getViewState?.();
     pointSize = Number(initialView?.pointSize) || pointSize;
     globalPointBudget = Number(initialView?.pointBudget) || globalPointBudget;
+    cameraDensity = Number(initialView?.cameraDensity) || cameraDensity;
     if (Array.isArray(initialView?.visibleLayers)) visibleLayerNames = new Set(initialView.visibleLayers);
     updateFrameButtonAvailability();
     updateOmegaDisplayTransform();
@@ -714,10 +799,26 @@ document.addEventListener("fpv-active-sample", (event) => {
 });
 document.addEventListener("fpv-view-changed", (event) => {
   const alignmentChanged = updateOmegaDisplayTransform();
+  if (alignmentChanged) setGroundAvailability();
   if (alignmentChanged && activeFrameGroup === "omega_shared") fitBounds("Orbit");
   pointSize = Number(event.detail?.pointSize) || pointSize;
   const requestedBudget = Number(event.detail?.pointBudget);
   if (Number.isFinite(requestedBudget) && requestedBudget > 0) globalPointBudget = requestedBudget;
+  const requestedCameraDensity = Number(event.detail?.cameraDensity);
+  const densityChanged = Number.isFinite(requestedCameraDensity)
+    && requestedCameraDensity > 0
+    && requestedCameraDensity !== cameraDensity;
+  if (densityChanged) {
+    cameraDensity = Math.max(1, Math.round(requestedCameraDensity));
+    const group = renderGroups.get("omega_shared");
+    const frusta = group?.getObjectByName("recovered camera frusta");
+    if (group && frusta) {
+      group.remove(frusta);
+      frusta.geometry?.dispose?.();
+      frusta.material?.dispose?.();
+    }
+    if (group) addOmegaCameraFrusta(group);
+  }
   const visible = event.detail?.visibleLayers;
   if (Array.isArray(visible)) visibleLayerNames = new Set(visible);
   layerStates.forEach((state, id) => {
@@ -766,6 +867,6 @@ window.FPVViewer3D = {
   },
 };
 
-boot();
+boot().then(() => setGroundAvailability());
 
 window.addEventListener("beforeunload", () => cancelAnimationFrame(animationFrame));

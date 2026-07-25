@@ -82,6 +82,9 @@ const state = {
   colors: null,
   groundAlignment: null,
   alignmentMode: "raw",
+  pointBudget: 52000,
+  pointSize: 1.4,
+  cameraDensity: 18,
   activeSample: 0,
   visibleLayers: new Set(["points", "raw", "rts"]),
   yaw: -0.7,
@@ -107,7 +110,16 @@ async function fetchTyped(path, Type) {
 
 window.FPVViewer = {
   getSceneData: () => ({ scene: state.scene, paths: state.paths, cameras: state.cameras, profiles: state.profiles, points: state.points, colors: state.colors, groundAlignment: state.groundAlignment }),
-  getViewState: () => ({ pointSize: 1.4, pointBudget: 120000, visibleLayers: Array.from(state.visibleLayers), yaw: state.yaw, pitch: state.pitch, zoom: state.zoom, alignmentMode: state.alignmentMode }),
+  getViewState: () => ({
+    pointSize: state.pointSize,
+    pointBudget: state.pointBudget,
+    cameraDensity: state.cameraDensity,
+    visibleLayers: Array.from(state.visibleLayers),
+    yaw: state.yaw,
+    pitch: state.pitch,
+    zoom: state.zoom,
+    alignmentMode: state.alignmentMode,
+  }),
   getAlignmentMode: () => state.alignmentMode,
   getGroundDisplayTransform: () => state.groundAlignment?.display_transform || null,
   getDisplayBounds: () => sceneDisplayBounds(),
@@ -119,6 +131,7 @@ window.FPVViewer = {
       || (mode === "estimated_ground" && isValidDisplayTransform(state.groundAlignment?.display_transform));
     if (!supported) return false;
     state.alignmentMode = mode;
+    syncSceneControls();
     emitViewerEvent("fpv-view-changed", window.FPVViewer.getViewState());
     requestAnimationFrame(renderAll);
     return true;
@@ -127,6 +140,35 @@ window.FPVViewer = {
 
 function emitViewerEvent(name, detail) {
   document.dispatchEvent(new CustomEvent(name, { detail }));
+}
+
+function syncSceneControls() {
+  const controls = [
+    ["point-budget", "point-budget-output", "pointBudget", (value) => Number(value).toLocaleString()],
+    ["point-size", "point-size-output", "pointSize", (value) => `${Number(value).toFixed(1)} px`],
+    ["camera-density", "camera-density-output", "cameraDensity", (value) => `${Math.round(Number(value))} frusta`],
+  ];
+  controls.forEach(([inputId, outputId, stateKey, format]) => {
+    const input = document.getElementById(inputId);
+    const output = document.getElementById(outputId);
+    if (input) input.value = String(state[stateKey]);
+    if (output) output.textContent = format(state[stateKey]);
+  });
+
+  const alignment = document.getElementById("alignment-mode");
+  if (alignment) {
+    const estimated = alignment.querySelector('option[value="estimated_ground"]');
+    const supported = isValidDisplayTransform(state.groundAlignment?.display_transform);
+    if (estimated) estimated.disabled = !supported;
+    if (!supported && state.alignmentMode === "estimated_ground") state.alignmentMode = "raw";
+    alignment.value = state.alignmentMode;
+  }
+  const readout = document.getElementById("alignment-readout");
+  if (readout) {
+    readout.textContent = state.alignmentMode === "estimated_ground"
+      ? "Estimated-ground display · Y up · relative only"
+      : "Raw reconstruction frame · relative only";
+  }
 }
 
 async function loadScene(url) {
@@ -155,6 +197,7 @@ async function loadScene(url) {
     && isValidDisplayTransform(state.groundAlignment?.display_transform)
     && ["high", "medium"].includes(alignmentConfidence);
   state.alignmentMode = recommendedGround ? "estimated_ground" : "raw";
+  syncSceneControls();
   document.getElementById("scene-title").textContent = state.scene.title;
   document.getElementById("point-count").textContent = Number(state.scene.reconstruction.point_count_viewer).toLocaleString();
   document.getElementById("frame-count").textContent = Number(state.scene.reconstruction.frame_count).toLocaleString();
@@ -498,6 +541,28 @@ function renderAll() {
 }
 
 function wireControls() {
+  const bindRange = (inputId, stateKey) => {
+    const input = document.getElementById(inputId);
+    if (!input) return;
+    input.addEventListener("input", (event) => {
+      const value = Number(event.target.value);
+      if (!Number.isFinite(value)) return;
+      state[stateKey] = value;
+      syncSceneControls();
+      emitViewerEvent("fpv-view-changed", window.FPVViewer.getViewState());
+      requestAnimationFrame(renderAll);
+    });
+  };
+  bindRange("point-budget", "pointBudget");
+  bindRange("point-size", "pointSize");
+  bindRange("camera-density", "cameraDensity");
+  const alignment = document.getElementById("alignment-mode");
+  if (alignment) alignment.addEventListener("change", (event) => {
+    if (!window.FPVViewer.setAlignmentMode(event.target.value)) {
+      event.target.value = state.alignmentMode;
+    }
+  });
+
   document.querySelectorAll("[data-layer]").forEach((button) => button.addEventListener("click", () => {
     const layer = button.dataset.layer;
     if (["depth", "matches", "masks"].includes(layer)) {
