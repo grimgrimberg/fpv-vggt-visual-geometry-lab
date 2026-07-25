@@ -38,7 +38,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .run-status.verified .status-dot { background: var(--ok); box-shadow: 0 0 10px rgba(129,212,155,.45); }
 .run-status.error { color: var(--danger); }.run-status.error .status-dot { background: var(--danger); box-shadow: none; }
 
-.cockpit { display: grid; grid-template-columns: 118px minmax(0, 1fr) 310px; grid-template-rows: minmax(470px, 62vh) 112px 290px; min-height: calc(100vh - 58px); }
+.cockpit { display: grid; grid-template-columns: 118px minmax(0, 1fr) 310px; grid-template-rows: minmax(470px, 62vh) auto 290px; min-height: calc(100vh - 58px); }
 .mode-rail { grid-row: 1 / 4; border-right: 1px solid var(--line); background: #061015; padding: 10px 8px; display: flex; flex-direction: column; gap: 3px; }
 .mode { border: 0; border-left: 2px solid transparent; background: transparent; color: var(--muted); text-align: left; padding: 11px 8px; cursor: pointer; font-size: 11px; display: grid; gap: 4px; transition: color .16s ease, background .16s ease, border-color .16s ease; }
 .mode span { color: var(--dim); font: 9px ui-monospace, monospace; }
@@ -102,14 +102,14 @@ body.ready .scene-workspace, body.ready .inspector, body.ready .analysis-strip {
 @keyframes settle { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
 @media (max-width: 980px) {
   .masthead { grid-template-columns: 1fr auto; }.scene-heading { display: none; }
-  .cockpit { grid-template-columns: 94px 1fr; grid-template-rows: 480px auto 105px 520px; }
+  .cockpit { grid-template-columns: 94px minmax(0, 1fr); grid-template-rows: 480px auto auto 520px; }
   .mode-rail { grid-row: 1 / 5; }.inspector { grid-column: 2; grid-row: 2; border-left: 0; border-top: 1px solid var(--line); max-height: 320px; }
   .timeline-panel { grid-column: 2; grid-row: 3; }.analysis-strip { grid-column: 2; grid-row: 4; grid-template-columns: 1fr; grid-template-rows: 250px 270px; }.pov-panel { border-right: 0; border-bottom: 1px solid var(--line); }
 }
 @media (max-width: 620px) {
   .brand > span:last-child { display: none; }.masthead { grid-template-columns: 1fr; gap: 6px; padding-block: 10px; }
   .run-status { justify-self: start; font-size: 10px; }
-  .cockpit { grid-template-columns: 1fr; grid-template-rows: auto 430px auto 112px 500px; }
+  .cockpit { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto 430px auto auto 500px; }
   .mode-rail { grid-column: 1; grid-row: 1; flex-direction: row; overflow-x: auto; border-right: 0; border-bottom: 1px solid var(--line); scroll-snap-type: x proximity; }.mode { min-width: 84px; min-height: 44px; scroll-snap-align: start; }
   .transport button { min-width: 44px; min-height: 44px; }
   .scene-workspace { grid-row: 2; }.inspector { grid-row: 3; grid-column: 1; }.timeline-panel { grid-row: 4; grid-column: 1; }.analysis-strip { grid-row: 5; grid-column: 1; }.canvas-topline span:last-child { display: none; }

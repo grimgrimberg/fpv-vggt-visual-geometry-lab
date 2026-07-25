@@ -12,11 +12,11 @@
     ],
     "viewer_runtime_sha256": {
       "app.js": "b98ee2cb2580c91d99a460ce431e4c43068e990d6e5c60be26ebcc6dc050c820",
-      "method-scene3d.css": "dc4f511a08b382ef5e31ea3d11fd58b44a66fd965ce07f43e5d2ff6f026aecb6",
+      "method-scene3d.css": "0e93fee6c9fe048c7d980c33264ed424f49d2b7e8a7d7305182cae701b674f0f",
       "method-scene3d.js": "e68b2d2ffc11ad178093f6bf91fc41eae167ad33cab3bf67a2245a1b85156f5b",
       "scene-reference-addon.js": "1f7589dbbe13f22d9342093e268d6b61e8534ffdd66a604fc565c1220407747d",
       "sixdof-addon.js": "c1292d9921099996eb9b81e3a3d59180a7fd625c1681a22c28ad9ca5f9c8aecb",
-      "styles.css": "978ac85b0d88217f9502e485f40ac939ea7b53610b8967f1673cdab64c42829c"
+      "styles.css": "bbcebfff4726a695590d3f1aa412536799ae56b14c0c512d45a941285d9e4545"
     }
   },
   "counts": {
