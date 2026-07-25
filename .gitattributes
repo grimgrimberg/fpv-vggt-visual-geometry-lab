@@ -1,2 +1,12 @@
+# Preserve exported artifact bytes so declared SHA-256 values remain valid.
 *.bin binary
 *.ply binary
+*.css -text
+*.csv -text
+*.html -text
+*.js -text
+*.json -text
+*.jsonl -text
+*.md -text
+*.svg -text
+*.txt -text

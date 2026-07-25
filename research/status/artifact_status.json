@@ -7,7 +7,7 @@
     "hero_gallery": "hero_gallery.html",
     "live_status": "live_status.html"
   },
-  "generated_at": "2026-07-24T19:08:57.485976Z",
+  "generated_at": "2026-07-25T02:20:40.819291Z",
   "heroes": [
     {
       "annotation_kind": "manual_ground_truth",
@@ -84,14 +84,14 @@
       "coverage": {
         "classified": 1,
         "match_graphs": 1,
-        "total": 12
+        "total": 13
       },
       "evidence": [
         "diagnostics/colmap_failure_taxonomy.json"
       ],
       "reason": null,
       "status": "partial",
-      "summary": "1/12 scenes have classified BA diagnostics; 1 expose a match graph."
+      "summary": "1/13 scenes have classified BA diagnostics; 1 expose a match graph."
     },
     "cotracker3": {
       "coverage": {},
@@ -110,27 +110,27 @@
     "edit_segmentation": {
       "coverage": {
         "manual": 10,
-        "segmented": 12,
-        "total": 12
+        "total": 13,
+        "validated": 2
       },
       "evidence": [
         "scene_meta.json:edit_segments"
       ],
-      "reason": null,
-      "status": "done",
-      "summary": "12/12 detailed scenes preserve edit intervals; 10 are manual-ground-truth scenes."
+      "reason": "Only finite, ordered, non-overlapping intervals with verified terminal bounds count as validated.",
+      "status": "partial",
+      "summary": "2/13 detailed scenes expose validated, ordered, non-overlapping edit intervals; 10 are manual-ground-truth scenes."
     },
     "geometry_consistency": {
       "coverage": {
         "quantitative": 2,
-        "total": 12
+        "total": 13
       },
       "evidence": [
         "diagnostics/geometry_consistency.json"
       ],
       "reason": null,
       "status": "partial",
-      "summary": "2/12 scenes have a schema-valid quantitative scale-free cross-method report."
+      "summary": "2/13 scenes have a schema-valid quantitative scale-free cross-method report."
     },
     "gpu_trace": {
       "coverage": {},
@@ -141,7 +141,7 @@
     },
     "hero_curator": {
       "coverage": {
-        "detailed_scenes": 12,
+        "detailed_scenes": 13,
         "heroes": 3
       },
       "evidence": [
@@ -154,22 +154,22 @@
     "method_ensemble": {
       "coverage": {
         "four_method_scenes": 11,
-        "method_manifests": 12,
-        "total": 12
+        "method_manifests": 13,
+        "total": 13
       },
       "evidence": [
         "methods/method_comparison.json"
       ],
       "reason": null,
       "status": "done",
-      "summary": "12/12 validated method manifests; 11 scenes expose evidence from four method families."
+      "summary": "13/13 validated method manifests; 11 scenes expose evidence from four method families."
     },
     "public_scene_packages": {
       "coverage": {
         "invalid": 0,
-        "parsed": 12,
-        "ready": 12,
-        "total": 12
+        "parsed": 13,
+        "ready": 13,
+        "total": 13
       },
       "evidence": [
         "scene_meta.json",
@@ -179,12 +179,12 @@
       ],
       "reason": null,
       "status": "done",
-      "summary": "12/12 declared detailed scenes expose a validated core public bundle."
+      "summary": "13/13 declared detailed scenes expose a validated core public bundle."
     },
     "trajectory_lab": {
       "coverage": {
-        "ready": 12,
-        "total": 12
+        "ready": 13,
+        "total": 13
       },
       "evidence": [
         "camera_path.json",
@@ -192,7 +192,7 @@
       ],
       "reason": "Factor-graph paths remain not_run.",
       "status": "done",
-      "summary": "12/12 public scenes expose validated, separate path and signal layers."
+      "summary": "13/13 public scenes expose validated, separate path and signal layers."
     }
   },
   "publication_boundary": {
@@ -205,32 +205,38 @@
   },
   "registry": {
     "catalog_records": 161,
-    "declared_detailed_scenes": 12,
-    "detailed_scenes": 12,
+    "declared_detailed_scenes": 13,
+    "detailed_scenes": 13,
     "invalid_detailed_scenes": 0,
     "local_path_published": false,
     "public_counts": {
-      "annotation_records": 142,
-      "annotation_source_records": 143,
       "catalog_records": 161,
-      "detailed_geometry_scenes": 12,
+      "detailed_geometry_scenes": 13,
       "experimental_case_studies": 2,
       "featured_eligible_scenes": 3,
-      "hf_native_scenes_built_this_pass": 5,
-      "hub_full_native_scene_candidates": 10,
-      "method_evidence_records": 12,
-      "partial_ensemble_webgl_scenes": 1,
-      "vggt_done_records": 139,
-      "vggt_partial_records": 1,
-      "webgl_detailed_scenes": 12
+      "method_evidence_records": 13,
+      "partial_ensemble_webgl_scenes": 2,
+      "webgl_detailed_scenes": 13
     },
     "scale_states": {
-      "relative_only": 12
+      "relative_only": 13
     },
     "source": "cockpit_catalog.json"
   },
   "scale_policy": "No metric labels without documented calibration evidence",
   "schema_version": "2.0.0",
   "snapshot_kind": "static_registry_refresh",
-  "warnings": []
+  "warnings": [
+    "2026-04-29_strike_on_merkava_tank::seg01:edit_segmentation_invalid",
+    "2026-05-06_strike_on_namer_apc_in_bint_jbeil::seg02:edit_segmentation_invalid",
+    "2026-05-06_strike_on_namer_apc_near_qouzah::seg01_seg02:edit_segmentation_invalid",
+    "2026-05-07_strike_on_iron_dome_launcher_at_jal_al_alam::seg01_seg02:edit_segmentation_invalid",
+    "2026-05-08_humvee_bayyadah_mmirleb_16048::seg01_seg02_seg03_seg04:edit_segmentation_invalid",
+    "2026-05-08_merkava_tank_bayyadah_mmirleb_16051::seg01_seg02:edit_segmentation_invalid",
+    "2026-05-08_resistance_strikes_enemy_forces_kfar_kila::seg15_seg16_seg17_seg18_seg19_seg20:edit_segmentation_invalid",
+    "2026-05-08_strike_on_humvee_in_naqoura::seg01_seg02_seg03_seg04:edit_segmentation_invalid",
+    "2026-05-09_soldiers_gathering_shlomi_mmirleb_15970::seg01_seg02_seg03_seg04:edit_segmentation_invalid",
+    "2026-05-09_strike_on_israeli_military_vehicle::seg01_seg02_seg03_seg04_seg05:edit_segmentation_invalid",
+    "2026-05-09_strike_on_soldiers::seg01_seg02:edit_segmentation_invalid"
+  ]
 }

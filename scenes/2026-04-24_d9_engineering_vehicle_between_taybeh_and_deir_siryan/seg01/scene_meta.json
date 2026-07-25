@@ -2,6 +2,12 @@
   "annotation": {
     "annotated_at": "2026-07-04T12:22:33Z",
     "auto_generated": false,
+    "edit_segmentation_validation": {
+      "intervals_valid": true,
+      "source": "cockpit_catalog.annotation",
+      "terminal_end_verified": true,
+      "timebase": "source_video_seconds"
+    },
     "full_edit_segmentation": {
       "artifact_sha256": "7a7bc1601fd4711b764b37a3cc99ea31d3a120aa32a02956445b8f195535f594",
       "path": "../diagnostics/edit_segmentation.json",
@@ -10,16 +16,38 @@
     },
     "intervals": [
       {
+        "comment": "",
+        "end_s": 8.067,
+        "label": "Banner Start",
+        "review_status": "manual_ground_truth",
+        "source_index": 0,
+        "source_timebase": "source_video_seconds",
+        "start_s": 0.0,
+        "type": "banner_start"
+      },
+      {
+        "comment": "",
         "end_s": 42.129,
-        "end_type": "replay_start",
-        "is_attack": true,
-        "segment_id": "seg01",
-        "segment_index": 1,
+        "label": "Flight Start",
+        "review_status": "manual_ground_truth",
+        "source_index": 1,
+        "source_timebase": "source_video_seconds",
         "start_s": 8.067,
-        "start_type": "flight_start"
+        "type": "flight_start"
+      },
+      {
+        "comment": "",
+        "end_s": 69.781333,
+        "label": "Replay Start",
+        "review_status": "manual_ground_truth",
+        "source_index": 2,
+        "source_timebase": "source_video_seconds",
+        "start_s": 42.129,
+        "type": "replay_start"
       }
     ],
     "kind": "manual_ground_truth",
+    "segment_count": 3,
     "source_commit": "28433d042f63fefd6d5f549aa1a3f0ecf1b51a67",
     "source_path": "source_repo_snapshot/annotations/2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan_annotations.json",
     "source_snapshot": {
@@ -56,7 +84,7 @@
       "path": "../diagnostics/geometry_consistency.json"
     },
     "ground_alignment": {
-      "artifact_sha256": "749e5d11260fcb933f9ae92eb71014fae71608546d480487a99676e3ac78a029",
+      "artifact_sha256": "9aa5f26540e7b3fa5516b32db5efe46e3575fba5b81e37542ec8ac755b9e36cb",
       "confidence": "high",
       "path": "ground_alignment.json",
       "status": "estimated"
@@ -160,8 +188,11 @@
   "display_alignment": {
     "default": "estimated_ground",
     "estimated_ground_available": true,
+    "frame_contract": "points, paths, cameras, frusta, grid, and camera-proxy share one display transform",
     "raw_available": true,
-    "scale_status": "relative_only"
+    "scale_status": "relative_only",
+    "source_frame": "official_glb_alignment",
+    "target_frame": "estimated_ground_y_up"
   },
   "display_units": "relative units",
   "edit_segments": [
@@ -171,6 +202,7 @@
       "label": "Banner Start",
       "review_status": "manual_ground_truth",
       "source_index": 0,
+      "source_timebase": "source_video_seconds",
       "start_s": 0.0,
       "type": "banner_start"
     },
@@ -180,6 +212,7 @@
       "label": "Flight Start",
       "review_status": "manual_ground_truth",
       "source_index": 1,
+      "source_timebase": "source_video_seconds",
       "start_s": 8.067,
       "type": "flight_start"
     },
@@ -189,6 +222,7 @@
       "label": "Replay Start",
       "review_status": "manual_ground_truth",
       "source_index": 2,
+      "source_timebase": "source_video_seconds",
       "start_s": 42.129,
       "type": "replay_start"
     }

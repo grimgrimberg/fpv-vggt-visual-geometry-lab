@@ -340,6 +340,7 @@ a:focus-visible {
   padding: var(--space-4) 0 var(--space-8);
 }
 
+.detailed-section,
 .archive-section {
   border-top: 1px solid var(--line);
 }
@@ -372,6 +373,7 @@ a:focus-visible {
 }
 
 .featured-grid,
+.detailed-grid,
 .scene-grid {
   display: grid;
   gap: var(--space-4);
@@ -381,6 +383,10 @@ a:focus-visible {
   grid-template-columns: repeat(12, minmax(0, 1fr));
   grid-auto-flow: dense;
   align-items: stretch;
+}
+
+.detailed-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
 }
 
 .scene-grid {
@@ -398,6 +404,7 @@ a:focus-visible {
   color: var(--text);
   padding: 0;
   text-align: left;
+  text-decoration: none;
   cursor: pointer;
   transition: transform 200ms var(--ease-out), border-color 200ms var(--ease-out), background 200ms var(--ease-out);
 }
@@ -669,7 +676,7 @@ a:focus-visible {
 .detail-header {
   min-width: 0;
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto auto;
+  grid-template-columns: auto minmax(0, 1fr) auto auto auto;
   align-items: center;
   gap: 16px;
   padding: 0 16px;
@@ -720,6 +727,30 @@ a:focus-visible {
   font-weight: 650;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.segment-control {
+  min-width: 130px;
+  display: grid;
+  gap: 2px;
+  color: var(--muted);
+  font: 8px/1.2 ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+.segment-control select {
+  min-width: 0;
+  min-height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--surface);
+  color: var(--text);
+  padding: 0 8px;
+  cursor: pointer;
+}
+
+.segment-control select:hover,
+.segment-control select:focus {
+  border-color: var(--accent);
 }
 
 .badges {
@@ -1050,7 +1081,7 @@ dd {
   }
 
   .detail-header {
-    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-columns: auto minmax(0, 1fr) auto auto;
     padding: 0 10px;
   }
 
@@ -1172,6 +1203,7 @@ dd {
   }
 
   .featured-grid,
+  .detailed-grid,
   .scene-grid {
     grid-template-columns: 1fr;
     gap: var(--space-3);
@@ -1198,8 +1230,8 @@ dd {
   }
 
   .back-button {
-    width: 42px;
-    min-height: 42px;
+    width: 44px;
+    min-height: 44px;
     padding: 0;
   }
 
@@ -1208,8 +1240,17 @@ dd {
     display: none;
   }
 
+  .segment-control {
+    min-width: 92px;
+  }
+
+  .segment-control span {
+    display: none;
+  }
+
+  .segment-control select,
   .detail-action {
-    min-height: 42px;
+    min-height: 44px;
   }
 
   .video-stage {

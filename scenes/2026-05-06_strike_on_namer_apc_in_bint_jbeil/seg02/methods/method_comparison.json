@@ -200,6 +200,39 @@
     }
   },
   "input": {
+    "edit_segments": [
+      {
+        "comment": "",
+        "end_s": 8.067,
+        "label": "Banner Start",
+        "review_status": "manual_ground_truth",
+        "source_index": 0,
+        "source_timebase": "source_video_seconds",
+        "start_s": 0.0,
+        "type": "banner_start"
+      },
+      {
+        "comment": "",
+        "end_s": 34.845,
+        "label": "Flight Start",
+        "review_status": "manual_ground_truth",
+        "source_index": 1,
+        "source_timebase": "source_video_seconds",
+        "start_s": 8.067,
+        "type": "flight_start"
+      },
+      {
+        "comment": "",
+        "end_s": 34.846,
+        "end_semantics": "boundary_marker_minimum_extent",
+        "label": "Replay Start",
+        "review_status": "manual_ground_truth",
+        "source_index": 2,
+        "source_timebase": "source_video_seconds",
+        "start_s": 34.845,
+        "type": "replay_start"
+      }
+    ],
     "sample_policy": "three_evenly_spaced_native artifacts",
     "source_frames_copied": false,
     "source_video_copied": false

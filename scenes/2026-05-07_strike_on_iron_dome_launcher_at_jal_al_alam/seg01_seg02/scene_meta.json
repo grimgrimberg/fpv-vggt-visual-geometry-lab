@@ -1,50 +1,62 @@
 {
   "annotation": {
     "auto_generated": false,
+    "edit_segmentation_validation": {
+      "intervals_valid": false,
+      "source": "cockpit_catalog.annotation",
+      "terminal_end_verified": false,
+      "timebase": "source_video_seconds"
+    },
     "intervals": [
       {
         "comment": "",
-        "end_s": 11.0,
-        "label": "banner_start",
+        "end_s": 8.092,
+        "label": "Banner Start",
         "review_status": "manual_ground_truth",
         "source_index": 0,
+        "source_timebase": "source_video_seconds",
         "start_s": 0.0,
         "type": "banner_start"
       },
       {
         "comment": "",
-        "end_s": 11.0,
-        "label": "flight_start",
+        "end_s": 37.061,
+        "label": "Flight Start",
         "review_status": "manual_ground_truth",
         "source_index": 1,
-        "start_s": 0.0,
+        "source_timebase": "source_video_seconds",
+        "start_s": 8.092,
         "type": "flight_start"
       },
       {
         "comment": "",
-        "end_s": 11.0,
-        "label": "pause_start",
+        "end_s": 42.528,
+        "label": "Pause Start",
         "review_status": "manual_ground_truth",
         "source_index": 2,
-        "start_s": 0.0,
+        "source_timebase": "source_video_seconds",
+        "start_s": 37.061,
         "type": "pause_start"
       },
       {
         "comment": "",
-        "end_s": 11.0,
-        "label": "flight_start",
+        "end_s": 44.528,
+        "label": "Flight Start",
         "review_status": "manual_ground_truth",
         "source_index": 3,
-        "start_s": 0.0,
+        "source_timebase": "source_video_seconds",
+        "start_s": 42.528,
         "type": "flight_start"
       },
       {
         "comment": "",
-        "end_s": 11.0,
-        "label": "replay_start",
+        "end_s": 44.528999999999996,
+        "end_semantics": "boundary_marker_minimum_extent",
+        "label": "Replay Start",
         "review_status": "manual_ground_truth",
         "source_index": 4,
-        "start_s": 0.0,
+        "source_timebase": "source_video_seconds",
+        "start_s": 44.528,
         "type": "replay_start"
       }
     ],
@@ -147,47 +159,53 @@
   "edit_segments": [
     {
       "comment": "",
-      "end_s": 11.0,
-      "label": "banner_start",
+      "end_s": 8.092,
+      "label": "Banner Start",
       "review_status": "manual_ground_truth",
       "source_index": 0,
+      "source_timebase": "source_video_seconds",
       "start_s": 0.0,
       "type": "banner_start"
     },
     {
       "comment": "",
-      "end_s": 11.0,
-      "label": "flight_start",
+      "end_s": 37.061,
+      "label": "Flight Start",
       "review_status": "manual_ground_truth",
       "source_index": 1,
-      "start_s": 0.0,
+      "source_timebase": "source_video_seconds",
+      "start_s": 8.092,
       "type": "flight_start"
     },
     {
       "comment": "",
-      "end_s": 11.0,
-      "label": "pause_start",
+      "end_s": 42.528,
+      "label": "Pause Start",
       "review_status": "manual_ground_truth",
       "source_index": 2,
-      "start_s": 0.0,
+      "source_timebase": "source_video_seconds",
+      "start_s": 37.061,
       "type": "pause_start"
     },
     {
       "comment": "",
-      "end_s": 11.0,
-      "label": "flight_start",
+      "end_s": 44.528,
+      "label": "Flight Start",
       "review_status": "manual_ground_truth",
       "source_index": 3,
-      "start_s": 0.0,
+      "source_timebase": "source_video_seconds",
+      "start_s": 42.528,
       "type": "flight_start"
     },
     {
       "comment": "",
-      "end_s": 11.0,
-      "label": "replay_start",
+      "end_s": 44.528999999999996,
+      "end_semantics": "boundary_marker_minimum_extent",
+      "label": "Replay Start",
       "review_status": "manual_ground_truth",
       "source_index": 4,
-      "start_s": 0.0,
+      "source_timebase": "source_video_seconds",
+      "start_s": 44.528,
       "type": "replay_start"
     }
   ],

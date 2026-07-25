@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#05090b">
   <title>FPV Visual Geometry Lab V2</title>
   <link rel="icon" href="data:,">
-  <link rel="stylesheet" href="assets/cockpit.css?v=20260724-gallery-rhythm">
+  <link rel="stylesheet" href="assets/cockpit.css?v=20260725-scene-discovery">
 </head>
 <body data-view="gallery">
   <main id="app" class="app-shell">
@@ -75,15 +75,26 @@
           <div id="featured-list" class="featured-grid" aria-label="Detailed reconstruction scenes"></div>
         </section>
 
+        <section id="detailed-section" class="catalog-section detailed-section">
+          <header class="section-heading">
+            <div>
+              <h2>All full 3D reconstructions</h2>
+              <p>Every materialized reconstruction remains visible here, with experimental and partial-method scenes labeled honestly.</p>
+            </div>
+            <span id="detailed-count"></span>
+          </header>
+          <div id="detailed-list" class="detailed-grid" aria-label="All full reconstruction scenes"></div>
+        </section>
+
         <section id="archive-section" class="catalog-section archive-section">
           <header class="section-heading">
             <div>
-              <h2>Scene archive</h2>
-              <p>Every remaining record stays inspectable, including clearly labeled experimental case studies.</p>
+              <h2>Video and catalog archive</h2>
+              <p>Historical records without a packaged 3D cockpit remain searchable with their edit maps and source links.</p>
             </div>
             <span id="archive-count"></span>
           </header>
-          <div id="scene-list" class="scene-grid" aria-label="Complete scene catalog"></div>
+          <div id="scene-list" class="scene-grid" aria-label="Video and catalog records"></div>
         </section>
 
         <section id="no-results" class="no-results" hidden>
@@ -108,6 +119,10 @@
           <p id="kicker">Scene record</p>
           <h1 id="title" tabindex="-1">Scene</h1>
         </div>
+        <label id="segment-control" class="segment-control" hidden>
+          <span>Scene segment</span>
+          <select id="segment-select" aria-label="Select reconstructed scene segment"></select>
+        </label>
         <div id="badges" class="badges" aria-label="Scene status"></div>
         <a id="detail-action" class="detail-action" href="#" target="_blank" rel="noopener" aria-label="Open current scene in a standalone viewer">
           <span>Open standalone</span>
@@ -157,6 +172,6 @@
       <button id="retry-load" type="button">Retry</button>
     </section>
   </main>
-  <script src="assets/cockpit.js?v=20260724-gallery-rhythm"></script>
+  <script src="assets/cockpit.js?v=20260725-scene-discovery"></script>
 </body>
 </html>

@@ -1,0 +1,27 @@
+{
+  "edit_segments": [
+    {
+      "end_s": 43.44,
+      "end_type": "pause_start",
+      "is_attack": false,
+      "segment_id": "seg01",
+      "segment_index": 1,
+      "start_s": 42.44,
+      "start_type": "flight_start"
+    },
+    {
+      "end_s": 68.84,
+      "end_type": "pause_start",
+      "is_attack": true,
+      "segment_id": "seg02",
+      "segment_index": 2,
+      "start_s": 67.84,
+      "start_type": "flight_start"
+    }
+  ],
+  "samples": [],
+  "scale_status": "relative_only",
+  "scene_id": "2026-05-05_strike_on_merkava_tank__seg01_seg02",
+  "schema_version": "1.0.0",
+  "synchronization": "source_timestamp_sec"
+}

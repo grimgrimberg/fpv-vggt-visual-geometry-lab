@@ -4,6 +4,7 @@ const app = {
   catalog: null,
   records: [],
   active: null,
+  activeScene: null,
   filter: "all",
   routeNotice: "",
 };
@@ -84,6 +85,47 @@ function isDetailed(record) {
   return Boolean(record.research && record.research.detail_route);
 }
 
+function sceneOptions(record) {
+  const research = record.research || {};
+  const routes = Array.isArray(research.detail_routes) && research.detail_routes.length
+    ? research.detail_routes.filter((route) => typeof route === "string" && route)
+    : research.detail_route
+      ? [research.detail_route]
+      : [];
+  const sceneIds = Array.isArray(research.scene_ids) ? research.scene_ids : [];
+  return routes.map((route, index) => {
+    const routeParts = route.split("/").filter(Boolean);
+    const fallbackId = routeParts.at(-2) || `scene-${index + 1}`;
+    const sceneId = String(sceneIds[index] || fallbackId);
+    return {
+      route,
+      sceneId,
+      label: routes.length > 1 ? `Scene ${index + 1} · ${sceneId}` : sceneId,
+    };
+  });
+}
+
+function selectedScene(record, requestedSceneId = "") {
+  const options = sceneOptions(record);
+  return options.find((option) => option.sceneId === requestedSceneId)
+    || options.find((option) => option.route === record.research?.detail_route)
+    || options[0]
+    || null;
+}
+
+function sceneHref(record, sceneId = "") {
+  const url = new URL(location.href);
+  url.searchParams.set("scene", record.slug);
+  url.hash = "";
+  const selected = selectedScene(record, sceneId);
+  if (selected && sceneOptions(record).length > 1) {
+    url.searchParams.set("segment", selected.sceneId);
+  } else {
+    url.searchParams.delete("segment");
+  }
+  return `${url.pathname}${url.search}`;
+}
+
 function isEnsemble(record) {
   const inventory = record.research?.hub_inventory || {};
   const rendered = Number(methodSummary(record).rendered_3d || 0);
@@ -115,6 +157,9 @@ function wire() {
     });
   });
   $("back-to-gallery").addEventListener("click", () => showGallery(true));
+  $("segment-select").addEventListener("change", () => {
+    if (app.active) openDetail(app.active, true, $("segment-select").value);
+  });
   $("scene-frame").addEventListener("load", () => {
     if ($("scene-frame").getAttribute("src")) $("viewer-loading").hidden = true;
   });
@@ -158,7 +203,9 @@ function renderHeader() {
 }
 
 function routeFromUrl() {
-  const slug = new URL(location.href).searchParams.get("scene");
+  const url = new URL(location.href);
+  const slug = url.searchParams.get("scene");
+  const requestedSceneId = url.searchParams.get("segment") || "";
   if (!slug) {
     showGallery(false);
     return;
@@ -171,7 +218,7 @@ function routeFromUrl() {
     return;
   }
   app.routeNotice = "";
-  openDetail(record, false);
+  openDetail(record, false, requestedSceneId);
 }
 
 function passes(record) {
@@ -227,11 +274,18 @@ function renderGallery() {
     ))
     .slice(0, FEATURED_LIMIT);
   const featuredSlugs = new Set(featured.map((record) => record.slug));
-  const archive = rows.filter((record) => !featuredSlugs.has(record.slug));
+  const detailed = rows.filter(
+    (record) => isDetailed(record) && !featuredSlugs.has(record.slug),
+  );
+  const archive = rows.filter((record) => !isDetailed(record));
 
   $("featured-list").replaceChildren(...featured.map((record, index) => buildCard(record, {
     featured: true,
     lead: index === 0,
+  })));
+  $("detailed-list").replaceChildren(...detailed.map((record) => buildCard(record, {
+    featured: false,
+    lead: false,
   })));
   $("scene-list").replaceChildren(...archive.map((record) => buildCard(record, {
     featured: false,
@@ -239,23 +293,26 @@ function renderGallery() {
   })));
 
   $("featured-section").hidden = featured.length === 0;
+  $("detailed-section").hidden = detailed.length === 0;
   $("archive-section").hidden = archive.length === 0;
   $("no-results").hidden = rows.length !== 0;
   $("featured-count").textContent = `${featured.length} reviewed scene${featured.length === 1 ? "" : "s"}`;
-  $("archive-count").textContent = `${archive.length} remaining scene${archive.length === 1 ? "" : "s"}`;
+  $("detailed-count").textContent = `${detailed.length} full 3D scene${detailed.length === 1 ? "" : "s"}`;
+  $("archive-count").textContent = `${archive.length} video record${archive.length === 1 ? "" : "s"}`;
   $("results-count").textContent = app.routeNotice || `Showing ${rows.length} of ${app.records.length} scenes`;
 }
 
 function buildCard(record, options) {
   const detailed = isDetailed(record);
-  const button = element("button", [
+  const defaultScene = selectedScene(record);
+  const link = element("a", [
     "scene-card",
     options.featured ? "scene-card--featured" : "",
     options.lead ? "scene-card--lead" : "",
   ].filter(Boolean).join(" "));
-  button.type = "button";
-  button.dataset.slug = record.slug;
-  button.setAttribute(
+  link.href = sceneHref(record, defaultScene?.sceneId || "");
+  link.dataset.slug = record.slug;
+  link.setAttribute(
     "aria-label",
     `${detailed ? "Open full 3D viewer for" : "Open video record for"} ${record.title}`,
   );
@@ -347,6 +404,13 @@ function buildCard(record, options) {
         return item;
       }));
       body.append(roster);
+      body.append(
+        element(
+          "p",
+          "method-coverage",
+          `${renderedCount}/${available.length} method lanes rendered in 3D`,
+        ),
+      );
     }
   }
   const action = element("span", "scene-card__action");
@@ -356,28 +420,43 @@ function buildCard(record, options) {
   );
   body.append(action);
 
-  button.append(thumb, body);
-  button.addEventListener("click", () => openDetail(record, true));
-  return button;
+  link.append(thumb, body);
+  link.addEventListener("click", (event) => {
+    if (
+      event.defaultPrevented
+      || event.button !== 0
+      || event.metaKey
+      || event.ctrlKey
+      || event.shiftKey
+      || event.altKey
+    ) return;
+    event.preventDefault();
+    openDetail(record, true, defaultScene?.sceneId || "");
+  });
+  return link;
 }
 
 function tag(text, tone) {
   return element("span", `tag${tone ? ` ${tone}` : ""}`, text);
 }
 
-function openDetail(record, push) {
+function openDetail(record, push, requestedSceneId = "") {
+  const selected = selectedScene(record, requestedSceneId);
   app.active = record;
+  app.activeScene = selected;
   if (push) {
-    const url = new URL(location.href);
-    url.searchParams.set("scene", record.slug);
-    url.hash = "";
-    history.pushState({ scene: record.slug }, "", url);
+    const url = new URL(sceneHref(record, selected?.sceneId || ""), location.href);
+    history.pushState(
+      { scene: record.slug, segment: selected?.sceneId || null },
+      "",
+      url,
+    );
   }
   document.body.dataset.view = "detail";
   $("gallery-view").hidden = true;
   $("load-error").hidden = true;
   $("detail-view").hidden = false;
-  renderDetail(record);
+  renderDetail(record, selected);
   window.scrollTo(0, 0);
   requestAnimationFrame(() => $("title").focus({ preventScroll: true }));
 }
@@ -392,6 +471,7 @@ function showGallery(push) {
   }
   clearMedia();
   app.active = null;
+  app.activeScene = null;
   document.body.dataset.view = "gallery";
   $("detail-view").hidden = true;
   $("load-error").hidden = true;
@@ -410,21 +490,22 @@ function embeddedRoute(route) {
   return url.href;
 }
 
-function renderDetail(record) {
+function renderDetail(record, selected) {
   $("kicker").textContent = `${record.date || "Undated"} · ${record.town || "Town not reported"}`;
   $("title").textContent = record.title;
   document.title = `${record.title} · FPV Geometry Lab`;
   renderBadges(record);
+  renderSegmentControl(record, selected);
 
-  if (isDetailed(record)) {
+  if (isDetailed(record) && selected) {
     $("video-detail").hidden = true;
     $("viewer-panel").hidden = false;
     $("empty-viewer").hidden = true;
     $("viewer-loading").hidden = false;
     const frame = $("scene-frame");
-    frame.title = `${record.title} — full reconstruction cockpit`;
-    frame.src = embeddedRoute(record.research.detail_route);
-    $("detail-action").href = record.research.detail_route;
+    frame.title = `${record.title} — ${selected.label} reconstruction cockpit`;
+    frame.src = embeddedRoute(selected.route);
+    $("detail-action").href = selected.route;
     $("detail-action").querySelector("span:first-child").textContent = "Open standalone";
   } else {
     $("viewer-panel").hidden = true;
@@ -435,6 +516,19 @@ function renderDetail(record) {
     $("detail-action").href = record.source_player_url || record.source_record_url;
     $("detail-action").querySelector("span:first-child").textContent = "Open source page";
   }
+}
+
+function renderSegmentControl(record, selected) {
+  const options = sceneOptions(record);
+  const control = $("segment-control");
+  const select = $("segment-select");
+  control.hidden = options.length <= 1;
+  select.replaceChildren(...options.map((option) => {
+    const node = element("option", "", option.label);
+    node.value = option.sceneId;
+    return node;
+  }));
+  if (selected) select.value = selected.sceneId;
 }
 
 function renderBadges(record) {

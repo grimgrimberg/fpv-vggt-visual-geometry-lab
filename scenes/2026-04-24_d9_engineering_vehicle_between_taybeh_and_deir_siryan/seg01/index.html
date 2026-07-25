@@ -4,19 +4,27 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>FPV Geometry Lab</title>
+  <link rel="stylesheet" href="styles.css?v=b9700d36bb8e">
+  <link rel="stylesheet" href="method-scene3d.css?v=dc4f511a08b3">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.165.0/examples/jsm/"
+      }
+    }
+  </script>
   <link rel="icon" href="data:,">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="video-addon.css">
+  <link rel="stylesheet" href="video-addon.css?v=3b88d8194061">
+  <link rel="stylesheet" href="scene-reference-addon.css?v=4115f23f07e8">
+  <link rel="stylesheet" href="sixdof-addon.css?v=2730e34ad334">
   <link rel="stylesheet" href="method-comparison-addon.css?v=f0a2923e344b">
-  <link rel="stylesheet" href="sixdof-addon.css">
-  <link rel="stylesheet" href="scene-reference-addon.css">
-  <link rel="stylesheet" href="method-scene3d.css">
 </head>
 <body>
   <header class="masthead">
     <div class="brand"><span class="brand-mark" aria-hidden="true"></span><strong>FPV GEOMETRY LAB</strong><span>V2 research cockpit</span></div>
     <div class="scene-heading"><span id="scene-title">Loading scene</span><span id="relative-only-badge" class="badge">relative only</span></div>
-    <div id="run-status" class="run-status"><span class="status-dot"></span>validated offline bundle</div>
+    <div id="run-status" class="run-status" role="status" aria-live="polite"><span class="status-dot" aria-hidden="true"></span><a id="itamar-reference">Checking scene provenance…</a></div>
   </header>
 
   <main class="cockpit">
@@ -25,18 +33,25 @@
       <button id="layer-raw" class="mode active" type="button" data-layer="raw" aria-pressed="true"><span>02</span>Raw path</button>
       <button id="layer-fitted" class="mode" type="button" data-layer="bspline" aria-pressed="false"><span>03</span>B-spline</button>
       <button id="layer-smoothed" class="mode active" type="button" data-layer="rts" aria-pressed="true"><span>04</span>Kalman / RTS</button>
-      <button class="mode" type="button" data-layer="depth" aria-pressed="false"><span>05</span>Depth metrics</button>
-      <button class="mode" type="button" data-layer="matches" aria-pressed="false"><span>06</span>Match diagnostics</button>
+      <button class="mode" type="button" data-layer="depth" aria-pressed="false"><span>05</span>R3 depth</button>
+      <button class="mode" type="button" data-layer="matches" aria-pressed="false"><span>06</span>Matches</button>
       <button class="mode" type="button" data-layer="masks" aria-pressed="false"><span>07</span>Masks</button>
     </nav>
 
     <section class="scene-workspace" aria-label="Reconstructed scene">
+      <div id="method-scene3d" hidden aria-label="Interactive method-native 3D reconstruction viewer"></div>
       <canvas id="scene-canvas" aria-label="Interactive relative point cloud, camera paths, and camera pose proxy"></canvas>
-      <div id="method-scene3d" hidden></div>
       <div class="canvas-topline">
-        <span><b id="point-count">—</b> viewer points</span>
+        <span><b id="point-count">—</b> visible / <b id="source-point-count">—</b> loaded points</span>
         <span><b id="frame-count">—</b> recovered poses</span>
         <span id="pose-warning">camera pose proxy · body attitude unavailable</span>
+      </div>
+      <div class="scene-controls" aria-label="Point cloud and display-frame controls">
+        <label class="scene-control"><span>Point budget <output id="point-budget-output">—</output></span><input id="point-budget" type="range" min="5000" max="120000" value="52000" step="1000"></label>
+        <label class="scene-control"><span>Point size <output id="point-size-output">1.4 px</output></span><input id="point-size" type="range" min="0.6" max="3.2" value="1.4" step="0.1"></label>
+        <label class="scene-control"><span>Camera density <output id="camera-density-output">18 frusta</output></span><input id="camera-density" type="range" min="4" max="40" value="18" step="1"></label>
+        <label class="scene-control alignment-control"><span>Display frame</span><select id="alignment-mode"><option value="raw">Raw reconstruction</option><option value="estimated_ground">Estimated ground</option></select></label>
+        <div id="alignment-readout" class="alignment-readout" role="status" aria-live="polite">Raw reconstruction frame · relative only</div>
       </div>
       <div class="axis-key" aria-hidden="true"><i class="axis x"></i>X <i class="axis y"></i>Y <i class="axis z"></i>Z</div>
       <div class="view-help">drag to orbit · wheel to scale · double-click to reset</div>
@@ -83,13 +98,12 @@
     </section>
   </main>
 
-  <script src="app.js"></script>
-  <script src="video-addon.js"></script>
+  <script src="app.js?v=b98ee2cb2580"></script>
+  <script type="module" src="method-scene3d.js?v=e68b2d2ffc11"></script>
+  <script src="video-addon.js?v=9d906d88be30"></script>
+  <script src="scene-reference-addon.js?v=1f7589dbbe13"></script>
+  <script src="sixdof-addon.js?v=c1292d992109"></script>
+  <script src="playback-sync-bridge.js?v=f625fe7fbc02"></script>
   <script src="method-comparison-addon.js?v=f30e64c6583f"></script>
-  <script src="sixdof-addon.js"></script>
-  <script src="scene-reference-addon.js"></script>
-  <script src="playback-sync-bridge.js"></script>
-  <script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.164.1/build/three.module.js","three/addons/":"https://unpkg.com/three@0.164.1/examples/jsm/"}}</script>
-  <script type="module" src="method-scene3d.js"></script>
 </body>
 </html>

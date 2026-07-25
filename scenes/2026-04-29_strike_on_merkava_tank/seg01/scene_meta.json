@@ -1,17 +1,46 @@
 {
   "annotation": {
+    "edit_segmentation_validation": {
+      "intervals_valid": false,
+      "source": "cockpit_catalog.annotation",
+      "terminal_end_verified": false,
+      "timebase": "source_video_seconds"
+    },
     "intervals": [
       {
+        "comment": "",
+        "end_s": 8.082,
+        "label": "Banner Start",
+        "review_status": "manual_ground_truth",
+        "source_index": 0,
+        "source_timebase": "source_video_seconds",
+        "start_s": 0.0,
+        "type": "banner_start"
+      },
+      {
+        "comment": "",
         "end_s": 38.196,
-        "end_type": "replay_start",
-        "is_attack": true,
-        "segment_id": "seg01",
-        "segment_index": 1,
+        "label": "Flight Start",
+        "review_status": "manual_ground_truth",
+        "source_index": 1,
+        "source_timebase": "source_video_seconds",
         "start_s": 8.082,
-        "start_type": "flight_start"
+        "type": "flight_start"
+      },
+      {
+        "comment": "",
+        "end_s": 38.196999999999996,
+        "end_semantics": "boundary_marker_minimum_extent",
+        "label": "Replay Start",
+        "review_status": "manual_ground_truth",
+        "source_index": 2,
+        "source_timebase": "source_video_seconds",
+        "start_s": 38.196,
+        "type": "replay_start"
       }
     ],
     "kind": "manual_ground_truth",
+    "segment_count": 3,
     "source_commit": "28433d042f63fefd6d5f549aa1a3f0ecf1b51a67",
     "source_path": "source_repo_snapshot/annotations/2026-04-29_strike_on_merkava_tank_annotations.json"
   },
@@ -99,13 +128,35 @@
   "display_units": "relative units",
   "edit_segments": [
     {
+      "comment": "",
+      "end_s": 8.082,
+      "label": "Banner Start",
+      "review_status": "manual_ground_truth",
+      "source_index": 0,
+      "source_timebase": "source_video_seconds",
+      "start_s": 0.0,
+      "type": "banner_start"
+    },
+    {
+      "comment": "",
       "end_s": 38.196,
-      "end_type": "replay_start",
-      "is_attack": true,
-      "segment_id": "seg01",
-      "segment_index": 1,
+      "label": "Flight Start",
+      "review_status": "manual_ground_truth",
+      "source_index": 1,
+      "source_timebase": "source_video_seconds",
       "start_s": 8.082,
-      "start_type": "flight_start"
+      "type": "flight_start"
+    },
+    {
+      "comment": "",
+      "end_s": 38.196999999999996,
+      "end_semantics": "boundary_marker_minimum_extent",
+      "label": "Replay Start",
+      "review_status": "manual_ground_truth",
+      "source_index": 2,
+      "source_timebase": "source_video_seconds",
+      "start_s": 38.196,
+      "type": "replay_start"
     }
   ],
   "generated_at": "2026-07-17T14:54:39.963283Z",

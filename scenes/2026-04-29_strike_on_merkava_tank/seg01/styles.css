@@ -47,6 +47,7 @@ button { color: inherit; }
 .scene-workspace::before { content: ""; position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(rgba(38,70,80,.13) 1px, transparent 1px), linear-gradient(90deg, rgba(38,70,80,.13) 1px, transparent 1px); background-size: 42px 42px; mask-image: linear-gradient(to bottom, rgba(0,0,0,.6), transparent 82%); }
 #scene-canvas { width: 100%; height: 100%; display: block; cursor: grab; position: relative; }
 #scene-canvas:active { cursor: grabbing; }
+#scene-canvas:focus-visible { outline: 2px solid var(--cyan); outline-offset: -3px; }
 .canvas-topline { position: absolute; top: 14px; left: 16px; right: 16px; display: flex; gap: 20px; color: var(--muted); font: 10px ui-monospace, monospace; text-transform: uppercase; letter-spacing: .08em; pointer-events: none; }
 .canvas-topline b { color: var(--ink); font-weight: 500; }
 .canvas-topline span:last-child { margin-left: auto; color: var(--warm); }
@@ -98,7 +99,8 @@ body.ready .scene-workspace, body.ready .inspector, body.ready .analysis-strip {
 @media (max-width: 620px) {
   .brand > span:last-child,.run-status { display: none; }.masthead { grid-template-columns: 1fr; }
   .cockpit { grid-template-columns: 1fr; grid-template-rows: auto 430px auto 112px 500px; }
-  .mode-rail { grid-column: 1; grid-row: 1; flex-direction: row; overflow-x: auto; border-right: 0; border-bottom: 1px solid var(--line); }.mode { min-width: 84px; }
+  .mode-rail { grid-column: 1; grid-row: 1; flex-direction: row; overflow-x: auto; border-right: 0; border-bottom: 1px solid var(--line); scroll-snap-type: x proximity; }.mode { min-width: 84px; min-height: 44px; scroll-snap-align: start; }
+  .transport button { min-width: 44px; min-height: 44px; }
   .scene-workspace { grid-row: 2; }.inspector { grid-row: 3; grid-column: 1; }.timeline-panel { grid-row: 4; grid-column: 1; }.analysis-strip { grid-row: 5; grid-column: 1; }.canvas-topline span:last-child { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {

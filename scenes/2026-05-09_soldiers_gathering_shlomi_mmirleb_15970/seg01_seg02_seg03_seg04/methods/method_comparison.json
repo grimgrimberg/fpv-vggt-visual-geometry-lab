@@ -200,6 +200,17 @@
     }
   },
   "input": {
+    "edit_segments": [
+      {
+        "comment": "Fallback interval; consult the source annotation when available.",
+        "end_s": 33.166666666666664,
+        "label": "Reconstructed interval",
+        "review_status": "catalog_interval_unreviewed",
+        "source_index": 0,
+        "start_s": 0.0,
+        "type": "flight_start"
+      }
+    ],
     "sample_policy": "three_evenly_spaced_native artifacts",
     "source_frames_copied": false,
     "source_video_copied": false

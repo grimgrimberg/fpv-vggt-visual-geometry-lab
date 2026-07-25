@@ -1,0 +1,1571 @@
+{
+  "coordinate_frame": "official_glb_alignment",
+  "input_extrinsic": "world_to_camera_Rt",
+  "output_rotation": "camera_to_world",
+  "pose_semantics": "camera_pose_proxy",
+  "quaternion_order": "wxyz",
+  "samples": [
+    {
+      "analysis_time_sec": 0.0,
+      "confidence": 1.0,
+      "frame_index": 1,
+      "intrinsic": [
+        [
+          1112.69775390625,
+          0.0,
+          360.0
+        ],
+        [
+          0.0,
+          1121.5953369140625,
+          184.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "position": [
+        -0.0004345657071098685,
+        -1.3372535931921448e-06,
+        -1.5663277963540168e-07
+      ],
+      "quaternion_wxyz": [
+        0.999998973757594,
+        -0.0008134076377666398,
+        -0.0008313522342630338,
+        -0.0008364838529919153
+      ],
+      "rotation_valid": true,
+      "segment_boundary": true,
+      "segment_id": "seg01",
+      "segment_index": 1,
+      "segment_time_sec": 0.0,
+      "timestamp_sec": 42.44
+    },
+    {
+      "analysis_time_sec": 0.05,
+      "confidence": 1.0,
+      "frame_index": 2,
+      "intrinsic": [
+        [
+          1120.8853759765625,
+          0.0,
+          360.0
+        ],
+        [
+          0.0,
+          1126.16796875,
+          184.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "position": [
+        0.00029837049078196287,
+        0.0005184108740650117,
+        -0.008890854194760323
+      ],
+      "quaternion_wxyz": [
+        0.9984078786695175,
+        -0.0039050316132414943,
+        -0.004819939540855926,
+        0.05606448716929451
+      ],
+      "rotation_valid": true,
+      "segment_boundary": false,
+      "segment_id": "seg01",
+      "segment_index": 1,
+      "segment_time_sec": 0.05,
+      "timestamp_sec": 42.49
+    },
+    {
+      "analysis_time_sec": 0.1,
+      "confidence": 1.0,
+      "frame_index": 3,
+      "intrinsic": [
+        [
+          1113.285888671875,
+          0.0,
+          360.0
+        ],
+        [
+          0.0,
+          1116.103515625,
+          184.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "position": [
+        0.0009962576441466808,
+        0.0016033778665587306,
+        -0.01717471145093441
+      ],
+      "quaternion_wxyz": [
+        0.992442931379013,
+        -0.008911381797454515,
+        -0.011397169132317685,
+        0.12185121979718179
+      ],
+      "rotation_valid": true,
+      "segment_boundary": false,
+      "segment_id": "seg01",
+      "segment_index": 1,
+      "segment_time_sec": 0.1,
+      "timestamp_sec": 42.54
+    },
+    {
+      "analysis_time_sec": 0.15,
+      "confidence": 1.0,
+      "frame_index": 4,
+      "intrinsic": [
+        [
+          1100.377197265625,
+          0.0,
+          360.0
+        ],
+        [
+          0.0,
+          1107.5487060546875,
+          184.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "position": [
+        0.0008909322787076235,
+        0.003537988755851984,
+        -0.021755635738372803
+      ],
+      "quaternion_wxyz": [
+        0.9829484311333259,
+        -0.013442501782181883,
+        -0.013706855364836746,
+        0.1828764692200086
+      ],
+      "rotation_valid": true,
+      "segment_boundary": false,
+      "segment_id": "seg01",
+      "segment_index": 1,
+      "segment_time_sec": 0.15,
+      "timestamp_sec": 42.59
+    },
+    {
+      "analysis_time_sec": 0.2,
+      "confidence": 1.0,
+      "frame_index": 5,
+      "intrinsic": [
+        [
+          1086.83837890625,
+          0.0,
+          360.0
+        ],
+        [
+          0.0,
+          1099.3592529296875,
+          184.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "position": [
+        -0.0005729767726734281,
+        0.006339597050100565,
+        -0.03746854513883591
+      ],
+      "quaternion_wxyz": [
+        0.966159283916973,
+        -0.01610515020062785,
+        -0.00890317401287802,
+        0.2572889343336662
+      ],
+      "rotation_valid": true,
+      "segment_boundary": false,
+      "segment_id": "seg01",
+      "segment_index": 1,
+      "segment_time_sec": 0.2,
+      "timestamp_sec": 42.64
+    },
+    {
+      "analysis_time_sec": 0.25,
+      "confidence": 1.0,
+      "frame_index": 6,
+      "intrinsic": [
+        [
+          1095.2349853515625,
+          0.0,
+          360.0
+        ],
+        [
+          0.0,
+          1108.9278564453125,
+          184.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "position": [
+        -0.0014530294574797153,
+        0.006621412001550198,
+        -0.041220247745513916
+      ],
+      "quaternion_wxyz": [
+        0.9647402480360323,
+        -0.015093882543108412,
+        -0.006626596400025873,
+        0.26268710807594076
+      ],
+      "rotation_valid": true,
+      "segment_boundary": false,
+      "segment_id": "seg01",
+      "segment_index": 1,
+      "segment_time_sec": 0.25,
+      "timestamp_sec": 42.69
+    },
+    {
+      "analysis_time_sec": 0.3,
+      "confidence": 1.0,
+      "frame_index": 7,
+      "intrinsic": [
+        [
+          1085.8758544921875,
+          0.0,
+          360.0
+        ],
+        [
+          0.0,
+          1100.8858642578125,
+          184.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "position": [
+        -0.0018731330055743456,
+        0.007661779876798391,
+        -0.04629296809434891
+      ],
+      "quaternion_wxyz": [
+        0.9627138497385671,
+        -0.017473567943871362,
+        -0.007483918936532348,
+        0.26985312468491096
+      ],
+      "rotation_valid": true,
+      "segment_boundary": false,
+      "segment_id": "seg01",
+      "segment_index": 1,
+      "segment_time_sec": 0.3,
+      "timestamp_sec": 42.74
+    },
+    {
+      "analysis_time_sec": 0.35,
+      "confidence": 1.0,
+      "frame_index": 8,
+      "intrinsic": [
+        [
+          1076.0462646484375,
+          0.0,
+          360.0
+        ],
+        [
+          0.0,
+          1091.3271484375,
+          184.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "position": [
+        -0.0016069220146164298,
+        0.008836764842271805,
+        -0.052509792149066925
+      ],
+      "quaternion_wxyz": [
+        0.9639104339032804,
+        -0.020530671408538696,
+        -0.009505960159196511,
+        0.2652636493478822
+      ],
+      "rotation_valid": true,
+      "segment_boundary": false,
+      "segment_id": "seg01",
+      "segment_index": 1,
+      "segment_time_sec": 0.35,
+      "timestamp_sec": 42.79
+    },
+    {
+      "analysis_time_sec": 0.4,
+      "confidence": 1.0,
+      "frame_index": 9,
+      "intrinsic": [
+        [
+          1099.151611328125,
+          0.0,
+          360.0
+        ],
+        [
+          0.0,
+          1112.871826171875,
+          184.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "position": [
+        -0.003106418065726757,
+        0.011083658784627914,
+        -0.06438715010881424
+      ],
+      "quaternion_wxyz": [
+        0.967832061819805,
+        -0.02361520898455695,
+        -0.006532818774147017,
+        0.250401166724728
+      ],
+      "rotation_valid": true,
+      "segment_boundary": false,
+      "segment_id": "seg01",
+      "segment_index": 1,
+      "segment_time_sec": 0.4,
+      "timestamp_sec": 42.84
+    },
+    {
+      "analysis_time_sec": 0.45,
+      "confidence": 1.0,
+      "frame_index": 10,
+      "intrinsic": [
+        [
+          1092.1220703125,
+          0.0,
+          360.0
+        ],
+        [
+          0.0,
+          1111.7418212890625,
+          184.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "position": [
+        -0.0026385164819657803,
+        0.011786513961851597,
+        -0.06942863762378693
+      ],
+      "quaternion_wxyz": [
+        0.9654229359890012,
+        -0.023051625811280476,
+        -0.007476097081261249,
+        0.25955979115854066
+      ],
+      "rotation_valid": true,
+      "segment_boundary": false,
+      "segment_id": "seg01",
+      "segment_index": 1,
+      "segment_time_sec": 0.45,
+      "timestamp_sec": 42.89
+    },
+    {
+      "analysis_time_sec": 0.5,
+      "confidence": 1.0,
+      "frame_index": 11,
+      "intrinsic": [
+        [
+          1093.459228515625,
+          0.0,
+          360.0
+        ],
+        [
+          0.0,
+          1111.8013916015625,
+          184.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "position": [
+        -0.0024320450611412525,
+        0.013405246660113335,
+        -0.07464196532964706
+      ],
+      "quaternion_wxyz": [
+        0.9640295542041463,
+        -0.023263086920145292,
+        -0.009440408002530916,
+        0.2646067385851059
+      ],
+      "rotation_valid": true,
+      "segment_boundary": false,
+      "segment_id": "seg01",
+      "segment_index": 1,
+      "segment_time_sec": 0.5,
+      "timestamp_sec": 42.94
+    },
+    {
+      "analysis_time_sec": 0.55,
+      "confidence": 1.0,
+      "frame_index": 12,
+      "intrinsic": [
+        [
+          1094.9332275390625,
+          0.0,
+          360.0
+        ],
+        [
+          0.0,
+          1106.714599609375,
+          184.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "position": [
+        -0.0017627747729420662,
+        0.013446178287267685,
+        -0.08133053034543991
+      ],
+      "quaternion_wxyz": [
+        0.9644904073503254,
+        -0.022702927509932174,
+        -0.010613116870071713,
+        0.2629262120101081
+      ],
+      "rotation_valid": true,
+      "segment_boundary": false,
+      "segment_id": "seg01",
+      "segment_index": 1,
+      "segment_time_sec": 0.55,
+      "timestamp_sec": 42.99
+    },
+    {
+      "analysis_time_sec": 0.6,
+      "confidence": 1.0,
+      "frame_index": 13,
+      "intrinsic": [
+        [
+          1094.5528564453125,
+          0.0,
+          360.0
+        ],
+        [
+          0.0,
+          1110.65673828125,
+          184.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "position": [
+        -0.0016362604219466448,
+        0.015796443447470665,
+        -0.09439529478549957
+      ],
+      "quaternion_wxyz": [
+        0.9716296128600935,
+        -0.026006588638526548,
+        -0.010257259921629035,
+        0.2348496143910636
+      ],
+      "rotation_valid": true,
+      "segment_boundary": false,
+      "segment_id": "seg01",
+      "segment_index": 1,
+      "segment_time_sec": 0.6,
+      "timestamp_sec": 43.04
+    },
+    {
+      "analysis_time_sec": 0.65,
+      "confidence": 1.0,
+      "frame_index": 14,
+      "intrinsic": [
+        [
+          1090.6240234375,
+          0.0,
+          360.0
+        ],
+        [
+          0.0,
+          1100.860595703125,
+          184.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "position": [
+        -0.0026856446638703346,
+        0.016444647684693336,
+        -0.09901479631662369
+      ],
+      "quaternion_wxyz": [
+        0.9768656255106642,
+        -0.02689382184633366,
+        -0.009436495842881771,
+        0.21194627759968715
+      ],
+      "rotation_valid": true,
+      "segment_boundary": false,
+      "segment_id": "seg01",
+      "segment_index": 1,
+      "segment_time_sec": 0.65,
+      "timestamp_sec": 43.09
+    },
+    {
+      "analysis_time_sec": 0.7,
+      "confidence": 1.0,
+      "frame_index": 15,
+      "intrinsic": [
+        [
+          1089.0303955078125,
+          0.0,
+          360.0
+        ],
+        [
+          0.0,
+          1102.0816650390625,
+          184.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "position": [
+        -0.0022958931513130665,
+        0.016749687492847443,
+        -0.10320240259170532
+      ],
+      "quaternion_wxyz": [
+        0.9803729845711677,
+        -0.02565263771285203,
+        -0.010809829616932082,
+        0.1951765889778968
+      ],
+      "rotation_valid": true,
+      "segment_boundary": false,
+      "segment_id": "seg01",
+      "segment_index": 1,
+      "segment_time_sec": 0.7,
+      "timestamp_sec": 43.14
+    },
+    {
+      "analysis_time_sec": 0.75,
+      "confidence": 1.0,
+      "frame_index": 16,
+      "intrinsic": [
+        [
+          1095.0379638671875,
+          0.0,
+          360.0
+        ],
+        [
+          0.0,
+          1105.8963623046875,
+          184.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "position": [
+        -0.0028356891125440598,
+        0.016690539196133614,
+        -0.10694889724254608
+      ],
+      "quaternion_wxyz": [
+        0.9856724824620366,
+        -0.024597337593511848,
+        -0.007066976781618583,
+        0.16671768394386063
+      ],
+      "rotation_valid": true,
+      "segment_boundary": false,
+      "segment_id": "seg01",
+      "segment_index": 1,
+      "segment_time_sec": 0.75,
+      "timestamp_sec": 43.19
+    },
+    {
+      "analysis_time_sec": 0.8,
+      "confidence": 1.0,
+      "frame_index": 17,
+      "intrinsic": [
+        [
+          1085.8170166015625,
+          0.0,
+          360.0
+        ],
+        [
+          0.0,
+          1096.69921875,
+          184.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "position": [
+        -0.005591259337961674,
+        0.018172571435570717,
+        -0.12368684262037277
+      ],
+      "quaternion_wxyz": [
+        0.9991531693215694,
+        -0.016364392847350258,
+        0.004988743961271094,
+        0.03742009239819923
+      ],
+      "rotation_valid": true,
+      "segment_boundary": false,
+      "segment_id": "seg01",
+      "segment_index": 1,
+      "segment_time_sec": 0.8,
+      "timestamp_sec": 43.24
+    },
+    {
+      "analysis_time_sec": 0.85,
+      "confidence": 1.0,
+      "frame_index": 18,
+      "intrinsic": [
+        [
+          1106.4697265625,
+          0.0,
+          360.0
+        ],
+        [
+          0.0,
+          1116.6441650390625,
+          184.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "position": [
+        -0.004440977703779936,
+        0.017955871298909187,
+        -0.1266147494316101
+      ],
+      "quaternion_wxyz": [
+        0.9998529859565759,
+        -0.01599346389254355,
+        0.002888346222771642,
+        -0.005465623709582833
+      ],
+      "rotation_valid": true,
+      "segment_boundary": false,
+      "segment_id": "seg01",
+      "segment_index": 1,
+      "segment_time_sec": 0.85,
+      "timestamp_sec": 43.29
+    },
+    {
+      "analysis_time_sec": 0.9,
+      "confidence": 1.0,
+      "frame_index": 19,
+      "intrinsic": [
+        [
+          1124.4296875,
+          0.0,
+          360.0
+        ],
+        [
+          0.0,
+          1136.3079833984375,
+          184.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "position": [
+        -0.004903092049062252,
+        0.018369991332292557,
+        -0.1289256066083908
+      ],
+      "quaternion_wxyz": [
+        0.9984719187110103,
+        -0.010254083510102744,
+        0.005563971591153456,
+        -0.05401595631898352
+      ],
+      "rotation_valid": true,
+      "segment_boundary": false,
+      "segment_id": "seg01",
+      "segment_index": 1,
+      "segment_time_sec": 0.9,
+      "timestamp_sec": 43.34
+    },
+    {
+      "analysis_time_sec": 0.95,
+      "confidence": 1.0,
+      "frame_index": 20,
+      "intrinsic": [
+        [
+          1157.2119140625,
+          0.0,
+          360.0
+        ],
+        [
+          0.0,
+          1168.06494140625,
+          184.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "position": [
+        -0.005841040052473545,
+        0.019396381452679634,
+        -0.1329309046268463
+      ],
+      "quaternion_wxyz": [
+        0.9945538794304979,
+        -0.00830603226203235,
+        0.00767060776851986,
+        -0.10360865076947104
+      ],
+      "rotation_valid": true,
+      "segment_boundary": false,
+      "segment_id": "seg01",
+      "segment_index": 1,
+      "segment_time_sec": 0.95,
+      "timestamp_sec": 43.39
+    },
+    {
+      "analysis_time_sec": 1.0,
+      "confidence": 1.0,
+      "frame_index": 21,
+      "intrinsic": [
+        [
+          1342.5040283203125,
+          0.0,
+          360.0
+        ],
+        [
+          0.0,
+          1373.5145263671875,
+          184.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "position": [
+        0.01687452755868435,
+        -0.03935740143060684,
+        0.18546469509601593
+      ],
+      "quaternion_wxyz": [
+        0.9395629739383159,
+        0.013083585495964806,
+        0.0019919920120338008,
+        -0.34212025628802106
+      ],
+      "rotation_valid": true,
+      "segment_boundary": true,
+      "segment_id": "seg02",
+      "segment_index": 2,
+      "segment_time_sec": 0.0,
+      "timestamp_sec": 67.84
+    },
+    {
+      "analysis_time_sec": 1.05,
+      "confidence": 1.0,
+      "frame_index": 22,
+      "intrinsic": [
+        [
+          1417.25439453125,
+          0.0,
+          360.0
+        ],
+        [
+          0.0,
+          1458.2017822265625,
+          184.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "position": [
+        0.017359411343932152,
+        -0.03830427676439285,
+        0.18627753853797913
+      ],
+      "quaternion_wxyz": [
+        0.9556938167236048,
+        -0.0038410542034101216,
+        -0.011221311926093689,
+        -0.29412354060416995
+      ],
+      "rotation_valid": true,
+      "segment_boundary": false,
+      "segment_id": "seg02",
+      "segment_index": 2,
+      "segment_time_sec": 0.05,
+      "timestamp_sec": 67.89
+    },
+    {
+      "analysis_time_sec": 1.1,
+      "confidence": 1.0,
+      "frame_index": 23,
+      "intrinsic": [
+        [
+          1343.458984375,
+          0.0,
+          360.0
+        ],
+        [
+          0.0,
+          1365.108154296875,
+          184.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "position": [
+        0.022751515731215477,
+        -0.03431222587823868,
+        0.17988009750843048
+      ],
+      "quaternion_wxyz": [
+        0.9804154792008017,
+        0.0009341606777359986,
+        -0.03512829433575671,
+        -0.19377981944555256
+      ],
+      "rotation_valid": true,
+      "segment_boundary": false,
+      "segment_id": "seg02",
+      "segment_index": 2,
+      "segment_time_sec": 0.1,
+      "timestamp_sec": 67.94
+    },
+    {
+      "analysis_time_sec": 1.15,
+      "confidence": 1.0,
+      "frame_index": 24,
+      "intrinsic": [
+        [
+          1288.295654296875,
+          0.0,
+          360.0
+        ],
+        [
+          0.0,
+          1299.46240234375,
+          184.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "position": [
+        0.014968020841479301,
+        -0.03863365575671196,
+        0.1679375320672989
+      ],
+      "quaternion_wxyz": [
+        0.9951857232265365,
+        0.0027995368366968685,
+        -0.010832504437769702,
+        -0.09736629666974544
+      ],
+      "rotation_valid": true,
+      "segment_boundary": false,
+      "segment_id": "seg02",
+      "segment_index": 2,
+      "segment_time_sec": 0.15,
+      "timestamp_sec": 67.99
+    },
+    {
+      "analysis_time_sec": 1.2,
+      "confidence": 1.0,
+      "frame_index": 25,
+      "intrinsic": [
+        [
+          1401.592529296875,
+          0.0,
+          360.0
+        ],
+        [
+          0.0,
+          1418.730712890625,
+          184.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "position": [
+        0.014881004579365253,
+        -0.03561902046203613,
+        0.16616590321063995
+      ],
+      "quaternion_wxyz": [
+        0.998781369530041,
+        0.005829042237247537,
+        -0.0146043615621136,
+        -0.046781521668870236
+      ],
+      "rotation_valid": true,
+      "segment_boundary": false,
+      "segment_id": "seg02",
+      "segment_index": 2,
+      "segment_time_sec": 0.2,
+      "timestamp_sec": 68.04
+    },
+    {
+      "analysis_time_sec": 1.25,
+      "confidence": 1.0,
+      "frame_index": 26,
+      "intrinsic": [
+        [
+          1395.7060546875,
+          0.0,
+          360.0
+        ],
+        [
+          0.0,
+          1430.04052734375,
+          184.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "position": [
+        0.01300659030675888,
+        -0.03658599033951759,
+        0.16084100306034088
+      ],
+      "quaternion_wxyz": [
+        0.9999390460216924,
+        0.00754035330494904,
+        -0.008011900386716989,
+        -0.0009256162583377483
+      ],
+      "rotation_valid": true,
+      "segment_boundary": false,
+      "segment_id": "seg02",
+      "segment_index": 2,
+      "segment_time_sec": 0.25,
+      "timestamp_sec": 68.09
+    },
+    {
+      "analysis_time_sec": 1.3,
+      "confidence": 1.0,
+      "frame_index": 27,
+      "intrinsic": [
+        [
+          1361.7081298828125,
+          0.0,
+          360.0
+        ],
+        [
+          0.0,
+          1390.662109375,
+          184.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "position": [
+        0.005690045654773712,
+        -0.04074322059750557,
+        0.15834377706050873
+      ],
+      "quaternion_wxyz": [
+        0.9998020611618795,
+        0.004744698139304755,
+        0.006572649572650653,
+        0.018169386715554695
+      ],
+      "rotation_valid": true,
+      "segment_boundary": false,
+      "segment_id": "seg02",
+      "segment_index": 2,
+      "segment_time_sec": 0.3,
+      "timestamp_sec": 68.14
+    },
+    {
+      "analysis_time_sec": 1.35,
+      "confidence": 1.0,
+      "frame_index": 28,
+      "intrinsic": [
+        [
+          1437.0640869140625,
+          0.0,
+          360.0
+        ],
+        [
+          0.0,
+          1474.4205322265625,
+          184.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "position": [
+        0.00946641992777586,
+        -0.0384053997695446,
+        0.15652607381343842
+      ],
+      "quaternion_wxyz": [
+        0.9993986480067252,
+        0.008035530227690626,
+        0.0018208344791082259,
+        0.03368170390715754
+      ],
+      "rotation_valid": true,
+      "segment_boundary": false,
+      "segment_id": "seg02",
+      "segment_index": 2,
+      "segment_time_sec": 0.35,
+      "timestamp_sec": 68.19
+    },
+    {
+      "analysis_time_sec": 1.4,
+      "confidence": 1.0,
+      "frame_index": 29,
+      "intrinsic": [
+        [
+          1349.3082275390625,
+          0.0,
+          360.0
+        ],
+        [
+          0.0,
+          1381.1131591796875,
+          184.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "position": [
+        0.010859694331884384,
+        -0.03535407409071922,
+        0.13845129311084747
+      ],
+      "quaternion_wxyz": [
+        0.9959228675320665,
+        0.0040005326761884666,
+        -0.009448251816616508,
+        0.08962348019700307
+      ],
+      "rotation_valid": true,
+      "segment_boundary": false,
+      "segment_id": "seg02",
+      "segment_index": 2,
+      "segment_time_sec": 0.4,
+      "timestamp_sec": 68.24
+    },
+    {
+      "analysis_time_sec": 1.45,
+      "confidence": 1.0,
+      "frame_index": 30,
+      "intrinsic": [
+        [
+          1431.8341064453125,
+          0.0,
+          360.0
+        ],
+        [
+          0.0,
+          1475.640380859375,
+          184.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "position": [
+        0.008806402795016766,
+        -0.03649239242076874,
+        0.13697686791419983
+      ],
+      "quaternion_wxyz": [
+        0.9958803560251422,
+        0.019565677180073696,
+        -0.006818020593949582,
+        0.08827805704081498
+      ],
+      "rotation_valid": true,
+      "segment_boundary": false,
+      "segment_id": "seg02",
+      "segment_index": 2,
+      "segment_time_sec": 0.45,
+      "timestamp_sec": 68.29
+    },
+    {
+      "analysis_time_sec": 1.5,
+      "confidence": 1.0,
+      "frame_index": 31,
+      "intrinsic": [
+        [
+          1422.58447265625,
+          0.0,
+          360.0
+        ],
+        [
+          0.0,
+          1460.7899169921875,
+          184.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "position": [
+        0.008920596912503242,
+        -0.041366565972566605,
+        0.13668568432331085
+      ],
+      "quaternion_wxyz": [
+        0.9934003766527052,
+        0.017735152123706317,
+        -0.0012139019534177081,
+        0.11331232275202818
+      ],
+      "rotation_valid": true,
+      "segment_boundary": false,
+      "segment_id": "seg02",
+      "segment_index": 2,
+      "segment_time_sec": 0.5,
+      "timestamp_sec": 68.34
+    },
+    {
+      "analysis_time_sec": 1.55,
+      "confidence": 1.0,
+      "frame_index": 32,
+      "intrinsic": [
+        [
+          1480.88134765625,
+          0.0,
+          360.0
+        ],
+        [
+          0.0,
+          1521.564208984375,
+          184.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "position": [
+        0.010093927383422852,
+        -0.03814439848065376,
+        0.13012224435806274
+      ],
+      "quaternion_wxyz": [
+        0.9930863419515792,
+        0.023620482261242554,
+        -0.0034690215627099924,
+        0.1149328331521278
+      ],
+      "rotation_valid": true,
+      "segment_boundary": false,
+      "segment_id": "seg02",
+      "segment_index": 2,
+      "segment_time_sec": 0.55,
+      "timestamp_sec": 68.39
+    },
+    {
+      "analysis_time_sec": 1.6,
+      "confidence": 1.0,
+      "frame_index": 33,
+      "intrinsic": [
+        [
+          1450.32421875,
+          0.0,
+          360.0
+        ],
+        [
+          0.0,
+          1488.70654296875,
+          184.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "position": [
+        0.008959470316767693,
+        -0.038632214069366455,
+        0.13382840156555176
+      ],
+      "quaternion_wxyz": [
+        0.98903463751623,
+        0.029678523780524522,
+        -0.0008453907668186648,
+        0.14466843585868921
+      ],
+      "rotation_valid": true,
+      "segment_boundary": false,
+      "segment_id": "seg02",
+      "segment_index": 2,
+      "segment_time_sec": 0.6,
+      "timestamp_sec": 68.44
+    },
+    {
+      "analysis_time_sec": 1.65,
+      "confidence": 1.0,
+      "frame_index": 34,
+      "intrinsic": [
+        [
+          1397.2723388671875,
+          0.0,
+          360.0
+        ],
+        [
+          0.0,
+          1439.287353515625,
+          184.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "position": [
+        0.012796147726476192,
+        -0.0327567383646965,
+        0.11953642964363098
+      ],
+      "quaternion_wxyz": [
+        0.9899702183228408,
+        0.012297982365395128,
+        -0.004662392176478031,
+        0.1406626765093006
+      ],
+      "rotation_valid": true,
+      "segment_boundary": false,
+      "segment_id": "seg02",
+      "segment_index": 2,
+      "segment_time_sec": 0.65,
+      "timestamp_sec": 68.49
+    },
+    {
+      "analysis_time_sec": 1.7,
+      "confidence": 1.0,
+      "frame_index": 35,
+      "intrinsic": [
+        [
+          1442.22802734375,
+          0.0,
+          360.0
+        ],
+        [
+          0.0,
+          1484.21630859375,
+          184.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "position": [
+        0.011366449296474457,
+        -0.03346458449959755,
+        0.1279643326997757
+      ],
+      "quaternion_wxyz": [
+        0.9949304946776842,
+        -0.002213621766670307,
+        -0.013953761903772075,
+        0.09956758090777126
+      ],
+      "rotation_valid": true,
+      "segment_boundary": false,
+      "segment_id": "seg02",
+      "segment_index": 2,
+      "segment_time_sec": 0.7,
+      "timestamp_sec": 68.54
+    },
+    {
+      "analysis_time_sec": 1.75,
+      "confidence": 1.0,
+      "frame_index": 36,
+      "intrinsic": [
+        [
+          1461.2674560546875,
+          0.0,
+          360.0
+        ],
+        [
+          0.0,
+          1503.126953125,
+          184.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "position": [
+        0.011641370132565498,
+        -0.028432277962565422,
+        0.11696862429380417
+      ],
+      "quaternion_wxyz": [
+        0.9943443411704401,
+        0.01186041832427283,
+        -0.004164701206385493,
+        0.10545765464563578
+      ],
+      "rotation_valid": true,
+      "segment_boundary": false,
+      "segment_id": "seg02",
+      "segment_index": 2,
+      "segment_time_sec": 0.75,
+      "timestamp_sec": 68.59
+    },
+    {
+      "analysis_time_sec": 1.8,
+      "confidence": 1.0,
+      "frame_index": 37,
+      "intrinsic": [
+        [
+          1451.1456298828125,
+          0.0,
+          360.0
+        ],
+        [
+          0.0,
+          1499.9468994140625,
+          184.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "position": [
+        0.007647273596376181,
+        -0.03227551281452179,
+        0.12112243473529816
+      ],
+      "quaternion_wxyz": [
+        0.995650940778972,
+        0.0051503011198786785,
+        -0.005120967377991995,
+        0.09287870701854158
+      ],
+      "rotation_valid": true,
+      "segment_boundary": false,
+      "segment_id": "seg02",
+      "segment_index": 2,
+      "segment_time_sec": 0.8,
+      "timestamp_sec": 68.64
+    },
+    {
+      "analysis_time_sec": 1.85,
+      "confidence": 1.0,
+      "frame_index": 38,
+      "intrinsic": [
+        [
+          1403.8551025390625,
+          0.0,
+          360.0
+        ],
+        [
+          0.0,
+          1447.09619140625,
+          184.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "position": [
+        0.00716165266931057,
+        -0.02941468358039856,
+        0.11570091545581818
+      ],
+      "quaternion_wxyz": [
+        0.9957856563118964,
+        0.003926949487887646,
+        -0.02257170355075027,
+        0.08880328794601196
+      ],
+      "rotation_valid": true,
+      "segment_boundary": false,
+      "segment_id": "seg02",
+      "segment_index": 2,
+      "segment_time_sec": 0.85,
+      "timestamp_sec": 68.69
+    },
+    {
+      "analysis_time_sec": 1.9,
+      "confidence": 1.0,
+      "frame_index": 39,
+      "intrinsic": [
+        [
+          1389.72314453125,
+          0.0,
+          360.0
+        ],
+        [
+          0.0,
+          1427.6591796875,
+          184.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "position": [
+        0.006030944641679525,
+        -0.02808149717748165,
+        0.11483467370271683
+      ],
+      "quaternion_wxyz": [
+        0.996472199407908,
+        0.019474356854566274,
+        -0.01139770578265599,
+        0.08083314626537454
+      ],
+      "rotation_valid": true,
+      "segment_boundary": false,
+      "segment_id": "seg02",
+      "segment_index": 2,
+      "segment_time_sec": 0.9,
+      "timestamp_sec": 68.74
+    },
+    {
+      "analysis_time_sec": 1.95,
+      "confidence": 1.0,
+      "frame_index": 40,
+      "intrinsic": [
+        [
+          1441.88916015625,
+          0.0,
+          360.0
+        ],
+        [
+          0.0,
+          1468.75439453125,
+          184.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "position": [
+        0.005894314963370562,
+        -0.0246360395103693,
+        0.11571846157312393
+      ],
+      "quaternion_wxyz": [
+        0.9967973328862639,
+        0.019496224939515538,
+        -0.02550833562562271,
+        0.07324137613090762
+      ],
+      "rotation_valid": true,
+      "segment_boundary": false,
+      "segment_id": "seg02",
+      "segment_index": 2,
+      "segment_time_sec": 0.95,
+      "timestamp_sec": 68.79
+    }
+  ],
+  "scale_status": "relative_only",
+  "schema_version": "2.0.0"
+}

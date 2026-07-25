@@ -32,7 +32,7 @@
         0.9580425667383045
       ]
     ],
-    "source_frame": "viewer_reconstruction_frame",
+    "source_frame": "official_glb_alignment",
     "target_frame": "estimated_ground_y_up",
     "translation": [
       0.0,

@@ -1,0 +1,172 @@
+{
+  "alignment_policy": "method_native_not_aligned",
+  "comparison_rule": "Do not visually imply agreement until an explicit alignment artifact exists.",
+  "diagnostics": {
+    "availability": {
+      "edit_segmentation": "not_published",
+      "geometry_consistency": "published",
+      "pose_ekf_metrics": "not_published"
+    },
+    "edit_segmentation": null,
+    "geometry_consistency": "../diagnostics/geometry_consistency.json",
+    "pose_ekf_metrics": null
+  },
+  "geometry_layer_policy": "Only the already packaged VGGT Omega point buffers are declared renderable. R3 and HLoc remain separate numerical/provenance lanes; no missing geometry is synthesized.",
+  "geometry_layers": {
+    "coordinate_frames": {
+      "omega_shared": {
+        "exclusive": true,
+        "ground_display_supported": false
+      }
+    },
+    "layers": {
+      "vggt_omega": {
+        "colors": {
+          "bytes": 360000,
+          "components": 3,
+          "count": 120000,
+          "dtype": "uint8",
+          "path": "points_preview_colors.bin",
+          "sha256": "a80390ca124b8acb5a099a9a146403f26a0b7daa1a9333b49076ff116988dfdc",
+          "shape": [
+            120000,
+            3
+          ]
+        },
+        "coordinate_frame": "omega_shared",
+        "id": "vggt_omega",
+        "method": "vggt_omega",
+        "point_count": 120000,
+        "positions": {
+          "bytes": 1440000,
+          "components": 3,
+          "count": 120000,
+          "dtype": "float32_le",
+          "path": "points_preview.bin",
+          "sha256": "aa1c28ff67de8805840c59abb9e23693f41d328bd47100c683e60c97b3468436",
+          "shape": [
+            120000,
+            3
+          ]
+        },
+        "scale_status": "relative_only",
+        "status": "available",
+        "variant": "viewer_native"
+      }
+    }
+  },
+  "input": {
+    "edit_segments": [
+      {
+        "comment": "",
+        "end_s": 8.081,
+        "label": "Banner Start",
+        "review_status": "manual_ground_truth",
+        "source_index": 0,
+        "source_timebase": "source_video_seconds",
+        "start_s": 0.0,
+        "type": "banner_start"
+      },
+      {
+        "comment": "",
+        "end_s": 44.118,
+        "label": "Flight Start",
+        "review_status": "manual_ground_truth",
+        "source_index": 1,
+        "source_timebase": "source_video_seconds",
+        "start_s": 8.081,
+        "type": "flight_start"
+      },
+      {
+        "comment": "",
+        "end_s": 68.84,
+        "label": "Replay Start",
+        "review_status": "manual_ground_truth",
+        "source_index": 2,
+        "source_timebase": "source_video_seconds",
+        "start_s": 44.118,
+        "type": "replay_start"
+      }
+    ],
+    "frame_count": 40,
+    "source_video": null
+  },
+  "masks": {
+    "reason": "SAM2 artifact-mask lane remains GPU-gated; R3 sky-mask generation was disabled for this run.",
+    "status": "not_run"
+  },
+  "methods": {
+    "hloc_lightglue_colmap": {
+      "alignment": "not_aligned_to_omega",
+      "asset_availability": {
+        "ba_diagnostics": "not_published",
+        "failure_taxonomy": "not_published",
+        "match_graph": "not_published",
+        "match_matrix": "not_published"
+      },
+      "assets": {
+        "ba_diagnostics": null,
+        "failure_taxonomy": null,
+        "match_graph": null,
+        "match_matrix": null
+      },
+      "ba_doctor": {
+        "ba_invocations": null,
+        "bounded_recommendations": [],
+        "categories": [],
+        "fallback_eligible": false,
+        "registered_frame_max_observed": null,
+        "status": "unavailable",
+        "successful_reconstruction": null
+      },
+      "input_frames": 40,
+      "pairs": 365,
+      "pipeline": "ALIKED + LightGlue + pycolmap incremental SfM",
+      "points3D": 1431,
+      "registered_images": 20,
+      "role": "feature matching and sparse incremental reconstruction",
+      "status": "done"
+    },
+    "lingbot_map": {
+      "alignment": "not_aligned",
+      "frame_count": 0,
+      "role": "independent depth, confidence, camera, and pose-encoding outputs",
+      "scale_status": "relative_only",
+      "status": "missing"
+    },
+    "mast3r_sfm": {
+      "alignment": "unavailable",
+      "evidence": null,
+      "evidence_status": "not_published",
+      "role": "retained failure case",
+      "status": "missing"
+    },
+    "r3": {
+      "alignment": "not_aligned",
+      "config_name": "r3-large",
+      "frame_count": 40,
+      "native_depth_shape": null,
+      "role": "independent depth and pose reconstruction",
+      "scale_note": "A physical-scale model was requested in the run configuration, but no accepted calibration artifact validates it.",
+      "scale_status": "relative_only",
+      "status": "done"
+    },
+    "vggt_omega": {
+      "alignment": "viewer_native",
+      "backend": "VGGT-Omega-1B-512",
+      "coordinate_frame": "official_glb_alignment",
+      "point_count": 1000000,
+      "reprojection_samples": [],
+      "role": "primary reconstructed geometry and camera path",
+      "status": "done",
+      "viewer_preview": null
+    }
+  },
+  "publication_boundary": {
+    "source_images_copied": false
+  },
+  "samples": [],
+  "scale_status": "relative_only",
+  "scene_id": "2026-05-05_strike_on_merkava_tank__seg01_seg02",
+  "schema_version": "1.0.0"
+}

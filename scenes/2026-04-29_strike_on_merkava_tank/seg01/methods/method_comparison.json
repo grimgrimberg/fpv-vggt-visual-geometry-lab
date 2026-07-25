@@ -133,13 +133,35 @@
   "input": {
     "edit_segments": [
       {
+        "comment": "",
+        "end_s": 8.082,
+        "label": "Banner Start",
+        "review_status": "manual_ground_truth",
+        "source_index": 0,
+        "source_timebase": "source_video_seconds",
+        "start_s": 0.0,
+        "type": "banner_start"
+      },
+      {
+        "comment": "",
         "end_s": 38.196,
-        "end_type": "replay_start",
-        "is_attack": true,
-        "segment_id": "seg01",
-        "segment_index": 1,
+        "label": "Flight Start",
+        "review_status": "manual_ground_truth",
+        "source_index": 1,
+        "source_timebase": "source_video_seconds",
         "start_s": 8.082,
-        "start_type": "flight_start"
+        "type": "flight_start"
+      },
+      {
+        "comment": "",
+        "end_s": 38.196999999999996,
+        "end_semantics": "boundary_marker_minimum_extent",
+        "label": "Replay Start",
+        "review_status": "manual_ground_truth",
+        "source_index": 2,
+        "source_timebase": "source_video_seconds",
+        "start_s": 38.196,
+        "type": "replay_start"
       }
     ],
     "frame_count": 200,

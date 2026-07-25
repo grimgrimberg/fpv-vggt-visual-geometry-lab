@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>FPV Geometry Lab</title>
   <link rel="icon" href="data:,">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=978ac85b0d88">
   <link rel="stylesheet" href="video-addon.css">
   <link rel="stylesheet" href="method-comparison-addon.css?v=f0a2923e344b">
   <link rel="stylesheet" href="sixdof-addon.css">
   <link rel="stylesheet" href="scene-reference-addon.css">
-  <link rel="stylesheet" href="../../../assets/local-viewer/method-scene3d.css">
+  <link rel="stylesheet" href="../../../assets/local-viewer/method-scene3d.css?v=dc4f511a08b3">
 </head>
 <body>
   <header class="masthead">
@@ -32,7 +32,7 @@
 
     <section class="scene-workspace" aria-label="Reconstructed scene">
       <canvas id="scene-canvas" aria-label="Interactive relative point cloud, camera paths, and camera pose proxy"></canvas>
-      <div id="method-scene3d" hidden></div>
+      <div id="method-scene3d" hidden aria-label="Interactive method-native 3D reconstruction viewer"></div>
       <div class="canvas-topline">
         <span><b id="point-count">—</b> viewer points</span>
         <span><b id="frame-count">—</b> recovered poses</span>
@@ -83,13 +83,13 @@
     </section>
   </main>
 
-  <script src="app.js"></script>
+  <script src="app.js?v=b98ee2cb2580"></script>
   <script src="video-addon.js"></script>
   <script src="method-comparison-addon.js?v=20260724-native-consistency"></script>
-  <script src="sixdof-addon.js"></script>
-  <script src="scene-reference-addon.js"></script>
+  <script src="sixdof-addon.js?v=c1292d992109"></script>
+  <script src="scene-reference-addon.js?v=1f7589dbbe13"></script>
   <script src="playback-sync-bridge.js"></script>
   <script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.164.1/build/three.module.js","three/addons/":"https://unpkg.com/three@0.164.1/examples/jsm/"}}</script>
-  <script type="module" src="../../../assets/local-viewer/method-scene3d.js?v=20260724-colorless-r3"></script>
+  <script type="module" src="../../../assets/local-viewer/method-scene3d.js?v=e68b2d2ffc11"></script>
 </body>
 </html>

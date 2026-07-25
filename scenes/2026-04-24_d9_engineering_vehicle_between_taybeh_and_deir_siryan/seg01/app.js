@@ -1,5 +1,73 @@
 "use strict";
 
+function isFiniteVector(value, length) {
+  return Array.isArray(value)
+    && value.length === length
+    && value.every((item) => Number.isFinite(Number(item)));
+}
+
+function isValidDisplayTransform(transform) {
+  if (
+    !transform
+    || !Array.isArray(transform.rotation_3x3)
+    || transform.rotation_3x3.length !== 3
+    || !transform.rotation_3x3.every((row) => isFiniteVector(row, 3))
+    || !isFiniteVector(transform.translation, 3)
+  ) return false;
+  const rows = transform.rotation_3x3.map((row) => row.map(Number));
+  const dot = (left, right) => left.reduce((sum, value, index) => sum + value * right[index], 0);
+  const tolerance = 1e-4;
+  return rows.every((row, index) => (
+    Math.abs(dot(row, row) - 1) <= tolerance
+    && rows.every((other, otherIndex) => index === otherIndex || Math.abs(dot(row, other)) <= tolerance)
+  ));
+}
+
+function applyDisplayTransformToPoint(point, transform) {
+  const values = isFiniteVector(point, 3) ? point.map(Number) : [0, 0, 0];
+  if (!isValidDisplayTransform(transform)) return values;
+  return transform.rotation_3x3.map((row, axis) => (
+    row.reduce((sum, value, index) => sum + Number(value) * values[index], Number(transform.translation[axis]))
+  ));
+}
+
+function applyDisplayTransformToVector(vector, transform) {
+  const values = isFiniteVector(vector, 3) ? vector.map(Number) : [0, 0, 0];
+  if (!isValidDisplayTransform(transform)) return values;
+  return transform.rotation_3x3.map((row) => (
+    row.reduce((sum, value, index) => sum + Number(value) * values[index], 0)
+  ));
+}
+
+function isValidDisplayBounds(bounds) {
+  return Boolean(
+    bounds
+    && isFiniteVector(bounds.min, 3)
+    && isFiniteVector(bounds.max, 3)
+    && bounds.min.every((value, index) => Number(value) <= Number(bounds.max[index])),
+  );
+}
+
+function transformDisplayBounds(bounds, transform) {
+  if (!isValidDisplayBounds(bounds) || !isValidDisplayTransform(transform)) {
+    return isValidDisplayBounds(bounds)
+      ? { min: bounds.min.map(Number), max: bounds.max.map(Number) }
+      : { min: [-1, -1, -1], max: [1, 1, 1] };
+  }
+  const corners = [];
+  for (const x of [bounds.min[0], bounds.max[0]]) {
+    for (const y of [bounds.min[1], bounds.max[1]]) {
+      for (const z of [bounds.min[2], bounds.max[2]]) {
+        corners.push(applyDisplayTransformToPoint([x, y, z], transform));
+      }
+    }
+  }
+  return {
+    min: [0, 1, 2].map((axis) => Math.min(...corners.map((point) => point[axis]))),
+    max: [0, 1, 2].map((axis) => Math.max(...corners.map((point) => point[axis]))),
+  };
+}
+
 const viewerQuery = new URLSearchParams(window.location.search);
 if (viewerQuery.get("embed") === "1") {
   document.body.classList.add("is-embedded");
@@ -42,8 +110,13 @@ window.FPVViewer = {
   getViewState: () => ({ pointSize: 1.4, pointBudget: 120000, visibleLayers: Array.from(state.visibleLayers), yaw: state.yaw, pitch: state.pitch, zoom: state.zoom, alignmentMode: state.alignmentMode }),
   getAlignmentMode: () => state.alignmentMode,
   getGroundDisplayTransform: () => state.groundAlignment?.display_transform || null,
+  getDisplayBounds: () => sceneDisplayBounds(),
+  getDisplayFrameLabel: () => state.alignmentMode === "estimated_ground" ? "estimated-ground display · Y up" : "raw reconstruction axes",
+  toDisplayPoint: (point) => sceneDisplayPoint(point),
+  toDisplayVector: (vector) => sceneDisplayVector(vector),
   setAlignmentMode: (mode) => {
-    const supported = mode === "raw" || (mode === "estimated_ground" && state.groundAlignment?.display_transform);
+    const supported = mode === "raw"
+      || (mode === "estimated_ground" && isValidDisplayTransform(state.groundAlignment?.display_transform));
     if (!supported) return false;
     state.alignmentMode = mode;
     emitViewerEvent("fpv-view-changed", window.FPVViewer.getViewState());
@@ -79,6 +152,7 @@ async function loadScene(url) {
   const alignmentConfidence = state.groundAlignment?.confidence;
   const recommendedGround = state.scene.display_alignment?.default === "estimated_ground"
     && state.groundAlignment?.recommended_default === true
+    && isValidDisplayTransform(state.groundAlignment?.display_transform)
     && ["high", "medium"].includes(alignmentConfidence);
   state.alignmentMode = recommendedGround ? "estimated_ground" : "raw";
   document.getElementById("scene-title").textContent = state.scene.title;
@@ -94,6 +168,9 @@ async function loadScene(url) {
   renderEditTimeline(state.scene.edit_segments, state);
   setActiveSample(0);
   document.body.classList.add("ready");
+  const runStatus = document.getElementById("run-status");
+  runStatus.textContent = "Validated offline bundle";
+  runStatus.dataset.state = "validated";
   emitViewerEvent("fpv-scene-ready", {
     sampleCount: state.paths.timestamps_sec.length,
     alignmentMode: state.alignmentMode,
@@ -112,11 +189,38 @@ function canvasSize(canvas) {
   return { width, height, dpr };
 }
 
+function activeSceneDisplayTransform() {
+  const transform = state.alignmentMode === "estimated_ground"
+    ? state.groundAlignment?.display_transform
+    : null;
+  return isValidDisplayTransform(transform) ? transform : null;
+}
+
+function sceneDisplayPoint(point) {
+  return applyDisplayTransformToPoint(point, activeSceneDisplayTransform());
+}
+
+function sceneDisplayVector(vector) {
+  return applyDisplayTransformToVector(vector, activeSceneDisplayTransform());
+}
+
+function sceneDisplayBounds() {
+  const rawBounds = state.scene?.bounds;
+  if (!isValidDisplayBounds(rawBounds)) return { min: [-1, -1, -1], max: [1, 1, 1] };
+  const transform = activeSceneDisplayTransform();
+  if (!transform) return { min: rawBounds.min.map(Number), max: rawBounds.max.map(Number) };
+  const alignedBounds = state.groundAlignment?.aligned_bounds;
+  return isValidDisplayBounds(alignedBounds)
+    ? { min: alignedBounds.min.map(Number), max: alignedBounds.max.map(Number) }
+    : transformDisplayBounds(rawBounds, transform);
+}
+
 function sceneTransform(point, width, height) {
-  const bounds = state.scene.bounds;
+  const bounds = sceneDisplayBounds();
   const center = bounds.min.map((value, index) => (value + bounds.max[index]) * 0.5);
   const span = Math.max(...bounds.max.map((value, index) => value - bounds.min[index]), 1e-6);
-  let x = point[0] - center[0], y = point[1] - center[1], z = point[2] - center[2];
+  const displayPoint = sceneDisplayPoint(point);
+  let x = displayPoint[0] - center[0], y = displayPoint[1] - center[1], z = displayPoint[2] - center[2];
   const cy = Math.cos(state.yaw), sy = Math.sin(state.yaw);
   const cp = Math.cos(state.pitch), sp = Math.sin(state.pitch);
   const rx = cy * x + sy * z;
@@ -190,7 +294,8 @@ function rotateByQuaternion(quaternion, vector) {
 function drawCameraProxy(context, pose, viewState) {
   const { width, height } = canvasSize(context.canvas);
   const center = sceneTransform(pose.position, width, height);
-  const span = Math.max(...viewState.scene.bounds.max.map((value, axis) => value - viewState.scene.bounds.min[axis]), 1e-6);
+  const displayBounds = sceneDisplayBounds();
+  const span = Math.max(...displayBounds.max.map((value, axis) => value - displayBounds.min[axis]), 1e-6);
   const quaternion = pose.quaternion_wxyz || [1, 0, 0, 0];
   const forward = rotateByQuaternion(quaternion, [0, 0, 1]);
   const right = rotateByQuaternion(quaternion, [1, 0, 0]);
@@ -412,6 +517,11 @@ function wireControls() {
     state.playing = !state.playing; event.currentTarget.textContent = state.playing ? "Pause" : "Play";
   });
   const canvas = document.getElementById("scene-canvas");
+  canvas.tabIndex = 0;
+  canvas.setAttribute(
+    "aria-description",
+    "Use arrow keys to orbit, plus and minus to zoom, and zero to reset the view.",
+  );
   canvas.addEventListener("pointerdown", (event) => { state.dragging = true; state.lastPointer = [event.clientX, event.clientY]; canvas.setPointerCapture(event.pointerId); });
   canvas.addEventListener("pointermove", (event) => {
     if (!state.dragging) return;
@@ -420,6 +530,20 @@ function wireControls() {
   canvas.addEventListener("pointerup", () => { state.dragging = false; });
   canvas.addEventListener("wheel", (event) => { event.preventDefault(); state.zoom = Math.max(.25, Math.min(6, state.zoom * Math.exp(-event.deltaY * .001))); emitViewerEvent("fpv-view-changed", window.FPVViewer.getViewState()); requestAnimationFrame(renderAll); }, { passive: false });
   canvas.addEventListener("dblclick", () => { state.yaw = -.7; state.pitch = .48; state.zoom = 1; emitViewerEvent("fpv-view-changed", window.FPVViewer.getViewState()); requestAnimationFrame(renderAll); });
+  canvas.addEventListener("keydown", (event) => {
+    const handled = new Set(["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "+", "=", "-", "_", "0"]);
+    if (!handled.has(event.key)) return;
+    event.preventDefault();
+    if (event.key === "ArrowLeft") state.yaw -= .08;
+    if (event.key === "ArrowRight") state.yaw += .08;
+    if (event.key === "ArrowUp") state.pitch = Math.max(-1.45, state.pitch - .08);
+    if (event.key === "ArrowDown") state.pitch = Math.min(1.45, state.pitch + .08);
+    if (event.key === "+" || event.key === "=") state.zoom = Math.min(6, state.zoom * 1.15);
+    if (event.key === "-" || event.key === "_") state.zoom = Math.max(.25, state.zoom / 1.15);
+    if (event.key === "0") { state.yaw = -.7; state.pitch = .48; state.zoom = 1; }
+    emitViewerEvent("fpv-view-changed", window.FPVViewer.getViewState());
+    requestAnimationFrame(renderAll);
+  });
   addEventListener("resize", () => requestAnimationFrame(renderAll));
 }
 

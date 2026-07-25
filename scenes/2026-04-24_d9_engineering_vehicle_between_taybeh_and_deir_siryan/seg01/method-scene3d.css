@@ -8,6 +8,11 @@
 
 #method-scene3d[hidden] { display: none; }
 #method-scene3d > canvas { display: block; width: 100%; height: 100%; }
+#method-scene3d > canvas:focus-visible,
+#scene-canvas:focus-visible {
+  outline: 2px solid #54e5c2;
+  outline-offset: -3px;
+}
 .webgl-ready #scene-canvas { opacity: 0; pointer-events: none; }
 .webgl-unavailable #scene-canvas { opacity: 1; pointer-events: auto; }
 .webgl-ready .canvas-topline,
@@ -29,6 +34,7 @@
   color: #b9d1d8;
   font-size: 10px;
 }
+.scene-workspace:has(.scene-controls) .method-scene3d-toolbar { top: 124px; }
 
 .method-scene3d-label {
   margin-bottom: 6px;
@@ -68,6 +74,16 @@
 .method-scene3d-note { margin-top: 6px; color: #e4b95d; line-height: 1.35; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 @media (max-width: 720px) {
-  .method-scene3d-toolbar { top: 78px; width: calc(100% - 24px); }
+  .method-scene3d-toolbar {
+    top: 78px;
+    width: calc(100% - 24px);
+    max-height: 178px;
+    overflow: auto;
+  }
+  .scene-workspace:has(.scene-controls) .method-scene3d-toolbar { top: 180px; }
+  .method-scene3d-toolbar button,
+  .transport button,
+  .mode { min-height: 44px; }
+  .method-scene3d-toolbar button { min-width: 44px; }
   .method-scene3d-note { white-space: normal; }
 }

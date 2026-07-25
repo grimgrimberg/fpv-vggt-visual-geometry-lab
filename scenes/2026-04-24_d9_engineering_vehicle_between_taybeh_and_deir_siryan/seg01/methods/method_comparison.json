@@ -1089,6 +1089,7 @@
         "label": "Banner Start",
         "review_status": "manual_ground_truth",
         "source_index": 0,
+        "source_timebase": "source_video_seconds",
         "start_s": 0.0,
         "type": "banner_start"
       },
@@ -1098,6 +1099,7 @@
         "label": "Flight Start",
         "review_status": "manual_ground_truth",
         "source_index": 1,
+        "source_timebase": "source_video_seconds",
         "start_s": 8.067,
         "type": "flight_start"
       },
@@ -1107,6 +1109,7 @@
         "label": "Replay Start",
         "review_status": "manual_ground_truth",
         "source_index": 2,
+        "source_timebase": "source_video_seconds",
         "start_s": 42.129,
         "type": "replay_start"
       }
@@ -1384,8 +1387,8 @@
       ],
       "parseable_npz_count": 200,
       "provenance": {
-        "status": "not_published",
-        "note": "No standalone LingBot run log is included in the public bundle."
+        "note": "No standalone LingBot run log is included in the public bundle.",
+        "status": "not_published"
       },
       "role": "independent depth, confidence, camera, and pose-encoding outputs",
       "scale_status": "relative_only",

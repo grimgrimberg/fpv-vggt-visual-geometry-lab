@@ -1,0 +1,371 @@
+{
+  "annotation": {
+    "auto_generated": true,
+    "edit_segmentation_validation": {
+      "intervals_valid": true,
+      "source": "cockpit_catalog.annotation",
+      "terminal_end_verified": true,
+      "timebase": "source_video_seconds"
+    },
+    "evidence": "annotation_snapshot",
+    "generator": "classify_and_extract_segments+segments_report_to_annotations",
+    "intervals": [
+      {
+        "comment": "",
+        "end_s": 8.081,
+        "label": "Banner Start",
+        "review_status": "manual_ground_truth",
+        "source_index": 0,
+        "source_timebase": "source_video_seconds",
+        "start_s": 0.0,
+        "type": "banner_start"
+      },
+      {
+        "comment": "",
+        "end_s": 44.118,
+        "label": "Flight Start",
+        "review_status": "manual_ground_truth",
+        "source_index": 1,
+        "source_timebase": "source_video_seconds",
+        "start_s": 8.081,
+        "type": "flight_start"
+      },
+      {
+        "comment": "",
+        "end_s": 68.84,
+        "label": "Replay Start",
+        "review_status": "manual_ground_truth",
+        "source_index": 2,
+        "source_timebase": "source_video_seconds",
+        "start_s": 44.118,
+        "type": "replay_start"
+      }
+    ],
+    "kind": "auto_candidate",
+    "review_status": "unreviewed_auto",
+    "segment_count": 3,
+    "snapshot_path": "unpublished_source_cache/hf_star_rollout/data/vggt_omega/2026-05-05_strike_on_merkava_tank/seg01_seg02/annotation_snapshot.json",
+    "source_commit": "28433d042f63fefd6d5f549aa1a3f0ecf1b51a67",
+    "source_path": "source_repo_snapshot/annotations/2026_05_05_strike_on_merkava_tank_annotations.json"
+  },
+  "assets": {
+    "camera_path": {
+      "path": "camera_path.json"
+    },
+    "cameras": {
+      "path": "cameras.json"
+    },
+    "contact_sheet": {
+      "reason": "local rendered images are not copied into the public package",
+      "status": "not_published"
+    },
+    "drone_pose_proxy": {
+      "path": "../visualization/drone_pose_proxy.svg"
+    },
+    "geometry_consistency": {
+      "path": "../diagnostics/geometry_consistency.json"
+    },
+    "method_comparison": {
+      "alignment_policy": "method_native_not_aligned",
+      "path": "methods/method_comparison.json",
+      "sample_count": 0
+    },
+    "method_inventory": {
+      "path": "../diagnostics/method_inventory.json"
+    },
+    "points_ply": {
+      "path": "points.ply"
+    },
+    "points_preview": {
+      "components": 3,
+      "count": 120000,
+      "dtype": "float32_le",
+      "path": "points_preview.bin"
+    },
+    "points_preview_colors": {
+      "components": 3,
+      "count": 120000,
+      "dtype": "uint8",
+      "path": "points_preview_colors.bin"
+    },
+    "pose_6dof_animation": {
+      "path": "../visualization/pose_6dof_animation.json"
+    },
+    "pose_6dof_raw": {
+      "path": "../visualization/pose_6dof_raw.csv"
+    },
+    "pov": {
+      "reason": "extracted source frames are kept local; public cockpit uses the original CDN video",
+      "samples": [],
+      "status": "not_published"
+    },
+    "pov_timeline": {
+      "path": "../visualization/pov_timeline.json"
+    },
+    "preview": {
+      "reason": "local rendered images are not copied into the public package",
+      "status": "not_published"
+    },
+    "sixdof_state_space": {
+      "path": "../visualization/sixdof_state_space.html"
+    },
+    "source_thumbnail": {
+      "copied": false,
+      "kind": "remote_public_cdn",
+      "path": "https://d2fioemadmrru3.cloudfront.net/thumbnails/2026-05-05_strike_on_merkava_tank.jpg"
+    },
+    "source_video": {
+      "copied": false,
+      "kind": "remote_public_cdn",
+      "path": "https://d2fioemadmrru3.cloudfront.net/videos/2026-05-05_strike_on_merkava_tank.mp4"
+    },
+    "trajectory_metrics": {
+      "path": "../diagnostics/trajectory_metrics.json"
+    },
+    "trajectory_profiles": {
+      "path": "trajectory_profiles.json"
+    }
+  },
+  "body_attitude": "unavailable",
+  "bounds": {
+    "max": [
+      0.10511213541030884,
+      0.21078763902187347,
+      0.07749705761671066
+    ],
+    "min": [
+      -0.20066623389720917,
+      -0.08836911618709564,
+      -0.8952608108520508
+    ]
+  },
+  "calibration": {
+    "evidence": null,
+    "state": "relative_only"
+  },
+  "display_units": "relative units",
+  "edit_segments": [
+    {
+      "comment": "",
+      "end_s": 8.081,
+      "label": "Banner Start",
+      "review_status": "manual_ground_truth",
+      "source_index": 0,
+      "source_timebase": "source_video_seconds",
+      "start_s": 0.0,
+      "type": "banner_start"
+    },
+    {
+      "comment": "",
+      "end_s": 44.118,
+      "label": "Flight Start",
+      "review_status": "manual_ground_truth",
+      "source_index": 1,
+      "source_timebase": "source_video_seconds",
+      "start_s": 8.081,
+      "type": "flight_start"
+    },
+    {
+      "comment": "",
+      "end_s": 68.84,
+      "label": "Replay Start",
+      "review_status": "manual_ground_truth",
+      "source_index": 2,
+      "source_timebase": "source_video_seconds",
+      "start_s": 44.118,
+      "type": "replay_start"
+    }
+  ],
+  "generated_at": "2026-07-24T13:42:43.182004Z",
+  "layers": {
+    "calibrated": {
+      "reason": "no documented calibration",
+      "status": "absent"
+    },
+    "fitted": {
+      "path": "../fitted/trajectory_bspline.csv"
+    },
+    "normalized": {
+      "path": "camera_path.json"
+    },
+    "raw": {
+      "immutable_source_ref": null,
+      "immutable_source_ref_reason": "The immutable raw-source reference is retained outside the public static bundle.",
+      "immutable_source_ref_status": "not_published",
+      "path": "trajectory_raw.csv"
+    },
+    "smoothed": {
+      "path": "../smoothed/trajectory_rts.csv"
+    }
+  },
+  "method_evidence": {
+    "separate_from_raw": true,
+    "source_root": "unpublished_source_cache/hf_star_rollout/2026-05-05_strike_on_merkava_tank/seg01_seg02",
+    "status": "present"
+  },
+  "methods": {
+    "hloc_lightglue": {
+      "bytes": 29314,
+      "file_count": 4,
+      "status": "done",
+      "suffix_counts": {
+        ".200326": 1,
+        ".done": 1,
+        ".json": 1,
+        ".txt": 1
+      },
+      "summary": {
+        "input_frames": 40,
+        "pairs": 365,
+        "pipeline": "ALIKED + LightGlue + pycolmap incremental SfM",
+        "points3D": 1431,
+        "registered_images": 20,
+        "scene": "hf_dataset_snapshot/vggt_omega/2026-05-05_strike_on_merkava_tank/seg01_seg02"
+      }
+    },
+    "r3": {
+      "bytes": 18455,
+      "file_count": 3,
+      "status": "done",
+      "suffix_counts": {
+        ".done": 1,
+        ".json": 2
+      },
+      "summary": null
+    }
+  },
+  "pose_semantics": "camera_pose_proxy",
+  "public_catalog": {
+    "media_copied": false,
+    "source_player_url": "https://www.itamarweiss.com/fpv/?scene=2026-05-05_strike_on_merkava_tank",
+    "source_record_url": "https://www.itamarweiss.com/fpv/video/2026-05-05_strike_on_merkava_tank/"
+  },
+  "publication_boundary": {
+    "local_paths_redacted": true,
+    "point_cloud_publication": "approved_by_user",
+    "scale_state": "relative_only",
+    "source_frames_copied": false,
+    "videos_copied": false
+  },
+  "quality": {
+    "components": {
+      "contamination": 0.25,
+      "match_connectivity": 0.5,
+      "path_continuity": 1.0,
+      "reconstruction_quality": 0.9,
+      "visual_clarity": 0.45
+    },
+    "hero_score": 0.7625000000000001,
+    "score_confidence": 0.35,
+    "transparent_heuristic": true
+  },
+  "raw_assets": {
+    "camera_path.csv": {
+      "bytes": 7229,
+      "path": "local_raw_backend_path_redacted",
+      "sha256": "fd9a4999411fcec3dc58a57a4b005db5fd88ec906f94a9daadcb8d5950a36b8a",
+      "source_label": "camera_path.csv"
+    },
+    "cameras.npz": {
+      "bytes": 6439,
+      "path": "local_raw_backend_path_redacted",
+      "sha256": "014bf52315860e656ad98ed68d72d85b1aff51690f35dd1a8f592d5ddbdf043a",
+      "source_label": "cameras.npz"
+    },
+    "frames.csv": {
+      "bytes": 3959,
+      "path": "local_raw_backend_path_redacted",
+      "sha256": "fdc1edbb1a0d411cc31aae11493c22302f2fe77a2ff65a71f69943164c0d4414",
+      "source_label": "frames.csv"
+    },
+    "point_cloud.npz": {
+      "bytes": 12884219,
+      "path": "local_raw_backend_path_redacted",
+      "sha256": "ed772c6ec67c7bdf3dd6aa24eef227064f0edd92f8deb6faf3a8f33b804d9086",
+      "source_label": "point_cloud.npz"
+    },
+    "predictions.npz": {
+      "bytes": 60530928,
+      "path": "local_raw_backend_path_redacted",
+      "sha256": "22fcc49f0fca4a061832f4fd69cdaab8266c8b30912b257effa73ee56a4baa8d",
+      "source_label": "predictions.npz"
+    },
+    "run_manifest.json": {
+      "bytes": 3053,
+      "path": "local_raw_backend_path_redacted",
+      "sha256": "15abf68a17f943d5b57886fc66605208c272d9d174271fcb14ecb32617ae7b7c",
+      "source_label": "run_manifest.json"
+    }
+  },
+  "reconstruction": {
+    "backend": "VGGT-Omega-1B-512",
+    "backend_commit": "39a0cb8af88554f15ddcb5354cd52bde588fa014",
+    "coordinate_frame": "official_glb_alignment",
+    "frame_count": 40,
+    "point_count_source": 1000000,
+    "point_count_viewer": 120000
+  },
+  "reconstruction_segments": [
+    {
+      "analysis_status": "fitted",
+      "analysis_time_range_sec": [
+        0.0,
+        0.95
+      ],
+      "path_scale_relative": 0.13606244097750445,
+      "sample_count": 20,
+      "sample_range": [
+        0,
+        20
+      ],
+      "segment_id": "seg01",
+      "segment_index": 1,
+      "segment_time_range_sec": [
+        0.0,
+        0.95
+      ],
+      "source_time_range_sec": [
+        42.44,
+        43.39
+      ]
+    },
+    {
+      "analysis_status": "fitted",
+      "analysis_time_range_sec": [
+        1.0,
+        1.95
+      ],
+      "path_scale_relative": 0.14091697051077984,
+      "sample_count": 20,
+      "sample_range": [
+        20,
+        40
+      ],
+      "segment_id": "seg02",
+      "segment_index": 2,
+      "segment_time_range_sec": [
+        0.0,
+        0.95
+      ],
+      "source_time_range_sec": [
+        67.84,
+        68.79
+      ]
+    }
+  ],
+  "scene_id": "2026-05-05_strike_on_merkava_tank__seg01_seg02",
+  "schema_version": "2.0.0",
+  "source": {
+    "catalog_date": "2026-05-05",
+    "description": "Merkava tank, Qouzah (dive drone)",
+    "selection": "attack-chain",
+    "town": "Qouzah",
+    "video_file": "2026-05-05_strike_on_merkava_tank.mp4"
+  },
+  "title": "Merkava tank, Qouzah (dive drone)",
+  "warnings": [
+    "relative_only: no physical scale calibration is documented",
+    "camera_pose_proxy: vehicle-body attitude is unavailable",
+    "auto_candidate: edit segmentation is not manually reviewed"
+  ]
+}

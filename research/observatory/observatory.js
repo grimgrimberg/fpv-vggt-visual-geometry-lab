@@ -140,32 +140,52 @@ function addEvidence(label, value) {
   $("evidence-list").append(row);
 }
 
+const OBSERVATORY_METHOD_ALIASES = {
+  vggt: "vggt_omega",
+  omega: "vggt_omega",
+  hloc: "hloc_lightglue_colmap",
+  hloc_lightglue: "hloc_lightglue_colmap",
+  hloc_colmap: "hloc_lightglue_colmap",
+  lingbot: "lingbot_map",
+};
+
+const OBSERVATORY_METHOD_LABELS = {
+  vggt_omega: "Omega",
+  r3: "R3",
+  lingbot_map: "LingBot",
+  hloc_lightglue_colmap: "HLoc / COLMAP",
+};
+
+function canonicalMethodName(value) {
+  const name = String(value || "").trim().toLowerCase();
+  return OBSERVATORY_METHOD_ALIASES[name] || name;
+}
+
 function methodSummary(data) {
-  const methods = data?.meta?.methods;
-  const output = [];
-  if (String(data?.meta?.reconstruction?.backend || "").toLowerCase().includes("vggt")) {
-    output.push("Omega");
-  }
-  if (!methods || typeof methods !== "object") {
-    const declared = Array.isArray(data?.record?.methods) ? data.record.methods : [];
-    output.push(...declared);
-    return output.length ? [...new Set(output)].join(" · ") : "not reported";
-  }
-  const labels = {
-    vggt: "Omega",
-    vggt_omega: "Omega",
-    r3: "R3",
-    lingbot_map: "LingBot",
-    hloc_lightglue: "HLoc",
-    hloc_lightglue_colmap: "HLoc/COLMAP",
-  };
-  for (const [name, detail] of Object.entries(methods)) {
-    const status = typeof detail === "string" ? detail : detail?.status;
-    if (status === "done" || status === "available" || status === "completed") {
-      output.push(labels[name] || name);
-    }
-  }
-  return output.length ? [...new Set(output)].join(" · ") : "not reported";
+  const record = data?.record || {};
+  const declared = Array.isArray(record.renderable_methods)
+    ? record.renderable_methods
+    : Array.isArray(record.methods)
+      ? record.methods
+      : [];
+  const labels = declared
+    .map(canonicalMethodName)
+    .filter(Boolean)
+    .map((name) => OBSERVATORY_METHOD_LABELS[name] || name);
+  return labels.length ? [...new Set(labels)].join(" · ") : "not reported";
+}
+
+function analysisEvidenceSummary(data) {
+  const rows = Array.isArray(data?.record?.analysis_only_method_evidence)
+    ? data.record.analysis_only_method_evidence
+    : [];
+  const labels = rows.map((row) => {
+    const method = canonicalMethodName(row?.method);
+    const label = OBSERVATORY_METHOD_LABELS[method] || method || "unknown";
+    const capability = String(row?.capability || "evidence").replaceAll("_", " ");
+    return `${label} (${capability})`;
+  });
+  return labels.length ? [...new Set(labels)].join(" · ") : null;
 }
 
 function formatRelative(value) {
@@ -508,7 +528,9 @@ function updateEvidence(data) {
   addEvidence("Scale", "relative_only");
   addEvidence("Pose semantics", data.meta?.pose_semantics || "camera pose proxy");
   addEvidence("Hero score", scoreLabel(quality.hero_score ?? record.hero_score));
-  addEvidence("Methods", methodSummary(data));
+  addEvidence("Renderable 3D", methodSummary(data));
+  const otherEvidence = analysisEvidenceSummary(data);
+  if (otherEvidence) addEvidence("Other method evidence", otherEvidence);
   addEvidence("Active layer", state.layer);
   addEvidence("Samples", String((data.layers[state.layer].length || data.layers.raw.length)));
   $("evidence-status").textContent = kind === "manual_ground_truth" ? "manual provenance" : "limited provenance";
