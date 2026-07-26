@@ -7,7 +7,7 @@
     "hero_gallery": "hero_gallery.html",
     "live_status": "live_status.html"
   },
-  "generated_at": "2026-07-26T08:16:58.252454Z",
+  "generated_at": "2026-07-26T10:31:00.949997Z",
   "heroes": [
     {
       "annotation_kind": "manual_ground_truth",
@@ -71,14 +71,14 @@
     },
     "catalog_registry": {
       "coverage": {
-        "records": 161
+        "records": 151
       },
       "evidence": [
         "cockpit_catalog.json"
       ],
       "reason": null,
       "status": "done",
-      "summary": "161 catalog records are represented."
+      "summary": "151 catalog records are represented."
     },
     "colmap_ba_doctor": {
       "coverage": {
@@ -204,7 +204,7 @@
     "trajectory_arrays_duplicated": false
   },
   "registry": {
-    "catalog_records": 161,
+    "catalog_records": 151,
     "declared_detailed_scenes": 13,
     "detailed_scenes": 13,
     "invalid_detailed_scenes": 0,
@@ -212,7 +212,7 @@
     "public_counts": {
       "annotation_records": 142,
       "annotation_source_records": 143,
-      "catalog_records": 161,
+      "catalog_records": 151,
       "detailed_geometry_scenes": 13,
       "experimental_case_studies": 2,
       "featured_eligible_scenes": 3,

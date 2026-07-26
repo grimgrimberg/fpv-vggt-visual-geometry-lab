@@ -331,17 +331,20 @@ function buildCard(record, options) {
   const evidence = methodEvidence(record);
   const summary = methodSummary(record);
   const renderedCount = Number(summary.rendered_3d || 0);
-  let availabilityText = "Video record";
+  const galleryState = record.research?.gallery_state || (detailed ? "viewer_ready" : "video_only");
+  let availabilityText = galleryState === "viewer_pending"
+    ? "VGGT processed · viewer not published"
+    : "Video only";
   if (detailed && isExperimentalCase(record)) {
-    availabilityText = "Experimental 3D · unreviewed";
+    availabilityText = "3D viewer ready · Experimental";
   } else if (detailed && renderedCount >= 3) {
     availabilityText = isHeroEligible(record)
-      ? "Full multi-method 3D"
-      : "Full multi-method 3D · archive";
+      ? "3D viewer ready · Full multi-method"
+      : "3D viewer ready · Multi-method archive";
   } else if (detailed) {
     availabilityText = isHeroEligible(record)
-      ? "Omega WebGL · partial ensemble"
-      : "3D reconstruction · archive";
+      ? "3D viewer ready · Partial ensemble"
+      : "3D viewer ready · Archive";
   }
   const availability = element(
     "span",
@@ -414,8 +417,13 @@ function buildCard(record, options) {
     }
   }
   const action = element("span", "scene-card__action");
+  const actionText = detailed
+    ? "Open full research cockpit"
+    : galleryState === "viewer_pending"
+      ? "Open source video · 3D viewer pending"
+      : "Open source video";
   action.append(
-    element("span", "", detailed ? "Open full research cockpit" : "Open video and edit map"),
+    element("span", "", actionText),
     element("span", "", "→"),
   );
   body.append(action);
@@ -548,8 +556,23 @@ function renderBadges(record) {
   )));
 }
 
+function handleVideoError() {
+  const record = app.active;
+  if (!record) return;
+  $("video-fallback").hidden = false;
+  $("video-fallback-link").href = record.source_player_url || record.source_record_url;
+}
+
+function handleVideoReady() {
+  $("video-fallback").hidden = true;
+}
+
 function renderCatalogVideo(record) {
   const video = $("video");
+  $("video-fallback").hidden = true;
+  $("video-fallback-link").href = record.source_player_url || record.source_record_url;
+  video.addEventListener("error", handleVideoError);
+  video.addEventListener("loadedmetadata", handleVideoReady, { once: true });
   video.poster = record.thumbnail_url;
   video.src = record.video_url;
   renderTimeline(record, 0);

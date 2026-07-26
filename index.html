@@ -146,6 +146,13 @@
         <section id="video-detail" class="video-detail" aria-label="Original scene video" hidden>
           <div class="video-stage">
             <video id="video" controls preload="metadata" playsinline></video>
+            <div id="video-fallback" class="video-fallback" role="alert" hidden>
+              <strong>Direct media unavailable</strong>
+              <p>This archived media URL did not load. Open the authoritative source record instead.</p>
+              <a id="video-fallback-link" href="#" target="_blank" rel="noopener">
+                Open source record ↗
+              </a>
+            </div>
             <div id="timeline" class="timeline" aria-label="Edit segmentation timeline"></div>
           </div>
           <div class="video-context">
