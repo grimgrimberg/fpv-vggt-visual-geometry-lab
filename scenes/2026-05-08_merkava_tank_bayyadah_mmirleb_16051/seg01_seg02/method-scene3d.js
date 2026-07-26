@@ -2,6 +2,7 @@ import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
 const EXCLUSIVE_FRAME_GROUPS = Object.freeze([
+  "omega_reference",
   "omega_shared",
   "r3_native",
   "lingbot_native",
@@ -9,14 +10,16 @@ const EXCLUSIVE_FRAME_GROUPS = Object.freeze([
 ]);
 
 const FRAME_LABELS = {
-  omega_shared: "VGGT Omega",
+  omega_reference: "Omega reference",
+  omega_shared: "HF multi-method Omega",
   r3_native: "R3 depth",
   lingbot_native: "LingBot depth",
   hloc_native: "HLoc sparse SfM",
 };
 
 const FRAME_HINTS = {
-  omega_shared: "shared VGGT reconstruction frame · estimated display ground available",
+  omega_reference: "Itamar published VGGT scene · validated display alignment",
+  omega_shared: "HF multi-method reconstruction window · independent local display frame",
   r3_native: "sampled native depth cloud · not aligned to Omega",
   lingbot_native: "sampled native depth cloud · not aligned to Omega",
   hloc_native: "sparse feature-track reconstruction · density is not a quality comparison",
@@ -39,7 +42,8 @@ let camera;
 let controls;
 let manifest;
 let manifestUrl;
-let activeFrameGroup = "omega_shared";
+let activeFrameGroup = "omega_reference";
+let referenceOmega = null;
 let activeSample = 0;
 let pointSize = 1.4;
 let cameraDensity = 18;
@@ -57,6 +61,18 @@ let globalPointBudget = null;
 let frameSelectionToken = 0;
 let referenceGrid;
 const referenceVisibility = { cameras: true, grid: true };
+
+function isOmegaFrame(frame = activeFrameGroup) {
+  return frame === "omega_reference" || frame === "omega_shared";
+}
+
+function referenceWindowNote() {
+  if (!referenceOmega) return FRAME_HINTS.omega_reference;
+  const relationship = referenceOmega.window_match
+    ? `same named window ${referenceOmega.reference_window}`
+    : `reference ${referenceOmega.reference_window} · HF methods ${referenceOmega.local_method_window}`;
+  return `${FRAME_HINTS.omega_reference} · ${relationship}`;
+}
 
 function markFallback(reason) {
   cancelAnimationFrame(animationFrame);
@@ -118,6 +134,51 @@ async function fetchBuffer(asset, label) {
   const buffer = await response.arrayBuffer();
   validateBuffer(buffer, asset, label);
   return buffer;
+}
+
+async function installReferenceLayer(meta) {
+  const declared = meta.assets?.reference_omega;
+  if (!declared?.path) return null;
+  const response = await fetch(new URL(declared.path, window.location.href), { cache: "no-store" });
+  if (!response.ok) throw new Error(`reference Omega contract request failed (${response.status})`);
+  const contract = await response.json();
+  const points = contract.points;
+  const alignment = contract.alignment;
+  const records = contract.path?.records;
+  if (
+    contract.scale_status !== "relative_only"
+    || contract.coordinate_frame !== "omega_reference"
+    || !Number.isInteger(points?.point_count)
+    || points.point_count < 1000
+    || !points.positions
+    || !points.colors
+    || !Array.isArray(alignment?.quaternion_xyzw)
+    || alignment.quaternion_xyzw.length !== 4
+    || !alignment.ground_grid
+    || !Array.isArray(records)
+    || records.length < 2
+  ) {
+    throw new Error("reference Omega contract is incomplete or not relative_only");
+  }
+  manifest.geometry_layers.coordinate_frames.omega_reference = {
+    label: "Itamar published VGGT reference",
+    scale_status: "relative_only",
+    ground_display_supported: true,
+    source: "public_reference_contract",
+  };
+  manifest.geometry_layers.layers.vggt_omega_reference = {
+    id: "vggt_omega_reference",
+    method: "vggt omega reference",
+    variant: "itamar published scene",
+    coordinate_frame: "omega_reference",
+    scale_status: "relative_only",
+    status: "available",
+    point_count: points.point_count,
+    positions: points.positions,
+    colors: points.colors,
+  };
+  referenceOmega = contract;
+  return contract;
 }
 
 function waitForOmegaBuffers() {
@@ -270,6 +331,108 @@ function addOmegaCameraFrusta(group) {
   group.add(frusta);
 }
 
+function referencePathRecords() {
+  return referenceOmega?.path?.records || [];
+}
+
+function addReferencePath(group) {
+  if (group.getObjectByName("reference Omega path")) return;
+  const positions = referencePathRecords().map((record) => record.position);
+  const line = lineFromPoints(positions, 0x3294ff);
+  if (!line) return;
+  line.name = "reference Omega path";
+  line.userData.pathLayer = "raw";
+  line.visible = visibleLayerNames.has("raw");
+  group.add(line);
+}
+
+function addReferenceCameraFrusta(group) {
+  const previous = group.getObjectByName("reference recovered camera frusta");
+  if (previous) {
+    group.remove(previous);
+    previous.geometry?.dispose?.();
+    previous.material?.dispose?.();
+  }
+  const records = referencePathRecords();
+  if (!records.length) return;
+  const groundSize = Number(referenceOmega.alignment?.ground_grid?.size_units) || 1;
+  const depth = Math.max(groundSize * 0.035, 0.002);
+  const stride = Math.max(1, Math.ceil(records.length / cameraDensity));
+  const vertices = [];
+  const pushSegment = (start, end) => vertices.push(...start.toArray(), ...end.toArray());
+  for (let index = 0; index < records.length; index += stride) {
+    const record = records[index];
+    const position = new THREE.Vector3(...record.position);
+    const forward = new THREE.Vector3(...record.forward).normalize();
+    const right = new THREE.Vector3(...record.right).normalize();
+    const down = new THREE.Vector3(...record.down).normalize();
+    const base = position.clone().addScaledVector(forward, depth);
+    const corners = [
+      base.clone().addScaledVector(right, depth * .58).addScaledVector(down, depth * .36),
+      base.clone().addScaledVector(right, -depth * .58).addScaledVector(down, depth * .36),
+      base.clone().addScaledVector(right, -depth * .58).addScaledVector(down, -depth * .36),
+      base.clone().addScaledVector(right, depth * .58).addScaledVector(down, -depth * .36),
+    ];
+    corners.forEach((corner) => pushSegment(position, corner));
+    corners.forEach((corner, cornerIndex) => pushSegment(corner, corners[(cornerIndex + 1) % corners.length]));
+  }
+  const geometry = new THREE.BufferGeometry();
+  geometry.setAttribute("position", new THREE.Float32BufferAttribute(vertices, 3));
+  const frusta = new THREE.LineSegments(
+    geometry,
+    new THREE.LineBasicMaterial({ color: 0xffb54a, transparent: true, opacity: .7 }),
+  );
+  frusta.name = "reference recovered camera frusta";
+  frusta.userData.referenceCameras = true;
+  frusta.visible = referenceVisibility.cameras;
+  group.add(frusta);
+}
+
+function addReferenceGroundGrid(group) {
+  if (group.getObjectByName("reference published ground grid")) return;
+  const ground = referenceOmega?.alignment?.ground_grid;
+  if (!ground) return;
+  const origin = new THREE.Vector3(...ground.origin);
+  const u = new THREE.Vector3(...ground.u).normalize();
+  const v = new THREE.Vector3(...ground.v).normalize();
+  const size = Math.max(Number(ground.size_units) || 1, 1e-4);
+  const step = Math.max(Number(ground.minor_step_units) || size / 20, size / 100);
+  const half = size / 2;
+  const lineCount = Math.min(100, Math.max(4, Math.round(size / step)));
+  const vertices = [];
+  for (let index = -lineCount; index <= lineCount; index += 1) {
+    const offset = (index / lineCount) * half;
+    const alongU = origin.clone().addScaledVector(u, offset);
+    const alongV = origin.clone().addScaledVector(v, offset);
+    vertices.push(
+      ...alongU.clone().addScaledVector(v, -half).toArray(),
+      ...alongU.clone().addScaledVector(v, half).toArray(),
+      ...alongV.clone().addScaledVector(u, -half).toArray(),
+      ...alongV.clone().addScaledVector(u, half).toArray(),
+    );
+  }
+  const geometry = new THREE.BufferGeometry();
+  geometry.setAttribute("position", new THREE.Float32BufferAttribute(vertices, 3));
+  const grid = new THREE.LineSegments(
+    geometry,
+    new THREE.LineBasicMaterial({ color: 0x31586a, transparent: true, opacity: .72 }),
+  );
+  grid.name = "reference published ground grid";
+  grid.userData.referenceGround = true;
+  grid.visible = referenceVisibility.grid;
+  group.add(grid);
+}
+
+function prepareReferenceGroup(group) {
+  if (!referenceOmega) return;
+  const quaternion = referenceOmega.alignment.quaternion_xyzw;
+  group.quaternion.fromArray(quaternion).normalize();
+  group.updateMatrixWorld(true);
+  addReferencePath(group);
+  addReferenceCameraFrusta(group);
+  addReferenceGroundGrid(group);
+}
+
 function addActiveCameraProxy(group) {
   const cone = new THREE.ConeGeometry(0.035, 0.1, 4);
   cone.rotateX(Math.PI / 2);
@@ -288,6 +451,9 @@ function updateActiveCameraProxy() {
     return layer?.coordinate_frame === activeFrameGroup && layerStates.get(id)?.cameraCenters?.length;
   }));
   let centers = record?.cameraCenters;
+  if (activeFrameGroup === "omega_reference") {
+    centers = referencePathRecords().map((sample) => sample.position);
+  }
   if (activeFrameGroup === "omega_shared") centers = window.FPVViewer?.getSceneData?.().paths?.layers?.raw;
   if (!centers?.length) return;
   const index = Math.max(0, Math.min(centers.length - 1, activeSample));
@@ -296,6 +462,18 @@ function updateActiveCameraProxy() {
   const segmentStarts = window.FPVViewer?.getSceneData?.().paths?.segment_boundaries || [];
   const next = segmentStarts[nextIndex] ? centers[index] : centers[nextIndex];
   if (next && new THREE.Vector3(...next).distanceTo(proxy.position) > 1e-8) proxy.lookAt(...next);
+}
+
+function updatePointBudgetReadout(layer, state) {
+  if (!layer || !state || layer.coordinate_frame !== activeFrameGroup) return;
+  const value = document.getElementById("point-count");
+  if (!value) return;
+  value.textContent = layer.id === "vggt_omega_reference"
+    ? `${state.budget.toLocaleString()} / ${layer.point_count.toLocaleString()}`
+    : state.budget.toLocaleString();
+  value.title = layer.id === "vggt_omega_reference"
+    ? "Rendered point budget / published reference point count"
+    : "Rendered point budget";
 }
 
 async function loadLayer(id) {
@@ -333,10 +511,16 @@ async function loadLayer(id) {
     current.budget = Math.min(count, globalPointBudget || (id === "vggt_omega" ? 80000 : 50000));
     object.visible = visibleLayerNames.has("points");
     object.geometry.setDrawRange(0, current.budget);
-    current.cameraCenters = await fetchCameraCenters(layer).catch((error) => {
-      current.cameraError = error.message;
-      return [];
-    });
+    updatePointBudgetReadout(layer, current);
+    current.cameraCenters = id === "vggt_omega_reference"
+      ? referencePathRecords().map((record) => record.position)
+      : await fetchCameraCenters(layer).catch((error) => {
+          current.cameraError = error.message;
+          return [];
+        });
+    if (activeFrameGroup === "omega_reference" && id === "vggt_omega_reference") {
+      prepareReferenceGroup(group);
+    }
     if (activeFrameGroup === "omega_shared" && id === "vggt_omega") {
       addOmegaPaths(group);
       addOmegaCameraFrusta(group);
@@ -359,7 +543,8 @@ function visibleLayersForFrame(frame) {
 }
 
 function setGroundAvailability() {
-  const supported = manifest.geometry_layers.coordinate_frames?.[activeFrameGroup]?.ground_display_supported === true && canShowGroundGrid();
+  const supported = manifest.geometry_layers.coordinate_frames?.[activeFrameGroup]?.ground_display_supported === true
+    && canShowGroundGrid();
   groundButton.disabled = !supported;
   groundButton.title = supported ? "Use the confidence-gated estimated display plane; scale remains relative" : "Estimated ground is unavailable in this method-native frame";
   observerButton.disabled = !supported;
@@ -385,10 +570,14 @@ async function selectFrameGroup(frame, preferredLayer) {
     button.setAttribute("aria-pressed", String(active));
   });
   setGroundAvailability();
-  viewNote.textContent = `${FRAME_LABELS[frame]} · ${FRAME_HINTS[frame]} · relative only`;
+  const hint = frame === "omega_reference" ? referenceWindowNote() : FRAME_HINTS[frame];
+  viewNote.textContent = `${FRAME_LABELS[frame]} · ${hint} · relative only`;
   renderLayerTray();
   const target = preferredLayer ? available.find((layer) => layer.id === preferredLayer) : available[0];
-  if (target) await loadLayer(target.id);
+  if (target) {
+    await loadLayer(target.id);
+    updatePointBudgetReadout(target, layerState(target.id));
+  }
   if (selectionToken !== frameSelectionToken) return;
   document.dispatchEvent(new CustomEvent("fpv-frame-group-changed", { detail: { frameGroup: frame, layerId: target?.id } }));
   fitBounds("Orbit");
@@ -427,6 +616,7 @@ function renderLayerTray() {
         state.budget = Number(range.value);
         state.object.geometry.setDrawRange(0, state.budget);
         status.textContent = `ready · ${state.budget.toLocaleString()} / ${layer.point_count.toLocaleString()}`;
+        updatePointBudgetReadout(layer, state);
       });
       row.append(range);
     }
@@ -520,6 +710,9 @@ function currentBounds() {
 }
 
 function activeCameraCenters() {
+  if (activeFrameGroup === "omega_reference") {
+    return referencePathRecords().map((record) => record.position);
+  }
   if (activeFrameGroup === "omega_shared") {
     return window.FPVViewer?.getSceneData?.().paths?.layers?.raw || [];
   }
@@ -531,6 +724,9 @@ function activeCameraCenters() {
 }
 
 function canShowGroundGrid() {
+  if (activeFrameGroup === "omega_reference") {
+    return Boolean(referenceOmega?.alignment?.ground_grid);
+  }
   return activeFrameGroup === "omega_shared"
     && window.FPVViewer?.getAlignmentMode?.() === "estimated_ground"
     && Boolean(window.FPVViewer?.getGroundDisplayTransform?.());
@@ -567,7 +763,9 @@ function fitBounds(preset) {
   const size = box.getSize(new THREE.Vector3());
   const span = Math.max(size.x, size.y, size.z, 1e-4);
   if (referenceGrid) {
-    referenceGrid.visible = referenceVisibility.grid && canShowGroundGrid();
+    referenceGrid.visible = referenceVisibility.grid
+      && activeFrameGroup === "omega_shared"
+      && canShowGroundGrid();
     if (referenceGrid.visible) {
       referenceGrid.position.set(center.x, 0, center.z);
       referenceGrid.scale.setScalar(span / 2);
@@ -587,7 +785,7 @@ function fitBounds(preset) {
   } else if (preset === "Observer") {
     const worldCenters = activeCameraCenters().map((position) => {
       const vector = new THREE.Vector3(...position);
-      if (activeFrameGroup === "omega_shared") renderGroups.get("omega_shared")?.localToWorld(vector);
+      if (isOmegaFrame()) renderGroups.get(activeFrameGroup)?.localToWorld(vector);
       return vector.toArray();
     });
     const pose = computeGroundObserverPose(
@@ -610,11 +808,11 @@ function fitBounds(preset) {
     const position = centers[index];
     if (position) {
       const worldPosition = new THREE.Vector3(...position);
-      if (activeFrameGroup === "omega_shared") renderGroups.get("omega_shared").localToWorld(worldPosition);
+      if (isOmegaFrame()) renderGroups.get(activeFrameGroup).localToWorld(worldPosition);
       camera.position.copy(worldPosition);
       const lookIndex = index < centers.length - 1 ? index + 1 : Math.max(0, index - 1);
       const lookAt = new THREE.Vector3(...centers[lookIndex]);
-      if (activeFrameGroup === "omega_shared") renderGroups.get("omega_shared").localToWorld(lookAt);
+      if (isOmegaFrame()) renderGroups.get(activeFrameGroup).localToWorld(lookAt);
       if (lookAt.distanceTo(worldPosition) > 1e-8) controls.target.copy(lookAt);
       viewNote.textContent = "Recovered camera-center path viewpoint · look direction proxy · relative only";
     } else {
@@ -623,7 +821,10 @@ function fitBounds(preset) {
     }
   } else {
     camera.position.set(center.x + span * 0.95, center.y + span * 0.58, center.z + span * 0.95);
-    viewNote.textContent = `${FRAME_LABELS[activeFrameGroup]} · ${FRAME_HINTS[activeFrameGroup]} · relative only`;
+    const hint = activeFrameGroup === "omega_reference"
+      ? referenceWindowNote()
+      : FRAME_HINTS[activeFrameGroup];
+    viewNote.textContent = `${FRAME_LABELS[activeFrameGroup]} · ${hint} · relative only`;
   }
   if (preset !== "Observer") {
     camera.near = Math.max(span / 10000, 1e-5);
@@ -640,7 +841,7 @@ function projectDisplayPoint(point, width, height) {
 
 function projectScenePoint(point, width, height) {
   const vector = new THREE.Vector3(...point);
-  if (activeFrameGroup === "omega_shared") renderGroups.get("omega_shared")?.localToWorld(vector);
+  if (isOmegaFrame()) renderGroups.get(activeFrameGroup)?.localToWorld(vector);
   vector.project(camera);
   return [(vector.x * 0.5 + 0.5) * width, (-vector.y * 0.5 + 0.5) * height];
 }
@@ -785,6 +986,10 @@ async function boot() {
     if (!manifest.geometry_layers?.layers || !manifest.geometry_layers?.coordinate_frames) {
       throw new Error("method manifest lacks validated geometry_layers");
     }
+    await installReferenceLayer(meta).catch((error) => {
+      referenceOmega = null;
+      console.warn("Reference Omega retained the local HF fallback", error);
+    });
     Object.values(manifest.geometry_layers.layers).forEach(validateRelativeLayer);
     const initialView = window.FPVViewer?.getViewState?.();
     pointSize = Number(initialView?.pointSize) || pointSize;
@@ -793,8 +998,16 @@ async function boot() {
     if (Array.isArray(initialView?.visibleLayers)) visibleLayerNames = new Set(initialView.visibleLayers);
     updateFrameButtonAvailability();
     updateOmegaDisplayTransform();
-    await selectFrameGroup("omega_shared", "vggt_omega");
-    const initial = layerState("vggt_omega");
+    const initialFrame = referenceOmega ? "omega_reference" : "omega_shared";
+    const initialLayer = referenceOmega ? "vggt_omega_reference" : "vggt_omega";
+    await selectFrameGroup(initialFrame, initialLayer);
+    let initial = layerState(initialLayer);
+    if (referenceOmega && initial.status !== "ready") {
+      console.warn("Reference Omega failed to load; selecting the local HF Omega layer", initial.error);
+      referenceOmega = null;
+      await selectFrameGroup("omega_shared", "vggt_omega");
+      initial = layerState("vggt_omega");
+    }
     if (initial.status !== "ready") throw new Error(initial.error || "Omega geometry did not become ready");
     root.hidden = false;
     document.body.classList.add("webgl-ready");
@@ -830,6 +1043,7 @@ document.addEventListener("fpv-view-changed", (event) => {
       frusta.material?.dispose?.();
     }
     if (group) addOmegaCameraFrusta(group);
+    if (referenceOmega) addReferenceCameraFrusta(renderGroups.get("omega_reference"));
   }
   const visible = event.detail?.visibleLayers;
   if (Array.isArray(visible)) visibleLayerNames = new Set(visible);
@@ -841,6 +1055,7 @@ document.addEventListener("fpv-view-changed", (event) => {
     if (layer && globalPointBudget) {
       state.budget = Math.min(layer.point_count, globalPointBudget);
       state.object.geometry.setDrawRange(0, state.budget);
+      updatePointBudgetReadout(layer, state);
     }
   });
   renderGroups.forEach((group) => {
@@ -853,9 +1068,16 @@ document.addEventListener("fpv-view-changed", (event) => {
 document.addEventListener("fpv-reference-visibility", (event) => {
   if (typeof event.detail?.grid === "boolean") referenceVisibility.grid = event.detail.grid;
   if (typeof event.detail?.cameras === "boolean") referenceVisibility.cameras = event.detail.cameras;
-  if (referenceGrid) referenceGrid.visible = referenceVisibility.grid && canShowGroundGrid();
+  if (referenceGrid) {
+    referenceGrid.visible = referenceVisibility.grid
+      && activeFrameGroup === "omega_shared"
+      && canShowGroundGrid();
+  }
   renderGroups.forEach((group) => {
-    group.traverse((object) => { if (object.userData.referenceCameras) object.visible = referenceVisibility.cameras; });
+    group.traverse((object) => {
+      if (object.userData.referenceCameras) object.visible = referenceVisibility.cameras;
+      if (object.userData.referenceGround) object.visible = referenceVisibility.grid;
+    });
     const proxy = group.getObjectByName("active camera proxy");
     if (proxy) proxy.visible = referenceVisibility.cameras;
   });
@@ -870,6 +1092,26 @@ window.FPVViewer3D = {
   EXCLUSIVE_FRAME_GROUPS,
   getActiveFrameGroup: () => activeFrameGroup,
   getLayerState: (id) => ({ ...layerState(id), object: undefined }),
+  getReferenceDebug: () => {
+    const group = renderGroups.get("omega_reference");
+    const normal = referenceOmega?.alignment?.ground_grid?.normal;
+    const state = layerState("vggt_omega_reference");
+    return {
+      available: Boolean(referenceOmega),
+      active: activeFrameGroup === "omega_reference",
+      pointCount: referenceOmega?.points?.point_count || 0,
+      pointBudget: state.budget || 0,
+      poseCount: referencePathRecords().length,
+      referenceWindow: referenceOmega?.reference_window || null,
+      localMethodWindow: referenceOmega?.local_method_window || null,
+      windowMatch: referenceOmega?.window_match ?? null,
+      groundNormalWorld: normal && group
+        ? new THREE.Vector3(...normal).applyQuaternion(group.quaternion).normalize().toArray()
+        : null,
+      groundGridVisible: Boolean(group?.getObjectByName("reference published ground grid")?.visible),
+      cameraFrustaVisible: Boolean(group?.getObjectByName("reference recovered camera frusta")?.visible),
+    };
+  },
   projectDisplayPoint,
   projectScenePoint,
   selectFrameGroup,

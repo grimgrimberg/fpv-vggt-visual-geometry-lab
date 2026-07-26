@@ -106,6 +106,15 @@
       "reason": "local rendered images are not copied into the public package",
       "status": "not_published"
     },
+    "reference_omega": {
+      "local_method_window": "seg01_seg02",
+      "path": "reference_omega.json",
+      "point_count": 1000000,
+      "pose_count": 125,
+      "reference_window": "seg01",
+      "scale_status": "relative_only",
+      "window_match": false
+    },
     "sixdof_state_space": {
       "path": "../visualization/sixdof_state_space.html"
     },

@@ -1,0 +1,3832 @@
+{
+  "alignment": {
+    "ground_grid": {
+      "major_step_units": 0.06802721088435375,
+      "minor_step_units": 0.017006802721088437,
+      "normal": [
+        -0.03334653841418223,
+        0.47706697858901825,
+        0.8782340840093469
+      ],
+      "origin": [
+        -0.011002426504812368,
+        -0.21269906230002436,
+        -0.7141810086418959
+      ],
+      "size_units": 0.4761904761904762,
+      "u": [
+        -0.9762606063227126,
+        -0.20371434523850301,
+        0.07359139954136848
+      ],
+      "v": [
+        0.2140169080194385,
+        -0.8549313209164776,
+        0.4725348660128753
+      ]
+    },
+    "quaternion_convention": "xyzw",
+    "quaternion_xyzw": [
+      -0.0692951677628828,
+      0.8552576294492517,
+      0.5066208547130737,
+      0.08407066410679497
+    ],
+    "source": "itamar_published_display_contract"
+  },
+  "coordinate_frame": "omega_reference",
+  "display_units": "relative units",
+  "kind": "public_vggt_reference_display",
+  "local_method_window": "seg01_seg02_seg03_seg04",
+  "method": "vggt_omega",
+  "path": {
+    "pose_count": 125,
+    "records": [
+      {
+        "actual_image": "camera_view_assets/f_000001.jpg",
+        "down": [
+          3.881181879075209e-08,
+          -0.9999996920833746,
+          0.000784750377252753
+        ],
+        "file": "f_000001.jpg",
+        "forward": [
+          -3.1475596622900523e-07,
+          -0.0007847503772649311,
+          -0.9999996920833257
+        ],
+        "frame": 1,
+        "frame_image": "camera_view_assets/f_000001.jpg",
+        "position": [
+          -3.337142865111907e-05,
+          -9.389655072615814e-08,
+          3.989666950434366e-09
+        ],
+        "render_image": "camera_view_assets/f_000001_vggt_render.jpg",
+        "right": [
+          0.9999999999999497,
+          3.856480197670516e-08,
+          -3.147863268998486e-07
+        ],
+        "segment_time_s": 0,
+        "sequence_time_s": 0,
+        "video_time_s": 17.02
+      },
+      {
+        "actual_image": "camera_view_assets/f_000002.jpg",
+        "down": [
+          0.018383410514641776,
+          -0.9998299939958171,
+          -0.0014259467642926034
+        ],
+        "file": "f_000002.jpg",
+        "forward": [
+          0.0032912360398048486,
+          0.0014866943554978063,
+          -0.9999934787313483
+        ],
+        "frame": 2,
+        "frame_image": "camera_view_assets/f_000002.jpg",
+        "position": [
+          -0.004257211491583627,
+          -0.0064762300346497765,
+          -0.027484972625941118
+        ],
+        "render_image": "camera_view_assets/f_000002_vggt_render.jpg",
+        "right": [
+          0.999825593782826,
+          0.018378597504101597,
+          0.0033180070225638163
+        ],
+        "segment_time_s": 0.1,
+        "sequence_time_s": 0.1,
+        "video_time_s": 17.12
+      },
+      {
+        "actual_image": "camera_view_assets/f_000003.jpg",
+        "down": [
+          0.11237677218966086,
+          -0.9936651966715576,
+          0.0009685018883537632
+        ],
+        "file": "f_000003.jpg",
+        "forward": [
+          0.003687229104521281,
+          -0.0005576689721917653,
+          -0.9999930466492496
+        ],
+        "frame": 3,
+        "frame_image": "camera_view_assets/f_000003.jpg",
+        "position": [
+          -0.012449519168548213,
+          -0.0028864884481286063,
+          -0.04110972453331598
+        ],
+        "render_image": "camera_view_assets/f_000003_vggt_render.jpg",
+        "right": [
+          0.9936588274723693,
+          0.11237956188289813,
+          0.003601202194271994
+        ],
+        "segment_time_s": 0.3,
+        "sequence_time_s": 0.3,
+        "video_time_s": 17.32
+      },
+      {
+        "actual_image": "camera_view_assets/f_000004.jpg",
+        "down": [
+          0.14534854840464753,
+          -0.9893794402213266,
+          0.0014569639653640454
+        ],
+        "file": "f_000004.jpg",
+        "forward": [
+          -0.0005319781808010326,
+          -0.0015507541407363988,
+          -0.999998656079502
+        ],
+        "frame": 4,
+        "frame_image": "camera_view_assets/f_000004.jpg",
+        "position": [
+          -0.012486022631388585,
+          -0.0018920739476555562,
+          -0.04311497137052177
+        ],
+        "render_image": "camera_view_assets/f_000004_vggt_render.jpg",
+        "right": [
+          0.9893803699669187,
+          0.1453475779947142,
+          -0.0007517281380194173
+        ],
+        "segment_time_s": 0.4,
+        "sequence_time_s": 0.4,
+        "video_time_s": 17.42
+      },
+      {
+        "actual_image": "camera_view_assets/f_000005.jpg",
+        "down": [
+          0.1912790604963821,
+          -0.9815356947235133,
+          3.1610941516460916e-05
+        ],
+        "file": "f_000005.jpg",
+        "forward": [
+          0.008811083479105936,
+          0.0016848761681998764,
+          -0.9999597621905705
+        ],
+        "frame": 5,
+        "frame_image": "camera_view_assets/f_000005.jpg",
+        "position": [
+          -0.020497586705734497,
+          -0.004771940934303287,
+          -0.06193796291543549
+        ],
+        "render_image": "camera_view_assets/f_000005_vggt_render.jpg",
+        "right": [
+          0.9814961466167587,
+          0.1912716423726425,
+          0.008970674474437132
+        ],
+        "segment_time_s": 0.5,
+        "sequence_time_s": 0.5,
+        "video_time_s": 17.52
+      },
+      {
+        "actual_image": "camera_view_assets/f_000006.jpg",
+        "down": [
+          0.18735887520659872,
+          -0.9822913045167676,
+          0.0006670472736186086
+        ],
+        "file": "f_000006.jpg",
+        "forward": [
+          7.544350477073075e-05,
+          -0.0006646827791010198,
+          -0.9999997762525153
+        ],
+        "frame": 6,
+        "frame_image": "camera_view_assets/f_000006.jpg",
+        "position": [
+          -0.01485838412303015,
+          -0.0012038724860727855,
+          -0.05728589749346783
+        ],
+        "render_image": "camera_view_assets/f_000006_vggt_render.jpg",
+        "right": [
+          0.9822915281063945,
+          0.1873588836099058,
+          -5.042671914300506e-05
+        ],
+        "segment_time_s": 0.6,
+        "sequence_time_s": 0.6,
+        "video_time_s": 17.62
+      },
+      {
+        "actual_image": "camera_view_assets/f_000007.jpg",
+        "down": [
+          0.17731895215776264,
+          -0.9840399216721492,
+          -0.014947299459886642
+        ],
+        "file": "f_000007.jpg",
+        "forward": [
+          -0.00032003394729683267,
+          0.015130320698432512,
+          -0.9998854789293798
+        ],
+        "frame": 7,
+        "frame_image": "camera_view_assets/f_000007.jpg",
+        "position": [
+          -0.017583566853376337,
+          -0.0034939387560961248,
+          -0.07279823441665328
+        ],
+        "render_image": "camera_view_assets/f_000007_vggt_render.jpg",
+        "right": [
+          0.9841533858011899,
+          0.17730342904476787,
+          0.0023679664316265565
+        ],
+        "segment_time_s": 0.8,
+        "sequence_time_s": 0.8,
+        "video_time_s": 17.82
+      },
+      {
+        "actual_image": "camera_view_assets/f_000008.jpg",
+        "down": [
+          0.1912051689493355,
+          -0.9813290572038861,
+          -0.020829422804971732
+        ],
+        "file": "f_000008.jpg",
+        "forward": [
+          0.0017203242034473938,
+          0.021555957041462192,
+          -0.9997661632605204
+        ],
+        "frame": 8,
+        "frame_image": "camera_view_assets/f_000008.jpg",
+        "position": [
+          -0.021767791567998504,
+          -0.0034767707504024382,
+          -0.08102616765982576
+        ],
+        "render_image": "camera_view_assets/f_000008_vggt_render.jpg",
+        "right": [
+          0.9815485845599754,
+          0.19112462479586156,
+          0.005809814536631455
+        ],
+        "segment_time_s": 0.9,
+        "sequence_time_s": 0.9,
+        "video_time_s": 17.92
+      },
+      {
+        "actual_image": "camera_view_assets/f_000009.jpg",
+        "down": [
+          0.19198475906314857,
+          -0.9809051472650744,
+          -0.031095728908447494
+        ],
+        "file": "f_000009.jpg",
+        "forward": [
+          0.003849510295256863,
+          0.032437572657972064,
+          -0.9994663501842098
+        ],
+        "frame": 9,
+        "frame_image": "camera_view_assets/f_000009.jpg",
+        "position": [
+          -0.0234614496557858,
+          -0.0037897080043651794,
+          -0.08915751298300172
+        ],
+        "render_image": "camera_view_assets/f_000009_vggt_render.jpg",
+        "right": [
+          0.981390357379749,
+          0.19176260310326837,
+          0.010003524034401494
+        ],
+        "segment_time_s": 1,
+        "sequence_time_s": 1,
+        "video_time_s": 18.02
+      },
+      {
+        "actual_image": "camera_view_assets/f_000010.jpg",
+        "down": [
+          0.19986204769063554,
+          -0.9791099509693628,
+          -0.037401414487665534
+        ],
+        "file": "f_000010.jpg",
+        "forward": [
+          -0.0004051375506669811,
+          0.03808898017907704,
+          -0.9992742693837778
+        ],
+        "frame": 10,
+        "frame_image": "camera_view_assets/f_000010.jpg",
+        "position": [
+          -0.02474488080232378,
+          -0.0033365249366398325,
+          -0.09821325746635004
+        ],
+        "render_image": "camera_view_assets/f_000010_vggt_render.jpg",
+        "right": [
+          0.9798239626363866,
+          0.19973215440106254,
+          0.007215867365668969
+        ],
+        "segment_time_s": 1.1,
+        "sequence_time_s": 1.1,
+        "video_time_s": 18.12
+      },
+      {
+        "actual_image": "camera_view_assets/f_000011.jpg",
+        "down": [
+          0.208246254984031,
+          -0.9766679515104336,
+          -0.052471037511557315
+        ],
+        "file": "f_000011.jpg",
+        "forward": [
+          -0.0018008605351072491,
+          0.05326420790155208,
+          -0.9985788306678414
+        ],
+        "frame": 11,
+        "frame_image": "camera_view_assets/f_000011.jpg",
+        "position": [
+          -0.026533997572037917,
+          -0.0015311375537805647,
+          -0.09466299298800204
+        ],
+        "render_image": "camera_view_assets/f_000011_vggt_render.jpg",
+        "right": [
+          0.9780747692208706,
+          0.2080447948136015,
+          0.009333229050409871
+        ],
+        "segment_time_s": 1.3,
+        "sequence_time_s": 1.3,
+        "video_time_s": 18.32
+      },
+      {
+        "actual_image": "camera_view_assets/f_000012.jpg",
+        "down": [
+          0.22413089639941602,
+          -0.9728013381722161,
+          -0.05850553588798087
+        ],
+        "file": "f_000012.jpg",
+        "forward": [
+          -0.0013178003308607444,
+          0.059730249656381594,
+          -0.9982136848782801
+        ],
+        "frame": 12,
+        "frame_image": "camera_view_assets/f_000012.jpg",
+        "position": [
+          -0.028823505413193732,
+          -0.0012712819122841933,
+          -0.10492523192677203
+        ],
+        "render_image": "camera_view_assets/f_000012_vggt_render.jpg",
+        "right": [
+          0.9745581586962794,
+          0.22380762660448347,
+          0.012105436472340594
+        ],
+        "segment_time_s": 1.4,
+        "sequence_time_s": 1.4,
+        "video_time_s": 18.42
+      },
+      {
+        "actual_image": "camera_view_assets/f_000013.jpg",
+        "down": [
+          0.24828889502182244,
+          -0.9667555914224558,
+          -0.06112488087726763
+        ],
+        "file": "f_000013.jpg",
+        "forward": [
+          -0.003507489654254463,
+          0.062203173262612904,
+          -0.9980573444208437
+        ],
+        "frame": 13,
+        "frame_image": "camera_view_assets/f_000013.jpg",
+        "position": [
+          -0.02893961809914839,
+          -0.0030056361602025686,
+          -0.11675870679314679
+        ],
+        "render_image": "camera_view_assets/f_000013_vggt_render.jpg",
+        "right": [
+          0.9686796798349637,
+          0.24802095010196032,
+          0.01205347192111821
+        ],
+        "segment_time_s": 1.5,
+        "sequence_time_s": 1.5,
+        "video_time_s": 18.52
+      },
+      {
+        "actual_image": "camera_view_assets/f_000014.jpg",
+        "down": [
+          0.2634807245524513,
+          -0.962555172507046,
+          -0.06376086314696655
+        ],
+        "file": "f_000014.jpg",
+        "forward": [
+          -0.005474873168558934,
+          0.06460324472583,
+          -0.997896009880129
+        ],
+        "frame": 14,
+        "frame_image": "camera_view_assets/f_000014.jpg",
+        "position": [
+          -0.03570212987965927,
+          5.9454075865859646e-05,
+          -0.13406910279215395
+        ],
+        "render_image": "camera_view_assets/f_000014_vggt_render.jpg",
+        "right": [
+          0.9646491245800741,
+          0.263275446350064,
+          0.011751842241584579
+        ],
+        "segment_time_s": 1.7,
+        "sequence_time_s": 1.7,
+        "video_time_s": 18.72
+      },
+      {
+        "actual_image": "camera_view_assets/f_000015.jpg",
+        "down": [
+          0.2634303361449371,
+          -0.9624986334104343,
+          -0.0648138772302038
+        ],
+        "file": "f_000015.jpg",
+        "forward": [
+          -0.01154173196071226,
+          0.06403757419092311,
+          -0.9978807431327098
+        ],
+        "frame": 15,
+        "frame_image": "camera_view_assets/f_000015.jpg",
+        "position": [
+          -0.0313426031730769,
+          -0.00043890520254846705,
+          -0.13447579474480056
+        ],
+        "render_image": "camera_view_assets/f_000015_vggt_render.jpg",
+        "right": [
+          0.9646093750435524,
+          0.2636201239943349,
+          0.005760538455646139
+        ],
+        "segment_time_s": 1.8,
+        "sequence_time_s": 1.8,
+        "video_time_s": 18.82
+      },
+      {
+        "actual_image": "camera_view_assets/f_000016.jpg",
+        "down": [
+          0.2686188583502303,
+          -0.9610592008565297,
+          -0.06487774185055518
+        ],
+        "file": "f_000016.jpg",
+        "forward": [
+          -0.003683462178054539,
+          0.06632784428621834,
+          -0.9977910849364842
+        ],
+        "frame": 16,
+        "frame_image": "camera_view_assets/f_000016.jpg",
+        "position": [
+          -0.037644078952578354,
+          -0.0014087177336639153,
+          -0.13676006883862543
+        ],
+        "render_image": "camera_view_assets/f_000016_vggt_render.jpg",
+        "right": [
+          0.9632395034699324,
+          0.2682644768159802,
+          0.014276884591769469
+        ],
+        "segment_time_s": 1.9,
+        "sequence_time_s": 1.9,
+        "video_time_s": 18.92
+      },
+      {
+        "actual_image": "camera_view_assets/f_000017.jpg",
+        "down": [
+          0.25848859518979495,
+          -0.9637645758048896,
+          -0.06588997329205352
+        ],
+        "file": "f_000017.jpg",
+        "forward": [
+          -0.0034881217824629727,
+          0.06727644013461648,
+          -0.997728276440657
+        ],
+        "frame": 17,
+        "frame_image": "camera_view_assets/f_000017.jpg",
+        "position": [
+          -0.03535465981872152,
+          -0.0005138900985150749,
+          -0.1463353212193274
+        ],
+        "render_image": "camera_view_assets/f_000017_vggt_render.jpg",
+        "right": [
+          0.9660080119560277,
+          0.2581312128093667,
+          0.014028464289736128
+        ],
+        "segment_time_s": 2,
+        "sequence_time_s": 2,
+        "video_time_s": 19.02
+      },
+      {
+        "actual_image": "camera_view_assets/f_000018.jpg",
+        "down": [
+          0.2679175454965598,
+          -0.9608913292259659,
+          -0.07005742097347928
+        ],
+        "file": "f_000018.jpg",
+        "forward": [
+          -0.013542625825275247,
+          0.0689525765819826,
+          -0.997528014377773
+        ],
+        "frame": 18,
+        "frame_image": "camera_view_assets/f_000018.jpg",
+        "position": [
+          -0.03422913479017738,
+          0.0011178407546324277,
+          -0.14530061814604522
+        ],
+        "render_image": "camera_view_assets/f_000018_vggt_render.jpg",
+        "right": [
+          0.9633466593604066,
+          0.2682040186146775,
+          0.0054606133430497176
+        ],
+        "segment_time_s": 2.2,
+        "sequence_time_s": 2.2,
+        "video_time_s": 19.22
+      },
+      {
+        "actual_image": "camera_view_assets/f_000019.jpg",
+        "down": [
+          0.2777069804620797,
+          -0.9578134842103951,
+          -0.07397406618117733
+        ],
+        "file": "f_000019.jpg",
+        "forward": [
+          -0.010924564794190931,
+          0.0738492624134767,
+          -0.9972095769320726
+        ],
+        "frame": 19,
+        "frame_image": "camera_view_assets/f_000019.jpg",
+        "position": [
+          -0.03669785980308244,
+          -0.002808250144786385,
+          -0.14971446761271018
+        ],
+        "render_image": "camera_view_assets/f_000019_vggt_render.jpg",
+        "right": [
+          0.9606037095944882,
+          0.2777401949767599,
+          0.010044760205192143
+        ],
+        "segment_time_s": 2.3,
+        "sequence_time_s": 2.3,
+        "video_time_s": 19.32
+      },
+      {
+        "actual_image": "camera_view_assets/f_000020.jpg",
+        "down": [
+          0.2762467814522352,
+          -0.9584223475305788,
+          -0.07151447050251773
+        ],
+        "file": "f_000020.jpg",
+        "forward": [
+          -0.009271061164439574,
+          0.07174913531379792,
+          -0.997379621311067
+        ],
+        "frame": 20,
+        "frame_image": "camera_view_assets/f_000020.jpg",
+        "position": [
+          -0.037553944485517084,
+          0.0007904519339674668,
+          -0.16261358804759712
+        ],
+        "render_image": "camera_view_assets/f_000020_vggt_render.jpg",
+        "right": [
+          0.9610420194570923,
+          0.27618592530340275,
+          0.01093487549709582
+        ],
+        "segment_time_s": 2.4,
+        "sequence_time_s": 2.4,
+        "video_time_s": 19.42
+      },
+      {
+        "actual_image": "camera_view_assets/f_000021.jpg",
+        "down": [
+          0.26495216602745597,
+          -0.9614529486984954,
+          -0.07354302928441171
+        ],
+        "file": "f_000021.jpg",
+        "forward": [
+          -0.011204802997894319,
+          0.07319380693635984,
+          -0.9972547914229047
+        ],
+        "frame": 21,
+        "frame_image": "camera_view_assets/f_000021.jpg",
+        "position": [
+          -0.03646322904441375,
+          0.0024697545506422516,
+          -0.1611785823951864
+        ],
+        "render_image": "camera_view_assets/f_000021_vggt_render.jpg",
+        "right": [
+          0.9641964541042131,
+          0.2650488522237576,
+          0.008619966805672733
+        ],
+        "segment_time_s": 2.5,
+        "sequence_time_s": 2.5,
+        "video_time_s": 19.52
+      },
+      {
+        "actual_image": "camera_view_assets/f_000022.jpg",
+        "down": [
+          0.27537499076463323,
+          -0.9577777961507196,
+          -0.08264567539834713
+        ],
+        "file": "f_000022.jpg",
+        "forward": [
+          -0.00910460744835233,
+          0.083367309335449,
+          -0.9964772942006149
+        ],
+        "frame": 22,
+        "frame_image": "camera_view_assets/f_000022.jpg",
+        "position": [
+          -0.04021416233417817,
+          0.0023595320884432767,
+          -0.17042868938246356
+        ],
+        "render_image": "camera_view_assets/f_000022_vggt_render.jpg",
+        "right": [
+          0.9612937743398683,
+          0.27515738211946694,
+          0.014237081181621265
+        ],
+        "segment_time_s": 2.7,
+        "sequence_time_s": 2.7,
+        "video_time_s": 19.72
+      },
+      {
+        "actual_image": "camera_view_assets/f_000023.jpg",
+        "down": [
+          0.26815020373236503,
+          -0.9595337444737606,
+          -0.08596779312309367
+        ],
+        "file": "f_000023.jpg",
+        "forward": [
+          -0.009165613336824028,
+          0.08669081395570134,
+          -0.9961931009136018
+        ],
+        "frame": 23,
+        "frame_image": "camera_view_assets/f_000023.jpg",
+        "position": [
+          -0.03786297574786858,
+          0.003317612356661755,
+          -0.17157150580515892
+        ],
+        "render_image": "camera_view_assets/f_000023_vggt_render.jpg",
+        "right": [
+          0.9633335142983717,
+          0.26791733051794514,
+          0.014451444138464468
+        ],
+        "segment_time_s": 2.8,
+        "sequence_time_s": 2.8,
+        "video_time_s": 19.82
+      },
+      {
+        "actual_image": "camera_view_assets/f_000024.jpg",
+        "down": [
+          0.2767937471824803,
+          -0.9565778295123267,
+          -0.09134592276706875
+        ],
+        "file": "f_000024.jpg",
+        "forward": [
+          -0.014056342002302697,
+          0.09101924136084287,
+          -0.9957499269151924
+        ],
+        "frame": 24,
+        "frame_image": "camera_view_assets/f_000024.jpg",
+        "position": [
+          -0.038832514150510006,
+          0.003200584881045856,
+          -0.17021568006591936
+        ],
+        "render_image": "camera_view_assets/f_000024_vggt_render.jpg",
+        "right": [
+          0.9608265404172575,
+          0.2769013430584668,
+          0.011747571758528627
+        ],
+        "segment_time_s": 2.9,
+        "sequence_time_s": 2.9,
+        "video_time_s": 19.92
+      },
+      {
+        "actual_image": "camera_view_assets/f_000025.jpg",
+        "down": [
+          0.2920241635250484,
+          -0.9513487641698986,
+          -0.09827215694133609
+        ],
+        "file": "f_000025.jpg",
+        "forward": [
+          -0.0067903934477515976,
+          0.10068602579221868,
+          -0.9948950772654337
+        ],
+        "frame": 25,
+        "frame_image": "camera_view_assets/f_000025.jpg",
+        "position": [
+          -0.04488638476714313,
+          0.002041872201663523,
+          -0.17735561340557357
+        ],
+        "render_image": "camera_view_assets/f_000025_vggt_render.jpg",
+        "right": [
+          0.9563868351636384,
+          0.29120070934421755,
+          0.02294272004588825
+        ],
+        "segment_time_s": 3.1,
+        "sequence_time_s": 3.1,
+        "video_time_s": 20.12
+      },
+      {
+        "actual_image": "camera_view_assets/f_000026.jpg",
+        "down": [
+          0.278108774867682,
+          -0.9559167682792156,
+          -0.09422654331035193
+        ],
+        "file": "f_000026.jpg",
+        "forward": [
+          -0.0065678154012314555,
+          0.09620178331041136,
+          -0.9953401833989985
+        ],
+        "frame": 26,
+        "frame_image": "camera_view_assets/f_000026.jpg",
+        "position": [
+          -0.044974172289736346,
+          0.005230386925802699,
+          -0.18239732779436918
+        ],
+        "render_image": "camera_view_assets/f_000026_vggt_render.jpg",
+        "right": [
+          0.9605271329548439,
+          0.2774317015240279,
+          0.020476275223545084
+        ],
+        "segment_time_s": 3.2,
+        "sequence_time_s": 3.2,
+        "video_time_s": 20.22
+      },
+      {
+        "actual_image": "camera_view_assets/f_000027.jpg",
+        "down": [
+          0.28079367046664466,
+          -0.9550735093268801,
+          -0.09481300758813274
+        ],
+        "file": "f_000027.jpg",
+        "forward": [
+          -0.008884477490331609,
+          0.09619660981304004,
+          -0.9953227005952399
+        ],
+        "frame": 27,
+        "frame_image": "camera_view_assets/f_000027.jpg",
+        "position": [
+          -0.04345723047221978,
+          0.004955273239289359,
+          -0.18851096467930378
+        ],
+        "render_image": "camera_view_assets/f_000027_vggt_render.jpg",
+        "right": [
+          0.9597270344663598,
+          0.28032267843061803,
+          0.01852607006062448
+        ],
+        "segment_time_s": 3.3,
+        "sequence_time_s": 3.3,
+        "video_time_s": 20.32
+      },
+      {
+        "actual_image": "camera_view_assets/f_000028.jpg",
+        "down": [
+          0.2710539618731439,
+          -0.9576856779871117,
+          -0.09678787078574692
+        ],
+        "file": "f_000028.jpg",
+        "forward": [
+          -0.010526618115723831,
+          0.09759688432119712,
+          -0.9951703565128137
+        ],
+        "frame": 28,
+        "frame_image": "camera_view_assets/f_000028.jpg",
+        "position": [
+          -0.04186067440269602,
+          0.0025238984924636555,
+          -0.18974258525722654
+        ],
+        "render_image": "camera_view_assets/f_000028_vggt_render.jpg",
+        "right": [
+          0.962506592218421,
+          0.27076371682550276,
+          0.016372830754667014
+        ],
+        "segment_time_s": 3.4,
+        "sequence_time_s": 3.4,
+        "video_time_s": 20.42
+      },
+      {
+        "actual_image": "camera_view_assets/f_000029.jpg",
+        "down": [
+          0.2850944919596708,
+          -0.9541222854646637,
+          -0.09149751381291188
+        ],
+        "file": "f_000029.jpg",
+        "forward": [
+          -0.0036062365410500087,
+          0.09439071279142407,
+          -0.9955286979272555
+        ],
+        "frame": 29,
+        "frame_image": "camera_view_assets/f_000029.jpg",
+        "position": [
+          -0.04372071899293514,
+          0.008420890603216635,
+          -0.18777920556759425
+        ],
+        "render_image": "camera_view_assets/f_000029_vggt_render.jpg",
+        "right": [
+          0.9584926320594578,
+          0.28414971004457085,
+          0.02346948165850943
+        ],
+        "segment_time_s": 3.6,
+        "sequence_time_s": 3.6,
+        "video_time_s": 20.62
+      },
+      {
+        "actual_image": "camera_view_assets/f_000030.jpg",
+        "down": [
+          0.28481563903393103,
+          -0.9538834870552722,
+          -0.0947963337105813
+        ],
+        "file": "f_000030.jpg",
+        "forward": [
+          -0.0022789781374700953,
+          0.0982181264955795,
+          -0.9951623012787147
+        ],
+        "frame": 30,
+        "frame_image": "camera_view_assets/f_000030.jpg",
+        "position": [
+          -0.0462345210000719,
+          0.007117689543810235,
+          -0.199594297428447
+        ],
+        "render_image": "camera_view_assets/f_000030_vggt_render.jpg",
+        "right": [
+          0.9585796044253928,
+          0.28365382555321333,
+          0.02580017884986125
+        ],
+        "segment_time_s": 3.7,
+        "sequence_time_s": 3.7,
+        "video_time_s": 20.72
+      },
+      {
+        "actual_image": "camera_view_assets/f_000031.jpg",
+        "down": [
+          0.2810088635522061,
+          -0.9549904422035782,
+          -0.09501196716683494
+        ],
+        "file": "f_000031.jpg",
+        "forward": [
+          -0.0013346200627808026,
+          0.09861224089228937,
+          -0.9951250397490202
+        ],
+        "frame": 31,
+        "frame_image": "camera_view_assets/f_000031.jpg",
+        "position": [
+          -0.04694550033881658,
+          0.006555526728398794,
+          -0.204945738717984
+        ],
+        "render_image": "camera_view_assets/f_000031_vggt_render.jpg",
+        "right": [
+          0.9597042447516765,
+          0.27976576138980125,
+          0.026436364341549824
+        ],
+        "segment_time_s": 3.8,
+        "sequence_time_s": 3.8,
+        "video_time_s": 20.82
+      },
+      {
+        "actual_image": "camera_view_assets/f_000032.jpg",
+        "down": [
+          0.2896733260997934,
+          -0.9527828943576653,
+          -0.0910720613893901
+        ],
+        "file": "f_000032.jpg",
+        "forward": [
+          0.007854788830513609,
+          0.09751488860960811,
+          -0.9952030691230227
+        ],
+        "frame": 32,
+        "frame_image": "camera_view_assets/f_000032.jpg",
+        "position": [
+          -0.05008121758105565,
+          0.007513538075485372,
+          -0.19946501745365894
+        ],
+        "render_image": "camera_view_assets/f_000032_vggt_render.jpg",
+        "right": [
+          0.9570933425944989,
+          0.2875684313670154,
+          0.03573137056430106
+        ],
+        "segment_time_s": 4,
+        "sequence_time_s": 4,
+        "video_time_s": 21.02
+      },
+      {
+        "actual_image": "camera_view_assets/f_000033.jpg",
+        "down": [
+          0.2717595173595718,
+          -0.9575616559661477,
+          -0.09603353449634948
+        ],
+        "file": "f_000033.jpg",
+        "forward": [
+          0.002302947331331631,
+          0.1004358680433793,
+          -0.9949408690188386
+        ],
+        "frame": 33,
+        "frame_image": "camera_view_assets/f_000033.jpg",
+        "position": [
+          -0.04875149604538964,
+          0.005537731422681713,
+          -0.20876475637893355
+        ],
+        "render_image": "camera_view_assets/f_000033_vggt_render.jpg",
+        "right": [
+          0.962362437524492,
+          0.2701634901938859,
+          0.02949961708525115
+        ],
+        "segment_time_s": 4.1,
+        "sequence_time_s": 4.1,
+        "video_time_s": 21.12
+      },
+      {
+        "actual_image": "camera_view_assets/f_000034.jpg",
+        "down": [
+          0.26613745345696677,
+          -0.9589087663294311,
+          -0.09830988619670655
+        ],
+        "file": "f_000034.jpg",
+        "forward": [
+          0.014071405522264165,
+          0.10584199344764489,
+          -0.9942833941938569
+        ],
+        "frame": 34,
+        "frame_image": "camera_view_assets/f_000034.jpg",
+        "position": [
+          -0.0526814520496648,
+          0.005076282284497703,
+          -0.207647114837081
+        ],
+        "render_image": "camera_view_assets/f_000034_vggt_render.jpg",
+        "right": [
+          0.9638323772389413,
+          0.2632326922697811,
+          0.04166171271484065
+        ],
+        "segment_time_s": 4.2,
+        "sequence_time_s": 4.2,
+        "video_time_s": 21.22
+      },
+      {
+        "actual_image": "camera_view_assets/f_000035.jpg",
+        "down": [
+          0.2719281665299136,
+          -0.9573792656163764,
+          -0.09736536353101878
+        ],
+        "file": "f_000035.jpg",
+        "forward": [
+          0.015162026700467242,
+          0.10542788263390838,
+          -0.9943113569248141
+        ],
+        "frame": 35,
+        "frame_image": "camera_view_assets/f_000035.jpg",
+        "position": [
+          -0.053489517708528875,
+          0.0033404632175134076,
+          -0.21180653485444653
+        ],
+        "render_image": "camera_view_assets/f_000035_vggt_render.jpg",
+        "right": [
+          0.9621981008056574,
+          0.26890500800687717,
+          0.04318462081351885
+        ],
+        "segment_time_s": 4.3,
+        "sequence_time_s": 4.3,
+        "video_time_s": 21.32
+      },
+      {
+        "actual_image": "camera_view_assets/f_000036.jpg",
+        "down": [
+          0.26635389504952767,
+          -0.9590893410907755,
+          -0.0959335102975348
+        ],
+        "file": "f_000036.jpg",
+        "forward": [
+          0.024399343977252276,
+          0.10620602026860583,
+          -0.9940447440996729
+        ],
+        "frame": 36,
+        "frame_image": "camera_view_assets/f_000036.jpg",
+        "position": [
+          -0.05605071623243405,
+          0.0004714962005015359,
+          -0.21091575774426763
+        ],
+        "render_image": "camera_view_assets/f_000036_vggt_render.jpg",
+        "right": [
+          0.9635664349724025,
+          0.2624269747277641,
+          0.05168953791444232
+        ],
+        "segment_time_s": 4.5,
+        "sequence_time_s": 4.5,
+        "video_time_s": 21.52
+      },
+      {
+        "actual_image": "camera_view_assets/f_000037.jpg",
+        "down": [
+          0.2409609894875815,
+          -0.965595710256071,
+          -0.0977891910194548
+        ],
+        "file": "f_000037.jpg",
+        "forward": [
+          0.027621636571764585,
+          0.10754013612690506,
+          -0.9938169672102123
+        ],
+        "frame": 37,
+        "frame_image": "camera_view_assets/f_000037.jpg",
+        "position": [
+          -0.0570943587607459,
+          0.0016685999938706442,
+          -0.20737487599987567
+        ],
+        "render_image": "camera_view_assets/f_000037_vggt_render.jpg",
+        "right": [
+          0.9701416632318515,
+          0.23677002229353383,
+          0.05258431139471634
+        ],
+        "segment_time_s": 4.6,
+        "sequence_time_s": 4.6,
+        "video_time_s": 21.62
+      },
+      {
+        "actual_image": "camera_view_assets/f_000038.jpg",
+        "down": [
+          0.21034646887698744,
+          -0.9721279486621991,
+          -0.10354522905864615
+        ],
+        "file": "f_000038.jpg",
+        "forward": [
+          0.028257551075777595,
+          0.11191632402352726,
+          -0.9933157842419805
+        ],
+        "frame": 38,
+        "frame_image": "camera_view_assets/f_000038.jpg",
+        "position": [
+          -0.054532583384353815,
+          -0.0004571509019873255,
+          -0.22760046987184027
+        ],
+        "render_image": "camera_view_assets/f_000038_vggt_render.jpg",
+        "right": [
+          0.9772184371153578,
+          0.20601453309629833,
+          0.0510111587295547
+        ],
+        "segment_time_s": 4.7,
+        "sequence_time_s": 4.7,
+        "video_time_s": 21.72
+      },
+      {
+        "actual_image": "camera_view_assets/f_000039.jpg",
+        "down": [
+          0.19296022868632007,
+          -0.9756580082969063,
+          -0.10420077250883061
+        ],
+        "file": "f_000039.jpg",
+        "forward": [
+          0.03480799634426257,
+          0.1129362217907563,
+          -0.9929923530411132
+        ],
+        "frame": 39,
+        "frame_image": "camera_view_assets/f_000039.jpg",
+        "position": [
+          -0.05972300795148568,
+          -0.001961352823372994,
+          -0.22133833398846575
+        ],
+        "render_image": "camera_view_assets/f_000039_vggt_render.jpg",
+        "right": [
+          0.9805889829769764,
+          0.18798101141802354,
+          0.05575289956976252
+        ],
+        "segment_time_s": 4.8,
+        "sequence_time_s": 4.8,
+        "video_time_s": 21.82
+      },
+      {
+        "actual_image": "camera_view_assets/f_000040.jpg",
+        "down": [
+          0.17859814712418637,
+          -0.9766770430323826,
+          -0.11918328514237726
+        ],
+        "file": "f_000040.jpg",
+        "forward": [
+          0.045067849493713515,
+          0.1291240026676271,
+          -0.9906037961148254
+        ],
+        "frame": 40,
+        "frame_image": "camera_view_assets/f_000040.jpg",
+        "position": [
+          -0.0668098513365251,
+          -0.010057542834034467,
+          -0.2208497559805734
+        ],
+        "render_image": "camera_view_assets/f_000040_vggt_render.jpg",
+        "right": [
+          0.9828894092347417,
+          0.1715486681633301,
+          0.06707804160504527
+        ],
+        "segment_time_s": 5,
+        "sequence_time_s": 5,
+        "video_time_s": 22.02
+      },
+      {
+        "actual_image": "camera_view_assets/f_000041.jpg",
+        "down": [
+          0.15173929953815962,
+          -0.9807092975910221,
+          -0.12322523521662575
+        ],
+        "file": "f_000041.jpg",
+        "forward": [
+          0.04485111339078956,
+          0.1313721056092286,
+          -0.9903180032168476
+        ],
+        "frame": 41,
+        "frame_image": "camera_view_assets/f_000041.jpg",
+        "position": [
+          -0.06292724334121232,
+          -0.008788726612450146,
+          -0.24885557820437748
+        ],
+        "render_image": "camera_view_assets/f_000041_vggt_render.jpg",
+        "right": [
+          0.9874024319411389,
+          0.1447433711308458,
+          0.06392021519365401
+        ],
+        "segment_time_s": 5.1,
+        "sequence_time_s": 5.1,
+        "video_time_s": 22.12
+      },
+      {
+        "actual_image": "camera_view_assets/f_000042.jpg",
+        "down": [
+          0.1611462463660865,
+          -0.9788142606350195,
+          -0.1263112443911493
+        ],
+        "file": "f_000042.jpg",
+        "forward": [
+          0.04392591370137426,
+          0.134970349808678,
+          -0.9898755067067891
+        ],
+        "frame": 42,
+        "frame_image": "camera_view_assets/f_000042.jpg",
+        "position": [
+          -0.0658177929039905,
+          -0.009917963141681597,
+          -0.24188713619559613
+        ],
+        "render_image": "camera_view_assets/f_000042_vggt_render.jpg",
+        "right": [
+          0.9859525350581639,
+          0.1539663854548881,
+          0.06474527598471443
+        ],
+        "segment_time_s": 5.2,
+        "sequence_time_s": 5.2,
+        "video_time_s": 22.22
+      },
+      {
+        "actual_image": "camera_view_assets/f_000043.jpg",
+        "down": [
+          0.1476987708393581,
+          -0.9785302940039866,
+          -0.14374817149798527
+        ],
+        "file": "f_000043.jpg",
+        "forward": [
+          0.051313749064441215,
+          0.15272813088910425,
+          -0.9869351636212341
+        ],
+        "frame": 43,
+        "frame_image": "camera_view_assets/f_000043.jpg",
+        "position": [
+          -0.06602610696307382,
+          -0.019214740968469937,
+          -0.23644078519884587
+        ],
+        "render_image": "camera_view_assets/f_000043_vggt_render.jpg",
+        "right": [
+          0.9877003453727726,
+          0.13839285296427717,
+          0.07276981516338775
+        ],
+        "segment_time_s": 5.4,
+        "sequence_time_s": 5.4,
+        "video_time_s": 22.42
+      },
+      {
+        "actual_image": "camera_view_assets/f_000044.jpg",
+        "down": [
+          0.1216876525492165,
+          -0.9827338705632578,
+          -0.1393781003774248
+        ],
+        "file": "f_000044.jpg",
+        "forward": [
+          0.058509391554474044,
+          0.14727957574081876,
+          -0.9873628399274148
+        ],
+        "frame": 44,
+        "frame_image": "camera_view_assets/f_000044.jpg",
+        "position": [
+          -0.07276934224743482,
+          -0.016629534668865697,
+          -0.23854864910365597
+        ],
+        "render_image": "camera_view_assets/f_000044_vggt_render.jpg",
+        "right": [
+          0.9908424528233469,
+          0.11199493835599339,
+          0.07542126666697423
+        ],
+        "segment_time_s": 5.5,
+        "sequence_time_s": 5.5,
+        "video_time_s": 22.52
+      },
+      {
+        "actual_image": "camera_view_assets/f_000045.jpg",
+        "down": [
+          0.1279533585292109,
+          -0.9811075017800909,
+          -0.14510688471579924
+        ],
+        "file": "f_000045.jpg",
+        "forward": [
+          0.064448078936006,
+          0.15422550292548598,
+          -0.9859315084572758
+        ],
+        "frame": 45,
+        "frame_image": "camera_view_assets/f_000045.jpg",
+        "position": [
+          -0.0762401277187126,
+          -0.020156513958645886,
+          -0.24126265707388628
+        ],
+        "render_image": "camera_view_assets/f_000045_vggt_render.jpg",
+        "right": [
+          0.989683981462039,
+          0.11680138782655776,
+          0.0829641647896035
+        ],
+        "segment_time_s": 5.6,
+        "sequence_time_s": 5.6,
+        "video_time_s": 22.62
+      },
+      {
+        "actual_image": "camera_view_assets/f_000046.jpg",
+        "down": [
+          0.0941368281113598,
+          -0.9835016438807089,
+          -0.15447580418005763
+        ],
+        "file": "f_000046.jpg",
+        "forward": [
+          0.0615247431612631,
+          0.1606153875344085,
+          -0.9850976617910085
+        ],
+        "frame": 46,
+        "frame_image": "camera_view_assets/f_000046.jpg",
+        "position": [
+          -0.07286864739800297,
+          -0.02375327061395008,
+          -0.24783727579382056
+        ],
+        "render_image": "camera_view_assets/f_000046_vggt_render.jpg",
+        "right": [
+          0.9936563609075689,
+          0.08322988508411502,
+          0.07562950916680672
+        ],
+        "segment_time_s": 5.7,
+        "sequence_time_s": 5.7,
+        "video_time_s": 22.72
+      },
+      {
+        "actual_image": "camera_view_assets/f_000047.jpg",
+        "down": [
+          0.08258086315581172,
+          -0.9827302444165491,
+          -0.1655948904689726
+        ],
+        "file": "f_000047.jpg",
+        "forward": [
+          0.08786772492790318,
+          0.1726951711010119,
+          -0.9810482357123866
+        ],
+        "frame": 47,
+        "frame_image": "camera_view_assets/f_000047.jpg",
+        "position": [
+          -0.09320407197717125,
+          -0.027831577350863917,
+          -0.25925602337556386
+        ],
+        "render_image": "camera_view_assets/f_000047_vggt_render.jpg",
+        "right": [
+          0.9927032104090504,
+          0.06646536381742117,
+          0.10061158708708653
+        ],
+        "segment_time_s": 5.9,
+        "sequence_time_s": 5.9,
+        "video_time_s": 22.92
+      },
+      {
+        "actual_image": "camera_view_assets/f_000048.jpg",
+        "down": [
+          0.09430901733942233,
+          -0.9820334095588962,
+          -0.16345088485108278
+        ],
+        "file": "f_000048.jpg",
+        "forward": [
+          0.08597805815840348,
+          0.1716035045174059,
+          -0.9814071584987827
+        ],
+        "frame": 48,
+        "frame_image": "camera_view_assets/f_000048.jpg",
+        "position": [
+          -0.08962934619740928,
+          -0.027602971319335933,
+          -0.27115901938512493
+        ],
+        "render_image": "camera_view_assets/f_000048_vggt_render.jpg",
+        "right": [
+          0.9918233626829844,
+          0.07850235504412599,
+          0.10061708348358774
+        ],
+        "segment_time_s": 6,
+        "sequence_time_s": 6,
+        "video_time_s": 23.02
+      },
+      {
+        "actual_image": "camera_view_assets/f_000049.jpg",
+        "down": [
+          0.07852357595497649,
+          -0.98117078389334,
+          -0.1764594595179636
+        ],
+        "file": "f_000049.jpg",
+        "forward": [
+          0.06724483256316595,
+          0.18181589170486614,
+          -0.9810306386739999
+        ],
+        "frame": 49,
+        "frame_image": "camera_view_assets/f_000049.jpg",
+        "position": [
+          -0.0740846978716363,
+          -0.03084223760286532,
+          -0.2761827702594636
+        ],
+        "render_image": "camera_view_assets/f_000049_vggt_render.jpg",
+        "right": [
+          0.9946417347531696,
+          0.0651680470606047,
+          0.08025549906088676
+        ],
+        "segment_time_s": 6.1,
+        "sequence_time_s": 6.1,
+        "video_time_s": 23.12
+      },
+      {
+        "actual_image": "camera_view_assets/f_000050.jpg",
+        "down": [
+          0.08879330105655871,
+          -0.9802633178550662,
+          -0.17663402094516434
+        ],
+        "file": "f_000050.jpg",
+        "forward": [
+          0.07623512903512406,
+          0.18350260521042688,
+          -0.9800586711937118
+        ],
+        "frame": 50,
+        "frame_image": "camera_view_assets/f_000050.jpg",
+        "position": [
+          -0.08475588569065294,
+          -0.03182368987441211,
+          -0.2666555174438998
+        ],
+        "render_image": "camera_view_assets/f_000050_vggt_render.jpg",
+        "right": [
+          0.9931283677292062,
+          0.07355692726564673,
+          0.09102430259419207
+        ],
+        "segment_time_s": 6.2,
+        "sequence_time_s": 6.2,
+        "video_time_s": 23.22
+      },
+      {
+        "actual_image": "camera_view_assets/f_000051.jpg",
+        "down": [
+          0.0633126772796837,
+          -0.9812330938751146,
+          -0.18213489610711392
+        ],
+        "file": "f_000051.jpg",
+        "forward": [
+          0.09271898645315697,
+          0.18749501559475829,
+          -0.9778797516454775
+        ],
+        "frame": 51,
+        "frame_image": "camera_view_assets/f_000051.jpg",
+        "position": [
+          -0.0899808216047371,
+          -0.03038046326826908,
+          -0.2644000285474949
+        ],
+        "render_image": "camera_view_assets/f_000051_vggt_render.jpg",
+        "right": [
+          0.9936773593308735,
+          0.04502482216946471,
+          0.10284974935229625
+        ],
+        "segment_time_s": 6.4,
+        "sequence_time_s": 6.4,
+        "video_time_s": 23.42
+      },
+      {
+        "actual_image": "camera_view_assets/f_000052.jpg",
+        "down": [
+          0.07538317071919755,
+          -0.9815974350369777,
+          -0.17545327896949284
+        ],
+        "file": "f_000052.jpg",
+        "forward": [
+          0.1045700803978716,
+          0.18276572093911192,
+          -0.9775795566270754
+        ],
+        "frame": 52,
+        "frame_image": "camera_view_assets/f_000052.jpg",
+        "position": [
+          -0.09623502638742414,
+          -0.03282198769833689,
+          -0.2682748286776774
+        ],
+        "render_image": "camera_view_assets/f_000052_vggt_render.jpg",
+        "right": [
+          0.9916564303517136,
+          0.0553458831209062,
+          0.1164231822433316
+        ],
+        "segment_time_s": 6.5,
+        "sequence_time_s": 6.5,
+        "video_time_s": 23.52
+      },
+      {
+        "actual_image": "camera_view_assets/f_000053.jpg",
+        "down": [
+          0.04286010055082756,
+          -0.9812388811999427,
+          -0.18797146007375087
+        ],
+        "file": "f_000053.jpg",
+        "forward": [
+          0.09538815263382866,
+          0.19130388402567874,
+          -0.9768848060512534
+        ],
+        "frame": 53,
+        "frame_image": "camera_view_assets/f_000053.jpg",
+        "position": [
+          -0.08693604414329249,
+          -0.03354400317523754,
+          -0.27766327912995215
+        ],
+        "render_image": "camera_view_assets/f_000053_vggt_render.jpg",
+        "right": [
+          0.9945170245490412,
+          0.023939130689613827,
+          0.10179786787525186
+        ],
+        "segment_time_s": 6.6,
+        "sequence_time_s": 6.6,
+        "video_time_s": 23.62
+      },
+      {
+        "actual_image": "camera_view_assets/f_000054.jpg",
+        "down": [
+          0.03159403356878467,
+          -0.9810204412514338,
+          -0.1913131226280533
+        ],
+        "file": "f_000054.jpg",
+        "forward": [
+          0.11008865815366667,
+          0.19365962560641173,
+          -0.97487252333621
+        ],
+        "frame": 54,
+        "frame_image": "camera_view_assets/f_000054.jpg",
+        "position": [
+          -0.09030973714908623,
+          -0.04021038425541213,
+          -0.2695500819921045
+        ],
+        "render_image": "camera_view_assets/f_000054_vggt_render.jpg",
+        "right": [
+          0.9934195007089298,
+          0.009738750270259755,
+          0.11411771271101559
+        ],
+        "segment_time_s": 6.8,
+        "sequence_time_s": 6.8,
+        "video_time_s": 23.82
+      },
+      {
+        "actual_image": "camera_view_assets/f_000055.jpg",
+        "down": [
+          0.025143722676988486,
+          -0.9837997779947667,
+          -0.17749870429777953
+        ],
+        "file": "f_000055.jpg",
+        "forward": [
+          0.11566379976374999,
+          0.17922532362839805,
+          -0.9769852449215941
+        ],
+        "frame": 55,
+        "frame_image": "camera_view_assets/f_000055.jpg",
+        "position": [
+          -0.09198357395838339,
+          -0.029539015374162682,
+          -0.2785512794210926
+        ],
+        "render_image": "camera_view_assets/f_000055_vggt_render.jpg",
+        "right": [
+          0.9929701297794179,
+          0.004034871465594798,
+          0.11829641236361432
+        ],
+        "segment_time_s": 6.9,
+        "sequence_time_s": 6.9,
+        "video_time_s": 23.92
+      },
+      {
+        "actual_image": "camera_view_assets/f_000056.jpg",
+        "down": [
+          0.008939523955343809,
+          -0.9822117914731863,
+          -0.18756354017368587
+        ],
+        "file": "f_000056.jpg",
+        "forward": [
+          0.11737873789070842,
+          0.1873050214814573,
+          -0.9752635853034887
+        ],
+        "frame": 56,
+        "frame_image": "camera_view_assets/f_000056.jpg",
+        "position": [
+          -0.09608734935214029,
+          -0.03215681371407272,
+          -0.27354435572704033
+        ],
+        "render_image": "camera_view_assets/f_000056_vggt_render.jpg",
+        "right": [
+          0.9930469862008727,
+          -0.013297579436305412,
+          0.11696519815098398
+        ],
+        "segment_time_s": 7,
+        "sequence_time_s": 7,
+        "video_time_s": 24.02
+      },
+      {
+        "actual_image": "camera_view_assets/f_000057.jpg",
+        "down": [
+          0.020607065925538064,
+          -0.9817439057696581,
+          -0.1890879486325803
+        ],
+        "file": "f_000057.jpg",
+        "forward": [
+          0.1271842132004372,
+          0.19016570586482173,
+          -0.9734789058965375
+        ],
+        "frame": 57,
+        "frame_image": "camera_view_assets/f_000057.jpg",
+        "position": [
+          -0.09799731436566733,
+          -0.04023804611827169,
+          -0.26625255578698026
+        ],
+        "render_image": "camera_view_assets/f_000057_vggt_render.jpg",
+        "right": [
+          0.991665026481486,
+          -0.0039884579815888015,
+          0.128781083457171
+        ],
+        "segment_time_s": 7.1,
+        "sequence_time_s": 7.1,
+        "video_time_s": 24.12
+      },
+      {
+        "actual_image": "camera_view_assets/f_000058.jpg",
+        "down": [
+          -0.02824748506192629,
+          -0.9793786705675731,
+          -0.20004874212293708
+        ],
+        "file": "f_000058.jpg",
+        "forward": [
+          0.1287775972347863,
+          0.19489541912579428,
+          -0.9723333307329417
+        ],
+        "frame": 58,
+        "frame_image": "camera_view_assets/f_000058.jpg",
+        "position": [
+          -0.09951208069703911,
+          -0.0410706096416765,
+          -0.28036070281167635
+        ],
+        "render_image": "camera_view_assets/f_000058_vggt_render.jpg",
+        "right": [
+          0.9912711082434066,
+          -0.05322776757552502,
+          0.12061672653829764
+        ],
+        "segment_time_s": 7.3,
+        "sequence_time_s": 7.3,
+        "video_time_s": 24.32
+      },
+      {
+        "actual_image": "camera_view_assets/f_000059.jpg",
+        "down": [
+          -0.05285773778413186,
+          -0.9752050406607733,
+          -0.21489808800025073
+        ],
+        "file": "f_000059.jpg",
+        "forward": [
+          0.1285595383165065,
+          0.2067626926233983,
+          -0.9699080544293716
+        ],
+        "frame": 59,
+        "frame_image": "camera_view_assets/f_000059.jpg",
+        "position": [
+          -0.0956215673751969,
+          -0.045359805709544655,
+          -0.27767093043312535
+        ],
+        "render_image": "camera_view_assets/f_000059_vggt_render.jpg",
+        "right": [
+          0.9902921309715588,
+          -0.07889434459415745,
+          0.11444290160105032
+        ],
+        "segment_time_s": 7.4,
+        "sequence_time_s": 7.4,
+        "video_time_s": 24.42
+      },
+      {
+        "actual_image": "camera_view_assets/f_000060.jpg",
+        "down": [
+          -0.040058097362287264,
+          -0.9770652657718198,
+          -0.20913826827712986
+        ],
+        "file": "f_000060.jpg",
+        "forward": [
+          0.11796170135089663,
+          0.2032181967214596,
+          -0.9720017497595773
+        ],
+        "frame": 60,
+        "frame_image": "camera_view_assets/f_000060.jpg",
+        "position": [
+          -0.08639385028870566,
+          -0.04705252843045098,
+          -0.3006113358550313
+        ],
+        "render_image": "camera_view_assets/f_000060_vggt_render.jpg",
+        "right": [
+          0.9922098497042424,
+          -0.06360684667173322,
+          0.10711574677125317
+        ],
+        "segment_time_s": 7.5,
+        "sequence_time_s": 7.5,
+        "video_time_s": 24.52
+      },
+      {
+        "actual_image": "camera_view_assets/f_000061.jpg",
+        "down": [
+          -0.06982066726020743,
+          -0.9767264810528475,
+          -0.20280644869791706
+        ],
+        "file": "f_000061.jpg",
+        "forward": [
+          0.11726628250604669,
+          0.19385678488983027,
+          -0.9739959784000087
+        ],
+        "frame": 61,
+        "frame_image": "camera_view_assets/f_000061.jpg",
+        "position": [
+          -0.0839863708122199,
+          -0.04674418921086004,
+          -0.2819885957220881
+        ],
+        "render_image": "camera_view_assets/f_000061_vggt_render.jpg",
+        "right": [
+          0.9906430706417683,
+          -0.09178740742770519,
+          0.10100187338435362
+        ],
+        "segment_time_s": 7.6,
+        "sequence_time_s": 7.6,
+        "video_time_s": 24.62
+      },
+      {
+        "actual_image": "camera_view_assets/f_000062.jpg",
+        "down": [
+          -0.05153307429998451,
+          -0.9780005467622904,
+          -0.2021367675259829
+        ],
+        "file": "f_000062.jpg",
+        "forward": [
+          0.12018059118035315,
+          0.19486160367888947,
+          -0.9734400756673378
+        ],
+        "frame": 62,
+        "frame_image": "camera_view_assets/f_000062.jpg",
+        "position": [
+          -0.08749741063936958,
+          -0.04730325959170714,
+          -0.2856993279769708
+        ],
+        "render_image": "camera_view_assets/f_000062_vggt_render.jpg",
+        "right": [
+          0.9914136209255616,
+          -0.07445727596650568,
+          0.10749486638400234
+        ],
+        "segment_time_s": 7.8,
+        "sequence_time_s": 7.8,
+        "video_time_s": 24.82
+      },
+      {
+        "actual_image": "camera_view_assets/f_000063.jpg",
+        "down": [
+          -0.0948818319092277,
+          -0.972900711307945,
+          -0.2108592988465145
+        ],
+        "file": "f_000063.jpg",
+        "forward": [
+          0.13786965229590012,
+          0.1969312311790327,
+          -0.9706750481814798
+        ],
+        "frame": 63,
+        "frame_image": "camera_view_assets/f_000063.jpg",
+        "position": [
+          -0.09288318338285483,
+          -0.043172971101952055,
+          -0.2916908319769459
+        ],
+        "render_image": "camera_view_assets/f_000063_vggt_render.jpg",
+        "right": [
+          0.9858952261520272,
+          -0.12117052497536292,
+          0.11544828681205402
+        ],
+        "segment_time_s": 7.9,
+        "sequence_time_s": 7.9,
+        "video_time_s": 24.92
+      },
+      {
+        "actual_image": "camera_view_assets/f_000064.jpg",
+        "down": [
+          -0.06771239393958499,
+          -0.9745841029118435,
+          -0.21354357414468791
+        ],
+        "file": "f_000064.jpg",
+        "forward": [
+          0.1210272168977648,
+          0.20443066009829872,
+          -0.971370432935734
+        ],
+        "frame": 64,
+        "frame_image": "camera_view_assets/f_000064.jpg",
+        "position": [
+          -0.08804796893816261,
+          -0.050979106745048124,
+          -0.29768659190036173
+        ],
+        "render_image": "camera_view_assets/f_000064_vggt_render.jpg",
+        "right": [
+          0.9903370357999098,
+          -0.09161840188134268,
+          0.1041087122183198
+        ],
+        "segment_time_s": 8,
+        "sequence_time_s": 8,
+        "video_time_s": 25.02
+      },
+      {
+        "actual_image": "camera_view_assets/f_000065.jpg",
+        "down": [
+          -0.0849586977042389,
+          -0.9718271962735208,
+          -0.2198497674948682
+        ],
+        "file": "f_000065.jpg",
+        "forward": [
+          0.13868095525109486,
+          0.20696638891482275,
+          -0.9684691561997224
+        ],
+        "frame": 65,
+        "frame_image": "camera_view_assets/f_000065.jpg",
+        "position": [
+          -0.09437918574859715,
+          -0.0510924863421861,
+          -0.2916753213111016
+        ],
+        "render_image": "camera_view_assets/f_000065_vggt_render.jpg",
+        "right": [
+          0.9866861772291348,
+          -0.11276885404537096,
+          0.11719032904745273
+        ],
+        "segment_time_s": 8.2,
+        "sequence_time_s": 8.2,
+        "video_time_s": 25.22
+      },
+      {
+        "actual_image": "camera_view_assets/f_000066.jpg",
+        "down": [
+          -0.10229829660403632,
+          -0.9713860306829903,
+          -0.21434607042317597
+        ],
+        "file": "f_000066.jpg",
+        "forward": [
+          0.14133201299370993,
+          0.19909777025308542,
+          -0.9697346750443626
+        ],
+        "frame": 66,
+        "frame_image": "camera_view_assets/f_000066.jpg",
+        "position": [
+          -0.09840713506896512,
+          -0.04885061253800859,
+          -0.29476578133391584
+        ],
+        "render_image": "camera_view_assets/f_000066_vggt_render.jpg",
+        "right": [
+          0.984662541490768,
+          -0.12949616702510597,
+          0.1169205803558443
+        ],
+        "segment_time_s": 8.3,
+        "sequence_time_s": 8.3,
+        "video_time_s": 25.32
+      },
+      {
+        "actual_image": "camera_view_assets/f_000067.jpg",
+        "down": [
+          -0.11820569290589532,
+          -0.9700047618334521,
+          -0.21241039566147688
+        ],
+        "file": "f_000067.jpg",
+        "forward": [
+          0.13331542015514,
+          0.19647090724275496,
+          -0.9714042316955733
+        ],
+        "frame": 67,
+        "frame_image": "camera_view_assets/f_000067.jpg",
+        "position": [
+          -0.09380115321508879,
+          -0.04988214774503879,
+          -0.29595799822554086
+        ],
+        "render_image": "camera_view_assets/f_000067_vggt_render.jpg",
+        "right": [
+          0.9839991935532751,
+          -0.14314309144222345,
+          0.10609261264983343
+        ],
+        "segment_time_s": 8.4,
+        "sequence_time_s": 8.4,
+        "video_time_s": 25.42
+      },
+      {
+        "actual_image": "camera_view_assets/f_000068.jpg",
+        "down": [
+          -0.07964616006147406,
+          -0.9735481366510931,
+          -0.2141506824893316
+        ],
+        "file": "f_000068.jpg",
+        "forward": [
+          0.13241057626937305,
+          0.20259684151438084,
+          -0.9702690137793794
+        ],
+        "frame": 68,
+        "frame_image": "camera_view_assets/f_000068.jpg",
+        "position": [
+          -0.09390089629748548,
+          -0.0501274145407655,
+          -0.30644593175666124
+        ],
+        "render_image": "camera_view_assets/f_000068_vggt_render.jpg",
+        "right": [
+          0.9879898422956963,
+          -0.10563401645105298,
+          0.11277200933274212
+        ],
+        "segment_time_s": 8.5,
+        "sequence_time_s": 8.5,
+        "video_time_s": 25.52
+      },
+      {
+        "actual_image": "camera_view_assets/f_000069.jpg",
+        "down": [
+          -0.052593936744424176,
+          -0.9770017286209519,
+          -0.2066434128865359
+        ],
+        "file": "f_000069.jpg",
+        "forward": [
+          0.14341263169580995,
+          0.19739519820476484,
+          -0.9697772696840155
+        ],
+        "frame": 69,
+        "frame_image": "camera_view_assets/f_000069.jpg",
+        "position": [
+          -0.1016175339689069,
+          -0.04838706973144541,
+          -0.2915162075597197
+        ],
+        "render_image": "camera_view_assets/f_000069_vggt_render.jpg",
+        "right": [
+          0.988264486303037,
+          -0.08063968004260345,
+          0.12973259850485172
+        ],
+        "segment_time_s": 8.7,
+        "sequence_time_s": 8.7,
+        "video_time_s": 25.72
+      },
+      {
+        "actual_image": "camera_view_assets/f_000070.jpg",
+        "down": [
+          -0.04098845644583146,
+          -0.9777241280554052,
+          -0.20585304432163717
+        ],
+        "file": "f_000070.jpg",
+        "forward": [
+          0.15350119141991714,
+          0.1974183492146464,
+          -0.9682269256873772
+        ],
+        "frame": 70,
+        "frame_image": "camera_view_assets/f_000070.jpg",
+        "position": [
+          -0.10779468265098516,
+          -0.044602692226242274,
+          -0.2939743267310679
+        ],
+        "render_image": "camera_view_assets/f_000070_vggt_render.jpg",
+        "right": [
+          0.9872979948682435,
+          -0.07128481473400666,
+          0.14198994512811183
+        ],
+        "segment_time_s": 8.8,
+        "sequence_time_s": 8.8,
+        "video_time_s": 25.82
+      },
+      {
+        "actual_image": "camera_view_assets/f_000071.jpg",
+        "down": [
+          -0.033856565704057796,
+          -0.9748061509212589,
+          -0.2204692746956063
+        ],
+        "file": "f_000071.jpg",
+        "forward": [
+          0.14482233991891338,
+          0.21348232466856817,
+          -0.9661530866868432
+        ],
+        "frame": 71,
+        "frame_image": "camera_view_assets/f_000071.jpg",
+        "position": [
+          -0.10825855799466783,
+          -0.05071629804466643,
+          -0.2776697977528748
+        ],
+        "render_image": "camera_view_assets/f_000071_vggt_render.jpg",
+        "right": [
+          0.9888782649139062,
+          -0.06463950170123475,
+          0.13394592939196978
+        ],
+        "segment_time_s": 8.9,
+        "sequence_time_s": 8.9,
+        "video_time_s": 25.92
+      },
+      {
+        "actual_image": "camera_view_assets/f_000072.jpg",
+        "down": [
+          -0.010392540525668537,
+          -0.9766951882373691,
+          -0.21437934689561985
+        ],
+        "file": "f_000072.jpg",
+        "forward": [
+          0.15176580633266004,
+          0.2103666120961347,
+          -0.9657706914912008
+        ],
+        "frame": 72,
+        "frame_image": "camera_view_assets/f_000072.jpg",
+        "position": [
+          -0.10781795801909802,
+          -0.04683637390879093,
+          -0.2867317526308027
+        ],
+        "render_image": "camera_view_assets/f_000072_vggt_render.jpg",
+        "right": [
+          0.988361844229946,
+          -0.04257226549250801,
+          0.14604268924261682
+        ],
+        "segment_time_s": 9,
+        "sequence_time_s": 9,
+        "video_time_s": 26.02
+      },
+      {
+        "actual_image": "camera_view_assets/f_000073.jpg",
+        "down": [
+          0.03596418826768741,
+          -0.978406923581586,
+          -0.20353493324209226
+        ],
+        "file": "f_000073.jpg",
+        "forward": [
+          0.14513398182416723,
+          0.206620993033593,
+          -0.9675969680386944
+        ],
+        "frame": 73,
+        "frame_image": "camera_view_assets/f_000073.jpg",
+        "position": [
+          -0.10992532481923946,
+          -0.0508649280528572,
+          -0.2825949479634504
+        ],
+        "render_image": "camera_view_assets/f_000073_vggt_render.jpg",
+        "right": [
+          0.9887581627891163,
+          0.005259004224046213,
+          0.14943104895724593
+        ],
+        "segment_time_s": 9.2,
+        "sequence_time_s": 9.2,
+        "video_time_s": 26.22
+      },
+      {
+        "actual_image": "camera_view_assets/f_000074.jpg",
+        "down": [
+          0.0414212937861465,
+          -0.9822413401594541,
+          -0.18299242088906698
+        ],
+        "file": "f_000074.jpg",
+        "forward": [
+          0.1187473551308586,
+          0.1866911190617295,
+          -0.9752156129353677
+        ],
+        "frame": 74,
+        "frame_image": "camera_view_assets/f_000074.jpg",
+        "position": [
+          -0.09139849949111689,
+          -0.03957492618144839,
+          -0.2846033486558409
+        ],
+        "render_image": "camera_view_assets/f_000074_vggt_render.jpg",
+        "right": [
+          0.9920601504296539,
+          0.018664826418663218,
+          0.1243715489340455
+        ],
+        "segment_time_s": 9.3,
+        "sequence_time_s": 9.3,
+        "video_time_s": 26.32
+      },
+      {
+        "actual_image": "camera_view_assets/f_000075.jpg",
+        "down": [
+          0.03441486342351625,
+          -0.9825271762063589,
+          -0.18290971869066838
+        ],
+        "file": "f_000075.jpg",
+        "forward": [
+          0.12269598646229239,
+          0.1857873621021552,
+          -0.9748993542869785
+        ],
+        "frame": 75,
+        "frame_image": "camera_view_assets/f_000075.jpg",
+        "position": [
+          -0.09577340674432155,
+          -0.03941366057869098,
+          -0.2824091740503947
+        ],
+        "render_image": "camera_view_assets/f_000075_vggt_render.jpg",
+        "right": [
+          0.9918474237913741,
+          0.01110873976116858,
+          0.12694598780321084
+        ],
+        "segment_time_s": 9.4,
+        "sequence_time_s": 9.4,
+        "video_time_s": 26.42
+      },
+      {
+        "actual_image": "camera_view_assets/f_000076.jpg",
+        "down": [
+          0.09741096028404649,
+          -0.9804500443117653,
+          -0.17096436887725347
+        ],
+        "file": "f_000076.jpg",
+        "forward": [
+          0.10725034711264236,
+          0.18112221348135368,
+          -0.977595062808642
+        ],
+        "frame": 76,
+        "frame_image": "camera_view_assets/f_000076.jpg",
+        "position": [
+          -0.09141182046770056,
+          -0.045108629016033464,
+          -0.2689795731323493
+        ],
+        "render_image": "camera_view_assets/f_000076_vggt_render.jpg",
+        "right": [
+          0.9894485675671867,
+          0.07689248593115328,
+          0.12279689632303316
+        ],
+        "segment_time_s": 9.6,
+        "sequence_time_s": 9.6,
+        "video_time_s": 26.62
+      },
+      {
+        "actual_image": "camera_view_assets/f_000077.jpg",
+        "down": [
+          0.09282913726892401,
+          -0.9793580650648761,
+          -0.17955648600451415
+        ],
+        "file": "f_000077.jpg",
+        "forward": [
+          0.11116442384278814,
+          0.18940183811846947,
+          -0.9755867027532951
+        ],
+        "frame": 77,
+        "frame_image": "camera_view_assets/f_000077.jpg",
+        "position": [
+          -0.08937696751951232,
+          -0.04858420979537528,
+          -0.2833095208732081
+        ],
+        "render_image": "camera_view_assets/f_000077_vggt_render.jpg",
+        "right": [
+          0.9894570340068376,
+          0.07060257863369511,
+          0.1264517842684107
+        ],
+        "segment_time_s": 9.7,
+        "sequence_time_s": 9.7,
+        "video_time_s": 26.72
+      },
+      {
+        "actual_image": "camera_view_assets/f_000078.jpg",
+        "down": [
+          0.1123876068821663,
+          -0.9788342178491135,
+          -0.17103391414282115
+        ],
+        "file": "f_000078.jpg",
+        "forward": [
+          0.10853338493343123,
+          0.18318696901514056,
+          -0.9770685946943221
+        ],
+        "frame": 78,
+        "frame_image": "camera_view_assets/f_000078.jpg",
+        "position": [
+          -0.0936712200274599,
+          -0.043389147054984346,
+          -0.27417132681468587
+        ],
+        "render_image": "camera_view_assets/f_000078_vggt_render.jpg",
+        "right": [
+          0.9877193580031685,
+          0.09124751147708193,
+          0.1268241360114411
+        ],
+        "segment_time_s": 9.8,
+        "sequence_time_s": 9.8,
+        "video_time_s": 26.82
+      },
+      {
+        "actual_image": "camera_view_assets/f_000079.jpg",
+        "down": [
+          0.1505863476799547,
+          -0.9747771277568827,
+          -0.16472189622042918
+        ],
+        "file": "f_000079.jpg",
+        "forward": [
+          0.10521398233874714,
+          0.1814780775499071,
+          -0.9777503389358715
+        ],
+        "frame": 79,
+        "frame_image": "camera_view_assets/f_000079.jpg",
+        "position": [
+          -0.09546767572289792,
+          -0.04256574806442706,
+          -0.2646367648048396
+        ],
+        "render_image": "camera_view_assets/f_000079_vggt_render.jpg",
+        "right": [
+          0.9829820801076862,
+          0.12990480580344954,
+          0.12988830438624743
+        ],
+        "segment_time_s": 9.9,
+        "sequence_time_s": 9.9,
+        "video_time_s": 26.92
+      },
+      {
+        "actual_image": "camera_view_assets/f_000080.jpg",
+        "down": [
+          0.18453663540618442,
+          -0.9689315886834999,
+          -0.1646748512804364
+        ],
+        "file": "f_000080.jpg",
+        "forward": [
+          0.08600287154053628,
+          0.1828294603311376,
+          -0.9793757677836464
+        ],
+        "frame": 80,
+        "frame_image": "camera_view_assets/f_000080.jpg",
+        "position": [
+          -0.08659843880550373,
+          -0.04194416801815345,
+          -0.25729553306417735
+        ],
+        "render_image": "camera_view_assets/f_000080_vggt_render.jpg",
+        "right": [
+          0.9790555327864436,
+          0.16656819890451444,
+          0.1170696324157514
+        ],
+        "segment_time_s": 10.1,
+        "sequence_time_s": 10.1,
+        "video_time_s": 27.12
+      },
+      {
+        "actual_image": "camera_view_assets/f_000081.jpg",
+        "down": [
+          0.19916903796661753,
+          -0.9696226580682322,
+          -0.14199857490886328
+        ],
+        "file": "f_000081.jpg",
+        "forward": [
+          0.07422198405450095,
+          0.15941118924323838,
+          -0.9844181884885457
+        ],
+        "frame": 81,
+        "frame_image": "camera_view_assets/f_000081.jpg",
+        "position": [
+          -0.0790286668683503,
+          -0.026574445387039448,
+          -0.26838630194444335
+        ],
+        "render_image": "camera_view_assets/f_000081_vggt_render.jpg",
+        "right": [
+          0.9771503422700447,
+          0.1855262075954565,
+          0.10371709066871336
+        ],
+        "segment_time_s": 10.2,
+        "sequence_time_s": 10.2,
+        "video_time_s": 27.22
+      },
+      {
+        "actual_image": "camera_view_assets/f_000082.jpg",
+        "down": [
+          0.23646699010668554,
+          -0.9592707365262647,
+          -0.1545413104455968
+        ],
+        "file": "f_000082.jpg",
+        "forward": [
+          0.07767548313655843,
+          0.17720621836078798,
+          -0.9811037027214662
+        ],
+        "frame": 82,
+        "frame_image": "camera_view_assets/f_000082.jpg",
+        "position": [
+          -0.08208425562199724,
+          -0.036202767328838564,
+          -0.2780859385026397
+        ],
+        "render_image": "camera_view_assets/f_000082_vggt_render.jpg",
+        "right": [
+          0.968529752722851,
+          0.21999456861165087,
+          0.11641523900240347
+        ],
+        "segment_time_s": 10.3,
+        "sequence_time_s": 10.3,
+        "video_time_s": 27.32
+      },
+      {
+        "actual_image": "camera_view_assets/f_000083.jpg",
+        "down": [
+          0.2416659838471186,
+          -0.9590080356755205,
+          -0.14799033671488096
+        ],
+        "file": "f_000083.jpg",
+        "forward": [
+          0.0791574542176844,
+          0.17148592113024144,
+          -0.9820013626751685
+        ],
+        "frame": 83,
+        "frame_image": "camera_view_assets/f_000083.jpg",
+        "position": [
+          -0.08566107341822363,
+          -0.035582591785591706,
+          -0.2825357215891365
+        ],
+        "render_image": "camera_view_assets/f_000083_vggt_render.jpg",
+        "right": [
+          0.9671254570597236,
+          0.22560178714693782,
+          0.11735494852424565
+        ],
+        "segment_time_s": 10.4,
+        "sequence_time_s": 10.4,
+        "video_time_s": 27.42
+      },
+      {
+        "actual_image": "camera_view_assets/f_000084.jpg",
+        "down": [
+          0.24276258110880616,
+          -0.9647265216522363,
+          -0.10182861893479485
+        ],
+        "file": "f_000084.jpg",
+        "forward": [
+          0.09459188264006949,
+          0.12800918128951908,
+          -0.9872517537306249
+        ],
+        "frame": 84,
+        "frame_image": "camera_view_assets/f_000084.jpg",
+        "position": [
+          -0.08420687952125458,
+          -0.04480909382288407,
+          -0.2900999586206796
+        ],
+        "render_image": "camera_view_assets/f_000084_vggt_render.jpg",
+        "right": [
+          0.9654629485133014,
+          0.23003562316816148,
+          0.12233113717135952
+        ],
+        "segment_time_s": 10.6,
+        "sequence_time_s": 10.6,
+        "video_time_s": 27.62
+      },
+      {
+        "actual_image": "camera_view_assets/f_000085.jpg",
+        "down": [
+          0.23583762060118163,
+          -0.9710667880736842,
+          -0.03754876575111174
+        ],
+        "file": "f_000085.jpg",
+        "forward": [
+          0.1143620359077638,
+          0.06610319108664232,
+          -0.9912374553411478
+        ],
+        "frame": 85,
+        "frame_image": "camera_view_assets/f_000085.jpg",
+        "position": [
+          -0.0965563189920402,
+          -0.045159001208314724,
+          -0.31550248648936513
+        ],
+        "render_image": "camera_view_assets/f_000085_vggt_render.jpg",
+        "right": [
+          0.9650398652139737,
+          0.2294769296213055,
+          0.12664279418653848
+        ],
+        "segment_time_s": 10.7,
+        "sequence_time_s": 10.7,
+        "video_time_s": 27.72
+      },
+      {
+        "actual_image": "camera_view_assets/f_000086.jpg",
+        "down": [
+          0.24458060501019513,
+          -0.9693475146891845,
+          -0.02336072384898198
+        ],
+        "file": "f_000086.jpg",
+        "forward": [
+          0.11992394451789855,
+          0.05414846522635,
+          -0.9913052966896216
+        ],
+        "frame": 86,
+        "frame_image": "camera_view_assets/f_000086.jpg",
+        "position": [
+          -0.09214721848672597,
+          -0.04993117082663518,
+          -0.32753489562820265
+        ],
+        "render_image": "camera_view_assets/f_000086_vggt_render.jpg",
+        "right": [
+          0.9621842729873082,
+          0.23965253906339534,
+          0.1294916419555828
+        ],
+        "segment_time_s": 10.8,
+        "sequence_time_s": 10.8,
+        "video_time_s": 27.82
+      },
+      {
+        "actual_image": "camera_view_assets/f_000087.jpg",
+        "down": [
+          0.23829460894431373,
+          -0.9710364119204115,
+          -0.017434622818104317
+        ],
+        "file": "f_000087.jpg",
+        "forward": [
+          0.12184849625492948,
+          0.047702181822655,
+          -0.9914017580223321
+        ],
+        "frame": 87,
+        "frame_image": "camera_view_assets/f_000087.jpg",
+        "position": [
+          -0.09278020219694075,
+          -0.04317297670318548,
+          -0.31856177471362046
+        ],
+        "render_image": "camera_view_assets/f_000087_vggt_render.jpg",
+        "right": [
+          0.9635188754292721,
+          0.23412131166147887,
+          0.12968649936450455
+        ],
+        "segment_time_s": 11,
+        "sequence_time_s": 11,
+        "video_time_s": 28.02
+      },
+      {
+        "actual_image": "camera_view_assets/f_000088.jpg",
+        "down": [
+          0.2413739886233756,
+          -0.9701958456459906,
+          -0.021415384827354125
+        ],
+        "file": "f_000088.jpg",
+        "forward": [
+          0.1289074061991365,
+          0.053927439961151374,
+          -0.9901892303222891
+        ],
+        "frame": 88,
+        "frame_image": "camera_view_assets/f_000088.jpg",
+        "position": [
+          -0.09396414693918573,
+          -0.04629767751791157,
+          -0.3226119443271906
+        ],
+        "render_image": "camera_view_assets/f_000088_vggt_render.jpg",
+        "right": [
+          0.961832354541608,
+          0.2362453223039507,
+          0.13808211124707317
+        ],
+        "segment_time_s": 11.1,
+        "sequence_time_s": 11.1,
+        "video_time_s": 28.12
+      },
+      {
+        "actual_image": "camera_view_assets/f_000089.jpg",
+        "down": [
+          0.24265293188212633,
+          -0.9695325038594872,
+          -0.03356007462687759
+        ],
+        "file": "f_000089.jpg",
+        "forward": [
+          0.11887091895470574,
+          0.06404849953120235,
+          -0.9908418109540318
+        ],
+        "frame": 89,
+        "frame_image": "camera_view_assets/f_000089.jpg",
+        "position": [
+          -0.09325605014468942,
+          -0.05046163675767188,
+          -0.32164990191892207
+        ],
+        "render_image": "camera_view_assets/f_000089_vggt_render.jpg",
+        "right": [
+          0.9628028143269379,
+          0.23644135354830595,
+          0.1307907758841313
+        ],
+        "segment_time_s": 11.2,
+        "sequence_time_s": 11.2,
+        "video_time_s": 28.22
+      },
+      {
+        "actual_image": "camera_view_assets/f_000090.jpg",
+        "down": [
+          0.3039325206331964,
+          -0.9525510355483695,
+          -0.01647870071579397
+        ],
+        "file": "f_000090.jpg",
+        "forward": [
+          0.12155022829661125,
+          0.055927290373384356,
+          -0.9910084158030813
+        ],
+        "frame": 90,
+        "frame_image": "camera_view_assets/f_000090.jpg",
+        "position": [
+          -0.09736357247598257,
+          -0.04655416919892459,
+          -0.3275112274696568
+        ],
+        "render_image": "camera_view_assets/f_000090_vggt_render.jpg",
+        "right": [
+          0.9449077017902824,
+          0.299196695949705,
+          0.13278091817044516
+        ],
+        "segment_time_s": 11.3,
+        "sequence_time_s": 11.3,
+        "video_time_s": 28.32
+      },
+      {
+        "actual_image": "camera_view_assets/f_000091.jpg",
+        "down": [
+          0.34369151854267277,
+          -0.938896982517223,
+          -0.018670733833602484
+        ],
+        "file": "f_000091.jpg",
+        "forward": [
+          0.11265924071022554,
+          0.060961903034410576,
+          -0.9917618372679091
+        ],
+        "frame": 91,
+        "frame_image": "camera_view_assets/f_000091.jpg",
+        "position": [
+          -0.09099181887778714,
+          -0.04874137433599892,
+          -0.3273283164717417
+        ],
+        "render_image": "camera_view_assets/f_000091_vggt_render.jpg",
+        "right": [
+          0.9323003998521223,
+          0.33875670118608237,
+          0.12672751018265999
+        ],
+        "segment_time_s": 11.5,
+        "sequence_time_s": 11.5,
+        "video_time_s": 28.52
+      },
+      {
+        "actual_image": "camera_view_assets/f_000092.jpg",
+        "down": [
+          0.34293525390795565,
+          -0.9392005372461663,
+          -0.017255795072924598
+        ],
+        "file": "f_000092.jpg",
+        "forward": [
+          0.10302145707825229,
+          0.055863020162107695,
+          -0.9931092096843336
+        ],
+        "frame": 92,
+        "frame_image": "camera_view_assets/f_000092.jpg",
+        "position": [
+          -0.0899395973831759,
+          -0.04783841752489656,
+          -0.32979029924175374
+        ],
+        "render_image": "camera_view_assets/f_000092_vggt_render.jpg",
+        "right": [
+          0.9336926641077137,
+          0.33879444182996965,
+          0.11591520683913505
+        ],
+        "segment_time_s": 11.6,
+        "sequence_time_s": 11.6,
+        "video_time_s": 28.62
+      },
+      {
+        "actual_image": "camera_view_assets/f_000093.jpg",
+        "down": [
+          0.34408337987587595,
+          -0.9387232104509622,
+          -0.020133600120998473
+        ],
+        "file": "f_000093.jpg",
+        "forward": [
+          0.10458568691281345,
+          0.059627118880499014,
+          -0.9927267704595186
+        ],
+        "frame": 93,
+        "frame_image": "camera_view_assets/f_000093.jpg",
+        "position": [
+          -0.08610249746657238,
+          -0.04819475912574948,
+          -0.35114181482380363
+        ],
+        "render_image": "camera_view_assets/f_000093_vggt_render.jpg",
+        "right": [
+          0.9330961696342819,
+          0.33947509607429155,
+          0.11869371238267816
+        ],
+        "segment_time_s": 11.7,
+        "sequence_time_s": 11.7,
+        "video_time_s": 28.72
+      },
+      {
+        "actual_image": "camera_view_assets/f_000094.jpg",
+        "down": [
+          0.35790267621553634,
+          -0.9335450761214661,
+          -0.01998162173406278
+        ],
+        "file": "f_000094.jpg",
+        "forward": [
+          0.10302443693087972,
+          0.06074791472957832,
+          -0.9928220667627624
+        ],
+        "frame": 94,
+        "frame_image": "camera_view_assets/f_000094.jpg",
+        "position": [
+          -0.08826010711832982,
+          -0.051350221681306804,
+          -0.3334588230424776
+        ],
+        "render_image": "camera_view_assets/f_000094_vggt_render.jpg",
+        "right": [
+          0.9280579937443738,
+          0.3532750793721149,
+          0.11791979707323857
+        ],
+        "segment_time_s": 11.8,
+        "sequence_time_s": 11.8,
+        "video_time_s": 28.82
+      },
+      {
+        "actual_image": "camera_view_assets/f_000095.jpg",
+        "down": [
+          0.355201521825399,
+          -0.9345927298897948,
+          -0.019191355607711486
+        ],
+        "file": "f_000095.jpg",
+        "forward": [
+          0.10055934199537113,
+          0.05861349256844199,
+          -0.9932030392756495
+        ],
+        "frame": 95,
+        "frame_image": "camera_view_assets/f_000095.jpg",
+        "position": [
+          -0.08700488876729826,
+          -0.05401791161408276,
+          -0.3449605747419019
+        ],
+        "render_image": "camera_view_assets/f_000095_vggt_render.jpg",
+        "right": [
+          0.9293652121907613,
+          0.35085736094041153,
+          0.11480163171118771
+        ],
+        "segment_time_s": 12,
+        "sequence_time_s": 12,
+        "video_time_s": 29.02
+      },
+      {
+        "actual_image": "camera_view_assets/f_000096.jpg",
+        "down": [
+          0.34378088300022813,
+          -0.9389314213021641,
+          -0.014916117962840852
+        ],
+        "file": "f_000096.jpg",
+        "forward": [
+          0.1175629359554876,
+          0.058792993165525186,
+          -0.9913235294514926
+        ],
+        "frame": 96,
+        "frame_image": "camera_view_assets/f_000096.jpg",
+        "position": [
+          -0.09313802497483789,
+          -0.054473880996642764,
+          -0.35844609761458146
+        ],
+        "render_image": "camera_view_assets/f_000096_vggt_render.jpg",
+        "right": [
+          0.9316617736996133,
+          0.33904449567296685,
+          0.13059544165381193
+        ],
+        "segment_time_s": 12.1,
+        "sequence_time_s": 12.1,
+        "video_time_s": 29.12
+      },
+      {
+        "actual_image": "camera_view_assets/f_000097.jpg",
+        "down": [
+          0.32394060364092425,
+          -0.9455207367738996,
+          -0.032450294964693364
+        ],
+        "file": "f_000097.jpg",
+        "forward": [
+          0.10304206739842293,
+          0.06935702864827166,
+          -0.9922559825586045
+        ],
+        "frame": 97,
+        "frame_image": "camera_view_assets/f_000097.jpg",
+        "position": [
+          -0.08544965923402391,
+          -0.06174013018248917,
+          -0.3583580491666471
+        ],
+        "render_image": "camera_view_assets/f_000097_vggt_render.jpg",
+        "right": [
+          0.9404492637346326,
+          0.3180882564755021,
+          0.11989596921232468
+        ],
+        "segment_time_s": 12.2,
+        "sequence_time_s": 12.2,
+        "video_time_s": 29.22
+      },
+      {
+        "actual_image": "camera_view_assets/f_000098.jpg",
+        "down": [
+          0.2108402345376969,
+          -0.9755793690048093,
+          -0.06157345428240169
+        ],
+        "file": "f_000098.jpg",
+        "forward": [
+          0.13446046923415306,
+          0.0913347009370338,
+          -0.9867007421797523
+        ],
+        "frame": 98,
+        "frame_image": "camera_view_assets/f_000098.jpg",
+        "position": [
+          -0.09000628646980272,
+          -0.0720866224955898,
+          -0.41225055016532763
+        ],
+        "render_image": "camera_view_assets/f_000098_vggt_render.jpg",
+        "right": [
+          0.9682286804848431,
+          0.19975702034451914,
+          0.15043388949854022
+        ],
+        "segment_time_s": 0,
+        "sequence_time_s": 12.433,
+        "video_time_s": 34.553
+      },
+      {
+        "actual_image": "camera_view_assets/f_000099.jpg",
+        "down": [
+          0.17423566149322367,
+          -0.9827064838635,
+          -0.06268892116359474
+        ],
+        "file": "f_000099.jpg",
+        "forward": [
+          0.13046164460646598,
+          0.08613883367724069,
+          -0.9877043386658281
+        ],
+        "frame": 99,
+        "frame_image": "camera_view_assets/f_000099.jpg",
+        "position": [
+          -0.08314452229752893,
+          -0.06318854815364405,
+          -0.4375757069223399
+        ],
+        "render_image": "camera_view_assets/f_000099_vggt_render.jpg",
+        "right": [
+          0.976023408300536,
+          0.16391481905355992,
+          0.14321396071627854
+        ],
+        "segment_time_s": 0.1,
+        "sequence_time_s": 12.533,
+        "video_time_s": 34.653
+      },
+      {
+        "actual_image": "camera_view_assets/f_000100.jpg",
+        "down": [
+          0.10262498521061743,
+          -0.9916089933208769,
+          -0.07861117462344369
+        ],
+        "file": "f_000100.jpg",
+        "forward": [
+          0.13235647985910692,
+          0.09193819488755003,
+          -0.9869291416105438
+        ],
+        "frame": 100,
+        "frame_image": "camera_view_assets/f_000100.jpg",
+        "position": [
+          -0.07940508210023081,
+          -0.06760655895085275,
+          -0.4384736004738613
+        ],
+        "render_image": "camera_view_assets/f_000100_vggt_render.jpg",
+        "right": [
+          0.9858751820843379,
+          0.09087889021096085,
+          0.14068103164320964
+        ],
+        "segment_time_s": 0.2,
+        "sequence_time_s": 12.633,
+        "video_time_s": 34.753
+      },
+      {
+        "actual_image": "camera_view_assets/f_000101.jpg",
+        "down": [
+          0.08464941834010593,
+          -0.9922588739627188,
+          -0.09086695228144917
+        ],
+        "file": "f_000101.jpg",
+        "forward": [
+          0.1322472480247518,
+          0.10157564168760788,
+          -0.9859985062897563
+        ],
+        "frame": 101,
+        "frame_image": "camera_view_assets/f_000101.jpg",
+        "position": [
+          -0.07396763168469263,
+          -0.06986607066077952,
+          -0.4476273012742449
+        ],
+        "render_image": "camera_view_assets/f_000101_vggt_render.jpg",
+        "right": [
+          0.9875956365661818,
+          0.07144729566602308,
+          0.13982182439608762
+        ],
+        "segment_time_s": 0.3,
+        "sequence_time_s": 12.733,
+        "video_time_s": 34.853
+      },
+      {
+        "actual_image": "camera_view_assets/f_000102.jpg",
+        "down": [
+          0.04183408872906327,
+          -0.9938837997777371,
+          -0.10220030117165
+        ],
+        "file": "f_000102.jpg",
+        "forward": [
+          0.13782688391098916,
+          0.10705255235726753,
+          -0.984654000705416
+        ],
+        "frame": 102,
+        "frame_image": "camera_view_assets/f_000102.jpg",
+        "position": [
+          -0.07489056974126806,
+          -0.06755190467440648,
+          -0.4673022928837846
+        ],
+        "render_image": "camera_view_assets/f_000102_vggt_render.jpg",
+        "right": [
+          0.9895724627795559,
+          0.02710615378768436,
+          0.14146235306696553
+        ],
+        "segment_time_s": 0.5,
+        "sequence_time_s": 12.933,
+        "video_time_s": 35.053
+      },
+      {
+        "actual_image": "camera_view_assets/f_000103.jpg",
+        "down": [
+          0.05656341693933576,
+          -0.9924584447261238,
+          -0.10875116254988114
+        ],
+        "file": "f_000103.jpg",
+        "forward": [
+          0.14868563488447561,
+          0.11608441519013521,
+          -0.9820473463784548
+        ],
+        "frame": 103,
+        "frame_image": "camera_view_assets/f_000103.jpg",
+        "position": [
+          -0.08287208751247255,
+          -0.07773167021527339,
+          -0.47588787485434014
+        ],
+        "render_image": "camera_view_assets/f_000103_vggt_render.jpg",
+        "right": [
+          0.9872654971400284,
+          0.03937821785921894,
+          0.1541304451271215
+        ],
+        "segment_time_s": 0.6,
+        "sequence_time_s": 13.033,
+        "video_time_s": 35.153
+      },
+      {
+        "actual_image": "camera_view_assets/f_000104.jpg",
+        "down": [
+          0.0633831295360791,
+          -0.991594772081879,
+          -0.11279355863744699
+        ],
+        "file": "f_000104.jpg",
+        "forward": [
+          0.13684102833138073,
+          0.12058852170227533,
+          -0.9832257835303497
+        ],
+        "frame": 104,
+        "frame_image": "camera_view_assets/f_000104.jpg",
+        "position": [
+          -0.07384144048433353,
+          -0.07716493378844172,
+          -0.49213183077998446
+        ],
+        "render_image": "camera_view_assets/f_000104_vggt_render.jpg",
+        "right": [
+          0.9885631552184326,
+          0.04688514064761288,
+          0.14333412619132502
+        ],
+        "segment_time_s": 0.7,
+        "sequence_time_s": 13.133,
+        "video_time_s": 35.253
+      },
+      {
+        "actual_image": "camera_view_assets/f_000105.jpg",
+        "down": [
+          0.21463109186445453,
+          -0.9695527353974716,
+          -0.11790244988274205
+        ],
+        "file": "f_000105.jpg",
+        "forward": [
+          0.1311346946835481,
+          0.14822912782904565,
+          -0.9802202902987129
+        ],
+        "frame": 105,
+        "frame_image": "camera_view_assets/f_000105.jpg",
+        "position": [
+          -0.08362299288350941,
+          -0.08882739464360466,
+          -0.4799137166005845
+        ],
+        "render_image": "camera_view_assets/f_000105_vggt_render.jpg",
+        "right": [
+          0.9678518410662474,
+          0.19492464940668966,
+          0.1589565814880102
+        ],
+        "segment_time_s": 0.9,
+        "sequence_time_s": 13.333,
+        "video_time_s": 35.453
+      },
+      {
+        "actual_image": "camera_view_assets/f_000106.jpg",
+        "down": [
+          0.17674675989842756,
+          -0.9783219817094617,
+          -0.10791979878353714
+        ],
+        "file": "f_000106.jpg",
+        "forward": [
+          0.12589529153092113,
+          0.13121658499359293,
+          -0.9833273022717123
+        ],
+        "frame": 106,
+        "frame_image": "camera_view_assets/f_000106.jpg",
+        "position": [
+          -0.07335157327054727,
+          -0.0804185357657141,
+          -0.5252698963715617
+        ],
+        "render_image": "camera_view_assets/f_000106_vggt_render.jpg",
+        "right": [
+          0.976171582477052,
+          0.1602133200663751,
+          0.1463582373409754
+        ],
+        "segment_time_s": 1,
+        "sequence_time_s": 13.433,
+        "video_time_s": 35.553
+      },
+      {
+        "actual_image": "camera_view_assets/f_000107.jpg",
+        "down": [
+          0.16111230205637989,
+          -0.9787679029939585,
+          -0.1267131334744066
+        ],
+        "file": "f_000107.jpg",
+        "forward": [
+          0.16221464533626442,
+          0.15290587488051885,
+          -0.9748365002734833
+        ],
+        "frame": 107,
+        "frame_image": "camera_view_assets/f_000107.jpg",
+        "position": [
+          -0.08430771522262037,
+          -0.08042346281039407,
+          -0.5262128987760227
+        ],
+        "render_image": "camera_view_assets/f_000107_vggt_render.jpg",
+        "right": [
+          0.9735138596674029,
+          0.13650342668164808,
+          0.18340550575062944
+        ],
+        "segment_time_s": 1.1,
+        "sequence_time_s": 13.533,
+        "video_time_s": 35.653
+      },
+      {
+        "actual_image": "camera_view_assets/f_000108.jpg",
+        "down": [
+          0.11975463646229698,
+          -0.9827290500143376,
+          -0.14107601250283644
+        ],
+        "file": "f_000108.jpg",
+        "forward": [
+          0.15497538451492646,
+          0.15886055607733923,
+          -0.9750620256769562
+        ],
+        "frame": 108,
+        "frame_image": "camera_view_assets/f_000108.jpg",
+        "position": [
+          -0.0780275342559589,
+          -0.07588897450221502,
+          -0.537048037143111
+        ],
+        "render_image": "camera_view_assets/f_000108_vggt_render.jpg",
+        "right": [
+          0.9806331919939453,
+          0.09490488912967512,
+          0.1713231005412005
+        ],
+        "segment_time_s": 1.2,
+        "sequence_time_s": 13.633,
+        "video_time_s": 35.753
+      },
+      {
+        "actual_image": "camera_view_assets/f_000109.jpg",
+        "down": [
+          0.12173550635785917,
+          -0.9820709694993895,
+          -0.14393428138676645
+        ],
+        "file": "f_000109.jpg",
+        "forward": [
+          0.16646143796181048,
+          0.163159234528593,
+          -0.9724554765436462
+        ],
+        "frame": 109,
+        "frame_image": "camera_view_assets/f_000109.jpg",
+        "position": [
+          -0.08237326370298867,
+          -0.07708635522041737,
+          -0.5449783129268815
+        ],
+        "render_image": "camera_view_assets/f_000109_vggt_render.jpg",
+        "right": [
+          0.9785044998176974,
+          0.094422852395873,
+          0.18333921779571663
+        ],
+        "segment_time_s": 1.4,
+        "sequence_time_s": 13.833,
+        "video_time_s": 35.953
+      },
+      {
+        "actual_image": "camera_view_assets/f_000110.jpg",
+        "down": [
+          0.11041228869940663,
+          -0.9847852782530648,
+          -0.13419047000511078
+        ],
+        "file": "f_000110.jpg",
+        "forward": [
+          0.15837268171016122,
+          0.15072358965430485,
+          -0.9758076107561637
+        ],
+        "frame": 110,
+        "frame_image": "camera_view_assets/f_000110.jpg",
+        "position": [
+          -0.07544461194938722,
+          -0.0690846879988513,
+          -0.5465783246513743
+        ],
+        "render_image": "camera_view_assets/f_000110_vggt_render.jpg",
+        "right": [
+          0.9811866388165357,
+          0.0864890470392314,
+          0.17260482192034718
+        ],
+        "segment_time_s": 1.5,
+        "sequence_time_s": 13.933,
+        "video_time_s": 36.053
+      },
+      {
+        "actual_image": "camera_view_assets/f_000111.jpg",
+        "down": [
+          0.10405552035379262,
+          -0.9867914728161299,
+          -0.12415731094573036
+        ],
+        "file": "f_000111.jpg",
+        "forward": [
+          0.15663796962130133,
+          0.1395368658452959,
+          -0.977749461540628
+        ],
+        "frame": 111,
+        "frame_image": "camera_view_assets/f_000111.jpg",
+        "position": [
+          -0.07369927912565531,
+          -0.06969201572547852,
+          -0.561589116572731
+        ],
+        "render_image": "camera_view_assets/f_000111_vggt_render.jpg",
+        "right": [
+          0.9821593532400014,
+          0.08229247989607082,
+          0.16908859392560177
+        ],
+        "segment_time_s": 1.6,
+        "sequence_time_s": 14.033,
+        "video_time_s": 36.153
+      },
+      {
+        "actual_image": "camera_view_assets/f_000112.jpg",
+        "down": [
+          0.0877865098935171,
+          -0.9902905138234951,
+          -0.10778787924397372
+        ],
+        "file": "f_000112.jpg",
+        "forward": [
+          0.1623072207481823,
+          0.12097925499570905,
+          -0.9792958623182699
+        ],
+        "frame": 112,
+        "frame_image": "camera_view_assets/f_000112.jpg",
+        "position": [
+          -0.06732254993419161,
+          -0.07518335508823763,
+          -0.5671058556880746
+        ],
+        "render_image": "camera_view_assets/f_000112_vggt_render.jpg",
+        "right": [
+          0.9828275000088857,
+          0.06847421479565312,
+          0.17135164759757204
+        ],
+        "segment_time_s": 1.7,
+        "sequence_time_s": 14.133,
+        "video_time_s": 36.253
+      },
+      {
+        "actual_image": "camera_view_assets/f_000113.jpg",
+        "down": [
+          -0.0055015837463389125,
+          -0.9975793034191189,
+          -0.06932002572206293
+        ],
+        "file": "f_000113.jpg",
+        "forward": [
+          0.18967758711435162,
+          0.06702157884108349,
+          -0.9795562877732581
+        ],
+        "frame": 113,
+        "frame_image": "camera_view_assets/f_000113.jpg",
+        "position": [
+          -0.06388027471391657,
+          -0.07035596054351533,
+          -0.6283107287115681
+        ],
+        "render_image": "camera_view_assets/f_000113_vggt_render.jpg",
+        "right": [
+          0.981831016785862,
+          -0.018537566169103126,
+          0.18884971039894807
+        ],
+        "segment_time_s": 1.9,
+        "sequence_time_s": 14.333,
+        "video_time_s": 36.453
+      },
+      {
+        "actual_image": "camera_view_assets/f_000114.jpg",
+        "down": [
+          -0.01606653581395076,
+          -0.9983471589743599,
+          -0.055179856784547655
+        ],
+        "file": "f_000114.jpg",
+        "forward": [
+          0.18790892305777399,
+          0.051188814614833884,
+          -0.9808516411229559
+        ],
+        "frame": 114,
+        "frame_image": "camera_view_assets/f_000114.jpg",
+        "position": [
+          -0.05695549673787734,
+          -0.06726257681902284,
+          -0.6420402679707172
+        ],
+        "render_image": "camera_view_assets/f_000114_vggt_render.jpg",
+        "right": [
+          0.9820550407498588,
+          -0.02612767548314091,
+          0.18677591255737733
+        ],
+        "segment_time_s": 2,
+        "sequence_time_s": 14.433,
+        "video_time_s": 36.553
+      },
+      {
+        "actual_image": "camera_view_assets/f_000115.jpg",
+        "down": [
+          -0.01336074126317683,
+          -0.9982830795027386,
+          -0.057029674481161925
+        ],
+        "file": "f_000115.jpg",
+        "forward": [
+          0.18389971909319644,
+          0.05360860685853014,
+          -0.9814820480213232
+        ],
+        "frame": 115,
+        "frame_image": "camera_view_assets/f_000115.jpg",
+        "position": [
+          -0.06035216461676209,
+          -0.06632123928569929,
+          -0.6403290609273339
+        ],
+        "render_image": "camera_view_assets/f_000115_vggt_render.jpg",
+        "right": [
+          0.9828542027739119,
+          -0.023601068815127905,
+          0.18286772717032854
+        ],
+        "segment_time_s": 2.1,
+        "sequence_time_s": 14.533,
+        "video_time_s": 36.653
+      },
+      {
+        "actual_image": "camera_view_assets/f_000116.jpg",
+        "down": [
+          -0.00036199455696535185,
+          -0.998529972844412,
+          -0.05420112813658397
+        ],
+        "file": "f_000116.jpg",
+        "forward": [
+          0.1905366607741013,
+          0.05313929934902006,
+          -0.9802407845859865
+        ],
+        "frame": 116,
+        "frame_image": "camera_view_assets/f_000116.jpg",
+        "position": [
+          -0.05143149204214477,
+          -0.06250014918547141,
+          -0.6627256675627832
+        ],
+        "render_image": "camera_view_assets/f_000116_vggt_render.jpg",
+        "right": [
+          0.9816800139867349,
+          -0.010682143793869472,
+          0.19023733057150305
+        ],
+        "segment_time_s": 2.3,
+        "sequence_time_s": 14.733,
+        "video_time_s": 36.853
+      },
+      {
+        "actual_image": "camera_view_assets/f_000117.jpg",
+        "down": [
+          -0.026505098535351587,
+          -0.998083086137635,
+          -0.05592524401024702
+        ],
+        "file": "f_000117.jpg",
+        "forward": [
+          0.2137722780166086,
+          0.0489915600151046,
+          -0.9756542626355282
+        ],
+        "frame": 117,
+        "frame_image": "camera_view_assets/f_000117.jpg",
+        "position": [
+          -0.053779504516324524,
+          -0.0605311945677423,
+          -0.6857730118701317
+        ],
+        "render_image": "camera_view_assets/f_000117_vggt_render.jpg",
+        "right": [
+          0.976523882402894,
+          -0.03781507917829568,
+          0.21206396884788828
+        ],
+        "segment_time_s": 2.4,
+        "sequence_time_s": 14.833,
+        "video_time_s": 36.953
+      },
+      {
+        "actual_image": "camera_view_assets/f_000118.jpg",
+        "down": [
+          -0.057831164916389274,
+          -0.9960085275980565,
+          -0.06798947945355198
+        ],
+        "file": "f_000118.jpg",
+        "forward": [
+          0.243594504529753,
+          0.051966789968637114,
+          -0.968483954489314
+        ],
+        "frame": 118,
+        "frame_image": "camera_view_assets/f_000118.jpg",
+        "position": [
+          -0.06321346403228816,
+          -0.06677591388598358,
+          -0.6868267620324656
+        ],
+        "render_image": "camera_view_assets/f_000118_vggt_render.jpg",
+        "right": [
+          0.9681514725120846,
+          -0.07257041885167217,
+          0.23961690378680578
+        ],
+        "segment_time_s": 2.5,
+        "sequence_time_s": 14.933,
+        "video_time_s": 37.053
+      },
+      {
+        "actual_image": "camera_view_assets/f_000119.jpg",
+        "down": [
+          -0.1006119403289862,
+          -0.9912721803973703,
+          -0.08518627726036668
+        ],
+        "file": "f_000119.jpg",
+        "forward": [
+          0.26862001325708096,
+          0.05537658536951899,
+          -0.9616531195137766
+        ],
+        "frame": 119,
+        "frame_image": "camera_view_assets/f_000119.jpg",
+        "position": [
+          -0.06297008555177715,
+          -0.06969701802128615,
+          -0.6898201641126377
+        ],
+        "render_image": "camera_view_assets/f_000119_vggt_render.jpg",
+        "right": [
+          0.9579773097213744,
+          -0.11963652520470458,
+          0.2607040005368961
+        ],
+        "segment_time_s": 2.6,
+        "sequence_time_s": 15.033,
+        "video_time_s": 37.153
+      },
+      {
+        "actual_image": "camera_view_assets/f_000120.jpg",
+        "down": [
+          -0.08892012914714265,
+          -0.9946890415940656,
+          -0.05183552030350065
+        ],
+        "file": "f_000120.jpg",
+        "forward": [
+          0.250891928903385,
+          0.02799591979227979,
+          -0.9676101841579196
+        ],
+        "frame": 120,
+        "frame_image": "camera_view_assets/f_000120.jpg",
+        "position": [
+          -0.05105324368919508,
+          -0.06003824276903708,
+          -0.7110870015171753
+        ],
+        "render_image": "camera_view_assets/f_000120_vggt_render.jpg",
+        "right": [
+          0.9639224297855064,
+          -0.09904513621406857,
+          0.24707005150107197
+        ],
+        "segment_time_s": 2.8,
+        "sequence_time_s": 15.233,
+        "video_time_s": 37.353
+      },
+      {
+        "actual_image": "camera_view_assets/f_000121.jpg",
+        "down": [
+          -0.0938870656985198,
+          -0.994535613186651,
+          -0.045652305505571526
+        ],
+        "file": "f_000121.jpg",
+        "forward": [
+          0.280657544852831,
+          0.017555935335530334,
+          -0.9596473996482645
+        ],
+        "frame": 121,
+        "frame_image": "camera_view_assets/f_000121.jpg",
+        "position": [
+          -0.05354643739189129,
+          -0.058294573716585515,
+          -0.7178981830191253
+        ],
+        "render_image": "camera_view_assets/f_000121_vggt_render.jpg",
+        "right": [
+          0.9552049839755355,
+          -0.10291114243825539,
+          0.2774756482114244
+        ],
+        "segment_time_s": 2.9,
+        "sequence_time_s": 15.333,
+        "video_time_s": 37.453
+      },
+      {
+        "actual_image": "camera_view_assets/f_000122.jpg",
+        "down": [
+          -0.11119115725451179,
+          -0.9918458798851767,
+          -0.0622758147534176
+        ],
+        "file": "f_000122.jpg",
+        "forward": [
+          0.2919028910727222,
+          0.027304926226475925,
+          -0.9560581275148248
+        ],
+        "frame": 122,
+        "frame_image": "camera_view_assets/f_000122.jpg",
+        "position": [
+          -0.051992404985999226,
+          -0.057790532790329335,
+          -0.7204861843895599
+        ],
+        "render_image": "camera_view_assets/f_000122_vggt_render.jpg",
+        "right": [
+          0.9499627512338518,
+          -0.12448369997138688,
+          0.2864866134911802
+        ],
+        "segment_time_s": 3,
+        "sequence_time_s": 15.433,
+        "video_time_s": 37.553
+      },
+      {
+        "actual_image": "camera_view_assets/f_000123.jpg",
+        "down": [
+          -0.08457555414630055,
+          -0.9952196658940652,
+          -0.048834334832692214
+        ],
+        "file": "f_000123.jpg",
+        "forward": [
+          0.29587291434701524,
+          0.021716028542060863,
+          -0.9549804357473319
+        ],
+        "frame": 123,
+        "frame_image": "camera_view_assets/f_000123.jpg",
+        "position": [
+          -0.05017595729258929,
+          -0.05834305282771388,
+          -0.7212125678681071
+        ],
+        "render_image": "camera_view_assets/f_000123_vggt_render.jpg",
+        "right": [
+          0.9514757980088878,
+          -0.09521675651935278,
+          0.2926218978157382
+        ],
+        "segment_time_s": 3.1,
+        "sequence_time_s": 15.533,
+        "video_time_s": 37.653
+      },
+      {
+        "actual_image": "camera_view_assets/f_000124.jpg",
+        "down": [
+          -0.07069299943889262,
+          -0.9962329010585026,
+          -0.05022456250573498
+        ],
+        "file": "f_000124.jpg",
+        "forward": [
+          0.2989342878986025,
+          0.026877653973220096,
+          -0.9538951112336467
+        ],
+        "frame": 124,
+        "frame_image": "camera_view_assets/f_000124.jpg",
+        "position": [
+          -0.04951708108700625,
+          -0.056981155230880626,
+          -0.7416995469730356
+        ],
+        "render_image": "camera_view_assets/f_000124_vggt_render.jpg",
+        "right": [
+          0.9516516123818045,
+          -0.08244755039087334,
+          0.29590811088183483
+        ],
+        "segment_time_s": 3.3,
+        "sequence_time_s": 15.733,
+        "video_time_s": 37.853
+      },
+      {
+        "actual_image": "camera_view_assets/f_000125.jpg",
+        "down": [
+          -0.06010026227371837,
+          -0.9970428168127988,
+          -0.047891334462823024
+        ],
+        "file": "f_000125.jpg",
+        "forward": [
+          0.3446678313806293,
+          0.024298944685736013,
+          -0.9384101700741172
+        ],
+        "frame": 125,
+        "frame_image": "camera_view_assets/f_000125.jpg",
+        "position": [
+          -0.04779526034184572,
+          -0.05595422348778481,
+          -0.7482517680284307
+        ],
+        "render_image": "camera_view_assets/f_000125_vggt_render.jpg",
+        "right": [
+          0.9367988281835137,
+          -0.07290529973300472,
+          0.3421882125159142
+        ],
+        "segment_time_s": 3.4,
+        "sequence_time_s": 15.833,
+        "video_time_s": 37.953
+      }
+    ]
+  },
+  "points": {
+    "colors": {
+      "bytes": 3000000,
+      "dtype": "uint8",
+      "path": "https://d2fioemadmrru3.cloudfront.net/scenes/2026-05-08_humvee_bayyadah_mmirleb_16048/2026-05-08_humvee_bayyadah_mmirleb_16048_seg03_seg04/viewer/points_colors.bin",
+      "shape": [
+        1000000,
+        3
+      ]
+    },
+    "point_count": 1000000,
+    "positions": {
+      "bytes": 12000000,
+      "dtype": "float32_le",
+      "path": "https://d2fioemadmrru3.cloudfront.net/scenes/2026-05-08_humvee_bayyadah_mmirleb_16048/2026-05-08_humvee_bayyadah_mmirleb_16048_seg03_seg04/viewer/points_positions.bin",
+      "shape": [
+        1000000,
+        3
+      ]
+    }
+  },
+  "reference_window": "seg03_seg04",
+  "scale_status": "relative_only",
+  "schema_version": 1,
+  "slug": "2026-05-08_humvee_bayyadah_mmirleb_16048",
+  "source_page_url": "https://www.itamarweiss.com/fpv/scene/2026-05-08_humvee_bayyadah_mmirleb_16048/",
+  "source_scene_meta_url": "https://d2fioemadmrru3.cloudfront.net/scenes/2026-05-08_humvee_bayyadah_mmirleb_16048/2026-05-08_humvee_bayyadah_mmirleb_16048_seg03_seg04/viewer/scene_meta.json",
+  "source_scene_path": "2026-05-08_humvee_bayyadah_mmirleb_16048/2026-05-08_humvee_bayyadah_mmirleb_16048_seg03_seg04",
+  "variant": "itamar_published_scene",
+  "warnings": [
+    "Reference Omega is a separate published reconstruction window.",
+    "R3, LingBot, and HLoc remain in their native coordinate frames.",
+    "No metric scale is imported from the reference viewer."
+  ],
+  "window_match": false
+}

@@ -10,7 +10,7 @@
     "viewer_runtime_sha256": {
       "app.js": "1a457050230f5c29af47afe478319e73b55a7f4d05380af9c4383bea9f782685",
       "method-scene3d.css": "1f2be35553b950b88f922e8b1f9da77a4629df83e19fb8b25d4a2e2dc2a62c39",
-      "method-scene3d.js": "baa6695edb57402a694db6455d3d4270085078a9a0e2314b6d277c989a8319fd",
+      "method-scene3d.js": "45f759788e6c7401aceca61a51f825cf89f8d166cd37b6b90608c3bb8f1484bf",
       "scene-reference-addon.js": "1f7589dbbe13f22d9342093e268d6b61e8534ffdd66a604fc565c1220407747d",
       "sixdof-addon.js": "c1292d9921099996eb9b81e3a3d59180a7fd625c1681a22c28ad9ca5f9c8aecb",
       "styles.css": "717450c5eb426a2beab4bf7387f996ac2fc036616ccec3e639c11884198f1286"

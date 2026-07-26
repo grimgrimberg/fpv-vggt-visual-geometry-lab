@@ -156,6 +156,15 @@
       "samples": [],
       "status": "not_published"
     },
+    "reference_omega": {
+      "local_method_window": "seg01_seg02_seg03_seg04",
+      "path": "reference_omega.json",
+      "point_count": 1000000,
+      "pose_count": 125,
+      "reference_window": "seg03_seg04",
+      "scale_status": "relative_only",
+      "window_match": false
+    },
     "reprojection": {
       "reason": "rendered source-frame overlays are not copied",
       "samples": [],

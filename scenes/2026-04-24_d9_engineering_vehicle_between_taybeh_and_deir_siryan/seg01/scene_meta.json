@@ -143,6 +143,15 @@
       "reason": "local rendered images are not copied into the public package",
       "status": "not_published"
     },
+    "reference_omega": {
+      "local_method_window": "seg01",
+      "path": "reference_omega.json",
+      "point_count": 1000000,
+      "pose_count": 125,
+      "reference_window": "seg01",
+      "scale_status": "relative_only",
+      "window_match": true
+    },
     "reprojection": {
       "reason": "rendered source-frame overlays are kept local; public cockpit uses geometry, trajectories, and remote video",
       "samples": [],
