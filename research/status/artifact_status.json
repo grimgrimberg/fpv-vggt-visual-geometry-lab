@@ -7,7 +7,7 @@
     "hero_gallery": "hero_gallery.html",
     "live_status": "live_status.html"
   },
-  "generated_at": "2026-07-25T13:10:57.356443Z",
+  "generated_at": "2026-07-26T08:16:58.252454Z",
   "heroes": [
     {
       "annotation_kind": "manual_ground_truth",
@@ -210,12 +210,16 @@
     "invalid_detailed_scenes": 0,
     "local_path_published": false,
     "public_counts": {
+      "annotation_records": 142,
+      "annotation_source_records": 143,
       "catalog_records": 161,
       "detailed_geometry_scenes": 13,
       "experimental_case_studies": 2,
       "featured_eligible_scenes": 3,
       "method_evidence_records": 13,
       "partial_ensemble_webgl_scenes": 2,
+      "vggt_done_records": 135,
+      "vggt_partial_records": 4,
       "webgl_detailed_scenes": 13
     },
     "scale_states": {

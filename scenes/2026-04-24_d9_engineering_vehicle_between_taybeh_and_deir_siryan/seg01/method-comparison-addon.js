@@ -38,6 +38,24 @@
   dock.innerHTML=`<div class="method-dock-head"><strong>Method-native I/O</strong><span>same sample · independent outputs</span><div class="method-tabs"><button type="button" data-view="depth" class="active">Depth outputs</button><button type="button" data-view="consistency">Consistency</button><button type="button" data-view="matches">Matches / COLMAP</button><button type="button" data-view="masks">Mask status</button></div><button class="method-close" type="button" aria-label="Close method comparison">×</button></div><div class="method-content"></div><div class="method-evidence"></div>`;
   workspace.appendChild(dock);
   const content=dock.querySelector(".method-content"),evidence=dock.querySelector(".method-evidence");let view="depth";
+  function nativeSupport(layerId){
+    const alignment=manifest.geometry_layers?.layers?.[layerId]?.alignment;
+    if(!alignment)return"native frame · alignment evidence unavailable";
+    const matched=Number(alignment.matched_count),inliers=Number(alignment.inlier_count);
+    const support=Number.isFinite(matched)&&Number.isFinite(inliers)?`${inliers}/${matched} camera-center inliers`:"camera support unavailable";
+    return alignment.status==="available"?`aligned · ${support}`:`native only · ${support} · Omega overlay withheld`;
+  }
+  const reliabilityObserver=new MutationObserver(()=>{
+    [["R3","r3_native"],["LingBot","lingbot_map_native"]].forEach(([label,layerId])=>{
+      const target=[...content.querySelectorAll(".method-pane")].find(item=>item.querySelector("header b")?.textContent===label);
+      if(!target)return;
+      let note=target.querySelector(".method-reliability");
+      if(!note){note=document.createElement("p");note.className="method-reliability";target.appendChild(note);}
+      const message=nativeSupport(layerId);
+      if(note.textContent!==message)note.textContent=message;
+    });
+  });
+  reliabilityObserver.observe(content,{childList:true,subtree:true});
   function assetHref(value){return typeof value==="string"?value:null;}
   function link(label,href){if(!href)return;const a=document.createElement("a");a.textContent=label;a.href=href;a.target="_blank";a.rel="noopener";evidence.appendChild(a);}
   link("Geometry consistency",manifest.diagnostics?.geometry_consistency);link("Match graph",manifest.methods.hloc_lightglue_colmap?.assets?.match_graph);link("BA doctor",manifest.methods.hloc_lightglue_colmap?.assets?.ba_diagnostics);link("Failure taxonomy",manifest.methods.hloc_lightglue_colmap?.assets?.failure_taxonomy);link("Pose EKF metrics",manifest.diagnostics?.pose_ekf_metrics);link("Edit segmentation",manifest.diagnostics?.edit_segmentation);link("6DoF state space",meta.assets?.sixdof_state_space?.path);

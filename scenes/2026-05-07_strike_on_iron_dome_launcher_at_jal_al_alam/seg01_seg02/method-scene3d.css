@@ -30,10 +30,33 @@
   border-radius: 4px;
   background: rgba(2, 12, 17, .82);
   backdrop-filter: blur(14px);
-  box-shadow: 0 12px 34px rgba(0, 0, 0, .24);
   color: #b9d1d8;
   font-size: 10px;
 }
+.method-scene3d-toolbar:not([open]) {
+  width: min(230px, calc(100% - 24px));
+}
+.method-scene3d-summary {
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  list-style: none;
+}
+.method-scene3d-summary::-webkit-details-marker { display: none; }
+.method-scene3d-summary::before {
+  content: "+";
+  flex: 0 0 auto;
+  color: #54e5c2;
+  font: 14px/1 ui-monospace, monospace;
+}
+.method-scene3d-toolbar[open] .method-scene3d-summary::before { content: "−"; }
+.method-scene3d-summary:focus-visible {
+  outline: 2px solid #54e5c2;
+  outline-offset: 2px;
+}
+.method-scene3d-toolbar-body { padding-top: 6px; }
 .scene-workspace:has(.scene-controls) .method-scene3d-toolbar { top: 124px; }
 .scene-controls {
   width: min(650px, calc(100% - 32px));
@@ -44,10 +67,14 @@
 .scene-control select { min-width: 0; width: 100%; }
 
 .method-scene3d-label {
-  margin-bottom: 6px;
-  color: #6f939f;
+  color: #b9d1d8;
   font: 9px ui-monospace, monospace;
   letter-spacing: .09em;
+}
+.method-scene3d-disclosure {
+  margin-left: auto;
+  color: #6f939f;
+  font: 9px ui-monospace, monospace;
 }
 
 .method-scene3d-frames,
@@ -63,7 +90,8 @@
   cursor: pointer;
 }
 .method-scene3d-toolbar button:hover,
-.method-scene3d-toolbar button.active { border-color: #54e5c2; color: #eafffa; }
+.method-scene3d-toolbar button.active,
+.method-scene3d-toolbar button:focus-visible { border-color: #54e5c2; color: #eafffa; }
 .method-scene3d-toolbar button:disabled { opacity: .38; cursor: not-allowed; }
 .method-scene3d-layer-details { margin-top: 6px; color: #78909a; }
 .method-scene3d-layer-details summary { cursor: pointer; font: 9px ui-monospace, monospace; letter-spacing: .04em; }
@@ -84,10 +112,13 @@
   .method-scene3d-toolbar {
     top: 78px;
     width: calc(100% - 24px);
-    max-height: 178px;
-    overflow: auto;
+    max-height: min(48vh, 286px);
+    overflow: hidden;
   }
+  .method-scene3d-toolbar:not([open]) { width: min(230px, calc(100% - 24px)); }
+  .method-scene3d-toolbar-body { max-height: calc(min(48vh, 286px) - 51px); overflow: auto; }
   .scene-workspace:has(.scene-controls) .method-scene3d-toolbar { top: 180px; }
+  .method-scene3d-summary,
   .method-scene3d-toolbar button,
   .transport button,
   .mode { min-height: 44px; }

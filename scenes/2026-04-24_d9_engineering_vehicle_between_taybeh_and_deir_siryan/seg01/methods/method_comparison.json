@@ -7,7 +7,7 @@
     "pose_ekf_metrics": "../smoothed/pose_ekf_metrics.json"
   },
   "geometry_layers": {
-    "active_dir": "native_geometry_wua6c2p4",
+    "active_dir": "native_geometry_6t3xaokq",
     "coordinate_frames": {
       "hloc_native": {
         "exclusive": true,
@@ -34,14 +34,14 @@
         },
         "cameras": {
           "bytes": 167039,
-          "path": "methods/native_geometry_wua6c2p4/hloc_registered_cameras.json",
+          "path": "methods/native_geometry_6t3xaokq/hloc_registered_cameras.json",
           "sha256": "e8875ad719a8e0428003765c583686ddcfdb04678105e5a1b519da6473172eab"
         },
         "colors": {
           "bytes": 41265,
           "components": 3,
           "dtype": "uint8",
-          "path": "methods/native_geometry_wua6c2p4/hloc_sparse_colors.bin",
+          "path": "methods/native_geometry_6t3xaokq/hloc_sparse_colors.bin",
           "sha256": "729f60be86bd4d0a8c7848b4369851d3799bc2c29401fcacdb544089b2c637b0",
           "shape": [
             13755,
@@ -57,7 +57,7 @@
           "components": 3,
           "dtype": "float32_le",
           "finite_count": 41265,
-          "path": "methods/native_geometry_wua6c2p4/hloc_sparse_points.bin",
+          "path": "methods/native_geometry_6t3xaokq/hloc_sparse_points.bin",
           "sha256": "e95fc95a8ea8968dcba05a7b573b06367ee13a4518ba55323620ddae83d201f7",
           "shape": [
             13755,
@@ -520,33 +520,33 @@
         },
         "cameras": {
           "bytes": 201408,
-          "path": "methods/native_geometry_wua6c2p4/lingbot_cameras_native.json",
+          "path": "methods/native_geometry_6t3xaokq/lingbot_cameras_native.json",
           "sha256": "ad77cf5d00eeb0941fe483afd32ed6876744a8e0d28292eb835c3c56c6406bb8"
         },
         "colors": {
-          "bytes": 209451,
+          "bytes": 25092,
           "components": 3,
           "dtype": "uint8",
-          "path": "methods/native_geometry_wua6c2p4/lingbot_colors_native.bin",
-          "sha256": "2bfac58bf0f76ce5e1e664d42b0d392932b2a761b4a76f826e0d613d94201a43",
+          "path": "methods/native_geometry_6t3xaokq/lingbot_colors_native.bin",
+          "sha256": "63fee1f1419e17fc87d785346394ba3c684ba11d113d36d888adacc5a1e92ac7",
           "shape": [
-            69817,
+            8364,
             3
           ]
         },
         "coordinate_frame": "lingbot_native",
         "id": "lingbot_map_native",
         "method": "lingbot_map",
-        "point_count": 69817,
+        "point_count": 8364,
         "positions": {
-          "bytes": 837804,
+          "bytes": 100368,
           "components": 3,
           "dtype": "float32_le",
-          "finite_count": 209451,
-          "path": "methods/native_geometry_wua6c2p4/lingbot_points_native.bin",
-          "sha256": "5d9c4aa9a63bed7172c96581ba8611629f85e1e08cc1c472965a95b7a4c0a46b",
+          "finite_count": 25092,
+          "path": "methods/native_geometry_6t3xaokq/lingbot_points_native.bin",
+          "sha256": "78c008a3fb847132489d7970a30f22f0344cd0fe7127c38474d9f08f2d230fc3",
           "shape": [
-            69817,
+            8364,
             3
           ]
         },
@@ -1006,33 +1006,33 @@
         },
         "cameras": {
           "bytes": 200798,
-          "path": "methods/native_geometry_wua6c2p4/r3_cameras_native.json",
+          "path": "methods/native_geometry_6t3xaokq/r3_cameras_native.json",
           "sha256": "730da430f0db5851fabd0d863611162fc687ae0bbfeeca5cdaa9afceb1a35d32"
         },
         "colors": {
-          "bytes": 651468,
+          "bytes": 208692,
           "components": 3,
           "dtype": "uint8",
-          "path": "methods/native_geometry_wua6c2p4/r3_colors_native.bin",
-          "sha256": "26b071bdb616fbed400c36f7e942bc33705fecbf43d23c2a93465562aeeaeac3",
+          "path": "methods/native_geometry_6t3xaokq/r3_colors_native.bin",
+          "sha256": "8ce2b3d3f0502dd26528cc03c269ae6a2e37501a1d4f34208e547995a3d30359",
           "shape": [
-            217156,
+            69564,
             3
           ]
         },
         "coordinate_frame": "r3_native",
         "id": "r3_native",
         "method": "r3",
-        "point_count": 217156,
+        "point_count": 69564,
         "positions": {
-          "bytes": 2605872,
+          "bytes": 834768,
           "components": 3,
           "dtype": "float32_le",
-          "finite_count": 651468,
-          "path": "methods/native_geometry_wua6c2p4/r3_points_native.bin",
-          "sha256": "2885c065aeec92b3ba46eb03a6f30b46b95ff6933b1466245d0cceed43eee830",
+          "finite_count": 208692,
+          "path": "methods/native_geometry_6t3xaokq/r3_points_native.bin",
+          "sha256": "5a8fa3e6dd862bc5940f1374abfb77a77b5bd6b78376f11ff39a1c2611384ce3",
           "shape": [
-            217156,
+            69564,
             3
           ]
         },
@@ -1116,10 +1116,9 @@
     ],
     "frame_count": 200,
     "source_video": {
-      "embedded": false,
-      "kind": "original_historical_recording",
-      "path": null,
-      "synchronization": "source_timestamp_sec"
+      "copied": false,
+      "kind": "remote_public_cdn",
+      "path": null
     }
   },
   "masks": {
@@ -1161,14 +1160,16 @@
         "status": "completed_with_warnings",
         "successful_reconstruction": true
       },
+      "geometry_status": "published_native",
       "input_frames": 200,
       "pairs": 2405,
       "pipeline": "ALIKED + LightGlue + pycolmap incremental SfM",
       "points3D": 13755,
       "provenance": {
         "path": "methods/provenance/hloc_summary.json",
-        "sha256": "36011f9019916bacb4f5885c8d2e71e10a2b25cb081b6a26b9910850335abc83"
+        "sha256": "64b47582f1dcebf0466d1dcb421760a1c6c4992ff8f683e13e4f1ab3d5d686ab"
       },
+      "provenance_status": "available",
       "raw_sparse_counts": {
         "cameras": 1,
         "images": 200,
@@ -1176,7 +1177,8 @@
       },
       "registered_images": 200,
       "role": "feature matching and sparse incremental reconstruction",
-      "status": "done"
+      "status": "done",
+      "status_reason": null
     },
     "lingbot_map": {
       "alignment": "not_aligned",
@@ -1385,14 +1387,18 @@
         198,
         199
       ],
+      "geometry_status": "published_native",
+      "ignored_invalid_optional_frame_count": 0,
       "parseable_npz_count": 200,
       "provenance": {
-        "note": "No standalone LingBot run log is included in the public bundle.",
+        "note": "The standalone method log is not included in the public bundle.",
         "status": "not_published"
       },
+      "provenance_status": "available",
       "role": "independent depth, confidence, camera, and pose-encoding outputs",
       "scale_status": "relative_only",
-      "status": "done"
+      "status": "done",
+      "status_reason": null
     },
     "mast3r_sfm": {
       "alignment": "unavailable",
@@ -1403,6 +1409,7 @@
     "r3": {
       "alignment": "not_aligned",
       "backend": "R3",
+      "camera_count": null,
       "checkpoint": "r3_long.safetensors",
       "config_name": "r3-large",
       "frame_count": 200,
@@ -2433,18 +2440,23 @@
           ]
         }
       },
+      "geometry_status": "published_native",
       "native_depth_shape": [
         210,
         504
       ],
+      "point_count": 69564,
       "provenance": {
         "path": "methods/provenance/r3_run_params.json",
-        "sha256": "26ebae3794d564f2e2b71d19522a93dae826796f2c95f720c72a32dd610bea47"
+        "sha256": "43baea6744405beb41515b6be12755ea277809e0e94f5cdbf19a19fb3e1f5eb6"
       },
+      "provenance_status": "available",
+      "publication_note": null,
       "role": "independent depth and pose reconstruction",
       "scale_note": "A physical-scale model was requested in the run configuration, but no accepted calibration artifact validates it.",
       "scale_status": "relative_only",
-      "status": "done"
+      "status": "done",
+      "status_reason": null
     },
     "vggt_omega": {
       "alignment": "viewer_native",
@@ -2452,56 +2464,14 @@
       "backend_commit": "39a0cb8af88554f15ddcb5354cd52bde588fa014",
       "coordinate_frame": "official_glb_alignment",
       "point_count": 1000000,
-      "reprojection_samples": [
-        {
-          "actual": null,
-          "overlay": null,
-          "render": null,
-          "sample_index": 0,
-          "timestamp_sec": 8.067
-        },
-        {
-          "actual": null,
-          "overlay": null,
-          "render": null,
-          "sample_index": 39,
-          "timestamp_sec": 14.717
-        },
-        {
-          "actual": null,
-          "overlay": null,
-          "render": null,
-          "sample_index": 79,
-          "timestamp_sec": 21.567
-        },
-        {
-          "actual": null,
-          "overlay": null,
-          "render": null,
-          "sample_index": 119,
-          "timestamp_sec": 28.417
-        },
-        {
-          "actual": null,
-          "overlay": null,
-          "render": null,
-          "sample_index": 159,
-          "timestamp_sec": 35.217
-        },
-        {
-          "actual": null,
-          "overlay": null,
-          "render": null,
-          "sample_index": 199,
-          "timestamp_sec": 42.067
-        }
-      ],
+      "reprojection_samples": [],
       "role": "primary reconstructed geometry and camera path",
       "status": "done",
       "viewer_preview": null
     }
   },
   "publication_boundary": {
+    "derived_depth_images_copied": true,
     "source_images_copied": false
   },
   "samples": [
@@ -2512,8 +2482,8 @@
         "provenance": "R3 exported resized model input"
       },
       "lingbot_map": {
-        "confidence_visualization": null,
-        "depth_visualization": null,
+        "confidence_visualization": "methods/lingbot_map/confidence_000000.png",
+        "depth_visualization": "methods/lingbot_map/depth_000000.png",
         "native_confidence_summary": {
           "median": 1.0340062975883484,
           "p02": 1.0,
@@ -2533,7 +2503,7 @@
         "value_semantics": "native_depth_display_relative_only"
       },
       "r3": {
-        "depth_visualization": null,
+        "depth_visualization": "methods/r3/depth_000000.png",
         "native_depth_summary": {
           "median": 1.984909474849701,
           "p02": 0.7627844846248627,
@@ -2556,8 +2526,8 @@
         "provenance": "R3 exported resized model input"
       },
       "lingbot_map": {
-        "confidence_visualization": null,
-        "depth_visualization": null,
+        "confidence_visualization": "methods/lingbot_map/confidence_000039.png",
+        "depth_visualization": "methods/lingbot_map/depth_000039.png",
         "native_confidence_summary": {
           "median": 1.0008593201637268,
           "p02": 1.0,
@@ -2577,7 +2547,7 @@
         "value_semantics": "native_depth_display_relative_only"
       },
       "r3": {
-        "depth_visualization": null,
+        "depth_visualization": "methods/r3/depth_000039.png",
         "native_depth_summary": {
           "median": 1.1844686269760132,
           "p02": 0.5625123381614685,
@@ -2600,8 +2570,8 @@
         "provenance": "R3 exported resized model input"
       },
       "lingbot_map": {
-        "confidence_visualization": null,
-        "depth_visualization": null,
+        "confidence_visualization": "methods/lingbot_map/confidence_000079.png",
+        "depth_visualization": "methods/lingbot_map/depth_000079.png",
         "native_confidence_summary": {
           "median": 1.0,
           "p02": 1.0,
@@ -2621,7 +2591,7 @@
         "value_semantics": "native_depth_display_relative_only"
       },
       "r3": {
-        "depth_visualization": null,
+        "depth_visualization": "methods/r3/depth_000079.png",
         "native_depth_summary": {
           "median": 1.6857628226280212,
           "p02": 0.8491953265666962,
@@ -2644,8 +2614,8 @@
         "provenance": "R3 exported resized model input"
       },
       "lingbot_map": {
-        "confidence_visualization": null,
-        "depth_visualization": null,
+        "confidence_visualization": "methods/lingbot_map/confidence_000119.png",
+        "depth_visualization": "methods/lingbot_map/depth_000119.png",
         "native_confidence_summary": {
           "median": 1.0164222121238708,
           "p02": 1.0,
@@ -2665,7 +2635,7 @@
         "value_semantics": "native_depth_display_relative_only"
       },
       "r3": {
-        "depth_visualization": null,
+        "depth_visualization": "methods/r3/depth_000119.png",
         "native_depth_summary": {
           "median": 0.9357960820198059,
           "p02": 0.4008834934234619,
@@ -2688,8 +2658,8 @@
         "provenance": "R3 exported resized model input"
       },
       "lingbot_map": {
-        "confidence_visualization": null,
-        "depth_visualization": null,
+        "confidence_visualization": "methods/lingbot_map/confidence_000159.png",
+        "depth_visualization": "methods/lingbot_map/depth_000159.png",
         "native_confidence_summary": {
           "median": 2.9528855085372925,
           "p02": 1.0,
@@ -2709,7 +2679,7 @@
         "value_semantics": "native_depth_display_relative_only"
       },
       "r3": {
-        "depth_visualization": null,
+        "depth_visualization": "methods/r3/depth_000159.png",
         "native_depth_summary": {
           "median": 0.6844822764396667,
           "p02": 0.20890053659677504,
@@ -2732,8 +2702,8 @@
         "provenance": "R3 exported resized model input"
       },
       "lingbot_map": {
-        "confidence_visualization": null,
-        "depth_visualization": null,
+        "confidence_visualization": "methods/lingbot_map/confidence_000199.png",
+        "depth_visualization": "methods/lingbot_map/depth_000199.png",
         "native_confidence_summary": {
           "median": 7.7759339809417725,
           "p02": 2.182178602218628,
@@ -2753,7 +2723,7 @@
         "value_semantics": "native_depth_display_relative_only"
       },
       "r3": {
-        "depth_visualization": null,
+        "depth_visualization": "methods/r3/depth_000199.png",
         "native_depth_summary": {
           "median": 1.6231263279914856,
           "p02": 1.1454550313949585,

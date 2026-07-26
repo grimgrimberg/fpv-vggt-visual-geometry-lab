@@ -1,5 +1,5 @@
 {
-  "active_dir": "native_geometry_wua6c2p4",
+  "active_dir": "native_geometry_6t3xaokq",
   "camera_convention": {
     "camera_forward": "+Z",
     "handedness": "OpenCV_image_convention",
@@ -19,7 +19,7 @@
           "bytes": 41265,
           "components": 3,
           "dtype": "uint8",
-          "path": "native_geometry_wua6c2p4/hloc_sparse_colors.bin",
+          "path": "native_geometry_6t3xaokq/hloc_sparse_colors.bin",
           "sha256": "729f60be86bd4d0a8c7848b4369851d3799bc2c29401fcacdb544089b2c637b0",
           "shape": [
             13755,
@@ -31,7 +31,7 @@
           "components": 3,
           "dtype": "float32_le",
           "finite_count": 41265,
-          "path": "native_geometry_wua6c2p4/hloc_sparse_points.bin",
+          "path": "native_geometry_6t3xaokq/hloc_sparse_points.bin",
           "sha256": "e95fc95a8ea8968dcba05a7b573b06367ee13a4518ba55323620ddae83d201f7",
           "shape": [
             13755,
@@ -40,7 +40,7 @@
         },
         "registered_cameras": {
           "bytes": 167039,
-          "path": "native_geometry_wua6c2p4/hloc_registered_cameras.json",
+          "path": "native_geometry_6t3xaokq/hloc_registered_cameras.json",
           "sha256": "e8875ad719a8e0428003765c583686ddcfdb04678105e5a1b519da6473172eab"
         }
       },
@@ -286,44 +286,44 @@
       "assets": {
         "cameras_native": {
           "bytes": 201408,
-          "path": "native_geometry_wua6c2p4/lingbot_cameras_native.json",
+          "path": "native_geometry_6t3xaokq/lingbot_cameras_native.json",
           "sha256": "ad77cf5d00eeb0941fe483afd32ed6876744a8e0d28292eb835c3c56c6406bb8"
         },
         "colors_native": {
-          "bytes": 209451,
+          "bytes": 25092,
           "components": 3,
           "dtype": "uint8",
-          "path": "native_geometry_wua6c2p4/lingbot_colors_native.bin",
-          "sha256": "2bfac58bf0f76ce5e1e664d42b0d392932b2a761b4a76f826e0d613d94201a43",
+          "path": "native_geometry_6t3xaokq/lingbot_colors_native.bin",
+          "sha256": "63fee1f1419e17fc87d785346394ba3c684ba11d113d36d888adacc5a1e92ac7",
           "shape": [
-            69817,
+            8364,
             3
           ]
         },
         "geometry_meta": {
-          "bytes": 22135,
-          "path": "native_geometry_wua6c2p4/lingbot_geometry_meta.json",
-          "sha256": "b29e516e0351b297ef77018f2148759dc06fe5e3ac50f87f5d13ecbd713066bb"
+          "bytes": 22000,
+          "path": "native_geometry_6t3xaokq/lingbot_geometry_meta.json",
+          "sha256": "c557e2ef057ea860776446bcf96fca08a1d1fe80bc5ac8440f5ab7df8fbb4a81"
         },
         "points_native": {
-          "bytes": 837804,
+          "bytes": 100368,
           "components": 3,
           "dtype": "float32_le",
-          "finite_count": 209451,
-          "path": "native_geometry_wua6c2p4/lingbot_points_native.bin",
-          "sha256": "5d9c4aa9a63bed7172c96581ba8611629f85e1e08cc1c472965a95b7a4c0a46b",
+          "finite_count": 25092,
+          "path": "native_geometry_6t3xaokq/lingbot_points_native.bin",
+          "sha256": "78c008a3fb847132489d7970a30f22f0344cd0fe7127c38474d9f08f2d230fc3",
           "shape": [
-            69817,
+            8364,
             3
           ]
         },
         "points_native_ply": {
-          "bytes": 1047434,
-          "finite_count": 209451,
-          "path": "native_geometry_wua6c2p4/lingbot_points_native.ply",
-          "sha256": "46c8a519405d308bf5027ffc5be4f0c3ec88690c049d3d88a391b30921fa3877",
+          "bytes": 125638,
+          "finite_count": 25092,
+          "path": "native_geometry_6t3xaokq/lingbot_points_native.ply",
+          "sha256": "6d4272fb5ffb0b07cce4e2fa43346bb10ae13d6fdfdd81b093774e9c03bc8214",
           "shape": [
-            69817,
+            8364,
             3
           ]
         }
@@ -336,11 +336,11 @@
         "input_pose": "camera_to_world"
       },
       "coverage": {
-        "confidence_valid_count": 4641280,
+        "confidence_valid_count": 2015961,
         "depth_valid_count": 4641280,
-        "emitted_count": 400000,
+        "emitted_count": 308958,
         "pixel_count": 4641280,
-        "retained_before_sampling": 4641280
+        "retained_before_sampling": 2015961
       },
       "frames": [
         {
@@ -350,13 +350,13 @@
             "q50": 1.0340062975883484,
             "q98": 1.6456767225265505
           },
-          "confidence_valid_count": 116032,
+          "confidence_valid_count": 33784,
           "depth_valid_count": 116032,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 0,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 116032,
-          "retained_before_sampling": 116032
+          "retained_before_sampling": 33784
         },
         {
           "confidence_quantiles": {
@@ -365,13 +365,13 @@
             "q50": 1.0083628296852112,
             "q98": 1.7158817744255066
           },
-          "confidence_valid_count": 116032,
+          "confidence_valid_count": 28875,
           "depth_valid_count": 116032,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 5,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 116032,
-          "retained_before_sampling": 116032
+          "retained_before_sampling": 28875
         },
         {
           "confidence_quantiles": {
@@ -380,13 +380,13 @@
             "q50": 1.0017653703689575,
             "q98": 1.6139977741241456
           },
-          "confidence_valid_count": 116032,
+          "confidence_valid_count": 26650,
           "depth_valid_count": 116032,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 10,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 116032,
-          "retained_before_sampling": 116032
+          "retained_before_sampling": 26650
         },
         {
           "confidence_quantiles": {
@@ -395,13 +395,13 @@
             "q50": 1.000199019908905,
             "q98": 1.6261189341545106
           },
-          "confidence_valid_count": 116032,
+          "confidence_valid_count": 26546,
           "depth_valid_count": 116032,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 15,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 116032,
-          "retained_before_sampling": 116032
+          "retained_before_sampling": 26546
         },
         {
           "confidence_quantiles": {
@@ -410,13 +410,13 @@
             "q50": 1.0000168085098267,
             "q98": 1.3454316711425782
           },
-          "confidence_valid_count": 116032,
+          "confidence_valid_count": 10520,
           "depth_valid_count": 116032,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 20,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 116032,
-          "retained_before_sampling": 116032
+          "retained_before_sampling": 10520
         },
         {
           "confidence_quantiles": {
@@ -425,13 +425,13 @@
             "q50": 1.0000184774398804,
             "q98": 1.4190664076805117
           },
-          "confidence_valid_count": 116032,
+          "confidence_valid_count": 14065,
           "depth_valid_count": 116032,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 25,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 116032,
-          "retained_before_sampling": 116032
+          "retained_before_sampling": 14065
         },
         {
           "confidence_quantiles": {
@@ -440,13 +440,13 @@
             "q50": 1.001107931137085,
             "q98": 2.1272847032547
           },
-          "confidence_valid_count": 116032,
+          "confidence_valid_count": 39896,
           "depth_valid_count": 116032,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 30,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 116032,
-          "retained_before_sampling": 116032
+          "retained_before_sampling": 39896
         },
         {
           "confidence_quantiles": {
@@ -455,13 +455,13 @@
             "q50": 1.0005860328674316,
             "q98": 1.9027948808670045
           },
-          "confidence_valid_count": 116032,
+          "confidence_valid_count": 35746,
           "depth_valid_count": 116032,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 35,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 116032,
-          "retained_before_sampling": 116032
+          "retained_before_sampling": 35746
         },
         {
           "confidence_quantiles": {
@@ -470,13 +470,13 @@
             "q50": 1.0010398626327515,
             "q98": 2.148190531730652
           },
-          "confidence_valid_count": 116032,
+          "confidence_valid_count": 38371,
           "depth_valid_count": 116032,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 40,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 116032,
-          "retained_before_sampling": 116032
+          "retained_before_sampling": 38371
         },
         {
           "confidence_quantiles": {
@@ -485,13 +485,13 @@
             "q50": 1.0003485083580017,
             "q98": 1.9782985162734987
           },
-          "confidence_valid_count": 116032,
+          "confidence_valid_count": 33002,
           "depth_valid_count": 116032,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 45,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 116032,
-          "retained_before_sampling": 116032
+          "retained_before_sampling": 33002
         },
         {
           "confidence_quantiles": {
@@ -500,13 +500,13 @@
             "q50": 1.000001072883606,
             "q98": 1.3291652965545655
           },
-          "confidence_valid_count": 116032,
+          "confidence_valid_count": 8326,
           "depth_valid_count": 116032,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 51,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 116032,
-          "retained_before_sampling": 116032
+          "retained_before_sampling": 8326
         },
         {
           "confidence_quantiles": {
@@ -515,13 +515,13 @@
             "q50": 1.000003457069397,
             "q98": 1.3603022718429567
           },
-          "confidence_valid_count": 116032,
+          "confidence_valid_count": 6948,
           "depth_valid_count": 116032,
-          "emitted_count": 10000,
+          "emitted_count": 6948,
           "frame_index": 56,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 116032,
-          "retained_before_sampling": 116032
+          "retained_before_sampling": 6948
         },
         {
           "confidence_quantiles": {
@@ -530,13 +530,13 @@
             "q50": 1.000000238418579,
             "q98": 1.303359880447388
           },
-          "confidence_valid_count": 116032,
+          "confidence_valid_count": 4765,
           "depth_valid_count": 116032,
-          "emitted_count": 10000,
+          "emitted_count": 4765,
           "frame_index": 61,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 116032,
-          "retained_before_sampling": 116032
+          "retained_before_sampling": 4765
         },
         {
           "confidence_quantiles": {
@@ -545,13 +545,13 @@
             "q50": 1.0000020265579224,
             "q98": 1.3767799568176269
           },
-          "confidence_valid_count": 116032,
+          "confidence_valid_count": 9984,
           "depth_valid_count": 116032,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 66,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 116032,
-          "retained_before_sampling": 116032
+          "retained_before_sampling": 9984
         },
         {
           "confidence_quantiles": {
@@ -560,13 +560,13 @@
             "q50": 1.0000001192092896,
             "q98": 1.4118902564048768
           },
-          "confidence_valid_count": 116032,
+          "confidence_valid_count": 8151,
           "depth_valid_count": 116032,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 71,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 116032,
-          "retained_before_sampling": 116032
+          "retained_before_sampling": 8151
         },
         {
           "confidence_quantiles": {
@@ -575,13 +575,13 @@
             "q50": 1.0000003576278687,
             "q98": 1.433894374370575
           },
-          "confidence_valid_count": 116032,
+          "confidence_valid_count": 9336,
           "depth_valid_count": 116032,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 76,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 116032,
-          "retained_before_sampling": 116032
+          "retained_before_sampling": 9336
         },
         {
           "confidence_quantiles": {
@@ -590,13 +590,13 @@
             "q50": 1.0,
             "q98": 1.1292607951164246
           },
-          "confidence_valid_count": 116032,
+          "confidence_valid_count": 1245,
           "depth_valid_count": 116032,
-          "emitted_count": 10000,
+          "emitted_count": 1245,
           "frame_index": 81,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 116032,
-          "retained_before_sampling": 116032
+          "retained_before_sampling": 1245
         },
         {
           "confidence_quantiles": {
@@ -605,13 +605,13 @@
             "q50": 1.0,
             "q98": 1.398070397377014
           },
-          "confidence_valid_count": 116032,
+          "confidence_valid_count": 8472,
           "depth_valid_count": 116032,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 86,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 116032,
-          "retained_before_sampling": 116032
+          "retained_before_sampling": 8472
         },
         {
           "confidence_quantiles": {
@@ -620,13 +620,13 @@
             "q50": 1.0000399351119995,
             "q98": 1.718449394702912
           },
-          "confidence_valid_count": 116032,
+          "confidence_valid_count": 26912,
           "depth_valid_count": 116032,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 91,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 116032,
-          "retained_before_sampling": 116032
+          "retained_before_sampling": 26912
         },
         {
           "confidence_quantiles": {
@@ -635,13 +635,13 @@
             "q50": 1.0002143383026123,
             "q98": 1.8636183524131775
           },
-          "confidence_valid_count": 116032,
+          "confidence_valid_count": 33814,
           "depth_valid_count": 116032,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 96,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 116032,
-          "retained_before_sampling": 116032
+          "retained_before_sampling": 33814
         },
         {
           "confidence_quantiles": {
@@ -650,13 +650,13 @@
             "q50": 1.014314889907837,
             "q98": 2.351940655708313
           },
-          "confidence_valid_count": 116032,
+          "confidence_valid_count": 49765,
           "depth_valid_count": 116032,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 102,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 116032,
-          "retained_before_sampling": 116032
+          "retained_before_sampling": 49765
         },
         {
           "confidence_quantiles": {
@@ -665,13 +665,13 @@
             "q50": 1.1013309359550476,
             "q98": 2.584188528060913
           },
-          "confidence_valid_count": 116032,
+          "confidence_valid_count": 56040,
           "depth_valid_count": 116032,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 107,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 116032,
-          "retained_before_sampling": 116032
+          "retained_before_sampling": 56040
         },
         {
           "confidence_quantiles": {
@@ -680,13 +680,13 @@
             "q50": 1.0003377795219421,
             "q98": 2.2058602714538575
           },
-          "confidence_valid_count": 116032,
+          "confidence_valid_count": 40720,
           "depth_valid_count": 116032,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 112,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 116032,
-          "retained_before_sampling": 116032
+          "retained_before_sampling": 40720
         },
         {
           "confidence_quantiles": {
@@ -695,13 +695,13 @@
             "q50": 1.027012825012207,
             "q98": 2.754272465705873
           },
-          "confidence_valid_count": 116032,
+          "confidence_valid_count": 54129,
           "depth_valid_count": 116032,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 117,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 116032,
-          "retained_before_sampling": 116032
+          "retained_before_sampling": 54129
         },
         {
           "confidence_quantiles": {
@@ -710,13 +710,13 @@
             "q50": 1.0713195204734802,
             "q98": 2.8821029520034793
           },
-          "confidence_valid_count": 116032,
+          "confidence_valid_count": 56136,
           "depth_valid_count": 116032,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 122,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 116032,
-          "retained_before_sampling": 116032
+          "retained_before_sampling": 56136
         },
         {
           "confidence_quantiles": {
@@ -725,13 +725,13 @@
             "q50": 2.1523492336273193,
             "q98": 3.828318114280701
           },
-          "confidence_valid_count": 116032,
+          "confidence_valid_count": 77470,
           "depth_valid_count": 116032,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 127,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 116032,
-          "retained_before_sampling": 116032
+          "retained_before_sampling": 77470
         },
         {
           "confidence_quantiles": {
@@ -740,13 +740,13 @@
             "q50": 1.9701624512672424,
             "q98": 3.9016912221908573
           },
-          "confidence_valid_count": 116032,
+          "confidence_valid_count": 72545,
           "depth_valid_count": 116032,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 132,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 116032,
-          "retained_before_sampling": 116032
+          "retained_before_sampling": 72545
         },
         {
           "confidence_quantiles": {
@@ -755,13 +755,13 @@
             "q50": 2.1840630769729614,
             "q98": 4.225630006790161
           },
-          "confidence_valid_count": 116032,
+          "confidence_valid_count": 74139,
           "depth_valid_count": 116032,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 137,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 116032,
-          "retained_before_sampling": 116032
+          "retained_before_sampling": 74139
         },
         {
           "confidence_quantiles": {
@@ -770,13 +770,13 @@
             "q50": 2.3050845861434937,
             "q98": 4.492525053024292
           },
-          "confidence_valid_count": 116032,
+          "confidence_valid_count": 76594,
           "depth_valid_count": 116032,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 142,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 116032,
-          "retained_before_sampling": 116032
+          "retained_before_sampling": 76594
         },
         {
           "confidence_quantiles": {
@@ -785,13 +785,13 @@
             "q50": 2.5581588745117188,
             "q98": 5.017609252929688
           },
-          "confidence_valid_count": 116032,
+          "confidence_valid_count": 80982,
           "depth_valid_count": 116032,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 147,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 116032,
-          "retained_before_sampling": 116032
+          "retained_before_sampling": 80982
         },
         {
           "confidence_quantiles": {
@@ -800,13 +800,13 @@
             "q50": 2.9201067686080933,
             "q98": 5.478544998168945
           },
-          "confidence_valid_count": 116032,
+          "confidence_valid_count": 85663,
           "depth_valid_count": 116032,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 153,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 116032,
-          "retained_before_sampling": 116032
+          "retained_before_sampling": 85663
         },
         {
           "confidence_quantiles": {
@@ -815,13 +815,13 @@
             "q50": 3.008042573928833,
             "q98": 6.999968872070314
           },
-          "confidence_valid_count": 116032,
+          "confidence_valid_count": 81058,
           "depth_valid_count": 116032,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 158,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 116032,
-          "retained_before_sampling": 116032
+          "retained_before_sampling": 81058
         },
         {
           "confidence_quantiles": {
@@ -830,13 +830,13 @@
             "q50": 3.4412511587142944,
             "q98": 6.212677450180054
           },
-          "confidence_valid_count": 116032,
+          "confidence_valid_count": 87905,
           "depth_valid_count": 116032,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 163,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 116032,
-          "retained_before_sampling": 116032
+          "retained_before_sampling": 87905
         },
         {
           "confidence_quantiles": {
@@ -845,13 +845,13 @@
             "q50": 3.5836442708969116,
             "q98": 6.268018693923951
           },
-          "confidence_valid_count": 116032,
+          "confidence_valid_count": 86980,
           "depth_valid_count": 116032,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 168,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 116032,
-          "retained_before_sampling": 116032
+          "retained_before_sampling": 86980
         },
         {
           "confidence_quantiles": {
@@ -860,13 +860,13 @@
             "q50": 2.9645519256591797,
             "q98": 6.422357492446901
           },
-          "confidence_valid_count": 116032,
+          "confidence_valid_count": 100294,
           "depth_valid_count": 116032,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 173,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 116032,
-          "retained_before_sampling": 116032
+          "retained_before_sampling": 100294
         },
         {
           "confidence_quantiles": {
@@ -875,13 +875,13 @@
             "q50": 3.025346517562866,
             "q98": 9.339226341247576
           },
-          "confidence_valid_count": 116032,
+          "confidence_valid_count": 85842,
           "depth_valid_count": 116032,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 178,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 116032,
-          "retained_before_sampling": 116032
+          "retained_before_sampling": 85842
         },
         {
           "confidence_quantiles": {
@@ -890,13 +890,13 @@
             "q50": 4.493499994277954,
             "q98": 7.930791110992431
           },
-          "confidence_valid_count": 116032,
+          "confidence_valid_count": 104788,
           "depth_valid_count": 116032,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 183,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 116032,
-          "retained_before_sampling": 116032
+          "retained_before_sampling": 104788
         },
         {
           "confidence_quantiles": {
@@ -905,13 +905,13 @@
             "q50": 3.9947749376296997,
             "q98": 6.409272117614747
           },
-          "confidence_valid_count": 116032,
+          "confidence_valid_count": 107734,
           "depth_valid_count": 116032,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 188,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 116032,
-          "retained_before_sampling": 116032
+          "retained_before_sampling": 107734
         },
         {
           "confidence_quantiles": {
@@ -922,9 +922,9 @@
           },
           "confidence_valid_count": 116032,
           "depth_valid_count": 116032,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 193,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 116032,
           "retained_before_sampling": 116032
         },
@@ -935,16 +935,16 @@
             "q50": 7.7759339809417725,
             "q98": 13.328157043457033
           },
-          "confidence_valid_count": 116032,
+          "confidence_valid_count": 115737,
           "depth_valid_count": 116032,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 199,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 116032,
-          "retained_before_sampling": 116032
+          "retained_before_sampling": 115737
         }
       ],
-      "point_count": 69817,
+      "point_count": 8364,
       "sampled_frame_ids": [
         0,
         5,
@@ -989,9 +989,9 @@
       ],
       "sampling": {
         "max_frames": 40,
-        "max_points_per_frame": 10000,
-        "min_confidence": 0.0,
-        "point_budget": 250000,
+        "max_points_per_frame": 8000,
+        "min_confidence": 1.2,
+        "point_budget": 160000,
         "voxel_size_relative": 0.02
       },
       "scale_status": "relative_only",
@@ -1229,44 +1229,44 @@
       "assets": {
         "cameras_native": {
           "bytes": 200798,
-          "path": "native_geometry_wua6c2p4/r3_cameras_native.json",
+          "path": "native_geometry_6t3xaokq/r3_cameras_native.json",
           "sha256": "730da430f0db5851fabd0d863611162fc687ae0bbfeeca5cdaa9afceb1a35d32"
         },
         "colors_native": {
-          "bytes": 651468,
+          "bytes": 208692,
           "components": 3,
           "dtype": "uint8",
-          "path": "native_geometry_wua6c2p4/r3_colors_native.bin",
-          "sha256": "26b071bdb616fbed400c36f7e942bc33705fecbf43d23c2a93465562aeeaeac3",
+          "path": "native_geometry_6t3xaokq/r3_colors_native.bin",
+          "sha256": "8ce2b3d3f0502dd26528cc03c269ae6a2e37501a1d4f34208e547995a3d30359",
           "shape": [
-            217156,
+            69564,
             3
           ]
         },
         "geometry_meta": {
-          "bytes": 22245,
-          "path": "native_geometry_wua6c2p4/r3_geometry_meta.json",
-          "sha256": "d73af61c69d65eb706069cf1c1731ea067fec2dc48e8a83c2b476c705991ec14"
+          "bytes": 22108,
+          "path": "native_geometry_6t3xaokq/r3_geometry_meta.json",
+          "sha256": "9bdc3eb13ec3a900d28ec81dab14c3f0daf057bad25df428a1419577f36216ef"
         },
         "points_native": {
-          "bytes": 2605872,
+          "bytes": 834768,
           "components": 3,
           "dtype": "float32_le",
-          "finite_count": 651468,
-          "path": "native_geometry_wua6c2p4/r3_points_native.bin",
-          "sha256": "2885c065aeec92b3ba46eb03a6f30b46b95ff6933b1466245d0cceed43eee830",
+          "finite_count": 208692,
+          "path": "native_geometry_6t3xaokq/r3_points_native.bin",
+          "sha256": "5a8fa3e6dd862bc5940f1374abfb77a77b5bd6b78376f11ff39a1c2611384ce3",
           "shape": [
-            217156,
+            69564,
             3
           ]
         },
         "points_native_ply": {
-          "bytes": 3257520,
-          "finite_count": 651468,
-          "path": "native_geometry_wua6c2p4/r3_points_native.ply",
-          "sha256": "62dc73c6aa301bf68c5fc74c046a58a9654ab5aa57a024b23651260552b10e3e",
+          "bytes": 1043639,
+          "finite_count": 208692,
+          "path": "native_geometry_6t3xaokq/r3_points_native.ply",
+          "sha256": "29277e7be9081d371f93832216ca1f1fdd79aa71aa0cbe9a158fc748e849c13b",
           "shape": [
-            217156,
+            69564,
             3
           ]
         }
@@ -1279,11 +1279,11 @@
         "input_pose": "camera_to_world"
       },
       "coverage": {
-        "confidence_valid_count": 4233600,
+        "confidence_valid_count": 2312153,
         "depth_valid_count": 4233600,
-        "emitted_count": 400000,
+        "emitted_count": 312005,
         "pixel_count": 4233600,
-        "retained_before_sampling": 4233600
+        "retained_before_sampling": 2312153
       },
       "frames": [
         {
@@ -1293,13 +1293,13 @@
             "q50": 1.0000046491622925,
             "q98": 1.0223398733139037
           },
-          "confidence_valid_count": 105840,
+          "confidence_valid_count": 5,
           "depth_valid_count": 105840,
-          "emitted_count": 10000,
+          "emitted_count": 5,
           "frame_index": 0,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 105840,
-          "retained_before_sampling": 105840
+          "retained_before_sampling": 5
         },
         {
           "confidence_quantiles": {
@@ -1308,13 +1308,13 @@
             "q50": 1.3472436666488647,
             "q98": 3.4995023727416994
           },
-          "confidence_valid_count": 105840,
+          "confidence_valid_count": 55838,
           "depth_valid_count": 105840,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 5,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 105840,
-          "retained_before_sampling": 105840
+          "retained_before_sampling": 55838
         },
         {
           "confidence_quantiles": {
@@ -1323,13 +1323,13 @@
             "q50": 1.5430976748466492,
             "q98": 4.880606918334961
           },
-          "confidence_valid_count": 105840,
+          "confidence_valid_count": 58768,
           "depth_valid_count": 105840,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 10,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 105840,
-          "retained_before_sampling": 105840
+          "retained_before_sampling": 58768
         },
         {
           "confidence_quantiles": {
@@ -1338,13 +1338,13 @@
             "q50": 1.440587043762207,
             "q98": 4.7082075500488285
           },
-          "confidence_valid_count": 105840,
+          "confidence_valid_count": 55767,
           "depth_valid_count": 105840,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 15,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 105840,
-          "retained_before_sampling": 105840
+          "retained_before_sampling": 55767
         },
         {
           "confidence_quantiles": {
@@ -1353,13 +1353,13 @@
             "q50": 1.0037753582000732,
             "q98": 4.007051839828491
           },
-          "confidence_valid_count": 105840,
+          "confidence_valid_count": 47152,
           "depth_valid_count": 105840,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 20,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 105840,
-          "retained_before_sampling": 105840
+          "retained_before_sampling": 47152
         },
         {
           "confidence_quantiles": {
@@ -1368,13 +1368,13 @@
             "q50": 1.0925592184066772,
             "q98": 4.633648014068604
           },
-          "confidence_valid_count": 105840,
+          "confidence_valid_count": 51728,
           "depth_valid_count": 105840,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 25,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 105840,
-          "retained_before_sampling": 105840
+          "retained_before_sampling": 51728
         },
         {
           "confidence_quantiles": {
@@ -1383,13 +1383,13 @@
             "q50": 2.5544042587280273,
             "q98": 5.843907432556152
           },
-          "confidence_valid_count": 105840,
+          "confidence_valid_count": 73603,
           "depth_valid_count": 105840,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 30,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 105840,
-          "retained_before_sampling": 105840
+          "retained_before_sampling": 73603
         },
         {
           "confidence_quantiles": {
@@ -1398,13 +1398,13 @@
             "q50": 2.566225051879883,
             "q98": 6.2468517398834225
           },
-          "confidence_valid_count": 105840,
+          "confidence_valid_count": 72612,
           "depth_valid_count": 105840,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 35,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 105840,
-          "retained_before_sampling": 105840
+          "retained_before_sampling": 72612
         },
         {
           "confidence_quantiles": {
@@ -1413,13 +1413,13 @@
             "q50": 2.4581445455551147,
             "q98": 5.7154951095581055
           },
-          "confidence_valid_count": 105840,
+          "confidence_valid_count": 72658,
           "depth_valid_count": 105840,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 40,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 105840,
-          "retained_before_sampling": 105840
+          "retained_before_sampling": 72658
         },
         {
           "confidence_quantiles": {
@@ -1428,13 +1428,13 @@
             "q50": 2.3271336555480957,
             "q98": 5.478869495391846
           },
-          "confidence_valid_count": 105840,
+          "confidence_valid_count": 68323,
           "depth_valid_count": 105840,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 45,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 105840,
-          "retained_before_sampling": 105840
+          "retained_before_sampling": 68323
         },
         {
           "confidence_quantiles": {
@@ -1443,13 +1443,13 @@
             "q50": 1.1277737617492676,
             "q98": 5.388011026382446
           },
-          "confidence_valid_count": 105840,
+          "confidence_valid_count": 52145,
           "depth_valid_count": 105840,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 51,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 105840,
-          "retained_before_sampling": 105840
+          "retained_before_sampling": 52145
         },
         {
           "confidence_quantiles": {
@@ -1458,13 +1458,13 @@
             "q50": 1.162176489830017,
             "q98": 5.148054361343384
           },
-          "confidence_valid_count": 105840,
+          "confidence_valid_count": 52692,
           "depth_valid_count": 105840,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 56,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 105840,
-          "retained_before_sampling": 105840
+          "retained_before_sampling": 52692
         },
         {
           "confidence_quantiles": {
@@ -1473,13 +1473,13 @@
             "q50": 1.0180654525756836,
             "q98": 4.645052633285522
           },
-          "confidence_valid_count": 105840,
+          "confidence_valid_count": 50506,
           "depth_valid_count": 105840,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 61,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 105840,
-          "retained_before_sampling": 105840
+          "retained_before_sampling": 50506
         },
         {
           "confidence_quantiles": {
@@ -1488,13 +1488,13 @@
             "q50": 1.3599223494529724,
             "q98": 5.130856657028199
           },
-          "confidence_valid_count": 105840,
+          "confidence_valid_count": 53878,
           "depth_valid_count": 105840,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 66,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 105840,
-          "retained_before_sampling": 105840
+          "retained_before_sampling": 53878
         },
         {
           "confidence_quantiles": {
@@ -1503,13 +1503,13 @@
             "q50": 1.0001391172409058,
             "q98": 4.339470844268799
           },
-          "confidence_valid_count": 105840,
+          "confidence_valid_count": 45859,
           "depth_valid_count": 105840,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 71,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 105840,
-          "retained_before_sampling": 105840
+          "retained_before_sampling": 45859
         },
         {
           "confidence_quantiles": {
@@ -1518,13 +1518,13 @@
             "q50": 1.0000182390213013,
             "q98": 4.246755666732788
           },
-          "confidence_valid_count": 105840,
+          "confidence_valid_count": 43455,
           "depth_valid_count": 105840,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 76,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 105840,
-          "retained_before_sampling": 105840
+          "retained_before_sampling": 43455
         },
         {
           "confidence_quantiles": {
@@ -1533,13 +1533,13 @@
             "q50": 1.0000001192092896,
             "q98": 3.6984832239151
           },
-          "confidence_valid_count": 105840,
+          "confidence_valid_count": 38437,
           "depth_valid_count": 105840,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 81,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 105840,
-          "retained_before_sampling": 105840
+          "retained_before_sampling": 38437
         },
         {
           "confidence_quantiles": {
@@ -1548,13 +1548,13 @@
             "q50": 1.0004991292953491,
             "q98": 3.745421094894409
           },
-          "confidence_valid_count": 105840,
+          "confidence_valid_count": 43217,
           "depth_valid_count": 105840,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 86,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 105840,
-          "retained_before_sampling": 105840
+          "retained_before_sampling": 43217
         },
         {
           "confidence_quantiles": {
@@ -1563,13 +1563,13 @@
             "q50": 1.4317883253097534,
             "q98": 4.7758117675781255
           },
-          "confidence_valid_count": 105840,
+          "confidence_valid_count": 55559,
           "depth_valid_count": 105840,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 91,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 105840,
-          "retained_before_sampling": 105840
+          "retained_before_sampling": 55559
         },
         {
           "confidence_quantiles": {
@@ -1578,13 +1578,13 @@
             "q50": 1.7238067388534546,
             "q98": 5.492795715332032
           },
-          "confidence_valid_count": 105840,
+          "confidence_valid_count": 59700,
           "depth_valid_count": 105840,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 96,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 105840,
-          "retained_before_sampling": 105840
+          "retained_before_sampling": 59700
         },
         {
           "confidence_quantiles": {
@@ -1593,13 +1593,13 @@
             "q50": 2.3709356784820557,
             "q98": 5.659783143997193
           },
-          "confidence_valid_count": 105840,
+          "confidence_valid_count": 70718,
           "depth_valid_count": 105840,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 102,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 105840,
-          "retained_before_sampling": 105840
+          "retained_before_sampling": 70718
         },
         {
           "confidence_quantiles": {
@@ -1608,13 +1608,13 @@
             "q50": 2.11746883392334,
             "q98": 4.555990505218506
           },
-          "confidence_valid_count": 105840,
+          "confidence_valid_count": 70642,
           "depth_valid_count": 105840,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 107,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 105840,
-          "retained_before_sampling": 105840
+          "retained_before_sampling": 70642
         },
         {
           "confidence_quantiles": {
@@ -1623,13 +1623,13 @@
             "q50": 1.6700484156608582,
             "q98": 5.637500324249268
           },
-          "confidence_valid_count": 105840,
+          "confidence_valid_count": 59085,
           "depth_valid_count": 105840,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 112,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 105840,
-          "retained_before_sampling": 105840
+          "retained_before_sampling": 59085
         },
         {
           "confidence_quantiles": {
@@ -1638,13 +1638,13 @@
             "q50": 2.1990153789520264,
             "q98": 5.742272815704346
           },
-          "confidence_valid_count": 105840,
+          "confidence_valid_count": 66084,
           "depth_valid_count": 105840,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 117,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 105840,
-          "retained_before_sampling": 105840
+          "retained_before_sampling": 66084
         },
         {
           "confidence_quantiles": {
@@ -1653,13 +1653,13 @@
             "q50": 2.1485838890075684,
             "q98": 5.598525352478028
           },
-          "confidence_valid_count": 105840,
+          "confidence_valid_count": 65981,
           "depth_valid_count": 105840,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 122,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 105840,
-          "retained_before_sampling": 105840
+          "retained_before_sampling": 65981
         },
         {
           "confidence_quantiles": {
@@ -1668,13 +1668,13 @@
             "q50": 2.6537108421325684,
             "q98": 5.08565957069397
           },
-          "confidence_valid_count": 105840,
+          "confidence_valid_count": 74237,
           "depth_valid_count": 105840,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 127,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 105840,
-          "retained_before_sampling": 105840
+          "retained_before_sampling": 74237
         },
         {
           "confidence_quantiles": {
@@ -1683,13 +1683,13 @@
             "q50": 3.4393028020858765,
             "q98": 7.878758811950684
           },
-          "confidence_valid_count": 105840,
+          "confidence_valid_count": 77251,
           "depth_valid_count": 105840,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 132,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 105840,
-          "retained_before_sampling": 105840
+          "retained_before_sampling": 77251
         },
         {
           "confidence_quantiles": {
@@ -1698,13 +1698,13 @@
             "q50": 3.7473613023757935,
             "q98": 8.83250551223755
           },
-          "confidence_valid_count": 105840,
+          "confidence_valid_count": 76155,
           "depth_valid_count": 105840,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 137,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 105840,
-          "retained_before_sampling": 105840
+          "retained_before_sampling": 76155
         },
         {
           "confidence_quantiles": {
@@ -1713,13 +1713,13 @@
             "q50": 3.2800627946853638,
             "q98": 7.175768804550171
           },
-          "confidence_valid_count": 105840,
+          "confidence_valid_count": 74214,
           "depth_valid_count": 105840,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 142,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 105840,
-          "retained_before_sampling": 105840
+          "retained_before_sampling": 74214
         },
         {
           "confidence_quantiles": {
@@ -1728,13 +1728,13 @@
             "q50": 3.1135865449905396,
             "q98": 6.970626811981202
           },
-          "confidence_valid_count": 105840,
+          "confidence_valid_count": 75202,
           "depth_valid_count": 105840,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 147,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 105840,
-          "retained_before_sampling": 105840
+          "retained_before_sampling": 75202
         },
         {
           "confidence_quantiles": {
@@ -1743,13 +1743,13 @@
             "q50": 2.4488632678985596,
             "q98": 4.953629608154297
           },
-          "confidence_valid_count": 105840,
+          "confidence_valid_count": 71226,
           "depth_valid_count": 105840,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 153,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 105840,
-          "retained_before_sampling": 105840
+          "retained_before_sampling": 71226
         },
         {
           "confidence_quantiles": {
@@ -1758,13 +1758,13 @@
             "q50": 1.9661191701889038,
             "q98": 5.246700315475464
           },
-          "confidence_valid_count": 105840,
+          "confidence_valid_count": 66642,
           "depth_valid_count": 105840,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 158,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 105840,
-          "retained_before_sampling": 105840
+          "retained_before_sampling": 66642
         },
         {
           "confidence_quantiles": {
@@ -1773,13 +1773,13 @@
             "q50": 1.8173676133155823,
             "q98": 5.1953968334198
           },
-          "confidence_valid_count": 105840,
+          "confidence_valid_count": 63677,
           "depth_valid_count": 105840,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 163,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 105840,
-          "retained_before_sampling": 105840
+          "retained_before_sampling": 63677
         },
         {
           "confidence_quantiles": {
@@ -1788,13 +1788,13 @@
             "q50": 1.3542848825454712,
             "q98": 4.07444091796875
           },
-          "confidence_valid_count": 105840,
+          "confidence_valid_count": 56019,
           "depth_valid_count": 105840,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 168,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 105840,
-          "retained_before_sampling": 105840
+          "retained_before_sampling": 56019
         },
         {
           "confidence_quantiles": {
@@ -1803,13 +1803,13 @@
             "q50": 1.010092318058014,
             "q98": 3.7980875825881957
           },
-          "confidence_valid_count": 105840,
+          "confidence_valid_count": 38667,
           "depth_valid_count": 105840,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 173,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 105840,
-          "retained_before_sampling": 105840
+          "retained_before_sampling": 38667
         },
         {
           "confidence_quantiles": {
@@ -1818,13 +1818,13 @@
             "q50": 1.0775173902511597,
             "q98": 2.890783638954163
           },
-          "confidence_valid_count": 105840,
+          "confidence_valid_count": 49957,
           "depth_valid_count": 105840,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 178,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 105840,
-          "retained_before_sampling": 105840
+          "retained_before_sampling": 49957
         },
         {
           "confidence_quantiles": {
@@ -1833,13 +1833,13 @@
             "q50": 1.2796496748924255,
             "q98": 3.056606101989746
           },
-          "confidence_valid_count": 105840,
+          "confidence_valid_count": 54699,
           "depth_valid_count": 105840,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 183,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 105840,
-          "retained_before_sampling": 105840
+          "retained_before_sampling": 54699
         },
         {
           "confidence_quantiles": {
@@ -1848,13 +1848,13 @@
             "q50": 1.0806918740272522,
             "q98": 3.3882607316970828
           },
-          "confidence_valid_count": 105840,
+          "confidence_valid_count": 50993,
           "depth_valid_count": 105840,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 188,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 105840,
-          "retained_before_sampling": 105840
+          "retained_before_sampling": 50993
         },
         {
           "confidence_quantiles": {
@@ -1863,13 +1863,13 @@
             "q50": 1.3994332551956177,
             "q98": 3.7617839670181277
           },
-          "confidence_valid_count": 105840,
+          "confidence_valid_count": 57629,
           "depth_valid_count": 105840,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 193,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 105840,
-          "retained_before_sampling": 105840
+          "retained_before_sampling": 57629
         },
         {
           "confidence_quantiles": {
@@ -1878,16 +1878,16 @@
             "q50": 1.021323561668396,
             "q98": 2.070756049156189
           },
-          "confidence_valid_count": 105840,
+          "confidence_valid_count": 41173,
           "depth_valid_count": 105840,
-          "emitted_count": 10000,
+          "emitted_count": 8000,
           "frame_index": 199,
-          "min_confidence": 0.0,
+          "min_confidence": 1.2,
           "pixel_count": 105840,
-          "retained_before_sampling": 105840
+          "retained_before_sampling": 41173
         }
       ],
-      "point_count": 217156,
+      "point_count": 69564,
       "run_params_sha256": "43baea6744405beb41515b6be12755ea277809e0e94f5cdbf19a19fb3e1f5eb6",
       "sampled_frame_ids": [
         0,
@@ -1933,9 +1933,9 @@
       ],
       "sampling": {
         "max_frames": 40,
-        "max_points_per_frame": 10000,
-        "min_confidence": 0.0,
-        "point_budget": 250000,
+        "max_points_per_frame": 8000,
+        "min_confidence": 1.2,
+        "point_budget": 160000,
         "voxel_size_relative": 0.02
       },
       "scale_request_policy": "run_configuration_request_is_not_physical_scale_evidence",

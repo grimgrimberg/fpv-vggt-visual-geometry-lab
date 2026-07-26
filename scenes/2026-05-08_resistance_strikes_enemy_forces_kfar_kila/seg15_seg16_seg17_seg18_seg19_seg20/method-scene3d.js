@@ -646,11 +646,20 @@ function projectScenePoint(point, width, height) {
 }
 
 function buildToolbar() {
-  toolbar = document.createElement("div");
+  toolbar = document.createElement("details");
   toolbar.className = "method-scene3d-toolbar";
+  toolbar.open = !window.matchMedia("(max-width: 720px)").matches;
+  const summary = document.createElement("summary");
+  summary.className = "method-scene3d-summary";
   const label = document.createElement("div");
   label.className = "method-scene3d-label";
-  label.textContent = "METHOD FRAME · ONE COORDINATE SYSTEM AT A TIME";
+  label.textContent = "METHOD FRAME";
+  const disclosure = document.createElement("span");
+  disclosure.className = "method-scene3d-disclosure";
+  disclosure.textContent = "viewer controls";
+  summary.append(label, disclosure);
+  const body = document.createElement("div");
+  body.className = "method-scene3d-toolbar-body";
   const frames = document.createElement("div");
   frames.className = "method-scene3d-frames";
   EXCLUSIVE_FRAME_GROUPS.forEach((frame) => {
@@ -684,8 +693,29 @@ function buildToolbar() {
   viewNote = document.createElement("div");
   viewNote.className = "method-scene3d-note";
   viewNote.setAttribute("role", "status");
-  toolbar.append(label, frames, presets, layerDetails, viewNote);
+  body.append(frames, presets, layerDetails, viewNote);
+  toolbar.append(summary, body);
   root.appendChild(toolbar);
+}
+
+function handleCanvasKeydown(event) {
+  const handled = new Set(["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "+", "=", "-", "_", "0"]);
+  if (!handled.has(event.key)) return;
+  event.preventDefault();
+  if (event.key === "0") {
+    fitBounds("Orbit");
+    return;
+  }
+  const offset = camera.position.clone().sub(controls.target);
+  const spherical = new THREE.Spherical().setFromVector3(offset);
+  if (event.key === "ArrowLeft") spherical.theta -= .08;
+  if (event.key === "ArrowRight") spherical.theta += .08;
+  if (event.key === "ArrowUp") spherical.phi = Math.max(.08, spherical.phi - .08);
+  if (event.key === "ArrowDown") spherical.phi = Math.min(Math.PI - .08, spherical.phi + .08);
+  if (event.key === "+" || event.key === "=") spherical.radius = Math.max(camera.near * 4, spherical.radius / 1.15);
+  if (event.key === "-" || event.key === "_") spherical.radius = Math.min(camera.far * .25, spherical.radius * 1.15);
+  camera.position.copy(controls.target).add(new THREE.Vector3().setFromSpherical(spherical));
+  controls.update();
 }
 
 function initialiseRenderer() {
@@ -708,25 +738,7 @@ function initialiseRenderer() {
   controls.addEventListener("change", () => {
     document.dispatchEvent(new CustomEvent("fpv-webgl-camera-changed"));
   });
-  renderer.domElement.addEventListener("keydown", (event) => {
-    const handled = new Set(["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "+", "=", "-", "_", "0"]);
-    if (!handled.has(event.key)) return;
-    event.preventDefault();
-    if (event.key === "0") {
-      fitBounds("Orbit");
-      return;
-    }
-    const offset = camera.position.clone().sub(controls.target);
-    const spherical = new THREE.Spherical().setFromVector3(offset);
-    if (event.key === "ArrowLeft") spherical.theta -= .08;
-    if (event.key === "ArrowRight") spherical.theta += .08;
-    if (event.key === "ArrowUp") spherical.phi = Math.max(.08, spherical.phi - .08);
-    if (event.key === "ArrowDown") spherical.phi = Math.min(Math.PI - .08, spherical.phi + .08);
-    if (event.key === "+" || event.key === "=") spherical.radius = Math.max(camera.near * 4, spherical.radius / 1.15);
-    if (event.key === "-" || event.key === "_") spherical.radius = Math.min(camera.far * .25, spherical.radius * 1.15);
-    camera.position.copy(controls.target).add(new THREE.Vector3().setFromSpherical(spherical));
-    controls.update();
-  });
+  renderer.domElement.addEventListener("keydown", handleCanvasKeydown);
   EXCLUSIVE_FRAME_GROUPS.forEach((frame) => {
     const group = new THREE.Group();
     group.name = frame;

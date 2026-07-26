@@ -184,6 +184,13 @@ function syncSceneControls() {
   }
 }
 
+function setRunStatus(message, status) {
+  const runStatus = document.getElementById("run-status");
+  if (!runStatus) return;
+  runStatus.textContent = message;
+  runStatus.dataset.state = status;
+}
+
 async function loadScene(url) {
   state.scene = await fetchJson(url);
   if (state.scene.calibration.state !== "relative_only" || state.scene.display_units !== "relative units") {
@@ -246,9 +253,7 @@ async function loadScene(url) {
   renderEditTimeline(state.scene.edit_segments, state);
   setActiveSample(0);
   document.body.classList.add("ready");
-  const runStatus = document.getElementById("run-status");
-  runStatus.textContent = "Validated offline bundle";
-  runStatus.dataset.state = "validated";
+  setRunStatus("scene bundle ready · relative-only contract verified", "ready");
   emitViewerEvent("fpv-scene-ready", {
     sampleCount: state.paths.timestamps_sec.length,
     alignmentMode: state.alignmentMode,
@@ -592,6 +597,50 @@ function diagnosticDetails(title, statusText, open = false) {
 
 function renderResearchDiagnostics() {
   const rows = [];
+  const objectReference = state.scene?.source?.dataset_context?.object_reference;
+  if (
+    objectReference?.status === "reference_only_not_applied"
+    && objectReference?.trajectory_application === false
+  ) {
+    const details = diagnosticDetails(
+      "Known-object scale lab",
+      "metric UI locked",
+    );
+    const note = document.createElement("p");
+    note.className = "diagnostic-note";
+    note.textContent = objectReference.reason
+      || "A documented object-size prior exists, but no scene endpoints have been accepted.";
+    details.appendChild(note);
+    const grid = document.createElement("dl");
+    grid.className = "diagnostic-metrics";
+    diagnosticMetric(grid, "reference object", objectReference.object_variant || objectReference.anchor_id || "documented object");
+    diagnosticMetric(grid, "scene measurement", "not documented");
+    diagnosticMetric(grid, "trajectory application", "none");
+    for (const dimension of objectReference.dimensions || []) {
+      if (!Number.isFinite(Number(dimension.value_m))) continue;
+      const uncertainty = Number.isFinite(Number(dimension.uncertainty_m))
+        ? ` ± ${Number(dimension.uncertainty_m).toFixed(2)} m`
+        : "";
+      const use = dimension.vote_eligible ? "weak-prior eligible" : "sanity bound only";
+      diagnosticMetric(
+        grid,
+        `reference ${dimension.dimension_name || "dimension"}`,
+        `${Number(dimension.value_m).toFixed(2)} m${uncertainty} · ${use}`,
+      );
+    }
+    details.appendChild(grid);
+    const source = objectReference.source;
+    if (typeof source?.url === "string") {
+      const link = document.createElement("a");
+      link.className = "diagnostic-link";
+      link.href = source.url;
+      link.target = "_blank";
+      link.rel = "noopener";
+      link.textContent = `Open documented source${source.publisher ? ` · ${source.publisher}` : ""}`;
+      details.appendChild(link);
+    }
+    rows.push(details);
+  }
   if (state.geometryConsistency) {
     const details = diagnosticDetails(
       "Cross-method geometry",
@@ -785,7 +834,7 @@ function wireControls() {
   canvas.addEventListener("pointerup", () => { state.dragging = false; });
   canvas.addEventListener("wheel", (event) => { event.preventDefault(); state.zoom = Math.max(.25, Math.min(6, state.zoom * Math.exp(-event.deltaY * .001))); emitViewerEvent("fpv-view-changed", window.FPVViewer.getViewState()); requestAnimationFrame(renderAll); }, { passive: false });
   canvas.addEventListener("dblclick", () => { state.yaw = -.7; state.pitch = .48; state.zoom = 1; emitViewerEvent("fpv-view-changed", window.FPVViewer.getViewState()); requestAnimationFrame(renderAll); });
-  canvas.addEventListener("keydown", (event) => {
+  function handleCanvasKeydown(event) {
     const handled = new Set(["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "+", "=", "-", "_", "0"]);
     if (!handled.has(event.key)) return;
     event.preventDefault();
@@ -798,7 +847,8 @@ function wireControls() {
     if (event.key === "0") { state.yaw = -.7; state.pitch = .48; state.zoom = 1; }
     emitViewerEvent("fpv-view-changed", window.FPVViewer.getViewState());
     requestAnimationFrame(renderAll);
-  });
+  }
+  canvas.addEventListener("keydown", handleCanvasKeydown);
   addEventListener("resize", () => requestAnimationFrame(renderAll));
 }
 
@@ -811,7 +861,7 @@ function playbackLoop() {
 
 wireControls();
 loadScene("scene_meta.json").catch((error) => {
-  document.getElementById("run-status").textContent = `bundle error: ${error.message}`;
+  setRunStatus(`bundle error: ${error.message}`, "error");
   console.error(error);
 });
 playbackLoop();

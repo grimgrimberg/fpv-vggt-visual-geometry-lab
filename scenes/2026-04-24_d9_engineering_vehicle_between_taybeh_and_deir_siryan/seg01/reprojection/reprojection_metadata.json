@@ -1,5 +1,14 @@
 {
-  "video_dir": "unpublished_source_cache/geometry/2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan/seg01/reprojection_source",
+  "auto_focal": false,
+  "crop_left_top_width_height": [
+    50,
+    0,
+    560,
+    280
+  ],
+  "flip_y": true,
+  "focal_px": 400.0,
+  "focal_scores": [],
   "samples": [
     0,
     39,
@@ -8,16 +17,7 @@
     159,
     199
   ],
-  "focal_px": 400.0,
-  "auto_focal": false,
-  "flip_y": true,
   "used_vggt_preprocess_crop": true,
-  "view": "full",
-  "crop_left_top_width_height": [
-    50,
-    0,
-    560,
-    280
-  ],
-  "focal_scores": []
+  "video_dir": "unpublished_source_cache/geometry/2026-04-24_d9_engineering_vehicle_between_taybeh_and_deir_siryan/seg01/reprojection_source",
+  "view": "full"
 }
