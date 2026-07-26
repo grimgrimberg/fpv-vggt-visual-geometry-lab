@@ -1,0 +1,87 @@
+{
+  "aligned_bounds": {
+    "max": [
+      0.17477568763028864,
+      0.07819124936520734,
+      -0.08821245967578029
+    ],
+    "min": [
+      -0.4955165747618351,
+      -0.023359579586689883,
+      -1.0192709425097493
+    ]
+  },
+  "calibration_state": "uncalibrated_display_alignment",
+  "confidence": "high",
+  "display_transform": {
+    "preserves_relative_scale": true,
+    "rotation_3x3": [
+      [
+        0.9975137501273478,
+        -0.06978399004608087,
+        -0.009824105054598525
+      ],
+      [
+        0.06978399004608087,
+        0.9586950291349841,
+        0.2757426986252236
+      ],
+      [
+        -0.009824105054598525,
+        -0.2757426986252236,
+        0.9611812790076363
+      ]
+    ],
+    "source_frame": "official_glb_alignment",
+    "target_frame": "estimated_ground_y_up",
+    "translation": [
+      0.0,
+      0.07206216469981193,
+      0.0
+    ]
+  },
+  "inputs": {
+    "camera_path": {
+      "count": 200,
+      "path": "camera_path.json",
+      "sha256": "021f98709cb665da9e627106ac87509daf5d482b3075473d9e4ff0fae9cbd115"
+    },
+    "points_preview": {
+      "count": 120000,
+      "path": "points_preview.bin",
+      "sha256": "159cb964ef08eba98273298835c5d8aa3cacd9e3900044ceff4bd43743979527"
+    }
+  },
+  "method": "deterministic_robust_pca_plane_with_weak_y_up_prior",
+  "plane": {
+    "inlier_threshold_relative_to_diagonal": 0.012,
+    "normal_source": [
+      0.06978399004608087,
+      0.9586950291349841,
+      0.2757426986252236
+    ],
+    "offset_source": 0.07206216469981193
+  },
+  "quality": {
+    "camera_above_ratio": 1.0,
+    "inlier_count": 11221,
+    "inlier_ratio": 0.9350833333333334,
+    "median_abs_residual_relative": 0.00414077118687471,
+    "median_camera_clearance_relative": 0.036251586898120705,
+    "normal_y_prior_abs": 0.9586950291349841,
+    "p95_abs_residual_relative": 0.013051303856603422,
+    "planarity_singular_ratio": 0.037288991310574775,
+    "sampled_point_count": 12000,
+    "source_point_count": 120000
+  },
+  "recommended_default": true,
+  "scale_status": "relative_only",
+  "scene_id": "2026-04-29_strike_on_merkava_tank__seg01",
+  "schema_version": "1.0.0",
+  "status": "estimated",
+  "warnings": [
+    "Estimated display plane only; not physical calibration.",
+    "A weak reconstruction-Y prior rejects likely vertical facades.",
+    "Raw points, cameras, and trajectory artifacts remain unchanged."
+  ]
+}

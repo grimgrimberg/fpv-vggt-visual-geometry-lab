@@ -70,6 +70,12 @@
     "geometry_consistency": {
       "path": "../diagnostics/geometry_consistency.json"
     },
+    "ground_alignment": {
+      "artifact_sha256": "9d089a1cf3443de073b86fb50bd2e19fa49fe018d8909b8b7a376ad4c1f4392f",
+      "confidence": "high",
+      "path": "ground_alignment.json",
+      "status": "estimated"
+    },
     "match_graph": {
       "reason": "The HLoc/COLMAP database has not yet been materialized in this public bundle.",
       "status": "not_collected"
@@ -164,6 +170,15 @@
   "calibration": {
     "evidence": null,
     "state": "relative_only"
+  },
+  "display_alignment": {
+    "default": "estimated_ground",
+    "estimated_ground_available": true,
+    "frame_contract": "points, paths, cameras, frusta, grid, and camera-proxy share one display transform",
+    "raw_available": true,
+    "scale_status": "relative_only",
+    "source_frame": "official_glb_alignment",
+    "target_frame": "estimated_ground_y_up"
   },
   "display_units": "relative units",
   "edit_segments": [
