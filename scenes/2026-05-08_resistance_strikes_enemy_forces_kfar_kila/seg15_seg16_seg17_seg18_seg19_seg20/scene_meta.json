@@ -19,7 +19,7 @@
         "type": "banner_start"
       },
       {
-        "comment": "cut:keep_blur_transition; post_blur_black_replay_like",
+        "comment": "",
         "end_s": 8.0,
         "label": "Replay Start",
         "review_status": "auto_generated",
@@ -29,7 +29,7 @@
         "type": "replay_start"
       },
       {
-        "comment": "cut:keep_freeze_or_black_transition",
+        "comment": "",
         "end_s": 12.8,
         "label": "Flight Start",
         "review_status": "auto_generated",
@@ -39,7 +39,7 @@
         "type": "flight_start"
       },
       {
-        "comment": "cut:keep_freeze_or_black_transition",
+        "comment": "",
         "end_s": 17.6,
         "label": "Pause Start",
         "review_status": "auto_generated",
@@ -49,7 +49,7 @@
         "type": "pause_start"
       },
       {
-        "comment": "cut:keep_freeze_or_black_transition",
+        "comment": "",
         "end_s": 21.84,
         "label": "Flight Start",
         "review_status": "auto_generated",
@@ -59,7 +59,7 @@
         "type": "flight_start"
       },
       {
-        "comment": "cut:keep_blur_transition; post_blur_black_replay_like",
+        "comment": "",
         "end_s": 22.44,
         "label": "Replay Start",
         "review_status": "auto_generated",
@@ -69,7 +69,7 @@
         "type": "replay_start"
       },
       {
-        "comment": "cut:keep_blur_transition; post_blur_black_replay_like",
+        "comment": "",
         "end_s": 26.96,
         "label": "Replay Start",
         "review_status": "auto_generated",
@@ -79,7 +79,7 @@
         "type": "replay_start"
       },
       {
-        "comment": "cut:keep_freeze_or_black_transition",
+        "comment": "",
         "end_s": 31.64,
         "label": "Pause Start",
         "review_status": "auto_generated",
@@ -89,7 +89,7 @@
         "type": "pause_start"
       },
       {
-        "comment": "cut:keep_freeze_or_black_transition",
+        "comment": "",
         "end_s": 32.76,
         "label": "Flight Start",
         "review_status": "auto_generated",
@@ -99,7 +99,7 @@
         "type": "flight_start"
       },
       {
-        "comment": "cut:keep_blur_transition",
+        "comment": "",
         "end_s": 35.12,
         "label": "Flight Start",
         "review_status": "auto_generated",
@@ -109,7 +109,7 @@
         "type": "flight_start"
       },
       {
-        "comment": "cut:keep_freeze_or_black_transition",
+        "comment": "",
         "end_s": 39.92,
         "label": "Pause Start",
         "review_status": "auto_generated",
@@ -119,7 +119,7 @@
         "type": "pause_start"
       },
       {
-        "comment": "cut:keep_freeze_or_black_transition",
+        "comment": "",
         "end_s": 47.6,
         "label": "Flight Start",
         "review_status": "auto_generated",
@@ -129,7 +129,7 @@
         "type": "flight_start"
       },
       {
-        "comment": "cut:keep_blur_transition; post_blur_black_replay_like",
+        "comment": "",
         "end_s": 48.0,
         "label": "Replay Start",
         "review_status": "auto_generated",
@@ -139,7 +139,7 @@
         "type": "replay_start"
       },
       {
-        "comment": "cut:keep_blur_transition",
+        "comment": "",
         "end_s": 48.48,
         "label": "Pause Start",
         "review_status": "auto_generated",
@@ -149,7 +149,7 @@
         "type": "pause_start"
       },
       {
-        "comment": "cut:keep_blur_transition; post_blur_black_replay_like",
+        "comment": "",
         "end_s": 56.48,
         "label": "Replay Start",
         "review_status": "auto_generated",
@@ -159,7 +159,7 @@
         "type": "replay_start"
       },
       {
-        "comment": "cut:keep_freeze_or_black_transition",
+        "comment": "",
         "end_s": 59.6,
         "label": "Flight Start",
         "review_status": "auto_generated",
@@ -169,7 +169,7 @@
         "type": "flight_start"
       },
       {
-        "comment": "cut:keep_blur_transition; post_blur_black_replay_like",
+        "comment": "",
         "end_s": 60.16,
         "label": "Replay Start",
         "review_status": "auto_generated",
@@ -179,7 +179,7 @@
         "type": "replay_start"
       },
       {
-        "comment": "cut:keep_blur_transition; post_blur_black_replay_like",
+        "comment": "",
         "end_s": 69.0,
         "label": "Replay Start",
         "review_status": "auto_generated",
@@ -189,7 +189,7 @@
         "type": "replay_start"
       },
       {
-        "comment": "cut:keep_freeze_or_black_transition",
+        "comment": "",
         "end_s": 73.68,
         "label": "Pause Start",
         "review_status": "auto_generated",
@@ -199,7 +199,7 @@
         "type": "pause_start"
       },
       {
-        "comment": "cut:keep_freeze_or_black_transition",
+        "comment": "",
         "end_s": 77.72,
         "label": "Flight Start",
         "review_status": "auto_generated",
@@ -209,7 +209,7 @@
         "type": "flight_start"
       },
       {
-        "comment": "cut:keep_freeze_or_black_transition",
+        "comment": "",
         "end_s": 82.68,
         "label": "Pause Start",
         "review_status": "auto_generated",
@@ -219,7 +219,7 @@
         "type": "pause_start"
       },
       {
-        "comment": "cut:keep_freeze_or_black_transition",
+        "comment": "",
         "end_s": 86.32,
         "label": "Flight Start",
         "review_status": "auto_generated",
@@ -229,7 +229,7 @@
         "type": "flight_start"
       },
       {
-        "comment": "cut:keep_blur_transition; post_blur_black_replay_like",
+        "comment": "",
         "end_s": 86.8,
         "label": "Replay Start",
         "review_status": "auto_generated",
@@ -239,7 +239,7 @@
         "type": "replay_start"
       },
       {
-        "comment": "cut:keep_blur_transition; post_blur_black_replay_like",
+        "comment": "",
         "end_s": 88.96,
         "label": "Replay Start",
         "review_status": "auto_generated",
@@ -249,7 +249,7 @@
         "type": "replay_start"
       },
       {
-        "comment": "cut:keep_freeze_or_black_transition",
+        "comment": "",
         "end_s": 94.16,
         "label": "Pause Start",
         "review_status": "auto_generated",
@@ -259,7 +259,7 @@
         "type": "pause_start"
       },
       {
-        "comment": "cut:keep_freeze_or_black_transition",
+        "comment": "",
         "end_s": 108.52,
         "label": "Flight Start",
         "review_status": "auto_generated",
@@ -269,7 +269,7 @@
         "type": "flight_start"
       },
       {
-        "comment": "cut:keep_freeze_or_black_transition",
+        "comment": "",
         "end_s": 113.36,
         "label": "Pause Start",
         "review_status": "auto_generated",
@@ -279,7 +279,7 @@
         "type": "pause_start"
       },
       {
-        "comment": "cut:keep_freeze_or_black_transition",
+        "comment": "",
         "end_s": 114.64,
         "label": "Flight Start",
         "review_status": "auto_generated",
@@ -289,7 +289,7 @@
         "type": "flight_start"
       },
       {
-        "comment": "cut:keep_blur_transition; post_blur_black_replay_like",
+        "comment": "",
         "end_s": 115.12,
         "label": "Replay Start",
         "review_status": "auto_generated",
@@ -299,7 +299,7 @@
         "type": "replay_start"
       },
       {
-        "comment": "cut:keep_blur_transition; post_blur_black_replay_like",
+        "comment": "",
         "end_s": 118.56,
         "label": "Replay Start",
         "review_status": "auto_generated",
@@ -309,7 +309,7 @@
         "type": "replay_start"
       },
       {
-        "comment": "cut:keep_freeze_or_black_transition",
+        "comment": "",
         "end_s": 123.56,
         "label": "Pause Start",
         "review_status": "auto_generated",
@@ -319,7 +319,7 @@
         "type": "pause_start"
       },
       {
-        "comment": "cut:keep_freeze_or_black_transition",
+        "comment": "",
         "end_s": 128.72,
         "label": "Flight Start",
         "review_status": "auto_generated",
@@ -329,7 +329,7 @@
         "type": "flight_start"
       },
       {
-        "comment": "cut:keep_blur_transition",
+        "comment": "",
         "end_s": 135.16,
         "label": "Flight Start",
         "review_status": "auto_generated",
@@ -339,7 +339,7 @@
         "type": "flight_start"
       },
       {
-        "comment": "cut:keep_freeze_or_black_transition",
+        "comment": "",
         "end_s": 139.96,
         "label": "Pause Start",
         "review_status": "auto_generated",
@@ -349,7 +349,7 @@
         "type": "pause_start"
       },
       {
-        "comment": "cut:keep_freeze_or_black_transition",
+        "comment": "",
         "end_s": 147.8,
         "label": "Flight Start",
         "review_status": "auto_generated",
@@ -359,7 +359,7 @@
         "type": "flight_start"
       },
       {
-        "comment": "cut:keep_blur_transition; post_blur_black_replay_like",
+        "comment": "",
         "end_s": 148.32,
         "label": "Replay Start",
         "review_status": "auto_generated",
@@ -369,7 +369,7 @@
         "type": "replay_start"
       },
       {
-        "comment": "cut:keep_blur_transition",
+        "comment": "",
         "end_s": 148.76,
         "label": "Pause Start",
         "review_status": "auto_generated",
@@ -379,7 +379,7 @@
         "type": "pause_start"
       },
       {
-        "comment": "cut:keep_blur_transition; post_blur_black_replay_like",
+        "comment": "",
         "end_s": 153.24,
         "label": "Replay Start",
         "review_status": "auto_generated",
@@ -389,7 +389,7 @@
         "type": "replay_start"
       },
       {
-        "comment": "cut:keep_freeze_or_black_transition",
+        "comment": "",
         "end_s": 158.24,
         "label": "Pause Start",
         "review_status": "auto_generated",
@@ -399,7 +399,7 @@
         "type": "pause_start"
       },
       {
-        "comment": "cut:keep_freeze_or_black_transition",
+        "comment": "",
         "end_s": 159.28,
         "label": "Flight Start",
         "review_status": "auto_generated",
@@ -409,7 +409,7 @@
         "type": "flight_start"
       },
       {
-        "comment": "cut:keep_blur_transition; post_blur_black_replay_like",
+        "comment": "",
         "end_s": 159.8,
         "label": "Replay Start",
         "review_status": "auto_generated",
@@ -419,7 +419,7 @@
         "type": "replay_start"
       },
       {
-        "comment": "cut:keep_blur_transition; post_blur_black_replay_like",
+        "comment": "",
         "end_s": 191.72,
         "label": "Replay Start",
         "review_status": "auto_generated",
@@ -429,7 +429,7 @@
         "type": "replay_start"
       },
       {
-        "comment": "cut:keep_freeze_or_black_transition",
+        "comment": "",
         "end_s": 192.24,
         "label": "Other",
         "review_status": "auto_generated",
@@ -439,7 +439,7 @@
         "type": "other"
       },
       {
-        "comment": "cut:keep_blur_transition",
+        "comment": "",
         "end_s": 205.8,
         "label": "Pause Start",
         "review_status": "auto_generated",
@@ -449,7 +449,7 @@
         "type": "pause_start"
       },
       {
-        "comment": "cut:keep_freeze_or_black_transition",
+        "comment": "",
         "end_s": 218.72,
         "label": "Flight Start",
         "review_status": "auto_generated",
@@ -459,7 +459,7 @@
         "type": "flight_start"
       },
       {
-        "comment": "cut:keep_freeze_or_black_transition",
+        "comment": "",
         "end_s": 228.8,
         "label": "Pause Start",
         "review_status": "auto_generated",
@@ -469,7 +469,7 @@
         "type": "pause_start"
       },
       {
-        "comment": "cut:keep_freeze_or_black_transition",
+        "comment": "",
         "end_s": 230.32,
         "label": "Flight Start",
         "review_status": "auto_generated",
@@ -479,7 +479,7 @@
         "type": "flight_start"
       },
       {
-        "comment": "cut:keep_blur_transition",
+        "comment": "",
         "end_s": 236.28,
         "label": "Pause Start",
         "review_status": "auto_generated",
@@ -489,7 +489,7 @@
         "type": "pause_start"
       },
       {
-        "comment": "cut:keep_blur_transition",
+        "comment": "",
         "end_s": 239.72,
         "label": "Flight Start",
         "review_status": "auto_generated",
@@ -499,7 +499,7 @@
         "type": "flight_start"
       },
       {
-        "comment": "cut:keep_freeze_or_black_transition",
+        "comment": "",
         "end_s": 248.8,
         "label": "Pause Start",
         "review_status": "auto_generated",
@@ -509,7 +509,7 @@
         "type": "pause_start"
       },
       {
-        "comment": "cut:keep_freeze_or_black_transition",
+        "comment": "",
         "end_s": 252.84,
         "label": "Flight Start",
         "review_status": "auto_generated",
@@ -519,7 +519,7 @@
         "type": "flight_start"
       },
       {
-        "comment": "cut:keep_freeze_or_black_transition",
+        "comment": "",
         "end_s": 261.88,
         "label": "Pause Start",
         "review_status": "auto_generated",
@@ -529,7 +529,7 @@
         "type": "pause_start"
       },
       {
-        "comment": "cut:keep_freeze_or_black_transition",
+        "comment": "",
         "end_s": 289.16,
         "label": "Flight Start",
         "review_status": "auto_generated",
@@ -539,7 +539,7 @@
         "type": "flight_start"
       },
       {
-        "comment": "cut:keep_freeze_or_black_transition",
+        "comment": "",
         "end_s": 293.72,
         "label": "Pause Start",
         "review_status": "auto_generated",
@@ -549,7 +549,7 @@
         "type": "pause_start"
       },
       {
-        "comment": "cut:keep_freeze_or_black_transition",
+        "comment": "",
         "end_s": 295.88,
         "label": "Flight Start",
         "review_status": "auto_generated",
@@ -559,7 +559,7 @@
         "type": "flight_start"
       },
       {
-        "comment": "cut:keep_blur_transition",
+        "comment": "",
         "end_s": 299.84,
         "label": "Pause Start",
         "review_status": "auto_generated",
@@ -569,7 +569,7 @@
         "type": "pause_start"
       },
       {
-        "comment": "cut:keep_blur_transition",
+        "comment": "",
         "end_s": 300.48,
         "label": "Other",
         "review_status": "auto_generated",
@@ -579,7 +579,7 @@
         "type": "other"
       },
       {
-        "comment": "cut:keep_blur_transition",
+        "comment": "",
         "end_s": 300.84,
         "label": "Other",
         "review_status": "auto_generated",
@@ -589,7 +589,7 @@
         "type": "other"
       },
       {
-        "comment": "cut:keep_blur_transition",
+        "comment": "",
         "end_s": 300.84099999999995,
         "end_semantics": "boundary_marker_minimum_extent",
         "label": "Pause Start",
@@ -613,16 +613,52 @@
     "cameras": {
       "path": "cameras.json"
     },
+    "colmap_ba_diagnostics": {
+      "path": "../diagnostics/colmap_ba_diagnostics.md"
+    },
+    "colmap_failure_taxonomy": {
+      "path": "../diagnostics/colmap_failure_taxonomy.json"
+    },
+    "contact_sheet": {
+      "reason": "Rendered source imagery is intentionally not copied.",
+      "status": "not_published"
+    },
+    "drone_pose_proxy": {
+      "path": "../visualization/drone_pose_proxy.svg"
+    },
+    "edit_segmentation": {
+      "path": "../diagnostics/edit_segmentation.json"
+    },
+    "geometry_consistency": {
+      "reason": "No cross-method consistency artifact was published for this scene.",
+      "status": "unavailable"
+    },
     "ground_alignment": {
       "confidence": "high",
       "path": "ground_alignment.json",
       "recommended_default": true,
       "status": "estimated"
     },
+    "match_graph": {
+      "path": "../diagnostics/match_graph.json"
+    },
+    "match_graph_report": {
+      "path": "../diagnostics/match_graph.html"
+    },
+    "match_matrix": {
+      "path": "../diagnostics/match_matrix.png"
+    },
     "method_comparison": {
       "alignment_policy": "method_native_not_aligned",
       "path": "methods/method_comparison.json",
       "sample_count": 3
+    },
+    "method_depth_gallery": {
+      "reason": "Representative R3 and LingBot depth previews have not been materialized.",
+      "status": "not_collected"
+    },
+    "method_inventory": {
+      "path": "../diagnostics/method_inventory.json"
     },
     "points_ply": {
       "bytes": 1200233,
@@ -651,9 +687,22 @@
         3
       ]
     },
+    "pose_6dof_animation": {
+      "path": "../visualization/pose_6dof_animation.json"
+    },
+    "pose_6dof_raw": {
+      "path": "../visualization/pose_6dof_raw.csv"
+    },
     "pov": {
       "reason": "source frames are not copied",
       "samples": [],
+      "status": "not_published"
+    },
+    "pov_timeline": {
+      "path": "../visualization/pov_timeline.json"
+    },
+    "preview": {
+      "reason": "Rendered source imagery is intentionally not copied.",
       "status": "not_published"
     },
     "reprojection": {
@@ -661,11 +710,22 @@
       "samples": [],
       "status": "not_published"
     },
+    "sixdof_state_space": {
+      "path": "../visualization/sixdof_state_space.html"
+    },
+    "source_thumbnail": {
+      "copied": false,
+      "kind": "remote_public_reference",
+      "path": "https://d2fioemadmrru3.cloudfront.net/thumbnails/2026-05-08_resistance_strikes_enemy_forces_kfar_kila.jpg"
+    },
     "source_video": {
       "copied": false,
       "kind": "remote_public_reference",
       "path": "https://d2fioemadmrru3.cloudfront.net/videos/2026-05-08_resistance_strikes_enemy_forces_kfar_kila.mp4",
       "synchronization": "source_timestamp_sec"
+    },
+    "trajectory_metrics": {
+      "path": "../diagnostics/trajectory_metrics.json"
     },
     "trajectory_profiles": {
       "path": "trajectory_profiles.json"
@@ -708,7 +768,7 @@
       "type": "banner_start"
     },
     {
-      "comment": "cut:keep_blur_transition; post_blur_black_replay_like",
+      "comment": "",
       "end_s": 8.0,
       "label": "Replay Start",
       "review_status": "auto_generated",
@@ -718,7 +778,7 @@
       "type": "replay_start"
     },
     {
-      "comment": "cut:keep_freeze_or_black_transition",
+      "comment": "",
       "end_s": 12.8,
       "label": "Flight Start",
       "review_status": "auto_generated",
@@ -728,7 +788,7 @@
       "type": "flight_start"
     },
     {
-      "comment": "cut:keep_freeze_or_black_transition",
+      "comment": "",
       "end_s": 17.6,
       "label": "Pause Start",
       "review_status": "auto_generated",
@@ -738,7 +798,7 @@
       "type": "pause_start"
     },
     {
-      "comment": "cut:keep_freeze_or_black_transition",
+      "comment": "",
       "end_s": 21.84,
       "label": "Flight Start",
       "review_status": "auto_generated",
@@ -748,7 +808,7 @@
       "type": "flight_start"
     },
     {
-      "comment": "cut:keep_blur_transition; post_blur_black_replay_like",
+      "comment": "",
       "end_s": 22.44,
       "label": "Replay Start",
       "review_status": "auto_generated",
@@ -758,7 +818,7 @@
       "type": "replay_start"
     },
     {
-      "comment": "cut:keep_blur_transition; post_blur_black_replay_like",
+      "comment": "",
       "end_s": 26.96,
       "label": "Replay Start",
       "review_status": "auto_generated",
@@ -768,7 +828,7 @@
       "type": "replay_start"
     },
     {
-      "comment": "cut:keep_freeze_or_black_transition",
+      "comment": "",
       "end_s": 31.64,
       "label": "Pause Start",
       "review_status": "auto_generated",
@@ -778,7 +838,7 @@
       "type": "pause_start"
     },
     {
-      "comment": "cut:keep_freeze_or_black_transition",
+      "comment": "",
       "end_s": 32.76,
       "label": "Flight Start",
       "review_status": "auto_generated",
@@ -788,7 +848,7 @@
       "type": "flight_start"
     },
     {
-      "comment": "cut:keep_blur_transition",
+      "comment": "",
       "end_s": 35.12,
       "label": "Flight Start",
       "review_status": "auto_generated",
@@ -798,7 +858,7 @@
       "type": "flight_start"
     },
     {
-      "comment": "cut:keep_freeze_or_black_transition",
+      "comment": "",
       "end_s": 39.92,
       "label": "Pause Start",
       "review_status": "auto_generated",
@@ -808,7 +868,7 @@
       "type": "pause_start"
     },
     {
-      "comment": "cut:keep_freeze_or_black_transition",
+      "comment": "",
       "end_s": 47.6,
       "label": "Flight Start",
       "review_status": "auto_generated",
@@ -818,7 +878,7 @@
       "type": "flight_start"
     },
     {
-      "comment": "cut:keep_blur_transition; post_blur_black_replay_like",
+      "comment": "",
       "end_s": 48.0,
       "label": "Replay Start",
       "review_status": "auto_generated",
@@ -828,7 +888,7 @@
       "type": "replay_start"
     },
     {
-      "comment": "cut:keep_blur_transition",
+      "comment": "",
       "end_s": 48.48,
       "label": "Pause Start",
       "review_status": "auto_generated",
@@ -838,7 +898,7 @@
       "type": "pause_start"
     },
     {
-      "comment": "cut:keep_blur_transition; post_blur_black_replay_like",
+      "comment": "",
       "end_s": 56.48,
       "label": "Replay Start",
       "review_status": "auto_generated",
@@ -848,7 +908,7 @@
       "type": "replay_start"
     },
     {
-      "comment": "cut:keep_freeze_or_black_transition",
+      "comment": "",
       "end_s": 59.6,
       "label": "Flight Start",
       "review_status": "auto_generated",
@@ -858,7 +918,7 @@
       "type": "flight_start"
     },
     {
-      "comment": "cut:keep_blur_transition; post_blur_black_replay_like",
+      "comment": "",
       "end_s": 60.16,
       "label": "Replay Start",
       "review_status": "auto_generated",
@@ -868,7 +928,7 @@
       "type": "replay_start"
     },
     {
-      "comment": "cut:keep_blur_transition; post_blur_black_replay_like",
+      "comment": "",
       "end_s": 69.0,
       "label": "Replay Start",
       "review_status": "auto_generated",
@@ -878,7 +938,7 @@
       "type": "replay_start"
     },
     {
-      "comment": "cut:keep_freeze_or_black_transition",
+      "comment": "",
       "end_s": 73.68,
       "label": "Pause Start",
       "review_status": "auto_generated",
@@ -888,7 +948,7 @@
       "type": "pause_start"
     },
     {
-      "comment": "cut:keep_freeze_or_black_transition",
+      "comment": "",
       "end_s": 77.72,
       "label": "Flight Start",
       "review_status": "auto_generated",
@@ -898,7 +958,7 @@
       "type": "flight_start"
     },
     {
-      "comment": "cut:keep_freeze_or_black_transition",
+      "comment": "",
       "end_s": 82.68,
       "label": "Pause Start",
       "review_status": "auto_generated",
@@ -908,7 +968,7 @@
       "type": "pause_start"
     },
     {
-      "comment": "cut:keep_freeze_or_black_transition",
+      "comment": "",
       "end_s": 86.32,
       "label": "Flight Start",
       "review_status": "auto_generated",
@@ -918,7 +978,7 @@
       "type": "flight_start"
     },
     {
-      "comment": "cut:keep_blur_transition; post_blur_black_replay_like",
+      "comment": "",
       "end_s": 86.8,
       "label": "Replay Start",
       "review_status": "auto_generated",
@@ -928,7 +988,7 @@
       "type": "replay_start"
     },
     {
-      "comment": "cut:keep_blur_transition; post_blur_black_replay_like",
+      "comment": "",
       "end_s": 88.96,
       "label": "Replay Start",
       "review_status": "auto_generated",
@@ -938,7 +998,7 @@
       "type": "replay_start"
     },
     {
-      "comment": "cut:keep_freeze_or_black_transition",
+      "comment": "",
       "end_s": 94.16,
       "label": "Pause Start",
       "review_status": "auto_generated",
@@ -948,7 +1008,7 @@
       "type": "pause_start"
     },
     {
-      "comment": "cut:keep_freeze_or_black_transition",
+      "comment": "",
       "end_s": 108.52,
       "label": "Flight Start",
       "review_status": "auto_generated",
@@ -958,7 +1018,7 @@
       "type": "flight_start"
     },
     {
-      "comment": "cut:keep_freeze_or_black_transition",
+      "comment": "",
       "end_s": 113.36,
       "label": "Pause Start",
       "review_status": "auto_generated",
@@ -968,7 +1028,7 @@
       "type": "pause_start"
     },
     {
-      "comment": "cut:keep_freeze_or_black_transition",
+      "comment": "",
       "end_s": 114.64,
       "label": "Flight Start",
       "review_status": "auto_generated",
@@ -978,7 +1038,7 @@
       "type": "flight_start"
     },
     {
-      "comment": "cut:keep_blur_transition; post_blur_black_replay_like",
+      "comment": "",
       "end_s": 115.12,
       "label": "Replay Start",
       "review_status": "auto_generated",
@@ -988,7 +1048,7 @@
       "type": "replay_start"
     },
     {
-      "comment": "cut:keep_blur_transition; post_blur_black_replay_like",
+      "comment": "",
       "end_s": 118.56,
       "label": "Replay Start",
       "review_status": "auto_generated",
@@ -998,7 +1058,7 @@
       "type": "replay_start"
     },
     {
-      "comment": "cut:keep_freeze_or_black_transition",
+      "comment": "",
       "end_s": 123.56,
       "label": "Pause Start",
       "review_status": "auto_generated",
@@ -1008,7 +1068,7 @@
       "type": "pause_start"
     },
     {
-      "comment": "cut:keep_freeze_or_black_transition",
+      "comment": "",
       "end_s": 128.72,
       "label": "Flight Start",
       "review_status": "auto_generated",
@@ -1018,7 +1078,7 @@
       "type": "flight_start"
     },
     {
-      "comment": "cut:keep_blur_transition",
+      "comment": "",
       "end_s": 135.16,
       "label": "Flight Start",
       "review_status": "auto_generated",
@@ -1028,7 +1088,7 @@
       "type": "flight_start"
     },
     {
-      "comment": "cut:keep_freeze_or_black_transition",
+      "comment": "",
       "end_s": 139.96,
       "label": "Pause Start",
       "review_status": "auto_generated",
@@ -1038,7 +1098,7 @@
       "type": "pause_start"
     },
     {
-      "comment": "cut:keep_freeze_or_black_transition",
+      "comment": "",
       "end_s": 147.8,
       "label": "Flight Start",
       "review_status": "auto_generated",
@@ -1048,7 +1108,7 @@
       "type": "flight_start"
     },
     {
-      "comment": "cut:keep_blur_transition; post_blur_black_replay_like",
+      "comment": "",
       "end_s": 148.32,
       "label": "Replay Start",
       "review_status": "auto_generated",
@@ -1058,7 +1118,7 @@
       "type": "replay_start"
     },
     {
-      "comment": "cut:keep_blur_transition",
+      "comment": "",
       "end_s": 148.76,
       "label": "Pause Start",
       "review_status": "auto_generated",
@@ -1068,7 +1128,7 @@
       "type": "pause_start"
     },
     {
-      "comment": "cut:keep_blur_transition; post_blur_black_replay_like",
+      "comment": "",
       "end_s": 153.24,
       "label": "Replay Start",
       "review_status": "auto_generated",
@@ -1078,7 +1138,7 @@
       "type": "replay_start"
     },
     {
-      "comment": "cut:keep_freeze_or_black_transition",
+      "comment": "",
       "end_s": 158.24,
       "label": "Pause Start",
       "review_status": "auto_generated",
@@ -1088,7 +1148,7 @@
       "type": "pause_start"
     },
     {
-      "comment": "cut:keep_freeze_or_black_transition",
+      "comment": "",
       "end_s": 159.28,
       "label": "Flight Start",
       "review_status": "auto_generated",
@@ -1098,7 +1158,7 @@
       "type": "flight_start"
     },
     {
-      "comment": "cut:keep_blur_transition; post_blur_black_replay_like",
+      "comment": "",
       "end_s": 159.8,
       "label": "Replay Start",
       "review_status": "auto_generated",
@@ -1108,7 +1168,7 @@
       "type": "replay_start"
     },
     {
-      "comment": "cut:keep_blur_transition; post_blur_black_replay_like",
+      "comment": "",
       "end_s": 191.72,
       "label": "Replay Start",
       "review_status": "auto_generated",
@@ -1118,7 +1178,7 @@
       "type": "replay_start"
     },
     {
-      "comment": "cut:keep_freeze_or_black_transition",
+      "comment": "",
       "end_s": 192.24,
       "label": "Other",
       "review_status": "auto_generated",
@@ -1128,7 +1188,7 @@
       "type": "other"
     },
     {
-      "comment": "cut:keep_blur_transition",
+      "comment": "",
       "end_s": 205.8,
       "label": "Pause Start",
       "review_status": "auto_generated",
@@ -1138,7 +1198,7 @@
       "type": "pause_start"
     },
     {
-      "comment": "cut:keep_freeze_or_black_transition",
+      "comment": "",
       "end_s": 218.72,
       "label": "Flight Start",
       "review_status": "auto_generated",
@@ -1148,7 +1208,7 @@
       "type": "flight_start"
     },
     {
-      "comment": "cut:keep_freeze_or_black_transition",
+      "comment": "",
       "end_s": 228.8,
       "label": "Pause Start",
       "review_status": "auto_generated",
@@ -1158,7 +1218,7 @@
       "type": "pause_start"
     },
     {
-      "comment": "cut:keep_freeze_or_black_transition",
+      "comment": "",
       "end_s": 230.32,
       "label": "Flight Start",
       "review_status": "auto_generated",
@@ -1168,7 +1228,7 @@
       "type": "flight_start"
     },
     {
-      "comment": "cut:keep_blur_transition",
+      "comment": "",
       "end_s": 236.28,
       "label": "Pause Start",
       "review_status": "auto_generated",
@@ -1178,7 +1238,7 @@
       "type": "pause_start"
     },
     {
-      "comment": "cut:keep_blur_transition",
+      "comment": "",
       "end_s": 239.72,
       "label": "Flight Start",
       "review_status": "auto_generated",
@@ -1188,7 +1248,7 @@
       "type": "flight_start"
     },
     {
-      "comment": "cut:keep_freeze_or_black_transition",
+      "comment": "",
       "end_s": 248.8,
       "label": "Pause Start",
       "review_status": "auto_generated",
@@ -1198,7 +1258,7 @@
       "type": "pause_start"
     },
     {
-      "comment": "cut:keep_freeze_or_black_transition",
+      "comment": "",
       "end_s": 252.84,
       "label": "Flight Start",
       "review_status": "auto_generated",
@@ -1208,7 +1268,7 @@
       "type": "flight_start"
     },
     {
-      "comment": "cut:keep_freeze_or_black_transition",
+      "comment": "",
       "end_s": 261.88,
       "label": "Pause Start",
       "review_status": "auto_generated",
@@ -1218,7 +1278,7 @@
       "type": "pause_start"
     },
     {
-      "comment": "cut:keep_freeze_or_black_transition",
+      "comment": "",
       "end_s": 289.16,
       "label": "Flight Start",
       "review_status": "auto_generated",
@@ -1228,7 +1288,7 @@
       "type": "flight_start"
     },
     {
-      "comment": "cut:keep_freeze_or_black_transition",
+      "comment": "",
       "end_s": 293.72,
       "label": "Pause Start",
       "review_status": "auto_generated",
@@ -1238,7 +1298,7 @@
       "type": "pause_start"
     },
     {
-      "comment": "cut:keep_freeze_or_black_transition",
+      "comment": "",
       "end_s": 295.88,
       "label": "Flight Start",
       "review_status": "auto_generated",
@@ -1248,7 +1308,7 @@
       "type": "flight_start"
     },
     {
-      "comment": "cut:keep_blur_transition",
+      "comment": "",
       "end_s": 299.84,
       "label": "Pause Start",
       "review_status": "auto_generated",
@@ -1258,7 +1318,7 @@
       "type": "pause_start"
     },
     {
-      "comment": "cut:keep_blur_transition",
+      "comment": "",
       "end_s": 300.48,
       "label": "Other",
       "review_status": "auto_generated",
@@ -1268,7 +1328,7 @@
       "type": "other"
     },
     {
-      "comment": "cut:keep_blur_transition",
+      "comment": "",
       "end_s": 300.84,
       "label": "Other",
       "review_status": "auto_generated",
@@ -1278,7 +1338,7 @@
       "type": "other"
     },
     {
-      "comment": "cut:keep_blur_transition",
+      "comment": "",
       "end_s": 300.84099999999995,
       "end_semantics": "boundary_marker_minimum_extent",
       "label": "Pause Start",
@@ -1490,6 +1550,13 @@
       "color_key": "cols",
       "point_key": "pts"
     }
+  },
+  "research_parity": {
+    "evidence_policy": "present_or_explicitly_unavailable",
+    "generated_at": "2026-07-26T12:54:57.985440Z",
+    "scale_status": "relative_only",
+    "schema_version": "1.0.0",
+    "status": "d9_contract_parity"
   },
   "scene_id": "2026-05-08_resistance_strikes_enemy_forces_kfar_kila__seg15_seg16_seg17_seg18_seg19_seg20",
   "schema_version": "2.1.0-hf-public",

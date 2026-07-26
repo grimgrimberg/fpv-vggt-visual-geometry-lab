@@ -7,9 +7,11 @@
       "geometry_consistency": "published",
       "pose_ekf_metrics": "not_published"
     },
-    "edit_segmentation": null,
+    "edit_segmentation": "../diagnostics/edit_segmentation.json",
     "geometry_consistency": "../diagnostics/geometry_consistency.json",
-    "pose_ekf_metrics": null
+    "method_inventory": "../diagnostics/method_inventory.json",
+    "pose_ekf_metrics": null,
+    "trajectory_metrics": "../diagnostics/trajectory_metrics.json"
   },
   "geometry_layer_policy": "Only the already packaged VGGT Omega point buffers are declared renderable. R3 and HLoc remain separate numerical/provenance lanes; no missing geometry is synthesized.",
   "geometry_layers": {

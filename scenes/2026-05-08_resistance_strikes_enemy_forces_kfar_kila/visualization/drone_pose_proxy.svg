@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" role="img" aria-labelledby="title desc">
+<title id="title">Camera pose proxy</title><desc id="desc">A vector quadcopter glyph used only to visualize recovered camera orientation.</desc>
+<g fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M120 34v92M62 52l116 56M178 52L62 108" stroke="#54e5c2" stroke-width="5"/>
+  <path d="M120 49l-14 27h28z" stroke="#f3b75f" stroke-width="4"/>
+  <circle cx="62" cy="52" r="22" stroke="#dcecef" stroke-width="4"/><circle cx="178" cy="52" r="22" stroke="#dcecef" stroke-width="4"/>
+  <circle cx="62" cy="108" r="22" stroke="#dcecef" stroke-width="4"/><circle cx="178" cy="108" r="22" stroke="#dcecef" stroke-width="4"/>
+</g><text x="120" y="151" text-anchor="middle" fill="#dcecef" font-family="system-ui" font-size="12">camera_pose_proxy · relative only</text></svg>

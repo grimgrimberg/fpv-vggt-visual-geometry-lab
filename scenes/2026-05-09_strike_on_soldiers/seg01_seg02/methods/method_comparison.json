@@ -2,7 +2,10 @@
   "alignment_policy": "method_native_not_aligned",
   "comparison_rule": "Switch between exclusive native coordinate frames. Do not visually imply cross-method agreement without an explicit alignment artifact.",
   "diagnostics": {
-    "geometry_consistency": "../diagnostics/geometry_consistency.json"
+    "edit_segmentation": "../diagnostics/edit_segmentation.json",
+    "geometry_consistency": "../diagnostics/geometry_consistency.json",
+    "method_inventory": "../diagnostics/method_inventory.json",
+    "trajectory_metrics": "../diagnostics/trajectory_metrics.json"
   },
   "geometry_layers": {
     "active_dir": "native",
@@ -262,6 +265,9 @@
   "methods": {
     "hloc_lightglue_colmap": {
       "assets": {
+        "ba_diagnostics": "../diagnostics/colmap_ba_diagnostics.md",
+        "failure_taxonomy": "../diagnostics/colmap_failure_taxonomy.json",
+        "match_graph": "../diagnostics/match_graph.html",
         "native_cameras": "methods/native/hloc_registered_cameras.json"
       },
       "coordinate_frame": "hloc_native",

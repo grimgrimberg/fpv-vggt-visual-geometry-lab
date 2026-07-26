@@ -4,22 +4,34 @@
   "edit_boundary_policy": "derivatives_reset_and_strokes_split",
   "edit_segments": [
     {
-      "end_s": 43.44,
-      "end_type": "pause_start",
-      "is_attack": false,
-      "segment_id": "seg01",
-      "segment_index": 1,
-      "start_s": 42.44,
-      "start_type": "flight_start"
+      "comment": "",
+      "end_s": 8.081,
+      "label": "Banner Start",
+      "review_status": "manual_ground_truth",
+      "source_index": 0,
+      "source_timebase": "source_video_seconds",
+      "start_s": 0.0,
+      "type": "banner_start"
     },
     {
+      "comment": "",
+      "end_s": 44.118,
+      "label": "Flight Start",
+      "review_status": "manual_ground_truth",
+      "source_index": 1,
+      "source_timebase": "source_video_seconds",
+      "start_s": 8.081,
+      "type": "flight_start"
+    },
+    {
+      "comment": "",
       "end_s": 68.84,
-      "end_type": "pause_start",
-      "is_attack": true,
-      "segment_id": "seg02",
-      "segment_index": 2,
-      "start_s": 67.84,
-      "start_type": "flight_start"
+      "label": "Replay Start",
+      "review_status": "manual_ground_truth",
+      "source_index": 2,
+      "source_timebase": "source_video_seconds",
+      "start_s": 44.118,
+      "type": "replay_start"
     }
   ],
   "euler_convention": "camera_to_world intrinsic XYZ display angles in degrees",
@@ -31,7 +43,7 @@
       "analysis_time_sec": 0.0,
       "angular_rate_proxy_deg_per_source_s": 0.0,
       "confidence": 1.0,
-      "edit_type": "other",
+      "edit_type": "flight_start",
       "euler_xyz_deg": [
         -0.09313003520397567,
         -0.09534386322767865,
@@ -60,7 +72,7 @@
       "analysis_time_sec": 0.05,
       "angular_rate_proxy_deg_per_source_s": 141.8930695956742,
       "confidence": 1.0,
-      "edit_type": "other",
+      "edit_type": "flight_start",
       "euler_xyz_deg": [
         -0.4777626928784937,
         -0.526364480927209,
@@ -89,7 +101,7 @@
       "analysis_time_sec": 0.1,
       "angular_rate_proxy_deg_per_source_s": 147.46319073966185,
       "confidence": 1.0,
-      "edit_type": "other",
+      "edit_type": "flight_start",
       "euler_xyz_deg": [
         -1.1729193400809597,
         -1.1718006842888928,
@@ -118,7 +130,7 @@
       "analysis_time_sec": 0.15,
       "angular_rate_proxy_deg_per_source_s": 158.5928364717613,
       "confidence": 1.0,
-      "edit_type": "other",
+      "edit_type": "flight_start",
       "euler_xyz_deg": [
         -1.8021076559526261,
         -1.2623069049680145,
@@ -147,7 +159,7 @@
       "analysis_time_sec": 0.2,
       "angular_rate_proxy_deg_per_source_s": 94.21193921748836,
       "confidence": 1.0,
-      "edit_type": "other",
+      "edit_type": "flight_start",
       "euler_xyz_deg": [
         -2.046070438407174,
         -0.510879694080984,
@@ -176,7 +188,7 @@
       "analysis_time_sec": 0.25,
       "angular_rate_proxy_deg_per_source_s": 15.106910567637806,
       "confidence": 1.0,
-      "edit_type": "other",
+      "edit_type": "flight_start",
       "euler_xyz_deg": [
         -1.8684703243353333,
         -0.2782266370759702,
@@ -205,7 +217,7 @@
       "analysis_time_sec": 0.3,
       "angular_rate_proxy_deg_per_source_s": 7.719420166346609,
       "confidence": 1.0,
-      "edit_type": "other",
+      "edit_type": "flight_start",
       "euler_xyz_deg": [
         -2.159626969023627,
         -0.2852855168325023,
@@ -234,7 +246,7 @@
       "analysis_time_sec": 0.35,
       "angular_rate_proxy_deg_per_source_s": 24.106741459477668,
       "confidence": 1.0,
-      "edit_type": "other",
+      "edit_type": "flight_start",
       "euler_xyz_deg": [
         -2.5576082094425807,
         -0.42592394405216677,
@@ -263,7 +275,7 @@
       "analysis_time_sec": 0.4,
       "angular_rate_proxy_deg_per_source_s": 7.702933551006747,
       "confidence": 1.0,
-      "edit_type": "other",
+      "edit_type": "flight_start",
       "euler_xyz_deg": [
         -2.807630063691663,
         -0.046913283184033816,
@@ -292,7 +304,7 @@
       "analysis_time_sec": 0.45,
       "angular_rate_proxy_deg_per_source_s": 17.18426810360173,
       "confidence": 1.0,
-      "edit_type": "other",
+      "edit_type": "flight_start",
       "euler_xyz_deg": [
         -2.7736415645238868,
         -0.14144284406841262,
@@ -321,7 +333,7 @@
       "analysis_time_sec": 0.5,
       "angular_rate_proxy_deg_per_source_s": 5.397292920883106,
       "confidence": 1.0,
-      "edit_type": "other",
+      "edit_type": "flight_start",
       "euler_xyz_deg": [
         -2.8573480571464906,
         -0.33750420309766227,
@@ -350,7 +362,7 @@
       "analysis_time_sec": 0.55,
       "angular_rate_proxy_deg_per_source_s": 35.326327194662674,
       "confidence": 1.0,
-      "edit_type": "other",
+      "edit_type": "flight_start",
       "euler_xyz_deg": [
         -2.830201134893311,
         -0.48897438394808507,
@@ -379,7 +391,7 @@
       "analysis_time_sec": 0.6,
       "angular_rate_proxy_deg_per_source_s": 60.29701432820643,
       "confidence": 1.0,
-      "edit_type": "other",
+      "edit_type": "flight_start",
       "euler_xyz_deg": [
         -3.1733456871850185,
         -0.4421696903807038,
@@ -408,7 +420,7 @@
       "analysis_time_sec": 0.65,
       "angular_rate_proxy_deg_per_source_s": 46.5667171363719,
       "confidence": 1.0,
-      "edit_type": "other",
+      "edit_type": "flight_start",
       "euler_xyz_deg": [
         -3.2415050354794395,
         -0.40315281603138103,
@@ -437,7 +449,7 @@
       "analysis_time_sec": 0.7,
       "angular_rate_proxy_deg_per_source_s": 52.96238565352173,
       "confidence": 1.0,
-      "edit_type": "other",
+      "edit_type": "flight_start",
       "euler_xyz_deg": [
         -3.125393878082746,
         -0.6406799293616824,
@@ -466,7 +478,7 @@
       "analysis_time_sec": 0.75,
       "angular_rate_proxy_deg_per_source_s": 183.46269827698433,
       "confidence": 1.0,
-      "edit_type": "other",
+      "edit_type": "flight_start",
       "euler_xyz_deg": [
         -2.914578321702232,
         -0.32829668858296784,
@@ -495,7 +507,7 @@
       "analysis_time_sec": 0.8,
       "angular_rate_proxy_deg_per_source_s": 198.80279424017692,
       "confidence": 1.0,
-      "edit_type": "other",
+      "edit_type": "flight_start",
       "euler_xyz_deg": [
         -1.852680316678251,
         0.6413681904378689,
@@ -524,7 +536,7 @@
       "analysis_time_sec": 0.85,
       "angular_rate_proxy_deg_per_source_s": 104.98580893538923,
       "confidence": 1.0,
-      "edit_type": "other",
+      "edit_type": "flight_start",
       "euler_xyz_deg": [
         -1.8345977872366988,
         0.3209161800840764,
@@ -553,7 +565,7 @@
       "analysis_time_sec": 0.9,
       "angular_rate_proxy_deg_per_source_s": 113.07545332384746,
       "confidence": 1.0,
-      "edit_type": "other",
+      "edit_type": "flight_start",
       "euler_xyz_deg": [
         -1.2078254734243008,
         0.5731490117365752,
@@ -582,7 +594,7 @@
       "analysis_time_sec": 0.95,
       "angular_rate_proxy_deg_per_source_s": 114.17367993376271,
       "confidence": 1.0,
-      "edit_type": "other",
+      "edit_type": "flight_start",
       "euler_xyz_deg": [
         -1.037840046688637,
         0.7756086854660362,
@@ -611,7 +623,7 @@
       "analysis_time_sec": 1.0,
       "angular_rate_proxy_deg_per_source_s": 0.0,
       "confidence": 1.0,
-      "edit_type": "other",
+      "edit_type": "replay_start",
       "euler_xyz_deg": [
         1.330789784111508,
         0.7274194350638277,
@@ -640,7 +652,7 @@
       "analysis_time_sec": 1.05,
       "angular_rate_proxy_deg_per_source_s": 182.2648923596211,
       "confidence": 1.0,
-      "edit_type": "other",
+      "edit_type": "replay_start",
       "euler_xyz_deg": [
         -0.04245891531214975,
         -1.3584821982734216,
@@ -669,7 +681,7 @@
       "analysis_time_sec": 1.1,
       "angular_rate_proxy_deg_per_source_s": 230.371397863808,
       "confidence": 1.0,
-      "edit_type": "other",
+      "edit_type": "replay_start",
       "euler_xyz_deg": [
         0.8871131351579533,
         -3.9289051675644013,
@@ -698,7 +710,7 @@
       "analysis_time_sec": 1.15,
       "angular_rate_proxy_deg_per_source_s": 171.71020235041257,
       "confidence": 1.0,
-      "edit_type": "other",
+      "edit_type": "replay_start",
       "euler_xyz_deg": [
         0.4402225142434641,
         -1.2041907664238367,
@@ -727,7 +739,7 @@
       "analysis_time_sec": 1.2,
       "angular_rate_proxy_deg_per_source_s": 110.79254060116888,
       "confidence": 1.0,
-      "edit_type": "other",
+      "edit_type": "replay_start",
       "euler_xyz_deg": [
         0.7457623343827796,
         -1.6404731235625565,
@@ -756,7 +768,7 @@
       "analysis_time_sec": 1.25,
       "angular_rate_proxy_deg_per_source_s": 78.33750967405365,
       "confidence": 1.0,
-      "edit_type": "other",
+      "edit_type": "replay_start",
       "euler_xyz_deg": [
         0.8650016820652158,
         -0.9172795891900317,
@@ -785,7 +797,7 @@
       "analysis_time_sec": 1.3,
       "angular_rate_proxy_deg_per_source_s": 41.234167595349206,
       "confidence": 1.0,
-      "edit_type": "other",
+      "edit_type": "replay_start",
       "euler_xyz_deg": [
         0.5573350471910262,
         0.7431631792803678,
@@ -814,7 +826,7 @@
       "analysis_time_sec": 1.35,
       "angular_rate_proxy_deg_per_source_s": 84.06395688119764,
       "confidence": 1.0,
-      "edit_type": "other",
+      "edit_type": "replay_start",
       "euler_xyz_deg": [
         0.927322907860656,
         0.1775128266771053,
@@ -843,7 +855,7 @@
       "analysis_time_sec": 1.4,
       "angular_rate_proxy_deg_per_source_s": 64.75770855313489,
       "confidence": 1.0,
-      "edit_type": "other",
+      "edit_type": "replay_start",
       "euler_xyz_deg": [
         0.3595947614899462,
         -1.1194327013898442,
@@ -872,7 +884,7 @@
       "analysis_time_sec": 1.45,
       "angular_rate_proxy_deg_per_source_s": 32.71801233471386,
       "confidence": 1.0,
-      "edit_type": "other",
+      "edit_type": "replay_start",
       "euler_xyz_deg": [
         2.164683351698046,
         -0.9760410176976752,
@@ -901,7 +913,7 @@
       "analysis_time_sec": 1.5,
       "angular_rate_proxy_deg_per_source_s": 31.229147292384496,
       "confidence": 1.0,
-      "edit_type": "other",
+      "edit_type": "replay_start",
       "euler_xyz_deg": [
         2.0035739871857348,
         -0.36847192016452956,
@@ -930,7 +942,7 @@
       "analysis_time_sec": 1.55,
       "angular_rate_proxy_deg_per_source_s": 38.67363000618136,
       "confidence": 1.0,
-      "edit_type": "other",
+      "edit_type": "replay_start",
       "euler_xyz_deg": [
         2.6434447137370394,
         -0.7058797300791332,
@@ -959,7 +971,7 @@
       "analysis_time_sec": 1.6,
       "angular_rate_proxy_deg_per_source_s": 32.592154146728305,
       "confidence": 1.0,
-      "edit_type": "other",
+      "edit_type": "replay_start",
       "euler_xyz_deg": [
         3.351688969306351,
         -0.5878267781489249,
@@ -988,7 +1000,7 @@
       "analysis_time_sec": 1.65,
       "angular_rate_proxy_deg_per_source_s": 64.85887916365463,
       "confidence": 1.0,
-      "edit_type": "other",
+      "edit_type": "replay_start",
       "euler_xyz_deg": [
         1.3201817171495063,
         -0.7271598590109483,
@@ -1017,7 +1029,7 @@
       "analysis_time_sec": 1.7,
       "angular_rate_proxy_deg_per_source_s": 40.659190950286444,
       "confidence": 1.0,
-      "edit_type": "other",
+      "edit_type": "replay_start",
       "euler_xyz_deg": [
         -0.41174061686990854,
         -1.5658156266318435,
@@ -1046,7 +1058,7 @@
       "analysis_time_sec": 1.75,
       "angular_rate_proxy_deg_per_source_s": 15.359987493910445,
       "confidence": 1.0,
-      "edit_type": "other",
+      "edit_type": "replay_start",
       "euler_xyz_deg": [
         1.3012761553899017,
         -0.6178803777632984,
@@ -1075,7 +1087,7 @@
       "analysis_time_sec": 1.8,
       "angular_rate_proxy_deg_per_source_s": 29.713942409869105,
       "confidence": 1.0,
-      "edit_type": "other",
+      "edit_type": "replay_start",
       "euler_xyz_deg": [
         0.5331521138793414,
         -0.6390960261767582,
@@ -1104,7 +1116,7 @@
       "analysis_time_sec": 1.85,
       "angular_rate_proxy_deg_per_source_s": 22.822724119254946,
       "confidence": 1.0,
-      "edit_type": "other",
+      "edit_type": "replay_start",
       "euler_xyz_deg": [
         0.21863521839853983,
         -2.6164965704092595,
@@ -1133,7 +1145,7 @@
       "analysis_time_sec": 1.9,
       "angular_rate_proxy_deg_per_source_s": 26.112019190034832,
       "confidence": 1.0,
-      "edit_type": "other",
+      "edit_type": "replay_start",
       "euler_xyz_deg": [
         2.1193416969911145,
         -1.4820255372819873,
@@ -1162,7 +1174,7 @@
       "analysis_time_sec": 1.95,
       "angular_rate_proxy_deg_per_source_s": 36.69074748879189,
       "confidence": 1.0,
-      "edit_type": "other",
+      "edit_type": "replay_start",
       "euler_xyz_deg": [
         2.016185843966368,
         -3.0787886153755517,

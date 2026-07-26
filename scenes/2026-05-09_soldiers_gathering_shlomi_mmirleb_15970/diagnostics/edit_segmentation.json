@@ -1,0 +1,21 @@
+{
+  "annotation_kind": "not_available",
+  "intervals": [
+    {
+      "comment": "Fallback interval; consult the source annotation when available.",
+      "end_s": 33.166666666666664,
+      "label": "Reconstructed interval",
+      "review_status": "catalog_interval_unreviewed",
+      "source_index": 0,
+      "start_s": 0.0,
+      "type": "flight_start"
+    }
+  ],
+  "scene_id": "2026-05-09_soldiers_gathering_shlomi_mmirleb_15970__seg01_seg02_seg03_seg04",
+  "schema_version": "1.0.0-public-parity",
+  "taxonomy": [
+    "flight_start"
+  ],
+  "timebase": "source_video_seconds",
+  "validation": null
+}

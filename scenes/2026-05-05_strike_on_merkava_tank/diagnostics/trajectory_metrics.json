@@ -1,44 +1,46 @@
 {
-  "limitations": [
-    "No physical scale calibration is documented.",
-    "Camera pose is not vehicle-body pose without a camera-to-body transform.",
-    "Edit intervals are fit independently; no derivative crosses an edit boundary.",
-    "Derivative and discontinuity signals are retrospective reconstruction diagnostics."
+  "layers": [
+    "bspline",
+    "kalman",
+    "raw",
+    "rts"
   ],
-  "methods": {
-    "bspline": "independent cubic smoothing spline per coordinate",
-    "factor_graph": {
-      "reason": "optional dependency not required for first CPU slice",
-      "status": "not_run"
+  "pose_jump_count": 0,
+  "pose_semantics": "camera_pose_proxy",
+  "profiles": {
+    "acceleration_relative": {
+      "count": 40,
+      "max": 38.097567372830284,
+      "mean": 8.10754882692781,
+      "median": 6.67432364886095
     },
-    "kalman": "constant-velocity linear state estimator",
-    "rts": "Rauch-Tung-Striebel backward smoother"
+    "curvature": {
+      "count": 40,
+      "max": 87.04772156258487,
+      "mean": 12.252724530461347,
+      "median": 3.5483592304511204
+    },
+    "jerk_proxy": {
+      "count": 40,
+      "max": 791.7598989568964,
+      "mean": 159.78704089171544,
+      "median": 131.40375467914274
+    },
+    "speed_relative": {
+      "count": 40,
+      "max": 1.5359257486354188,
+      "mean": 0.8792010178386311,
+      "median": 0.7669767709723533
+    }
   },
-  "normalization": {
-    "derivative_time_basis": "frames.csv segment_time_s",
-    "edit_segments_fitted_independently": true,
-    "position_origin": "first raw camera center in each edit segment",
-    "position_scale": "raw camera-path arc length per edit segment",
-    "source_time_preserved": true,
-    "time_origin": "first timestamp in each edit segment",
-    "time_scale": "per-segment duration for fitting; concatenated sequence for UI"
-  },
-  "orientation_policy": "raw_camera_orientation retained for every translation layer",
+  "residuals": {},
   "sample_count": 40,
   "scale_status": "relative_only",
-  "schema_version": "2.0.0",
-  "summary": {
-    "bspline_residual_p95": 0.026582628657928747,
-    "curvature_p95": 44.50987288674917,
-    "edit_segment_count": 2,
-    "end_to_end_efficiency": 0.7457990461435876,
-    "jerk_proxy_p95": 312.67702726561276,
-    "kalman_innovation_p95": 0.09462348972433994,
-    "normalized_path_length": 1.3408437637066533,
-    "pose_jump_count": 0,
-    "relative_acceleration_p95": 16.17735001626841,
-    "relative_speed_median": 0.7669767709723533,
-    "relative_speed_p95": 1.5088716596206115,
-    "rts_residual_p95": 0.07688270530810659
-  }
+  "scene_id": "2026-05-05_strike_on_merkava_tank__seg01_seg02",
+  "schema_version": "1.0.0-public-parity",
+  "warnings": [
+    "All translations and derivatives are scale-free relative quantities.",
+    "Camera pose is not calibrated vehicle-body state.",
+    "Edit boundaries must split trajectories and derivative evaluation."
+  ]
 }

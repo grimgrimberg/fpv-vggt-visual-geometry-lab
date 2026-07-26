@@ -1,0 +1,1471 @@
+{
+  "adjacent_pair_coverage": 0.5454545454545454,
+  "components": [
+    [
+      "f_000001.jpg",
+      "f_000002.jpg",
+      "f_000003.jpg",
+      "f_000004.jpg",
+      "f_000005.jpg",
+      "f_000006.jpg",
+      "f_000007.jpg",
+      "f_000008.jpg",
+      "f_000009.jpg",
+      "f_000010.jpg",
+      "f_000011.jpg",
+      "f_000012.jpg",
+      "f_000013.jpg",
+      "f_000014.jpg",
+      "f_000015.jpg",
+      "f_000016.jpg",
+      "f_000017.jpg",
+      "f_000018.jpg",
+      "f_000019.jpg",
+      "f_000020.jpg",
+      "f_000021.jpg",
+      "f_000022.jpg",
+      "f_000023.jpg",
+      "f_000024.jpg",
+      "f_000025.jpg"
+    ],
+    [
+      "f_000026.jpg"
+    ],
+    [
+      "f_000027.jpg"
+    ],
+    [
+      "f_000028.jpg"
+    ],
+    [
+      "f_000029.jpg"
+    ],
+    [
+      "f_000030.jpg"
+    ],
+    [
+      "f_000031.jpg"
+    ],
+    [
+      "f_000032.jpg"
+    ],
+    [
+      "f_000033.jpg"
+    ],
+    [
+      "f_000034.jpg"
+    ],
+    [
+      "f_000035.jpg"
+    ],
+    [
+      "f_000036.jpg"
+    ],
+    [
+      "f_000037.jpg"
+    ],
+    [
+      "f_000038.jpg"
+    ],
+    [
+      "f_000039.jpg"
+    ],
+    [
+      "f_000040.jpg"
+    ],
+    [
+      "f_000041.jpg"
+    ],
+    [
+      "f_000042.jpg"
+    ],
+    [
+      "f_000043.jpg"
+    ],
+    [
+      "f_000044.jpg"
+    ],
+    [
+      "f_000045.jpg"
+    ]
+  ],
+  "connected_component_count": 21,
+  "database": "hf_other_models/hloc_lightglue/sparse/database.db",
+  "degree": {
+    "f_000001.jpg": 4,
+    "f_000002.jpg": 8,
+    "f_000003.jpg": 12,
+    "f_000004.jpg": 13,
+    "f_000005.jpg": 13,
+    "f_000006.jpg": 14,
+    "f_000007.jpg": 13,
+    "f_000008.jpg": 15,
+    "f_000009.jpg": 18,
+    "f_000010.jpg": 17,
+    "f_000011.jpg": 19,
+    "f_000012.jpg": 20,
+    "f_000013.jpg": 20,
+    "f_000014.jpg": 19,
+    "f_000015.jpg": 20,
+    "f_000016.jpg": 19,
+    "f_000017.jpg": 18,
+    "f_000018.jpg": 17,
+    "f_000019.jpg": 16,
+    "f_000020.jpg": 15,
+    "f_000021.jpg": 14,
+    "f_000022.jpg": 14,
+    "f_000023.jpg": 13,
+    "f_000024.jpg": 11,
+    "f_000025.jpg": 10,
+    "f_000026.jpg": 0,
+    "f_000027.jpg": 0,
+    "f_000028.jpg": 0,
+    "f_000029.jpg": 0,
+    "f_000030.jpg": 0,
+    "f_000031.jpg": 0,
+    "f_000032.jpg": 0,
+    "f_000033.jpg": 0,
+    "f_000034.jpg": 0,
+    "f_000035.jpg": 0,
+    "f_000036.jpg": 0,
+    "f_000037.jpg": 0,
+    "f_000038.jpg": 0,
+    "f_000039.jpg": 0,
+    "f_000040.jpg": 0,
+    "f_000041.jpg": 0,
+    "f_000042.jpg": 0,
+    "f_000043.jpg": 0,
+    "f_000044.jpg": 0,
+    "f_000045.jpg": 0
+  },
+  "edge_count": 186,
+  "edges": [
+    {
+      "matches": 43,
+      "source": "f_000001.jpg",
+      "source_id": 1,
+      "target": "f_000002.jpg",
+      "target_id": 2
+    },
+    {
+      "matches": 19,
+      "source": "f_000001.jpg",
+      "source_id": 1,
+      "target": "f_000004.jpg",
+      "target_id": 4
+    },
+    {
+      "matches": 15,
+      "source": "f_000001.jpg",
+      "source_id": 1,
+      "target": "f_000005.jpg",
+      "target_id": 5
+    },
+    {
+      "matches": 16,
+      "source": "f_000001.jpg",
+      "source_id": 1,
+      "target": "f_000009.jpg",
+      "target_id": 9
+    },
+    {
+      "matches": 52,
+      "source": "f_000002.jpg",
+      "source_id": 2,
+      "target": "f_000003.jpg",
+      "target_id": 3
+    },
+    {
+      "matches": 37,
+      "source": "f_000002.jpg",
+      "source_id": 2,
+      "target": "f_000004.jpg",
+      "target_id": 4
+    },
+    {
+      "matches": 17,
+      "source": "f_000002.jpg",
+      "source_id": 2,
+      "target": "f_000006.jpg",
+      "target_id": 6
+    },
+    {
+      "matches": 16,
+      "source": "f_000002.jpg",
+      "source_id": 2,
+      "target": "f_000009.jpg",
+      "target_id": 9
+    },
+    {
+      "matches": 18,
+      "source": "f_000002.jpg",
+      "source_id": 2,
+      "target": "f_000011.jpg",
+      "target_id": 11
+    },
+    {
+      "matches": 20,
+      "source": "f_000002.jpg",
+      "source_id": 2,
+      "target": "f_000012.jpg",
+      "target_id": 12
+    },
+    {
+      "matches": 20,
+      "source": "f_000002.jpg",
+      "source_id": 2,
+      "target": "f_000022.jpg",
+      "target_id": 22
+    },
+    {
+      "matches": 120,
+      "source": "f_000003.jpg",
+      "source_id": 3,
+      "target": "f_000004.jpg",
+      "target_id": 4
+    },
+    {
+      "matches": 20,
+      "source": "f_000003.jpg",
+      "source_id": 3,
+      "target": "f_000005.jpg",
+      "target_id": 5
+    },
+    {
+      "matches": 17,
+      "source": "f_000003.jpg",
+      "source_id": 3,
+      "target": "f_000006.jpg",
+      "target_id": 6
+    },
+    {
+      "matches": 18,
+      "source": "f_000003.jpg",
+      "source_id": 3,
+      "target": "f_000007.jpg",
+      "target_id": 7
+    },
+    {
+      "matches": 24,
+      "source": "f_000003.jpg",
+      "source_id": 3,
+      "target": "f_000008.jpg",
+      "target_id": 8
+    },
+    {
+      "matches": 27,
+      "source": "f_000003.jpg",
+      "source_id": 3,
+      "target": "f_000009.jpg",
+      "target_id": 9
+    },
+    {
+      "matches": 37,
+      "source": "f_000003.jpg",
+      "source_id": 3,
+      "target": "f_000010.jpg",
+      "target_id": 10
+    },
+    {
+      "matches": 39,
+      "source": "f_000003.jpg",
+      "source_id": 3,
+      "target": "f_000011.jpg",
+      "target_id": 11
+    },
+    {
+      "matches": 28,
+      "source": "f_000003.jpg",
+      "source_id": 3,
+      "target": "f_000012.jpg",
+      "target_id": 12
+    },
+    {
+      "matches": 31,
+      "source": "f_000003.jpg",
+      "source_id": 3,
+      "target": "f_000013.jpg",
+      "target_id": 13
+    },
+    {
+      "matches": 22,
+      "source": "f_000003.jpg",
+      "source_id": 3,
+      "target": "f_000023.jpg",
+      "target_id": 23
+    },
+    {
+      "matches": 82,
+      "source": "f_000004.jpg",
+      "source_id": 4,
+      "target": "f_000005.jpg",
+      "target_id": 5
+    },
+    {
+      "matches": 68,
+      "source": "f_000004.jpg",
+      "source_id": 4,
+      "target": "f_000006.jpg",
+      "target_id": 6
+    },
+    {
+      "matches": 59,
+      "source": "f_000004.jpg",
+      "source_id": 4,
+      "target": "f_000007.jpg",
+      "target_id": 7
+    },
+    {
+      "matches": 68,
+      "source": "f_000004.jpg",
+      "source_id": 4,
+      "target": "f_000008.jpg",
+      "target_id": 8
+    },
+    {
+      "matches": 49,
+      "source": "f_000004.jpg",
+      "source_id": 4,
+      "target": "f_000009.jpg",
+      "target_id": 9
+    },
+    {
+      "matches": 47,
+      "source": "f_000004.jpg",
+      "source_id": 4,
+      "target": "f_000010.jpg",
+      "target_id": 10
+    },
+    {
+      "matches": 49,
+      "source": "f_000004.jpg",
+      "source_id": 4,
+      "target": "f_000011.jpg",
+      "target_id": 11
+    },
+    {
+      "matches": 45,
+      "source": "f_000004.jpg",
+      "source_id": 4,
+      "target": "f_000012.jpg",
+      "target_id": 12
+    },
+    {
+      "matches": 34,
+      "source": "f_000004.jpg",
+      "source_id": 4,
+      "target": "f_000013.jpg",
+      "target_id": 13
+    },
+    {
+      "matches": 16,
+      "source": "f_000004.jpg",
+      "source_id": 4,
+      "target": "f_000014.jpg",
+      "target_id": 14
+    },
+    {
+      "matches": 191,
+      "source": "f_000005.jpg",
+      "source_id": 5,
+      "target": "f_000006.jpg",
+      "target_id": 6
+    },
+    {
+      "matches": 154,
+      "source": "f_000005.jpg",
+      "source_id": 5,
+      "target": "f_000007.jpg",
+      "target_id": 7
+    },
+    {
+      "matches": 137,
+      "source": "f_000005.jpg",
+      "source_id": 5,
+      "target": "f_000008.jpg",
+      "target_id": 8
+    },
+    {
+      "matches": 75,
+      "source": "f_000005.jpg",
+      "source_id": 5,
+      "target": "f_000009.jpg",
+      "target_id": 9
+    },
+    {
+      "matches": 80,
+      "source": "f_000005.jpg",
+      "source_id": 5,
+      "target": "f_000010.jpg",
+      "target_id": 10
+    },
+    {
+      "matches": 68,
+      "source": "f_000005.jpg",
+      "source_id": 5,
+      "target": "f_000011.jpg",
+      "target_id": 11
+    },
+    {
+      "matches": 59,
+      "source": "f_000005.jpg",
+      "source_id": 5,
+      "target": "f_000012.jpg",
+      "target_id": 12
+    },
+    {
+      "matches": 40,
+      "source": "f_000005.jpg",
+      "source_id": 5,
+      "target": "f_000013.jpg",
+      "target_id": 13
+    },
+    {
+      "matches": 18,
+      "source": "f_000005.jpg",
+      "source_id": 5,
+      "target": "f_000014.jpg",
+      "target_id": 14
+    },
+    {
+      "matches": 32,
+      "source": "f_000005.jpg",
+      "source_id": 5,
+      "target": "f_000015.jpg",
+      "target_id": 15
+    },
+    {
+      "matches": 216,
+      "source": "f_000006.jpg",
+      "source_id": 6,
+      "target": "f_000007.jpg",
+      "target_id": 7
+    },
+    {
+      "matches": 172,
+      "source": "f_000006.jpg",
+      "source_id": 6,
+      "target": "f_000008.jpg",
+      "target_id": 8
+    },
+    {
+      "matches": 99,
+      "source": "f_000006.jpg",
+      "source_id": 6,
+      "target": "f_000009.jpg",
+      "target_id": 9
+    },
+    {
+      "matches": 87,
+      "source": "f_000006.jpg",
+      "source_id": 6,
+      "target": "f_000010.jpg",
+      "target_id": 10
+    },
+    {
+      "matches": 60,
+      "source": "f_000006.jpg",
+      "source_id": 6,
+      "target": "f_000011.jpg",
+      "target_id": 11
+    },
+    {
+      "matches": 52,
+      "source": "f_000006.jpg",
+      "source_id": 6,
+      "target": "f_000012.jpg",
+      "target_id": 12
+    },
+    {
+      "matches": 47,
+      "source": "f_000006.jpg",
+      "source_id": 6,
+      "target": "f_000013.jpg",
+      "target_id": 13
+    },
+    {
+      "matches": 19,
+      "source": "f_000006.jpg",
+      "source_id": 6,
+      "target": "f_000014.jpg",
+      "target_id": 14
+    },
+    {
+      "matches": 16,
+      "source": "f_000006.jpg",
+      "source_id": 6,
+      "target": "f_000015.jpg",
+      "target_id": 15
+    },
+    {
+      "matches": 22,
+      "source": "f_000006.jpg",
+      "source_id": 6,
+      "target": "f_000016.jpg",
+      "target_id": 16
+    },
+    {
+      "matches": 204,
+      "source": "f_000007.jpg",
+      "source_id": 7,
+      "target": "f_000008.jpg",
+      "target_id": 8
+    },
+    {
+      "matches": 104,
+      "source": "f_000007.jpg",
+      "source_id": 7,
+      "target": "f_000009.jpg",
+      "target_id": 9
+    },
+    {
+      "matches": 95,
+      "source": "f_000007.jpg",
+      "source_id": 7,
+      "target": "f_000010.jpg",
+      "target_id": 10
+    },
+    {
+      "matches": 75,
+      "source": "f_000007.jpg",
+      "source_id": 7,
+      "target": "f_000011.jpg",
+      "target_id": 11
+    },
+    {
+      "matches": 73,
+      "source": "f_000007.jpg",
+      "source_id": 7,
+      "target": "f_000012.jpg",
+      "target_id": 12
+    },
+    {
+      "matches": 48,
+      "source": "f_000007.jpg",
+      "source_id": 7,
+      "target": "f_000013.jpg",
+      "target_id": 13
+    },
+    {
+      "matches": 36,
+      "source": "f_000007.jpg",
+      "source_id": 7,
+      "target": "f_000015.jpg",
+      "target_id": 15
+    },
+    {
+      "matches": 23,
+      "source": "f_000007.jpg",
+      "source_id": 7,
+      "target": "f_000016.jpg",
+      "target_id": 16
+    },
+    {
+      "matches": 19,
+      "source": "f_000007.jpg",
+      "source_id": 7,
+      "target": "f_000017.jpg",
+      "target_id": 17
+    },
+    {
+      "matches": 125,
+      "source": "f_000008.jpg",
+      "source_id": 8,
+      "target": "f_000009.jpg",
+      "target_id": 9
+    },
+    {
+      "matches": 108,
+      "source": "f_000008.jpg",
+      "source_id": 8,
+      "target": "f_000010.jpg",
+      "target_id": 10
+    },
+    {
+      "matches": 89,
+      "source": "f_000008.jpg",
+      "source_id": 8,
+      "target": "f_000011.jpg",
+      "target_id": 11
+    },
+    {
+      "matches": 78,
+      "source": "f_000008.jpg",
+      "source_id": 8,
+      "target": "f_000012.jpg",
+      "target_id": 12
+    },
+    {
+      "matches": 63,
+      "source": "f_000008.jpg",
+      "source_id": 8,
+      "target": "f_000013.jpg",
+      "target_id": 13
+    },
+    {
+      "matches": 49,
+      "source": "f_000008.jpg",
+      "source_id": 8,
+      "target": "f_000014.jpg",
+      "target_id": 14
+    },
+    {
+      "matches": 36,
+      "source": "f_000008.jpg",
+      "source_id": 8,
+      "target": "f_000015.jpg",
+      "target_id": 15
+    },
+    {
+      "matches": 25,
+      "source": "f_000008.jpg",
+      "source_id": 8,
+      "target": "f_000016.jpg",
+      "target_id": 16
+    },
+    {
+      "matches": 38,
+      "source": "f_000008.jpg",
+      "source_id": 8,
+      "target": "f_000017.jpg",
+      "target_id": 17
+    },
+    {
+      "matches": 44,
+      "source": "f_000008.jpg",
+      "source_id": 8,
+      "target": "f_000018.jpg",
+      "target_id": 18
+    },
+    {
+      "matches": 184,
+      "source": "f_000009.jpg",
+      "source_id": 9,
+      "target": "f_000010.jpg",
+      "target_id": 10
+    },
+    {
+      "matches": 142,
+      "source": "f_000009.jpg",
+      "source_id": 9,
+      "target": "f_000011.jpg",
+      "target_id": 11
+    },
+    {
+      "matches": 125,
+      "source": "f_000009.jpg",
+      "source_id": 9,
+      "target": "f_000012.jpg",
+      "target_id": 12
+    },
+    {
+      "matches": 89,
+      "source": "f_000009.jpg",
+      "source_id": 9,
+      "target": "f_000013.jpg",
+      "target_id": 13
+    },
+    {
+      "matches": 74,
+      "source": "f_000009.jpg",
+      "source_id": 9,
+      "target": "f_000014.jpg",
+      "target_id": 14
+    },
+    {
+      "matches": 66,
+      "source": "f_000009.jpg",
+      "source_id": 9,
+      "target": "f_000015.jpg",
+      "target_id": 15
+    },
+    {
+      "matches": 62,
+      "source": "f_000009.jpg",
+      "source_id": 9,
+      "target": "f_000016.jpg",
+      "target_id": 16
+    },
+    {
+      "matches": 63,
+      "source": "f_000009.jpg",
+      "source_id": 9,
+      "target": "f_000017.jpg",
+      "target_id": 17
+    },
+    {
+      "matches": 68,
+      "source": "f_000009.jpg",
+      "source_id": 9,
+      "target": "f_000018.jpg",
+      "target_id": 18
+    },
+    {
+      "matches": 70,
+      "source": "f_000009.jpg",
+      "source_id": 9,
+      "target": "f_000019.jpg",
+      "target_id": 19
+    },
+    {
+      "matches": 190,
+      "source": "f_000010.jpg",
+      "source_id": 10,
+      "target": "f_000011.jpg",
+      "target_id": 11
+    },
+    {
+      "matches": 157,
+      "source": "f_000010.jpg",
+      "source_id": 10,
+      "target": "f_000012.jpg",
+      "target_id": 12
+    },
+    {
+      "matches": 115,
+      "source": "f_000010.jpg",
+      "source_id": 10,
+      "target": "f_000013.jpg",
+      "target_id": 13
+    },
+    {
+      "matches": 102,
+      "source": "f_000010.jpg",
+      "source_id": 10,
+      "target": "f_000014.jpg",
+      "target_id": 14
+    },
+    {
+      "matches": 80,
+      "source": "f_000010.jpg",
+      "source_id": 10,
+      "target": "f_000015.jpg",
+      "target_id": 15
+    },
+    {
+      "matches": 80,
+      "source": "f_000010.jpg",
+      "source_id": 10,
+      "target": "f_000016.jpg",
+      "target_id": 16
+    },
+    {
+      "matches": 96,
+      "source": "f_000010.jpg",
+      "source_id": 10,
+      "target": "f_000017.jpg",
+      "target_id": 17
+    },
+    {
+      "matches": 88,
+      "source": "f_000010.jpg",
+      "source_id": 10,
+      "target": "f_000018.jpg",
+      "target_id": 18
+    },
+    {
+      "matches": 97,
+      "source": "f_000010.jpg",
+      "source_id": 10,
+      "target": "f_000019.jpg",
+      "target_id": 19
+    },
+    {
+      "matches": 86,
+      "source": "f_000010.jpg",
+      "source_id": 10,
+      "target": "f_000020.jpg",
+      "target_id": 20
+    },
+    {
+      "matches": 209,
+      "source": "f_000011.jpg",
+      "source_id": 11,
+      "target": "f_000012.jpg",
+      "target_id": 12
+    },
+    {
+      "matches": 143,
+      "source": "f_000011.jpg",
+      "source_id": 11,
+      "target": "f_000013.jpg",
+      "target_id": 13
+    },
+    {
+      "matches": 125,
+      "source": "f_000011.jpg",
+      "source_id": 11,
+      "target": "f_000014.jpg",
+      "target_id": 14
+    },
+    {
+      "matches": 96,
+      "source": "f_000011.jpg",
+      "source_id": 11,
+      "target": "f_000015.jpg",
+      "target_id": 15
+    },
+    {
+      "matches": 99,
+      "source": "f_000011.jpg",
+      "source_id": 11,
+      "target": "f_000016.jpg",
+      "target_id": 16
+    },
+    {
+      "matches": 103,
+      "source": "f_000011.jpg",
+      "source_id": 11,
+      "target": "f_000017.jpg",
+      "target_id": 17
+    },
+    {
+      "matches": 109,
+      "source": "f_000011.jpg",
+      "source_id": 11,
+      "target": "f_000018.jpg",
+      "target_id": 18
+    },
+    {
+      "matches": 112,
+      "source": "f_000011.jpg",
+      "source_id": 11,
+      "target": "f_000019.jpg",
+      "target_id": 19
+    },
+    {
+      "matches": 104,
+      "source": "f_000011.jpg",
+      "source_id": 11,
+      "target": "f_000020.jpg",
+      "target_id": 20
+    },
+    {
+      "matches": 100,
+      "source": "f_000011.jpg",
+      "source_id": 11,
+      "target": "f_000021.jpg",
+      "target_id": 21
+    },
+    {
+      "matches": 182,
+      "source": "f_000012.jpg",
+      "source_id": 12,
+      "target": "f_000013.jpg",
+      "target_id": 13
+    },
+    {
+      "matches": 140,
+      "source": "f_000012.jpg",
+      "source_id": 12,
+      "target": "f_000014.jpg",
+      "target_id": 14
+    },
+    {
+      "matches": 100,
+      "source": "f_000012.jpg",
+      "source_id": 12,
+      "target": "f_000015.jpg",
+      "target_id": 15
+    },
+    {
+      "matches": 114,
+      "source": "f_000012.jpg",
+      "source_id": 12,
+      "target": "f_000016.jpg",
+      "target_id": 16
+    },
+    {
+      "matches": 114,
+      "source": "f_000012.jpg",
+      "source_id": 12,
+      "target": "f_000017.jpg",
+      "target_id": 17
+    },
+    {
+      "matches": 109,
+      "source": "f_000012.jpg",
+      "source_id": 12,
+      "target": "f_000018.jpg",
+      "target_id": 18
+    },
+    {
+      "matches": 132,
+      "source": "f_000012.jpg",
+      "source_id": 12,
+      "target": "f_000019.jpg",
+      "target_id": 19
+    },
+    {
+      "matches": 112,
+      "source": "f_000012.jpg",
+      "source_id": 12,
+      "target": "f_000020.jpg",
+      "target_id": 20
+    },
+    {
+      "matches": 121,
+      "source": "f_000012.jpg",
+      "source_id": 12,
+      "target": "f_000021.jpg",
+      "target_id": 21
+    },
+    {
+      "matches": 113,
+      "source": "f_000012.jpg",
+      "source_id": 12,
+      "target": "f_000022.jpg",
+      "target_id": 22
+    },
+    {
+      "matches": 158,
+      "source": "f_000013.jpg",
+      "source_id": 13,
+      "target": "f_000014.jpg",
+      "target_id": 14
+    },
+    {
+      "matches": 124,
+      "source": "f_000013.jpg",
+      "source_id": 13,
+      "target": "f_000015.jpg",
+      "target_id": 15
+    },
+    {
+      "matches": 121,
+      "source": "f_000013.jpg",
+      "source_id": 13,
+      "target": "f_000016.jpg",
+      "target_id": 16
+    },
+    {
+      "matches": 121,
+      "source": "f_000013.jpg",
+      "source_id": 13,
+      "target": "f_000017.jpg",
+      "target_id": 17
+    },
+    {
+      "matches": 119,
+      "source": "f_000013.jpg",
+      "source_id": 13,
+      "target": "f_000018.jpg",
+      "target_id": 18
+    },
+    {
+      "matches": 130,
+      "source": "f_000013.jpg",
+      "source_id": 13,
+      "target": "f_000019.jpg",
+      "target_id": 19
+    },
+    {
+      "matches": 116,
+      "source": "f_000013.jpg",
+      "source_id": 13,
+      "target": "f_000020.jpg",
+      "target_id": 20
+    },
+    {
+      "matches": 121,
+      "source": "f_000013.jpg",
+      "source_id": 13,
+      "target": "f_000021.jpg",
+      "target_id": 21
+    },
+    {
+      "matches": 117,
+      "source": "f_000013.jpg",
+      "source_id": 13,
+      "target": "f_000022.jpg",
+      "target_id": 22
+    },
+    {
+      "matches": 134,
+      "source": "f_000013.jpg",
+      "source_id": 13,
+      "target": "f_000023.jpg",
+      "target_id": 23
+    },
+    {
+      "matches": 164,
+      "source": "f_000014.jpg",
+      "source_id": 14,
+      "target": "f_000015.jpg",
+      "target_id": 15
+    },
+    {
+      "matches": 160,
+      "source": "f_000014.jpg",
+      "source_id": 14,
+      "target": "f_000016.jpg",
+      "target_id": 16
+    },
+    {
+      "matches": 149,
+      "source": "f_000014.jpg",
+      "source_id": 14,
+      "target": "f_000017.jpg",
+      "target_id": 17
+    },
+    {
+      "matches": 147,
+      "source": "f_000014.jpg",
+      "source_id": 14,
+      "target": "f_000018.jpg",
+      "target_id": 18
+    },
+    {
+      "matches": 144,
+      "source": "f_000014.jpg",
+      "source_id": 14,
+      "target": "f_000019.jpg",
+      "target_id": 19
+    },
+    {
+      "matches": 142,
+      "source": "f_000014.jpg",
+      "source_id": 14,
+      "target": "f_000020.jpg",
+      "target_id": 20
+    },
+    {
+      "matches": 141,
+      "source": "f_000014.jpg",
+      "source_id": 14,
+      "target": "f_000021.jpg",
+      "target_id": 21
+    },
+    {
+      "matches": 143,
+      "source": "f_000014.jpg",
+      "source_id": 14,
+      "target": "f_000022.jpg",
+      "target_id": 22
+    },
+    {
+      "matches": 148,
+      "source": "f_000014.jpg",
+      "source_id": 14,
+      "target": "f_000023.jpg",
+      "target_id": 23
+    },
+    {
+      "matches": 140,
+      "source": "f_000014.jpg",
+      "source_id": 14,
+      "target": "f_000024.jpg",
+      "target_id": 24
+    },
+    {
+      "matches": 185,
+      "source": "f_000015.jpg",
+      "source_id": 15,
+      "target": "f_000016.jpg",
+      "target_id": 16
+    },
+    {
+      "matches": 147,
+      "source": "f_000015.jpg",
+      "source_id": 15,
+      "target": "f_000017.jpg",
+      "target_id": 17
+    },
+    {
+      "matches": 147,
+      "source": "f_000015.jpg",
+      "source_id": 15,
+      "target": "f_000018.jpg",
+      "target_id": 18
+    },
+    {
+      "matches": 152,
+      "source": "f_000015.jpg",
+      "source_id": 15,
+      "target": "f_000019.jpg",
+      "target_id": 19
+    },
+    {
+      "matches": 136,
+      "source": "f_000015.jpg",
+      "source_id": 15,
+      "target": "f_000020.jpg",
+      "target_id": 20
+    },
+    {
+      "matches": 134,
+      "source": "f_000015.jpg",
+      "source_id": 15,
+      "target": "f_000021.jpg",
+      "target_id": 21
+    },
+    {
+      "matches": 136,
+      "source": "f_000015.jpg",
+      "source_id": 15,
+      "target": "f_000022.jpg",
+      "target_id": 22
+    },
+    {
+      "matches": 135,
+      "source": "f_000015.jpg",
+      "source_id": 15,
+      "target": "f_000023.jpg",
+      "target_id": 23
+    },
+    {
+      "matches": 138,
+      "source": "f_000015.jpg",
+      "source_id": 15,
+      "target": "f_000024.jpg",
+      "target_id": 24
+    },
+    {
+      "matches": 112,
+      "source": "f_000015.jpg",
+      "source_id": 15,
+      "target": "f_000025.jpg",
+      "target_id": 25
+    },
+    {
+      "matches": 181,
+      "source": "f_000016.jpg",
+      "source_id": 16,
+      "target": "f_000017.jpg",
+      "target_id": 17
+    },
+    {
+      "matches": 180,
+      "source": "f_000016.jpg",
+      "source_id": 16,
+      "target": "f_000018.jpg",
+      "target_id": 18
+    },
+    {
+      "matches": 181,
+      "source": "f_000016.jpg",
+      "source_id": 16,
+      "target": "f_000019.jpg",
+      "target_id": 19
+    },
+    {
+      "matches": 153,
+      "source": "f_000016.jpg",
+      "source_id": 16,
+      "target": "f_000020.jpg",
+      "target_id": 20
+    },
+    {
+      "matches": 158,
+      "source": "f_000016.jpg",
+      "source_id": 16,
+      "target": "f_000021.jpg",
+      "target_id": 21
+    },
+    {
+      "matches": 158,
+      "source": "f_000016.jpg",
+      "source_id": 16,
+      "target": "f_000022.jpg",
+      "target_id": 22
+    },
+    {
+      "matches": 162,
+      "source": "f_000016.jpg",
+      "source_id": 16,
+      "target": "f_000023.jpg",
+      "target_id": 23
+    },
+    {
+      "matches": 156,
+      "source": "f_000016.jpg",
+      "source_id": 16,
+      "target": "f_000024.jpg",
+      "target_id": 24
+    },
+    {
+      "matches": 127,
+      "source": "f_000016.jpg",
+      "source_id": 16,
+      "target": "f_000025.jpg",
+      "target_id": 25
+    },
+    {
+      "matches": 212,
+      "source": "f_000017.jpg",
+      "source_id": 17,
+      "target": "f_000018.jpg",
+      "target_id": 18
+    },
+    {
+      "matches": 206,
+      "source": "f_000017.jpg",
+      "source_id": 17,
+      "target": "f_000019.jpg",
+      "target_id": 19
+    },
+    {
+      "matches": 187,
+      "source": "f_000017.jpg",
+      "source_id": 17,
+      "target": "f_000020.jpg",
+      "target_id": 20
+    },
+    {
+      "matches": 196,
+      "source": "f_000017.jpg",
+      "source_id": 17,
+      "target": "f_000021.jpg",
+      "target_id": 21
+    },
+    {
+      "matches": 187,
+      "source": "f_000017.jpg",
+      "source_id": 17,
+      "target": "f_000022.jpg",
+      "target_id": 22
+    },
+    {
+      "matches": 198,
+      "source": "f_000017.jpg",
+      "source_id": 17,
+      "target": "f_000023.jpg",
+      "target_id": 23
+    },
+    {
+      "matches": 184,
+      "source": "f_000017.jpg",
+      "source_id": 17,
+      "target": "f_000024.jpg",
+      "target_id": 24
+    },
+    {
+      "matches": 144,
+      "source": "f_000017.jpg",
+      "source_id": 17,
+      "target": "f_000025.jpg",
+      "target_id": 25
+    },
+    {
+      "matches": 309,
+      "source": "f_000018.jpg",
+      "source_id": 18,
+      "target": "f_000019.jpg",
+      "target_id": 19
+    },
+    {
+      "matches": 271,
+      "source": "f_000018.jpg",
+      "source_id": 18,
+      "target": "f_000020.jpg",
+      "target_id": 20
+    },
+    {
+      "matches": 262,
+      "source": "f_000018.jpg",
+      "source_id": 18,
+      "target": "f_000021.jpg",
+      "target_id": 21
+    },
+    {
+      "matches": 256,
+      "source": "f_000018.jpg",
+      "source_id": 18,
+      "target": "f_000022.jpg",
+      "target_id": 22
+    },
+    {
+      "matches": 271,
+      "source": "f_000018.jpg",
+      "source_id": 18,
+      "target": "f_000023.jpg",
+      "target_id": 23
+    },
+    {
+      "matches": 237,
+      "source": "f_000018.jpg",
+      "source_id": 18,
+      "target": "f_000024.jpg",
+      "target_id": 24
+    },
+    {
+      "matches": 171,
+      "source": "f_000018.jpg",
+      "source_id": 18,
+      "target": "f_000025.jpg",
+      "target_id": 25
+    },
+    {
+      "matches": 303,
+      "source": "f_000019.jpg",
+      "source_id": 19,
+      "target": "f_000020.jpg",
+      "target_id": 20
+    },
+    {
+      "matches": 281,
+      "source": "f_000019.jpg",
+      "source_id": 19,
+      "target": "f_000021.jpg",
+      "target_id": 21
+    },
+    {
+      "matches": 272,
+      "source": "f_000019.jpg",
+      "source_id": 19,
+      "target": "f_000022.jpg",
+      "target_id": 22
+    },
+    {
+      "matches": 290,
+      "source": "f_000019.jpg",
+      "source_id": 19,
+      "target": "f_000023.jpg",
+      "target_id": 23
+    },
+    {
+      "matches": 247,
+      "source": "f_000019.jpg",
+      "source_id": 19,
+      "target": "f_000024.jpg",
+      "target_id": 24
+    },
+    {
+      "matches": 176,
+      "source": "f_000019.jpg",
+      "source_id": 19,
+      "target": "f_000025.jpg",
+      "target_id": 25
+    },
+    {
+      "matches": 281,
+      "source": "f_000020.jpg",
+      "source_id": 20,
+      "target": "f_000021.jpg",
+      "target_id": 21
+    },
+    {
+      "matches": 274,
+      "source": "f_000020.jpg",
+      "source_id": 20,
+      "target": "f_000022.jpg",
+      "target_id": 22
+    },
+    {
+      "matches": 280,
+      "source": "f_000020.jpg",
+      "source_id": 20,
+      "target": "f_000023.jpg",
+      "target_id": 23
+    },
+    {
+      "matches": 236,
+      "source": "f_000020.jpg",
+      "source_id": 20,
+      "target": "f_000024.jpg",
+      "target_id": 24
+    },
+    {
+      "matches": 167,
+      "source": "f_000020.jpg",
+      "source_id": 20,
+      "target": "f_000025.jpg",
+      "target_id": 25
+    },
+    {
+      "matches": 310,
+      "source": "f_000021.jpg",
+      "source_id": 21,
+      "target": "f_000022.jpg",
+      "target_id": 22
+    },
+    {
+      "matches": 309,
+      "source": "f_000021.jpg",
+      "source_id": 21,
+      "target": "f_000023.jpg",
+      "target_id": 23
+    },
+    {
+      "matches": 273,
+      "source": "f_000021.jpg",
+      "source_id": 21,
+      "target": "f_000024.jpg",
+      "target_id": 24
+    },
+    {
+      "matches": 181,
+      "source": "f_000021.jpg",
+      "source_id": 21,
+      "target": "f_000025.jpg",
+      "target_id": 25
+    },
+    {
+      "matches": 323,
+      "source": "f_000022.jpg",
+      "source_id": 22,
+      "target": "f_000023.jpg",
+      "target_id": 23
+    },
+    {
+      "matches": 283,
+      "source": "f_000022.jpg",
+      "source_id": 22,
+      "target": "f_000024.jpg",
+      "target_id": 24
+    },
+    {
+      "matches": 193,
+      "source": "f_000022.jpg",
+      "source_id": 22,
+      "target": "f_000025.jpg",
+      "target_id": 25
+    },
+    {
+      "matches": 301,
+      "source": "f_000023.jpg",
+      "source_id": 23,
+      "target": "f_000024.jpg",
+      "target_id": 24
+    },
+    {
+      "matches": 203,
+      "source": "f_000023.jpg",
+      "source_id": 23,
+      "target": "f_000025.jpg",
+      "target_id": 25
+    },
+    {
+      "matches": 211,
+      "source": "f_000024.jpg",
+      "source_id": 24,
+      "target": "f_000025.jpg",
+      "target_id": 25
+    }
+  ],
+  "isolated_frames": [
+    "f_000026.jpg",
+    "f_000027.jpg",
+    "f_000028.jpg",
+    "f_000029.jpg",
+    "f_000030.jpg",
+    "f_000031.jpg",
+    "f_000032.jpg",
+    "f_000033.jpg",
+    "f_000034.jpg",
+    "f_000035.jpg",
+    "f_000036.jpg",
+    "f_000037.jpg",
+    "f_000038.jpg",
+    "f_000039.jpg",
+    "f_000040.jpg",
+    "f_000041.jpg",
+    "f_000042.jpg",
+    "f_000043.jpg",
+    "f_000044.jpg",
+    "f_000045.jpg"
+  ],
+  "node_count": 45,
+  "pair_selection_rationale": "COLMAP verified two-view geometries with positive correspondence rows",
+  "schema_version": "1.0.0"
+}

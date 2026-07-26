@@ -1,31 +1,43 @@
 {
-  "hloc_lightglue": {
-    "bytes": 29314,
-    "file_count": 4,
-    "status": "done",
-    "suffix_counts": {
-      ".200326": 1,
-      ".done": 1,
-      ".json": 1,
-      ".txt": 1
+  "alignment_policy": "method_native_frames_remain_separate",
+  "hub_inventory_evidence": {},
+  "methods": {
+    "hloc_lightglue": {
+      "bytes": 29314,
+      "file_count": 4,
+      "status": "done",
+      "suffix_counts": {
+        ".200326": 1,
+        ".done": 1,
+        ".json": 1,
+        ".txt": 1
+      },
+      "summary": {
+        "input_frames": 40,
+        "pairs": 365,
+        "pipeline": "ALIKED + LightGlue + pycolmap incremental SfM",
+        "points3D": 1431,
+        "registered_images": 20,
+        "scene": "hf_dataset_snapshot/vggt_omega/2026-05-05_strike_on_merkava_tank/seg01_seg02"
+      }
     },
-    "summary": {
-      "input_frames": 40,
-      "pairs": 365,
-      "pipeline": "ALIKED + LightGlue + pycolmap incremental SfM",
-      "points3D": 1431,
-      "registered_images": 20,
-      "scene": "hf_dataset_snapshot/vggt_omega/2026-05-05_strike_on_merkava_tank/seg01_seg02"
+    "r3": {
+      "bytes": 18455,
+      "file_count": 3,
+      "status": "done",
+      "suffix_counts": {
+        ".done": 1,
+        ".json": 2
+      },
+      "summary": null
     }
   },
-  "r3": {
-    "bytes": 18455,
-    "file_count": 3,
-    "status": "done",
-    "suffix_counts": {
-      ".done": 1,
-      ".json": 2
-    },
-    "summary": null
-  }
+  "native_preview_notes": {},
+  "scale_status": "relative_only",
+  "scene_id": "2026-05-05_strike_on_merkava_tank__seg01_seg02",
+  "schema_version": "1.0.0-public-parity",
+  "warnings": [
+    "Method completion is not cross-method geometric agreement.",
+    "R3, LingBot, HLoc/COLMAP and Omega remain in method-native frames unless an alignment artifact explicitly says otherwise."
+  ]
 }

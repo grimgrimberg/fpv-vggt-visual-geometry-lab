@@ -113,16 +113,52 @@
     "cameras": {
       "path": "cameras.json"
     },
+    "colmap_ba_diagnostics": {
+      "path": "../diagnostics/colmap_ba_diagnostics.md"
+    },
+    "colmap_failure_taxonomy": {
+      "path": "../diagnostics/colmap_failure_taxonomy.json"
+    },
+    "contact_sheet": {
+      "reason": "Rendered source imagery is intentionally not copied.",
+      "status": "not_published"
+    },
+    "drone_pose_proxy": {
+      "path": "../visualization/drone_pose_proxy.svg"
+    },
+    "edit_segmentation": {
+      "path": "../diagnostics/edit_segmentation.json"
+    },
+    "geometry_consistency": {
+      "reason": "No cross-method consistency artifact was published for this scene.",
+      "status": "unavailable"
+    },
     "ground_alignment": {
       "confidence": "high",
       "path": "ground_alignment.json",
       "recommended_default": true,
       "status": "estimated"
     },
+    "match_graph": {
+      "path": "../diagnostics/match_graph.json"
+    },
+    "match_graph_report": {
+      "path": "../diagnostics/match_graph.html"
+    },
+    "match_matrix": {
+      "path": "../diagnostics/match_matrix.png"
+    },
     "method_comparison": {
       "alignment_policy": "method_native_not_aligned",
       "path": "methods/method_comparison.json",
       "sample_count": 3
+    },
+    "method_depth_gallery": {
+      "reason": "Representative R3 and LingBot depth previews have not been materialized.",
+      "status": "not_collected"
+    },
+    "method_inventory": {
+      "path": "../diagnostics/method_inventory.json"
     },
     "points_ply": {
       "bytes": 1200233,
@@ -151,9 +187,22 @@
         3
       ]
     },
+    "pose_6dof_animation": {
+      "path": "../visualization/pose_6dof_animation.json"
+    },
+    "pose_6dof_raw": {
+      "path": "../visualization/pose_6dof_raw.csv"
+    },
     "pov": {
       "reason": "source frames are not copied",
       "samples": [],
+      "status": "not_published"
+    },
+    "pov_timeline": {
+      "path": "../visualization/pov_timeline.json"
+    },
+    "preview": {
+      "reason": "Rendered source imagery is intentionally not copied.",
       "status": "not_published"
     },
     "reference_omega": {
@@ -170,11 +219,22 @@
       "samples": [],
       "status": "not_published"
     },
+    "sixdof_state_space": {
+      "path": "../visualization/sixdof_state_space.html"
+    },
+    "source_thumbnail": {
+      "copied": false,
+      "kind": "remote_public_reference",
+      "path": "https://d2fioemadmrru3.cloudfront.net/thumbnails/2026-05-08_humvee_bayyadah_mmirleb_16048.jpg"
+    },
     "source_video": {
       "copied": false,
       "kind": "remote_public_reference",
       "path": "https://d2fioemadmrru3.cloudfront.net/videos/2026-05-08_humvee_bayyadah_mmirleb_16048.mp4",
       "synchronization": "source_timestamp_sec"
+    },
+    "trajectory_metrics": {
+      "path": "../diagnostics/trajectory_metrics.json"
     },
     "trajectory_profiles": {
       "path": "trajectory_profiles.json"
@@ -499,6 +559,13 @@
       "color_key": "cols",
       "point_key": "pts"
     }
+  },
+  "research_parity": {
+    "evidence_policy": "present_or_explicitly_unavailable",
+    "generated_at": "2026-07-26T12:54:55.846437Z",
+    "scale_status": "relative_only",
+    "schema_version": "1.0.0",
+    "status": "d9_contract_parity"
   },
   "scene_id": "2026-05-08_humvee_bayyadah_mmirleb_16048__seg01_seg02_seg03_seg04",
   "schema_version": "2.1.0-hf-public",

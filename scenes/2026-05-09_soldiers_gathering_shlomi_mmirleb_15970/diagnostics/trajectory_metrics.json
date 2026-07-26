@@ -1,0 +1,46 @@
+{
+  "layers": [
+    "bspline",
+    "kalman",
+    "raw",
+    "rts"
+  ],
+  "pose_jump_count": 12,
+  "pose_semantics": "camera_pose_proxy",
+  "profiles": {
+    "acceleration_relative": {
+      "count": 200,
+      "max": 1.6296998801811096,
+      "mean": 0.3179961984431462,
+      "median": 0.1588773482455005
+    },
+    "curvature": {
+      "count": 200,
+      "max": 2667.875106459656,
+      "mean": 104.84400212631202,
+      "median": 7.246672702952196
+    },
+    "jerk_proxy": {
+      "count": 200,
+      "max": 1.2189542251455177,
+      "mean": 0.20417239088410785,
+      "median": 0.12590407753898414
+    },
+    "speed_relative": {
+      "count": 200,
+      "max": 4.667961043403085,
+      "mean": 1.2603159594951876,
+      "median": 0.9999999999999999
+    }
+  },
+  "residuals": {},
+  "sample_count": 200,
+  "scale_status": "relative_only",
+  "scene_id": "2026-05-09_soldiers_gathering_shlomi_mmirleb_15970__seg01_seg02_seg03_seg04",
+  "schema_version": "1.0.0-public-parity",
+  "warnings": [
+    "All translations and derivatives are scale-free relative quantities.",
+    "Camera pose is not calibrated vehicle-body state.",
+    "Edit boundaries must split trajectories and derivative evaluation."
+  ]
+}

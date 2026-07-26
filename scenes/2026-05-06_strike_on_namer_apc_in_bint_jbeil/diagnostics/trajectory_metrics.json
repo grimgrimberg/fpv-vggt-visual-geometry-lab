@@ -1,0 +1,46 @@
+{
+  "layers": [
+    "bspline",
+    "kalman",
+    "raw",
+    "rts"
+  ],
+  "pose_jump_count": 7,
+  "pose_semantics": "camera_pose_proxy",
+  "profiles": {
+    "acceleration_relative": {
+      "count": 200,
+      "max": 1.0457943200920865,
+      "mean": 0.1677864430916495,
+      "median": 0.07300929312106277
+    },
+    "curvature": {
+      "count": 200,
+      "max": 1044.619312736806,
+      "mean": 11.732911167541667,
+      "median": 0.7850224877641261
+    },
+    "jerk_proxy": {
+      "count": 200,
+      "max": 0.6567236744211168,
+      "mean": 0.08789352311963436,
+      "median": 0.03811783264509359
+    },
+    "speed_relative": {
+      "count": 200,
+      "max": 2.822946422259978,
+      "mean": 1.1413790826088486,
+      "median": 1.0
+    }
+  },
+  "residuals": {},
+  "sample_count": 200,
+  "scale_status": "relative_only",
+  "scene_id": "2026-05-06_strike_on_namer_apc_in_bint_jbeil__seg02",
+  "schema_version": "1.0.0-public-parity",
+  "warnings": [
+    "All translations and derivatives are scale-free relative quantities.",
+    "Camera pose is not calibrated vehicle-body state.",
+    "Edit boundaries must split trajectories and derivative evaluation."
+  ]
+}

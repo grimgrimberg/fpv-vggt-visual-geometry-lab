@@ -1,0 +1,49 @@
+{
+  "annotation_kind": "auto_candidate",
+  "intervals": [
+    {
+      "comment": "",
+      "end_s": 8.081,
+      "label": "Banner Start",
+      "review_status": "manual_ground_truth",
+      "source_index": 0,
+      "source_timebase": "source_video_seconds",
+      "start_s": 0.0,
+      "type": "banner_start"
+    },
+    {
+      "comment": "",
+      "end_s": 44.118,
+      "label": "Flight Start",
+      "review_status": "manual_ground_truth",
+      "source_index": 1,
+      "source_timebase": "source_video_seconds",
+      "start_s": 8.081,
+      "type": "flight_start"
+    },
+    {
+      "comment": "",
+      "end_s": 68.84,
+      "label": "Replay Start",
+      "review_status": "manual_ground_truth",
+      "source_index": 2,
+      "source_timebase": "source_video_seconds",
+      "start_s": 44.118,
+      "type": "replay_start"
+    }
+  ],
+  "scene_id": "2026-05-05_strike_on_merkava_tank__seg01_seg02",
+  "schema_version": "1.0.0-public-parity",
+  "taxonomy": [
+    "banner_start",
+    "flight_start",
+    "replay_start"
+  ],
+  "timebase": "source_video_seconds",
+  "validation": {
+    "intervals_valid": true,
+    "source": "cockpit_catalog.annotation",
+    "terminal_end_verified": true,
+    "timebase": "source_video_seconds"
+  }
+}

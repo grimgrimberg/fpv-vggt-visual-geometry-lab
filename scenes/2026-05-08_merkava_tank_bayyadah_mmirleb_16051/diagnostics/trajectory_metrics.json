@@ -1,0 +1,46 @@
+{
+  "layers": [
+    "bspline",
+    "kalman",
+    "raw",
+    "rts"
+  ],
+  "pose_jump_count": 8,
+  "pose_semantics": "camera_pose_proxy",
+  "profiles": {
+    "acceleration_relative": {
+      "count": 200,
+      "max": 0.809961249164012,
+      "mean": 0.18414977854777004,
+      "median": 0.1021256026777972
+    },
+    "curvature": {
+      "count": 200,
+      "max": 332.298924705076,
+      "mean": 40.69206934359433,
+      "median": 20.575594974182113
+    },
+    "jerk_proxy": {
+      "count": 200,
+      "max": 0.683040438809706,
+      "mean": 0.12088876375924489,
+      "median": 0.053745974537994554
+    },
+    "speed_relative": {
+      "count": 200,
+      "max": 2.242305220577451,
+      "mean": 0.9333736483818379,
+      "median": 1.0
+    }
+  },
+  "residuals": {},
+  "sample_count": 200,
+  "scale_status": "relative_only",
+  "scene_id": "2026-05-08_merkava_tank_bayyadah_mmirleb_16051__seg01_seg02",
+  "schema_version": "1.0.0-public-parity",
+  "warnings": [
+    "All translations and derivatives are scale-free relative quantities.",
+    "Camera pose is not calibrated vehicle-body state.",
+    "Edit boundaries must split trajectories and derivative evaluation."
+  ]
+}

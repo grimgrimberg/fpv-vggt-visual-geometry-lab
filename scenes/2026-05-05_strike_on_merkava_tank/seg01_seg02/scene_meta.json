@@ -55,6 +55,12 @@
     "cameras": {
       "path": "cameras.json"
     },
+    "colmap_ba_diagnostics": {
+      "path": "../diagnostics/colmap_ba_diagnostics.md"
+    },
+    "colmap_failure_taxonomy": {
+      "path": "../diagnostics/colmap_failure_taxonomy.json"
+    },
     "contact_sheet": {
       "reason": "local rendered images are not copied into the public package",
       "status": "not_published"
@@ -62,13 +68,32 @@
     "drone_pose_proxy": {
       "path": "../visualization/drone_pose_proxy.svg"
     },
+    "edit_segmentation": {
+      "path": "../diagnostics/edit_segmentation.json"
+    },
     "geometry_consistency": {
       "path": "../diagnostics/geometry_consistency.json"
+    },
+    "match_graph": {
+      "reason": "The HLoc/COLMAP database has not yet been materialized in this public bundle.",
+      "status": "not_collected"
+    },
+    "match_graph_report": {
+      "reason": "No published interactive match graph is available for this scene.",
+      "status": "not_collected"
+    },
+    "match_matrix": {
+      "reason": "No published match matrix is available for this scene.",
+      "status": "not_collected"
     },
     "method_comparison": {
       "alignment_policy": "method_native_not_aligned",
       "path": "methods/method_comparison.json",
       "sample_count": 0
+    },
+    "method_depth_gallery": {
+      "reason": "Representative R3 and LingBot depth previews have not been materialized.",
+      "status": "not_collected"
     },
     "method_inventory": {
       "path": "../diagnostics/method_inventory.json"
@@ -362,6 +387,13 @@
       ]
     }
   ],
+  "research_parity": {
+    "evidence_policy": "present_or_explicitly_unavailable",
+    "generated_at": "2026-07-26T12:54:52.218833Z",
+    "scale_status": "relative_only",
+    "schema_version": "1.0.0",
+    "status": "d9_contract_parity"
+  },
   "scene_id": "2026-05-05_strike_on_merkava_tank__seg01_seg02",
   "schema_version": "2.0.0",
   "source": {

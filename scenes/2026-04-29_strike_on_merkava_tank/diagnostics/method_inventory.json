@@ -1,24 +1,36 @@
 {
-  "lingbot_map": {
-    "bytes": 799,
-    "file_count": 1,
-    "status": "metadata_only",
-    "status_reason": "successful_batch_metadata_raw_arrays_unavailable",
-    "suffix_counts": {
-      ".json": 1
+  "alignment_policy": "method_native_frames_remain_separate",
+  "hub_inventory_evidence": {},
+  "methods": {
+    "lingbot_map": {
+      "bytes": 799,
+      "file_count": 1,
+      "status": "metadata_only",
+      "status_reason": "successful_batch_metadata_raw_arrays_unavailable",
+      "suffix_counts": {
+        ".json": 1
+      },
+      "summary": null
     },
-    "summary": null
+    "r3": {
+      "bytes": 169519139,
+      "file_count": 601,
+      "status": "validated_numerical",
+      "status_reason": "complete_r3_arrays_match_declared_frame_count",
+      "suffix_counts": {
+        ".json": 1,
+        ".npy": 400,
+        ".npz": 200
+      },
+      "summary": null
+    }
   },
-  "r3": {
-    "bytes": 169519139,
-    "file_count": 601,
-    "status": "validated_numerical",
-    "status_reason": "complete_r3_arrays_match_declared_frame_count",
-    "suffix_counts": {
-      ".json": 1,
-      ".npy": 400,
-      ".npz": 200
-    },
-    "summary": null
-  }
+  "native_preview_notes": {},
+  "scale_status": "relative_only",
+  "scene_id": "2026-04-29_strike_on_merkava_tank__seg01",
+  "schema_version": "1.0.0-public-parity",
+  "warnings": [
+    "Method completion is not cross-method geometric agreement.",
+    "R3, LingBot, HLoc/COLMAP and Omega remain in method-native frames unless an alignment artifact explicitly says otherwise."
+  ]
 }

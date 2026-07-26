@@ -1,0 +1,147 @@
+{
+  "alignment_policy": "method_native_frames_remain_separate",
+  "hub_inventory_evidence": {
+    "method_status": {
+      "full_native": true,
+      "hloc_lightglue_colmap": "done",
+      "hub_file_count": 507,
+      "lingbot_frame_count": 67,
+      "lingbot_map": "done",
+      "r3": "done",
+      "r3_frame_count": 67,
+      "vggt_omega": "done"
+    },
+    "raw_hub_filenames_embedded": false,
+    "repo_id": "Grimster/FPV_Hezbo",
+    "revision": "d2149395a983d889055ab423aff2f1a4b05ebebb",
+    "scene_file_count": 507
+  },
+  "methods": {
+    "hloc_lightglue_colmap": {
+      "assets": {
+        "native_cameras": "methods/native/hloc_registered_cameras.json"
+      },
+      "coordinate_frame": "hloc_native",
+      "pipeline": "HLoc + LightGlue + COLMAP sparse reconstruction",
+      "points3D": 393,
+      "registered_images": 19,
+      "scale_status": "relative_only",
+      "status": "done"
+    },
+    "lingbot_map": {
+      "coordinate_frame": "lingbot_native",
+      "frame_artifact_count": 67,
+      "scale_status": "relative_only",
+      "status": "done"
+    },
+    "r3": {
+      "coordinate_frame": "r3_native",
+      "frame_artifact_count": 67,
+      "scale_status": "relative_only",
+      "status": "done"
+    },
+    "vggt_omega": {
+      "coordinate_frame": "omega_shared",
+      "scale_status": "relative_only",
+      "status": "done"
+    }
+  },
+  "native_preview_notes": {
+    "hloc_lightglue_colmap": {
+      "mean_reprojection_error": 0.9717680771837338,
+      "median_reprojection_error": 0.8392345600337173,
+      "registered_images": 19,
+      "source_count": 393,
+      "viewer_count": 393
+    },
+    "lingbot_map": [
+      {
+        "artifact_name": "frame_000000.npz",
+        "frame_index": 0,
+        "intrinsic_source": "intrinsic",
+        "native_shape": [
+          224,
+          518
+        ],
+        "point_count": 12000,
+        "pose_available": true,
+        "published_in_geometry": true,
+        "source_kind": "depth_backprojection"
+      },
+      {
+        "artifact_name": "frame_000033.npz",
+        "frame_index": 33,
+        "intrinsic_source": "intrinsic",
+        "native_shape": [
+          224,
+          518
+        ],
+        "point_count": 12000,
+        "pose_available": true,
+        "published_in_geometry": true,
+        "source_kind": "depth_backprojection"
+      },
+      {
+        "artifact_name": "frame_000066.npz",
+        "frame_index": 66,
+        "intrinsic_source": "intrinsic",
+        "native_shape": [
+          224,
+          518
+        ],
+        "point_count": 12000,
+        "pose_available": true,
+        "published_in_geometry": true,
+        "source_kind": "depth_backprojection"
+      }
+    ],
+    "r3": [
+      {
+        "artifact_name": "000000.npy",
+        "frame_index": 0,
+        "intrinsic_source": "intrinsics",
+        "native_shape": [
+          210,
+          504
+        ],
+        "point_count": 12000,
+        "pose_available": true,
+        "published_in_geometry": true,
+        "source_kind": "depth_backprojection"
+      },
+      {
+        "artifact_name": "000033.npy",
+        "frame_index": 33,
+        "intrinsic_source": "intrinsics",
+        "native_shape": [
+          210,
+          504
+        ],
+        "point_count": 12000,
+        "pose_available": true,
+        "published_in_geometry": true,
+        "source_kind": "depth_backprojection"
+      },
+      {
+        "artifact_name": "000066.npy",
+        "frame_index": 66,
+        "intrinsic_source": "intrinsics",
+        "native_shape": [
+          210,
+          504
+        ],
+        "point_count": 12000,
+        "pose_available": true,
+        "published_in_geometry": true,
+        "source_kind": "depth_backprojection"
+      }
+    ]
+  },
+  "scale_status": "relative_only",
+  "scene_id": "2026-05-07_strike_on_iron_dome_launcher_at_jal_al_alam__seg01_seg02",
+  "schema_version": "1.0.0-public-parity",
+  "warnings": [
+    "Method completion is not cross-method geometric agreement.",
+    "R3, LingBot, HLoc/COLMAP and Omega remain in method-native frames unless an alignment artifact explicitly says otherwise."
+  ]
+}

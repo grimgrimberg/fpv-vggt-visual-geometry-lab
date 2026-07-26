@@ -1,0 +1,34 @@
+{
+  "ba_invocations": 527,
+  "bounded_recommendations": [
+    "sequential_matching",
+    "lightglue_pair_graph",
+    "reduce_window"
+  ],
+  "categories": [
+    "insufficient_matches"
+  ],
+  "evidence": {
+    "insufficient_matches": [
+      "line 8541: I20260711 02:33:23.361277 127739432001536 incremental_pipeline.cc:394] => No good initial image pair found.",
+      "line 10141: I20260711 02:33:42.092127 127739432001536 incremental_pipeline.cc:394] => No good initial image pair found.",
+      "line 22752: I20260711 02:34:55.147800 127739432001536 incremental_pipeline.cc:394] => No good initial image pair found.",
+      "line 35332: I20260711 02:37:38.427875 127739432001536 incremental_pipeline.cc:394] => No good initial image pair found.",
+      "line 37296: I20260711 02:38:26.630460 127739432001536 incremental_pipeline.cc:394] => No good initial image pair found."
+    ]
+  },
+  "executes_fallback": false,
+  "fallback_eligible": false,
+  "log_count": 3,
+  "log_paths": [
+    "hloc_lightglue/sparse/colmap.LOG.20260711-021850.200326",
+    "lingbot_map.log",
+    "r3.log"
+  ],
+  "policy": "recommendations only; no fallback is executed",
+  "registered_frame_max": 102,
+  "root": "hf_other_models",
+  "schema_version": "1.0.0",
+  "status": "completed_with_warnings",
+  "successful_reconstruction": true
+}

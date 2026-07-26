@@ -1,39 +1,46 @@
 {
-  "limitations": [
-    "No physical scale calibration is documented.",
-    "Camera pose is not vehicle-body pose without a camera-to-body transform.",
-    "Derivative and discontinuity signals are retrospective reconstruction diagnostics."
+  "layers": [
+    "bspline",
+    "kalman",
+    "raw",
+    "rts"
   ],
-  "methods": {
-    "bspline": "independent cubic smoothing spline per coordinate",
-    "factor_graph": {
-      "reason": "optional dependency not required for first CPU slice",
-      "status": "not_run"
+  "pose_jump_count": 4,
+  "pose_semantics": "camera_pose_proxy",
+  "profiles": {
+    "acceleration_relative": {
+      "count": 200,
+      "max": 519.3935494871763,
+      "mean": 88.10365696692133,
+      "median": 65.67421403347825
     },
-    "kalman": "constant-velocity linear state estimator",
-    "rts": "Rauch-Tung-Striebel backward smoother"
+    "curvature": {
+      "count": 200,
+      "max": 154533.97887209008,
+      "mean": 1336.9548989611296,
+      "median": 99.32208343511627
+    },
+    "jerk_proxy": {
+      "count": 200,
+      "max": 91050.89917578429,
+      "mean": 15087.279721735817,
+      "median": 11988.70884048235
+    },
+    "speed_relative": {
+      "count": 200,
+      "max": 4.855885794581135,
+      "mean": 0.7288000047688975,
+      "median": 0.6129046540279579
+    }
   },
-  "normalization": {
-    "position_origin": "first raw camera center",
-    "position_scale": "raw camera-path arc length",
-    "time_origin": "first source timestamp",
-    "time_scale": "scene duration"
-  },
-  "orientation_policy": "raw_camera_orientation retained for every translation layer",
+  "residuals": {},
   "sample_count": 200,
   "scale_status": "relative_only",
-  "schema_version": "2.0.0",
-  "summary": {
-    "bspline_residual_p95": 0.0028390073514708318,
-    "curvature_p95": 2049.871414915512,
-    "end_to_end_efficiency": 0.2888274813260417,
-    "jerk_proxy_p95": 41080.78799154935,
-    "kalman_innovation_p95": 0.08598953474431374,
-    "normalized_path_length": 3.462274418656008,
-    "pose_jump_count": 4,
-    "relative_acceleration_p95": 245.7114953499752,
-    "relative_speed_median": 0.6129046540279579,
-    "relative_speed_p95": 1.5291872686445194,
-    "rts_residual_p95": 0.07563349818029015
-  }
+  "scene_id": "2026-04-29_strike_on_merkava_tank__seg01",
+  "schema_version": "1.0.0-public-parity",
+  "warnings": [
+    "All translations and derivatives are scale-free relative quantities.",
+    "Camera pose is not calibrated vehicle-body state.",
+    "Edit boundaries must split trajectories and derivative evaluation."
+  ]
 }

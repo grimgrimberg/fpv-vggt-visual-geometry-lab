@@ -1,0 +1,46 @@
+{
+  "layers": [
+    "bspline",
+    "kalman",
+    "raw",
+    "rts"
+  ],
+  "pose_jump_count": 0,
+  "pose_semantics": "camera_pose_proxy",
+  "profiles": {
+    "acceleration_relative": {
+      "count": 45,
+      "max": 0.38664750854595653,
+      "mean": 0.1994261025603117,
+      "median": 0.20248711957115964
+    },
+    "curvature": {
+      "count": 45,
+      "max": 13.061504190883834,
+      "mean": 4.012366100936411,
+      "median": 1.8260796414725233
+    },
+    "jerk_proxy": {
+      "count": 45,
+      "max": 0.1671215459111573,
+      "mean": 0.10732686364427695,
+      "median": 0.12086964833246694
+    },
+    "speed_relative": {
+      "count": 45,
+      "max": 1.6888443865771166,
+      "mean": 0.9950014931828358,
+      "median": 1.0
+    }
+  },
+  "residuals": {},
+  "sample_count": 45,
+  "scale_status": "relative_only",
+  "scene_id": "2026-05-09_strike_on_soldiers__seg01_seg02",
+  "schema_version": "1.0.0-public-parity",
+  "warnings": [
+    "All translations and derivatives are scale-free relative quantities.",
+    "Camera pose is not calibrated vehicle-body state.",
+    "Edit boundaries must split trajectories and derivative evaluation."
+  ]
+}

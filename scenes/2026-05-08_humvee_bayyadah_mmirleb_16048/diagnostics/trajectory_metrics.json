@@ -1,0 +1,46 @@
+{
+  "layers": [
+    "bspline",
+    "kalman",
+    "raw",
+    "rts"
+  ],
+  "pose_jump_count": 13,
+  "pose_semantics": "camera_pose_proxy",
+  "profiles": {
+    "acceleration_relative": {
+      "count": 200,
+      "max": 1.2325605663847863,
+      "mean": 0.5270091251755264,
+      "median": 0.5548118252179048
+    },
+    "curvature": {
+      "count": 200,
+      "max": 7632.758752124289,
+      "mean": 143.22676629385649,
+      "median": 10.988966432865443
+    },
+    "jerk_proxy": {
+      "count": 200,
+      "max": 1.3045985713936974,
+      "mean": 0.3532262600129543,
+      "median": 0.2424019503729838
+    },
+    "speed_relative": {
+      "count": 200,
+      "max": 2.3153898741431385,
+      "mean": 1.1348808990276424,
+      "median": 1.0
+    }
+  },
+  "residuals": {},
+  "sample_count": 200,
+  "scale_status": "relative_only",
+  "scene_id": "2026-05-08_humvee_bayyadah_mmirleb_16048__seg01_seg02_seg03_seg04",
+  "schema_version": "1.0.0-public-parity",
+  "warnings": [
+    "All translations and derivatives are scale-free relative quantities.",
+    "Camera pose is not calibrated vehicle-body state.",
+    "Edit boundaries must split trajectories and derivative evaluation."
+  ]
+}

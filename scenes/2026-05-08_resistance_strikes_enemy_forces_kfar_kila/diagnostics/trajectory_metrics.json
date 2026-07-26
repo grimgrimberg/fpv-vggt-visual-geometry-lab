@@ -1,0 +1,46 @@
+{
+  "layers": [
+    "bspline",
+    "kalman",
+    "raw",
+    "rts"
+  ],
+  "pose_jump_count": 18,
+  "pose_semantics": "camera_pose_proxy",
+  "profiles": {
+    "acceleration_relative": {
+      "count": 200,
+      "max": 0.8788365540028845,
+      "mean": 0.31775771455074364,
+      "median": 0.21711105147002263
+    },
+    "curvature": {
+      "count": 200,
+      "max": 1991.3991457817922,
+      "mean": 24.095683010165367,
+      "median": 4.005695630292712
+    },
+    "jerk_proxy": {
+      "count": 200,
+      "max": 0.5590336219429203,
+      "mean": 0.1745204153036745,
+      "median": 0.12278801457169938
+    },
+    "speed_relative": {
+      "count": 200,
+      "max": 2.311419986842804,
+      "mean": 1.106750038654952,
+      "median": 1.0
+    }
+  },
+  "residuals": {},
+  "sample_count": 200,
+  "scale_status": "relative_only",
+  "scene_id": "2026-05-08_resistance_strikes_enemy_forces_kfar_kila__seg15_seg16_seg17_seg18_seg19_seg20",
+  "schema_version": "1.0.0-public-parity",
+  "warnings": [
+    "All translations and derivatives are scale-free relative quantities.",
+    "Camera pose is not calibrated vehicle-body state.",
+    "Edit boundaries must split trajectories and derivative evaluation."
+  ]
+}

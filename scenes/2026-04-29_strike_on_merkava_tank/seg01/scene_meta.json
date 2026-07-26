@@ -51,18 +51,46 @@
     "cameras": {
       "path": "cameras.json"
     },
+    "colmap_ba_diagnostics": {
+      "path": "../diagnostics/colmap_ba_diagnostics.md"
+    },
+    "colmap_failure_taxonomy": {
+      "path": "../diagnostics/colmap_failure_taxonomy.json"
+    },
     "contact_sheet": {
       "reason": "local rendered images are not copied into the public package",
       "status": "not_published"
     },
+    "drone_pose_proxy": {
+      "path": "../visualization/drone_pose_proxy.svg"
+    },
+    "edit_segmentation": {
+      "path": "../diagnostics/edit_segmentation.json"
+    },
     "geometry_consistency": {
       "path": "../diagnostics/geometry_consistency.json"
+    },
+    "match_graph": {
+      "reason": "The HLoc/COLMAP database has not yet been materialized in this public bundle.",
+      "status": "not_collected"
+    },
+    "match_graph_report": {
+      "reason": "No published interactive match graph is available for this scene.",
+      "status": "not_collected"
+    },
+    "match_matrix": {
+      "reason": "No published match matrix is available for this scene.",
+      "status": "not_collected"
     },
     "method_comparison": {
       "alignment_policy": "method_native_not_aligned",
       "capability": "omega_webgl_partial_ensemble",
       "path": "methods/method_comparison.json",
       "sample_count": 0
+    },
+    "method_depth_gallery": {
+      "reason": "Representative R3 and LingBot depth previews have not been materialized.",
+      "status": "not_collected"
     },
     "method_inventory": {
       "path": "../diagnostics/method_inventory.json"
@@ -82,14 +110,26 @@
       "dtype": "uint8",
       "path": "points_preview_colors.bin"
     },
+    "pose_6dof_animation": {
+      "path": "../visualization/pose_6dof_animation.json"
+    },
+    "pose_6dof_raw": {
+      "path": "../visualization/pose_6dof_raw.csv"
+    },
     "pov": {
       "reason": "extracted source frames are kept local; public cockpit uses the original CDN video",
       "samples": [],
       "status": "not_published"
     },
+    "pov_timeline": {
+      "path": "../visualization/pov_timeline.json"
+    },
     "preview": {
       "reason": "local rendered images are not copied into the public package",
       "status": "not_published"
+    },
+    "sixdof_state_space": {
+      "path": "../visualization/sixdof_state_space.html"
     },
     "source_thumbnail": {
       "copied": false,
@@ -267,6 +307,13 @@
     "frame_count": 200,
     "point_count_source": 1000000,
     "point_count_viewer": 120000
+  },
+  "research_parity": {
+    "evidence_policy": "present_or_explicitly_unavailable",
+    "generated_at": "2026-07-26T12:54:51.603542Z",
+    "scale_status": "relative_only",
+    "schema_version": "1.0.0",
+    "status": "d9_contract_parity"
   },
   "scene_id": "2026-04-29_strike_on_merkava_tank__seg01",
   "schema_version": "2.0.0",

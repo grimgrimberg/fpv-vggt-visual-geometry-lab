@@ -1,0 +1,46 @@
+{
+  "layers": [
+    "bspline",
+    "kalman",
+    "raw",
+    "rts"
+  ],
+  "pose_jump_count": 8,
+  "pose_semantics": "camera_pose_proxy",
+  "profiles": {
+    "acceleration_relative": {
+      "count": 67,
+      "max": 0.3537360110774034,
+      "mean": 0.20374654401297368,
+      "median": 0.21487998469411404
+    },
+    "curvature": {
+      "count": 67,
+      "max": 377.532211666205,
+      "mean": 26.46575811321504,
+      "median": 1.1919722333540776
+    },
+    "jerk_proxy": {
+      "count": 67,
+      "max": 0.34209987273524706,
+      "mean": 0.1169870467612553,
+      "median": 0.09344908601382752
+    },
+    "speed_relative": {
+      "count": 67,
+      "max": 1.468828029825434,
+      "mean": 0.8051652898662612,
+      "median": 1.0
+    }
+  },
+  "residuals": {},
+  "sample_count": 67,
+  "scale_status": "relative_only",
+  "scene_id": "2026-05-07_strike_on_iron_dome_launcher_at_jal_al_alam__seg01_seg02",
+  "schema_version": "1.0.0-public-parity",
+  "warnings": [
+    "All translations and derivatives are scale-free relative quantities.",
+    "Camera pose is not calibrated vehicle-body state.",
+    "Edit boundaries must split trajectories and derivative evaluation."
+  ]
+}
